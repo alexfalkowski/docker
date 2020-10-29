@@ -19,3 +19,11 @@ As an example
 ```sh
 docker pull circleci/ruby:2.7-buster-node-browsers-legacy
 ```
+
+## DB
+
+These images provide databases that we can use while testing.
+
+### HBase
+
+This image builds a [Apache HBase](https://hbase.apache.org/book.html) database.
