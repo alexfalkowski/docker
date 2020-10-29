@@ -11,3 +11,5 @@ RUN ruby-install ruby 2.7.2
 RUN cd /tmp && \
     rm -rf ruby-install-*
 ENV PATH "$PATH:/opt/rubies/ruby-2.7.2/bin"
+
+ENTRYPOINT ["docker-compose", "-f", "/etc/docker-compose.yml", "up", "-d"]
