@@ -1,5 +1,5 @@
 build:
-	docker build -t alexfalkowski/ci-java:15 .
+	docker build -t alexfalkowski/java:15 .
 
 push: build
-	docker push alexfalkowski/ci-java:15
+	docker push alexfalkowski/java:15
