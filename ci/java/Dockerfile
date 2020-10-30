@@ -1,12 +1,28 @@
-FROM circleci/openjdk:15-buster-node-browsers-legacy
+FROM openjdk:15-jdk-buster
 
 USER root
 
+# Install packages
+RUN apt-get update && apt-get install -y \
+  curl \
+  unzip \
+  zip \
+  build-essential \
+  bison \
+  zlib1g-dev \
+  libyaml-dev \
+  libssl-dev \
+  libgdbm-dev \
+  libreadline-dev \
+  libncurses5-dev \
+  libffi-dev \
+  && rm -rf /var/lib/apt/lists/*
+
 # Install gradle
 RUN curl -s "https://get.sdkman.io" | bash && \
-  bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
+  bash -c "source /root/.sdkman/bin/sdkman-init.sh && \
   sdk install gradle 6.7"
-ENV PATH "$PATH:/opt/gradle/gradle-6.7/bin"
+ENV PATH "/root/.sdkman/candidates/gradle/6.7/bin:$PATH"
 
 # Install ruby.
 RUN cd /tmp && \
