@@ -1,11 +1,16 @@
 FROM circleci/node:14-buster
 
-# Install standard version
 USER root
+
+# Install standard version
 RUN npm i -g standard-version
+
+# Add release script
 COPY release.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/release.sh
+
+USER circleci
 
 # Setup git
-USER circleci
 RUN git config --global user.email "alexrfalkowski@gmail.com" && \
     git config --global user.name "Alejandro Falkowski"
