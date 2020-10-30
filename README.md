@@ -4,6 +4,10 @@ Common images used for my projects
 
 These are images that are used for [CircleCI](https://circleci.com/). They have docker compose so we can run what is locally setup.
 
+## Release
+
+The release image is based of `node-buster` image.
+
 ## Go
 
 The golang image is based of `buster-node-browsers-legacy` image.
