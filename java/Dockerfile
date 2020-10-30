@@ -1,22 +1,6 @@
-FROM openjdk:15-jdk-buster
+FROM circleci/openjdk:15-buster-node-browsers-legacy
 
 USER root
-
-# Install packages
-RUN apt-get update && apt-get install -y \
-  curl \
-  unzip \
-  zip \
-  build-essential \
-  bison \
-  zlib1g-dev \
-  libyaml-dev \
-  libssl-dev \
-  libgdbm-dev \
-  libreadline-dev \
-  libncurses5-dev \
-  libffi-dev \
-  && rm -rf /var/lib/apt/lists/*
 
 # Install gradle
 RUN curl -s "https://get.sdkman.io" | bash && \
