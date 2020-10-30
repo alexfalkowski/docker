@@ -1,4 +1,4 @@
-FROM circleci/openjdk:8
+FROM openjdk:8-jdk-buster
 
 USER root
 

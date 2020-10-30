@@ -2,11 +2,13 @@ FROM circleci/openjdk:15-buster-node-browsers-legacy
 
 USER root
 
-# Install gradle
+# Install scala
 RUN curl -s "https://get.sdkman.io" | bash && \
-  bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
-  sdk install gradle 6.7"
-ENV PATH "$PATH:/opt/gradle/gradle-6.7/bin"
+  bash -c "source /root/.sdkman/bin/sdkman-init.sh && \
+  sdk install scala 2.13.3 && \
+  sdk install sbt 1.4.1"
+ENV PATH "/root/.sdkman/candidates/sbt/1.4.1/bin:/root/.sdkman/candidates/scala/2.13.3/bin:$PATH"
+RUN sbt version -Dsbt.rootdir=true
 
 # Install ruby.
 RUN cd /tmp && \
