@@ -10,13 +10,7 @@ The golang image is based of `buster-node-browsers-legacy` image.
 
 ## Ruby
 
-For ruby we can use the default images that are provided by [CircleCI](https://hub.docker.com/r/circleci/ruby/tags). To be consistent use the `buster-node-browsers-legacy` images.
-
-As an example
-
-```sh
-docker pull circleci/ruby:2.7-buster-node-browsers-legacy
-```
+The ruby image is based of `buster-node-browsers-legacy` image.
 
 ## Java
 
