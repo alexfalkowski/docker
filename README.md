@@ -26,6 +26,10 @@ The java image is based of `buster-node-browsers-legacy` image.
 
 The scala image is based of `buster-node-browsers-legacy` image.
 
+## Kotlin
+
+The kotlin image is based of `buster-node-browsers-legacy` image.
+
 ## HBase
 
 This image builds a [Apache HBase](https://hbase.apache.org/book.html) database.
