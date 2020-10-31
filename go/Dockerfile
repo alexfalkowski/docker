@@ -1,7 +1,7 @@
 FROM circleci/golang:1.15-buster-node-browsers-legacy
 
 # Install golangci-lint
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.31.0
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.32.1
 
 # Install go-mod-outdated
 RUN go get -u github.com/psampaz/go-mod-outdated
