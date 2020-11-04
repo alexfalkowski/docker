@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  release:
+    docker:
+      - image: alexfalkowski/release:1.0
+    steps:
+      - checkout
+      - run: release.sh
+
+workflows:
+  docker:
+    jobs:
+      - release:
+          filters:
+            branches:
+              only: master
