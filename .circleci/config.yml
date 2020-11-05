@@ -1,6 +1,12 @@
 version: 2.1
 
 jobs:
+  lint:
+    docker:
+      - image: hadolint/hadolint:latest-debian
+    steps:
+      - checkout
+      - run: make -C go lint
   release:
     docker:
       - image: alexfalkowski/release:1.0
@@ -11,7 +17,10 @@ jobs:
 workflows:
   docker:
     jobs:
+      - lint
       - release:
+          requires:
+            - lint
           filters:
             branches:
               only: master
