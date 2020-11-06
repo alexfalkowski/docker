@@ -5,4 +5,4 @@ push: build
 	docker push alexfalkowski/scala:2.13
 
 lint:
-	docker run --rm -i hadolint/hadolint < Dockerfile
+	hadolint Dockerfile
