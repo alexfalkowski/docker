@@ -3,10 +3,10 @@ version: 2.1
 jobs:
   lint:
     docker:
-      - image: hadolint/hadolint:latest-debian
+      - image: alexfalkowski/go:1.15
     steps:
       - checkout
-      - run: make -C go lint
+      - run: make lint
   release:
     docker:
       - image: alexfalkowski/release:1.0
