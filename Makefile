@@ -1,5 +1,6 @@
 lint:
 	make -C go lint
+	make -C hbase lint
 	make -C java lint
 	make -C kotlin lint
 	make -C release lint
