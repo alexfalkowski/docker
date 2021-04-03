@@ -1,10 +1,10 @@
-FROM circleci/openjdk:15-buster-node-browsers-legacy
+FROM circleci/openjdk:16-buster-node-browsers-legacy
 
 USER root
 WORKDIR /usr/local/bin
 
 # Install hadolint
-RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v1.18.2/hadolint-Linux-x86_64 && \
+RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
 
@@ -14,9 +14,9 @@ WORKDIR /home/circleci/
 # Install scala
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install scala 2.13.3 && \
-  sdk install sbt 1.4.2"
-ENV PATH "/home/circleci/.sdkman/candidates/sbt/1.4.1/bin:/home/circleci/.sdkman/candidates/scala/2.13.3/bin:$PATH"
+  sdk install scala 2.13.5 && \
+  sdk install sbt 1.4.9"
+ENV PATH "/home/circleci/.sdkman/candidates/sbt/1.4.9/bin:/home/circleci/.sdkman/candidates/scala/2.13.5/bin:$PATH"
 
 # Install ruby.
 RUN gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB && \
