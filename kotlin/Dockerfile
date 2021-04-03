@@ -14,8 +14,8 @@ WORKDIR /home/circleci/
 # Install kotlin
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install kotlin 1.4.10 && \
-  sdk install gradle 6.7"
+  sdk install kotlin 1.4.32 && \
+  sdk install gradle 6.8.3"
 ENV PATH "/home/circleci/.sdkman/candidates/kotlin/1.4.10/bin:/home/circleci/.sdkman/candidates/gradle/6.7/bin:$PATH"
 
 # Install ruby.
