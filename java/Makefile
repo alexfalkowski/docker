@@ -1,7 +1,7 @@
 build:
-	docker build -t alexfalkowski/java:15 .
+	docker build -t alexfalkowski/java:16 .
 
 push: build
-	docker push alexfalkowski/java:15
+	docker push alexfalkowski/java:16
 lint:
 	hadolint Dockerfile

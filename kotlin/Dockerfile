@@ -1,4 +1,4 @@
-FROM circleci/openjdk:15-buster-node-browsers-legacy
+FROM circleci/openjdk:16-buster-node-browsers-legacy
 
 USER root
 WORKDIR /usr/local/bin
