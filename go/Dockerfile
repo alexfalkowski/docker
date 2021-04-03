@@ -12,7 +12,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.32.2
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.39.0
 
 # Install go-mod-outdated
 RUN go get -u github.com/psampaz/go-mod-outdated
