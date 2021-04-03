@@ -1,4 +1,4 @@
-FROM circleci/golang:1.15-buster-node-browsers-legacy
+FROM circleci/golang:1.16-buster-node-browsers-legacy
 
 USER root
 WORKDIR /usr/local/bin
