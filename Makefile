@@ -6,6 +6,7 @@ lint:
 	make -C release lint
 	make -C ruby lint
 	make -C scala lint
+	make -C diagram lint
 
 build:
 	make -C go build
@@ -15,6 +16,7 @@ build:
 	make -C release build
 	make -C ruby build
 	make -C scala build
+	make -C diagram build
 
 push:
 	make -C go push
@@ -24,3 +26,4 @@ push:
 	make -C release push
 	make -C ruby push
 	make -C scala push
+	make -C diagram push
