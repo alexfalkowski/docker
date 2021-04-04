@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/alexfalkowski/docker/compare/v1.5.0...v1.6.0) (2021-04-04)
+
+
+### Features
+
+* **release:** add gh release ([#23](https://github.com/alexfalkowski/docker/issues/23)) ([578ca0f](https://github.com/alexfalkowski/docker/commit/578ca0f4a44eb385f7022487e5c1bf3e2e95e655))
+
+
+### Bug Fixes
+
+* **release:** remove auth ([#24](https://github.com/alexfalkowski/docker/issues/24)) ([697d3bd](https://github.com/alexfalkowski/docker/commit/697d3bda4f6dc86f463e7ba5366c6f1f8739a245))
+
 ## [1.5.0](https://github.com/alexfalkowski/docker/compare/v1.4.0...v1.5.0) (2021-04-04)
 
 
