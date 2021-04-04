@@ -37,6 +37,7 @@ workflows:
             branches:
               only: master
       - release:
+          context: gh
           requires:
             - push
           filters:
