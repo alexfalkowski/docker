@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/alexfalkowski/docker/compare/v1.4.0...v1.5.0) (2021-04-04)
+
+
+### Features
+
+* **docker:** push to hub ([#22](https://github.com/alexfalkowski/docker/issues/22)) ([c1a56c6](https://github.com/alexfalkowski/docker/commit/c1a56c6343c4d16ded73252c2111f2681bbbadb6))
+
 ## [1.4.0](https://github.com/alexfalkowski/docker/compare/v1.3.0...v1.4.0) (2021-04-03)
 
 
