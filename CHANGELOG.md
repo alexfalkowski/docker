@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/alexfalkowski/docker/compare/v1.7.0...v1.8.0) (2021-04-27)
+
+
+### Features
+
+* **go:** install goveralls ([#27](https://github.com/alexfalkowski/docker/issues/27)) ([8ca6a51](https://github.com/alexfalkowski/docker/commit/8ca6a516965e4ea6d6b61aad33e3163f059d70a6))
+
 ## [1.7.0](https://github.com/alexfalkowski/docker/compare/v1.6.0...v1.7.0) (2021-04-27)
 
 
