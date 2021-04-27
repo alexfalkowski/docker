@@ -9,8 +9,6 @@ RUN curl -OL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_V
     && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-RUN dockerize
-
 # Install hadolint
 RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
