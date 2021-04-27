@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/alexfalkowski/docker/compare/v1.6.0...v1.7.0) (2021-04-27)
+
+
+### Features
+
+* add dockerize ([#25](https://github.com/alexfalkowski/docker/issues/25)) ([5934016](https://github.com/alexfalkowski/docker/commit/59340161cb2daa2ce12f5a334fc5245de5f83c2a))
+
+
+### Bug Fixes
+
+* **kotlin:** dont run dockerize ([#26](https://github.com/alexfalkowski/docker/issues/26)) ([5a0961f](https://github.com/alexfalkowski/docker/commit/5a0961f1736c2d2cf33c9fe638f3f48b4f7c3674))
+
 ## [1.6.0](https://github.com/alexfalkowski/docker/compare/v1.5.0...v1.6.0) (2021-04-04)
 
 
