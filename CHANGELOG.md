@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/alexfalkowski/docker/compare/v1.9.0...v1.10.0) (2021-05-06)
+
+
+### Features
+
+* **compose:** add datadog ([#29](https://github.com/alexfalkowski/docker/issues/29)) ([40971bc](https://github.com/alexfalkowski/docker/commit/40971bc5ea28efa3c3c5ff0ad0cfc3e444bf16b7))
+
 ## [1.9.0](https://github.com/alexfalkowski/docker/compare/v1.8.0...v1.9.0) (2021-05-06)
 
 
