@@ -33,3 +33,9 @@ push: ## Push all the images
 	make -C ruby push
 	make -C scala push
 	make -C diagram push
+
+start: ## Start dependencies
+	docker compose up -d
+
+stop: ## Stop dependencies
+	docker compose down
