@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/alexfalkowski/docker/compare/v1.8.0...v1.9.0) (2021-05-06)
+
+
+### Features
+
+* add docker compose ([#28](https://github.com/alexfalkowski/docker/issues/28)) ([bb53722](https://github.com/alexfalkowski/docker/commit/bb53722589838f9531910df3674594c7b5d5cb25))
+
 ## [1.8.0](https://github.com/alexfalkowski/docker/compare/v1.7.0...v1.8.0) (2021-04-27)
 
 
