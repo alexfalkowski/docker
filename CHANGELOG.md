@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/alexfalkowski/docker/compare/v1.10.0...v1.11.0) (2021-05-06)
+
+
+### Features
+
+* **compose:** add nsq ([#30](https://github.com/alexfalkowski/docker/issues/30)) ([b8fdebe](https://github.com/alexfalkowski/docker/commit/b8fdebe18520d8c31ef47813c114a8667407fffc))
+
 ## [1.10.0](https://github.com/alexfalkowski/docker/compare/v1.9.0...v1.10.0) (2021-05-06)
 
 
