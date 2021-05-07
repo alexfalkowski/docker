@@ -35,7 +35,7 @@ push: ## Push all the images
 	make -C diagram push
 
 start: ## Start dependencies
-	docker compose up -d
+	docker-compose up -d
 
 stop: ## Stop dependencies
-	docker compose down
+	docker-compose down
