@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.3](https://github.com/alexfalkowski/docker/compare/v1.11.2...v1.11.3) (2021-05-07)
+
+
+### Bug Fixes
+
+* **compose:** add broadcast address ([#33](https://github.com/alexfalkowski/docker/issues/33)) ([ca4514f](https://github.com/alexfalkowski/docker/commit/ca4514f998fae26d04d1b6a07fa683342528d603))
+
 ### [1.11.2](https://github.com/alexfalkowski/docker/compare/v1.11.1...v1.11.2) (2021-05-07)
 
 
