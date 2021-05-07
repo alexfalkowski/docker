@@ -48,11 +48,3 @@ services:
     ports:
       - "4150:4150"
       - "4151:4151"
-
-  nsqadmin:
-    image: nsqio/nsq
-    command: /nsqadmin --lookupd-http-address=nsqlookupd:4161
-    depends_on:
-      - nsqlookupd
-    ports:
-      - "4171:4171"
