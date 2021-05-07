@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.1](https://github.com/alexfalkowski/docker/compare/v1.11.0...v1.11.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* use old docker compose ([#31](https://github.com/alexfalkowski/docker/issues/31)) ([6bc84f7](https://github.com/alexfalkowski/docker/commit/6bc84f73ae610d895ee9670538c86c284960a742))
+
 ## [1.11.0](https://github.com/alexfalkowski/docker/compare/v1.10.0...v1.11.0) (2021-05-06)
 
 
