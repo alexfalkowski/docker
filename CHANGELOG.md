@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.4](https://github.com/alexfalkowski/docker/compare/v1.11.3...v1.11.4) (2021-05-07)
+
+
+### Bug Fixes
+
+* **compose:** remove admin ([#34](https://github.com/alexfalkowski/docker/issues/34)) ([6a4aaeb](https://github.com/alexfalkowski/docker/commit/6a4aaebdf32e073597c224683bcd407c340d5384))
+
 ### [1.11.3](https://github.com/alexfalkowski/docker/compare/v1.11.2...v1.11.3) (2021-05-07)
 
 
