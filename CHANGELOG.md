@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/alexfalkowski/docker/compare/v1.11.4...v1.12.0) (2021-05-14)
+
+
+### Features
+
+* **go:** add gocovmerge ([#35](https://github.com/alexfalkowski/docker/issues/35)) ([c5b324a](https://github.com/alexfalkowski/docker/commit/c5b324a51c671a230dba66714e346358649cc74e))
+
 ### [1.11.4](https://github.com/alexfalkowski/docker/compare/v1.11.3...v1.11.4) (2021-05-07)
 
 
