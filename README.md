@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/alexfalkowski/docker.svg?style=svg)](https://circleci.com/gh/alexfalkowski/docker)
+
 # Docker
 
 Common images used for my projects.
