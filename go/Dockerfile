@@ -10,7 +10,7 @@ RUN curl -OL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_V
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Install hadolint
-RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 && \
+RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.4.0/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
 
@@ -18,7 +18,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.39.0
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.40.1
 
 # Install go-mod-outdated
 RUN go get -u github.com/psampaz/go-mod-outdated
@@ -36,3 +36,6 @@ RUN gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A
   rvm requirements && \
   rvm install 2.7.2 && rvm use 2.7.2"
 ENV PATH "/home/circleci/.rvm/rubies/ruby-2.7.2/bin:$PATH"
+
+# Install bundler
+RUN gem install bundler
