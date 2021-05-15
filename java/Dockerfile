@@ -30,3 +30,6 @@ RUN gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A
   rvm requirements && \
   rvm install 2.7.2 && rvm use 2.7.2"
 ENV PATH "/home/circleci/.rvm/rubies/ruby-2.7.2/bin:$PATH"
+
+# Install bundler
+RUN gem install bundler

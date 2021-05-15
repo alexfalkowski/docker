@@ -16,3 +16,6 @@ RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.4.0/hadol
 
 USER circleci
 WORKDIR /home/circleci/
+
+# Install bundler
+RUN gem install bundler
