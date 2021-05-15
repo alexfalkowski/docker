@@ -28,8 +28,8 @@ RUN gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A
   curl -sSL https://get.rvm.io | bash -s stable && \
   bash -c "source $HOME/.rvm/scripts/rvm && \
   rvm requirements && \
-  rvm install 2.7.2 && rvm use 2.7.2"
-ENV PATH "/home/circleci/.rvm/rubies/ruby-2.7.2/bin:$PATH"
+  rvm install 3.0.0 && rvm use 3.0.0"
+ENV PATH "/home/circleci/.rvm/rubies/ruby-3.0.0/bin:$PATH"
 
 # Update bundler
 RUN gem update bundler
