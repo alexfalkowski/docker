@@ -13,6 +13,7 @@ lint: ## Lint all the images
 	make -C ruby lint
 	make -C scala lint
 	make -C diagram lint
+	make -C kind lint
 
 build: ## Build all the images
 	make -C go build
@@ -23,6 +24,7 @@ build: ## Build all the images
 	make -C ruby build
 	make -C scala build
 	make -C diagram build
+	make -C kind build
 
 push: ## Push all the images
 	make -C go push
@@ -33,6 +35,7 @@ push: ## Push all the images
 	make -C ruby push
 	make -C scala push
 	make -C diagram push
+	make -C kind push
 
 start: ## Start dependencies
 	docker-compose up -d
