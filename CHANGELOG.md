@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.1](https://github.com/alexfalkowski/docker/compare/v1.15.0...v1.15.1) (2021-05-17)
+
+
+### Bug Fixes
+
+* **kind:** add helm chart-testing files ([#41](https://github.com/alexfalkowski/docker/issues/41)) ([87ab1b5](https://github.com/alexfalkowski/docker/commit/87ab1b579b9ea2166ebac3da61ef247cb59af0e3))
+
 ## [1.15.0](https://github.com/alexfalkowski/docker/compare/v1.14.0...v1.15.0) (2021-05-16)
 
 
