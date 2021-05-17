@@ -36,6 +36,11 @@ RUN curl -OL https://github.com/helm/chart-testing/releases/download/v3.3.1/char
     && tar -C . -xzvf chart-testing_3.3.1_linux_amd64.tar.gz \
     && rm chart-testing_3.3.1_linux_amd64.tar.gz
 
+# Add helm chart-testing files
+RUN mkdir -p /usr/local/etc/ct
+COPY chart_schema.yaml /usr/local/etc/ct
+COPY lintconf.yaml /usr/local/etc/ct
+
 USER circleci
 WORKDIR /home/circleci/
 
