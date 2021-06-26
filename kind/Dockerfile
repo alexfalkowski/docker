@@ -32,9 +32,9 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
   chmod +x kubectl
 
 # Install helm chart-testing
-RUN curl -OL https://github.com/helm/chart-testing/releases/download/v3.3.1/chart-testing_3.3.1_linux_amd64.tar.gz \
-    && tar -C . -xzvf chart-testing_3.3.1_linux_amd64.tar.gz \
-    && rm chart-testing_3.3.1_linux_amd64.tar.gz
+RUN curl -OL https://github.com/helm/chart-testing/releases/download/v3.4.0/chart-testing_3.4.0_linux_amd64.tar.gz \
+    && tar -C . -xzvf chart-testing_3.4.0_linux_amd64.tar.gz \
+    && rm chart-testing_3.4.0_linux_amd64.tar.gz
 
 # Add helm chart-testing files
 RUN mkdir -p /usr/local/etc/ct
