@@ -4,7 +4,7 @@ USER root
 WORKDIR /usr/local/bin
 
 # Install structurizr
-RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.9.0/structurizr-cli-1.9.0.zip && \
+RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.11.0/structurizr-cli-1.11.0.zip && \
 	unzip -o structurizr-cli.zip && \
 	rm -f structurizr-cli.zip
 
