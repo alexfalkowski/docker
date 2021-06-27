@@ -1,8 +1,8 @@
 build:
-	docker build -t alexfalkowski/scala:2.13 .
+	docker build -t alexfalkowski/scala:3.0 .
 
 push: build
-	docker push alexfalkowski/scala:2.13
+	docker push alexfalkowski/scala:3.0
 
 lint:
 	hadolint Dockerfile

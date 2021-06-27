@@ -20,8 +20,8 @@ WORKDIR /home/circleci/
 # Install scala
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install scala 2.13.5 && \
-  sdk install sbt 1.5.2"
+  sdk install scala 3.0.0 && \
+  sdk install sbt 1.5.4"
 ENV PATH "/home/circleci/.sdkman/candidates/sbt/1.5.2/bin:/home/circleci/.sdkman/candidates/scala/2.13.5/bin:$PATH"
 
 # Install ruby.
