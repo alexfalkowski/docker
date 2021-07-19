@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/alexfalkowski/docker/compare/v1.15.1...v1.16.0) (2021-07-19)
+
+
+### Features
+
+* **hbase:** update to v2.4.4 ([#44](https://github.com/alexfalkowski/docker/issues/44)) ([071d81c](https://github.com/alexfalkowski/docker/commit/071d81c4fe327caac5ff3598c70aa9a75920e637))
+
+
+### Bug Fixes
+
+* gpg keys for ruby ([#43](https://github.com/alexfalkowski/docker/issues/43)) ([c201f77](https://github.com/alexfalkowski/docker/commit/c201f77998af98040daa276f880ca19fb14d6323))
+
 ### [1.15.1](https://github.com/alexfalkowski/docker/compare/v1.15.0...v1.15.1) (2021-05-17)
 
 
