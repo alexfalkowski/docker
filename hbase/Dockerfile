@@ -10,11 +10,11 @@ RUN curl -L https://downloads.apache.org/hbase/2.4.4/hbase-2.4.4-bin.tar.gz > hb
   rm -rf hbase-2.4.4-bin.tar.gz
 
 # Install phoenix.
-RUN curl -L https://downloads.apache.org/phoenix/apache-phoenix-5.0.0-HBase-2.0/bin/apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz > apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz && \
+RUN curl -L https://downloads.apache.org/phoenix/phoenix-5.1.2/phoenix-hbase-2.4-5.1.2-bin.tar.gz > phoenix-hbase-2.4-5.1.2-bin.tar.gz && \
   mkdir apache-phoenix && \
-  tar -xzvf apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz -C apache-phoenix --strip-components=1 && \
-  cp apache-phoenix/phoenix-5.0.0-HBase-2.0-server.jar /usr/local/hbase-2.4.4/lib && \
-  rm -rf apache-phoenix apache-phoenix-5.0.0-HBase-2.0-bin.tar.gz
+  tar -xzvf phoenix-hbase-2.4-5.1.2-bin.tar.gz -C apache-phoenix --strip-components=1 && \
+  cp apache-phoenix/phoenix-server-hbase-2.4-5.1.2.jar /usr/local/hbase-2.4.4/lib && \
+  rm -rf apache-phoenix phoenix-hbase-2.4-5.1.2-bin.tar.gz
 
 ENV PATH "$PATH:/usr/local/hbase-2.4.4/bin"
 
