@@ -4,7 +4,7 @@ USER root
 WORKDIR /usr/local/bin
 
 # Install structurizr
-RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.9.0/structurizr-cli-1.9.0.zip && \
+RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.12.0/structurizr-cli-1.12.0.zip && \
 	unzip -o structurizr-cli.zip && \
 	rm -f structurizr-cli.zip
 
@@ -22,4 +22,4 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install diagrams
-RUN pip3 install --no-cache-dir -U diagrams==0.19.1 --user
+RUN pip3 install --no-cache-dir -U diagrams==0.20.0 --user
