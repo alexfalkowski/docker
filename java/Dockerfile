@@ -20,7 +20,7 @@ WORKDIR /home/circleci/
 # Install gradle
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install gradle 7.1"
+  sdk install gradle 7.1.1"
 ENV PATH "/home/circleci/.sdkman/candidates/gradle/6.8.3/bin:$PATH"
 
 # Install ruby.
