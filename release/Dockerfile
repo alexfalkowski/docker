@@ -18,8 +18,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 && 
 RUN npm i -g standard-version
 
 # Add release script
-COPY release.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/release.sh
+COPY release /usr/local/bin/
+RUN chmod +x /usr/local/bin/release
 
 USER circleci
 
