@@ -41,6 +41,9 @@ workflows:
       - lint
       - build:
           context: docker
+          filters:
+            branches:
+              ignore: master
       - push:
           context: docker
           requires:
