@@ -30,8 +30,8 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
   curl -sSL https://get.rvm.io | bash -s stable && \
   bash -c "source $HOME/.rvm/scripts/rvm && \
   rvm requirements && \
-  rvm install 3.0.0 && rvm use 3.0.0"
-ENV PATH "/home/circleci/.rvm/rubies/ruby-3.0.0/bin:$PATH"
+  rvm install 3.0.2 && rvm use 3.0.2"
+ENV PATH "/home/circleci/.rvm/rubies/ruby-3.0.2/bin:$PATH"
 
 # Update bundler
 RUN gem update bundler
