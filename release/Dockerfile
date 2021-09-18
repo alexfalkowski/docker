@@ -1,4 +1,4 @@
-FROM circleci/node:15-buster
+FROM circleci/node:16-buster
 
 USER root
 
