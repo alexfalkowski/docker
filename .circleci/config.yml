@@ -3,13 +3,13 @@ version: 2.1
 jobs:
   lint:
     docker:
-      - image: alexfalkowski/go:1.16
+      - image: alexfalkowski/go:1.17
     steps:
       - checkout
       - run: make lint
   build:
     docker:
-      - image: alexfalkowski/go:1.16
+      - image: alexfalkowski/go:1.17
     steps:
       - checkout
       - setup_remote_docker
@@ -19,7 +19,7 @@ jobs:
       - run: make build
   push:
     docker:
-      - image: alexfalkowski/go:1.16
+      - image: alexfalkowski/go:1.17
     steps:
       - checkout
       - setup_remote_docker

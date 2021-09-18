@@ -10,7 +10,7 @@ RUN curl -OL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_V
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Install hadolint
-RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 && \
+RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.7.0/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
 
@@ -20,8 +20,8 @@ WORKDIR /home/circleci/
 # Install scala
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install scala 3.0.0 && \
-  sdk install sbt 1.5.4"
+  sdk install scala 3.0.2 && \
+  sdk install sbt 1.5.5"
 ENV PATH "/home/circleci/.sdkman/candidates/sbt/1.5.2/bin:/home/circleci/.sdkman/candidates/scala/2.13.5/bin:$PATH"
 
 # Install ruby.
