@@ -20,7 +20,7 @@ WORKDIR /home/circleci/
 # Install kotlin
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install kotlin 1.5.21 && \
+  sdk install kotlin 1.5.30 && \
   sdk install gradle 7.2"
 ENV PATH "/home/circleci/.sdkman/candidates/kotlin/1.5.0/bin:/home/circleci/.sdkman/candidates/gradle/7.2/bin:$PATH"
 
