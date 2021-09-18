@@ -1,7 +1,15 @@
 #!/bin/bash
 
 changed() {
-    git diff --quiet HEAD "$(git describe --tags --abbrev=0 HEAD)" -- "$1" || echo changed
+    current_branch=$(git symbolic-ref -q --short HEAD)
+
+    if [ "$current_branch" == "master" ]; then
+        diff=$(git describe --tags --abbrev=0 HEAD)
+    else
+        diff="master"
+    fi
+
+    git diff --quiet HEAD "$diff" -- "$1" || echo changed
 }
 
 perform() {
