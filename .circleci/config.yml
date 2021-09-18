@@ -7,6 +7,16 @@ jobs:
     steps:
       - checkout
       - run: make lint
+  build:
+    docker:
+      - image: alexfalkowski/go:1.16
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make build
   push:
     docker:
       - image: alexfalkowski/go:1.16
@@ -29,10 +39,13 @@ workflows:
   docker:
     jobs:
       - lint
+      - build:
+          context: docker
       - push:
           context: docker
           requires:
             - lint
+            - build
           filters:
             branches:
               only: master
