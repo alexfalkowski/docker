@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.21.0](https://github.com/alexfalkowski/docker/compare/v1.20.0...v1.21.0) (2021-09-18)
+
+
+### Features
+
+* check current branch ([#50](https://github.com/alexfalkowski/docker/issues/50)) ([d5c93b1](https://github.com/alexfalkowski/docker/commit/d5c93b102341e55ad4ca634fb26ef36c9c1321c9))
+
 ## [1.20.0](https://github.com/alexfalkowski/docker/compare/v1.19.0...v1.20.0) (2021-09-18)
 
 
