@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/alexfalkowski/docker/compare/v1.17.0...v1.18.0) (2021-09-18)
+
+
+### Features
+
+* **hbase:** update to v2.4.6 ([#47](https://github.com/alexfalkowski/docker/issues/47)) ([12950fa](https://github.com/alexfalkowski/docker/commit/12950fadaef3c147239034ac6f2c51b4dd1974a8))
+
 ## [1.17.0](https://github.com/alexfalkowski/docker/compare/v1.16.0...v1.17.0) (2021-09-18)
 
 
