@@ -1,4 +1,4 @@
-FROM circleci/golang:1.16-buster-node-browsers-legacy
+FROM circleci/golang:1.17-buster-node-browsers-legacy
 
 USER root
 WORKDIR /usr/local/bin
@@ -18,7 +18,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.41.1
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.42.1
 
 # Install go-mod-outdated
 RUN go get -u github.com/psampaz/go-mod-outdated
