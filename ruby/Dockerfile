@@ -1,4 +1,4 @@
-FROM circleci/ruby:3.0-buster-node-browsers-legacy
+FROM circleci/ruby:3.0-buster
 
 USER root
 WORKDIR /usr/local/bin
