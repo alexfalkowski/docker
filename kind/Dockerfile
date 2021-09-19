@@ -1,4 +1,4 @@
-FROM circleci/golang:1.16-buster
+FROM circleci/golang:1.17-buster
 
 USER root
 
