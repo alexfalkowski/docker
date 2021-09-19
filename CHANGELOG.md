@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.22.0](https://github.com/alexfalkowski/docker/compare/v1.21.0...v1.22.0) (2021-09-19)
+
+
+### Features
+
+* update deps to make images smaller ([#51](https://github.com/alexfalkowski/docker/issues/51)) ([7c29867](https://github.com/alexfalkowski/docker/commit/7c29867922c9923bfb382633d6e4bd16b75c58c1))
+
 ## [1.21.0](https://github.com/alexfalkowski/docker/compare/v1.20.0...v1.21.0) (2021-09-18)
 
 
