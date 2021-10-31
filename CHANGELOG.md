@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.24.0](https://github.com/alexfalkowski/docker/compare/v1.23.0...v1.24.0) (2021-10-31)
+
+
+### Features
+
+* add localstack to docker compose ([#53](https://github.com/alexfalkowski/docker/issues/53)) ([00c5e85](https://github.com/alexfalkowski/docker/commit/00c5e85b2b2d22fddaa8fbf41a6888eac274671d))
+
 ## [1.23.0](https://github.com/alexfalkowski/docker/compare/v1.22.0...v1.23.0) (2021-10-31)
 
 
