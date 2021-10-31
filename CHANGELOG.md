@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.23.0](https://github.com/alexfalkowski/docker/compare/v1.22.0...v1.23.0) (2021-10-31)
+
+
+### Features
+
+* add nats to docker compose ([#52](https://github.com/alexfalkowski/docker/issues/52)) ([efc3f26](https://github.com/alexfalkowski/docker/commit/efc3f26c59389a76f1535b7aed80fa60b82be7ec))
+
 ## [1.22.0](https://github.com/alexfalkowski/docker/compare/v1.21.0...v1.22.0) (2021-09-19)
 
 
