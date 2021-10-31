@@ -48,3 +48,8 @@ services:
     ports:
       - "4150:4150"
       - "4151:4151"
+
+  nats:
+    image: nats
+    ports:
+      - "4222:4222"
