@@ -20,7 +20,7 @@ WORKDIR /home/circleci/
 # Install scala
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install scala 3.0.2 && \
+  sdk install scala 3.1.0 && \
   sdk install sbt 1.5.5"
 ENV PATH "/home/circleci/.sdkman/candidates/sbt/1.5.2/bin:/home/circleci/.sdkman/candidates/scala/2.13.5/bin:$PATH"
 
@@ -30,8 +30,8 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
   curl -sSL https://get.rvm.io | bash -s stable && \
   bash -c "source $HOME/.rvm/scripts/rvm && \
   rvm requirements && \
-  rvm install 3.0.2 && rvm use 3.0.2"
-ENV PATH "/home/circleci/.rvm/rubies/ruby-3.0.2/bin:$PATH"
+  rvm install 3.1.0 && rvm use 3.1.0"
+ENV PATH "/home/circleci/.rvm/rubies/ruby-3.1.0/bin:$PATH"
 
 # Update bundler
 RUN gem update bundler
