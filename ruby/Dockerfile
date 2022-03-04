@@ -1,4 +1,4 @@
-FROM circleci/ruby:3.0-buster
+FROM circleci/ruby:3.1-buster
 
 USER root
 WORKDIR /usr/local/bin
