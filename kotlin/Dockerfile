@@ -20,9 +20,9 @@ WORKDIR /home/circleci/
 # Install kotlin
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install kotlin 1.5.30 && \
+  sdk install kotlin 1.6.10 && \
   sdk install gradle 7.4"
-ENV PATH "/home/circleci/.sdkman/candidates/kotlin/1.5.0/bin:/home/circleci/.sdkman/candidates/gradle/7.4/bin:$PATH"
+ENV PATH "/home/circleci/.sdkman/candidates/kotlin/1.6.0/bin:/home/circleci/.sdkman/candidates/gradle/7.4/bin:$PATH"
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
