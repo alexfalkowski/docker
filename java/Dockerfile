@@ -20,8 +20,8 @@ WORKDIR /home/circleci/
 # Install gradle
 RUN curl -s "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
-  sdk install gradle 7.2"
-ENV PATH "/home/circleci/.sdkman/candidates/gradle/7.2/bin:$PATH"
+  sdk install gradle 7.4"
+ENV PATH "/home/circleci/.sdkman/candidates/gradle/7.4/bin:$PATH"
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
