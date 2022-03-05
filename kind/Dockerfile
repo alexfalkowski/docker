@@ -48,4 +48,4 @@ WORKDIR /home/circleci/
 RUN go get sigs.k8s.io/kind@v0.11.1
 
 # Install diagrams
-RUN pip3 install --no-cache-dir -U yamale==3.0.7 --user
+RUN pip3 install --no-cache-dir -U yamale==4.0.3 --user
