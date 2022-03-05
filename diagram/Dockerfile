@@ -15,6 +15,7 @@ RUN curl -o plantuml.jar -L https://netix.dl.sourceforge.net/project/plantuml/pl
 RUN apt-get update && apt-get install --no-install-recommends -y \
   python3 \
   python3-pip \
+  python3-setuptools \
   graphviz \
   && rm -rf /var/lib/apt/lists/*
 
