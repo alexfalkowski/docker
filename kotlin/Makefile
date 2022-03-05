@@ -1,8 +1,8 @@
 build:
-	docker build -t alexfalkowski/kotlin:1.5 .
+	docker build -t alexfalkowski/kotlin:1.6 .
 
 push: build
-	docker push alexfalkowski/kotlin:1.5
+	docker push alexfalkowski/kotlin:1.6
 
 lint:
 	hadolint Dockerfile
