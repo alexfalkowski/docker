@@ -1,10 +1,10 @@
-FROM circleci/openjdk:16-buster-node-browsers-legacy
+FROM cimg/openjdk:17.0.2
 
 USER root
 WORKDIR /usr/local/bin
 
 # Install structurizr
-RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.13.0/structurizr-cli-1.13.0.zip && \
+RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.18.0/structurizr-cli-1.18.0.zip && \
 	unzip -o structurizr-cli.zip && \
 	rm -f structurizr-cli.zip
 
@@ -15,6 +15,7 @@ RUN curl -o plantuml.jar -L https://netix.dl.sourceforge.net/project/plantuml/pl
 RUN apt-get update && apt-get install --no-install-recommends -y \
   python3 \
   python3-pip \
+  python3-setuptools \
   graphviz \
   && rm -rf /var/lib/apt/lists/*
 
@@ -22,4 +23,4 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install diagrams
-RUN pip3 install --no-cache-dir -U diagrams==0.20.0 --user
+RUN pip3 install --no-cache-dir -U diagrams==0.21.1 --user

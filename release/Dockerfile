@@ -1,4 +1,4 @@
-FROM circleci/node:16-buster
+FROM cimg/node:17.6.0
 
 USER root
 
