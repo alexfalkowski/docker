@@ -1,4 +1,4 @@
-FROM circleci/openjdk:17-buster
+FROM cimg/openjdk:17.0.2
 
 USER root
 WORKDIR /usr/local/bin
