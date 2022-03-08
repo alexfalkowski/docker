@@ -44,8 +44,6 @@ COPY lintconf.yaml /usr/local/etc/ct
 USER circleci
 WORKDIR /home/circleci/
 
-# Install kind
-RUN go get sigs.k8s.io/kind@v0.11.1
-
-# Install diagrams
-RUN pip3 install --no-cache-dir -U yamale==4.0.3 --user
+# Install deps
+RUN go install sigs.k8s.io/kind@v0.12.0 && \
+    pip3 install --no-cache-dir -U yamale==4.0.3 --user
