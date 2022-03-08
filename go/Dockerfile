@@ -20,14 +20,10 @@ WORKDIR /home/circleci/
 # Install golangci-lint
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.44.2
 
-# Install go-mod-outdated
-RUN go get -u github.com/psampaz/go-mod-outdated
-
-# Install goveralls
-RUN go get github.com/mattn/goveralls
-
-# Install gocovmerge
-RUN go get github.com/alexfalkowski/gocovmerge
+# Install go deps.
+RUN go install github.com/psampaz/go-mod-outdated@latest && \
+    go install github.com/mattn/goveralls@latest && \
+    go install github.com/alexfalkowski/gocovmerge@latest
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
