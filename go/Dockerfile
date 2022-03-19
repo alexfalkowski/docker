@@ -1,4 +1,4 @@
-FROM cimg/go:1.17.8
+FROM cimg/go:1.18
 
 USER root
 WORKDIR /usr/local/bin
@@ -10,7 +10,7 @@ RUN curl -OL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_V
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Install hadolint
-RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.8.0/hadolint-Linux-x86_64 && \
+RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.9.1/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
 
@@ -18,7 +18,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.44.2
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.45.0
 
 # Install go deps.
 RUN go install github.com/psampaz/go-mod-outdated@latest && \

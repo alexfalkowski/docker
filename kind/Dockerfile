@@ -1,4 +1,4 @@
-FROM cimg/go:1.17.8
+FROM cimg/go:1.18
 
 USER root
 
@@ -23,7 +23,7 @@ RUN curl -OL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_V
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Install hadolint
-RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.8.0/hadolint-Linux-x86_64 && \
+RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.9.1/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
 
@@ -32,9 +32,9 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
   chmod +x kubectl
 
 # Install helm chart-testing
-RUN curl -OL https://github.com/helm/chart-testing/releases/download/v3.5.0/chart-testing_3.5.0_linux_amd64.tar.gz \
-    && tar -C . -xzvf chart-testing_3.5.0_linux_amd64.tar.gz \
-    && rm chart-testing_3.5.0_linux_amd64.tar.gz
+RUN curl -OL https://github.com/helm/chart-testing/releases/download/v3.5.1/chart-testing_3.5.1_linux_amd64.tar.gz \
+    && tar -C . -xzvf chart-testing_3.5.1_linux_amd64.tar.gz \
+    && rm chart-testing_3.5.1_linux_amd64.tar.gz
 
 # Add helm chart-testing files
 RUN mkdir -p /usr/local/etc/ct
