@@ -18,7 +18,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.44.2
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.45.0
 
 # Install go deps.
 RUN go install github.com/psampaz/go-mod-outdated@latest && \
