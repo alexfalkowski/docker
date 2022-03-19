@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.25.0](https://github.com/alexfalkowski/docker/compare/v1.24.2...v1.25.0) (2022-03-19)
+
+
+### Features
+
+* update to go v1.18.0 ([#56](https://github.com/alexfalkowski/docker/issues/56)) ([bfb72c1](https://github.com/alexfalkowski/docker/commit/bfb72c1f813d32b55de92769d0fffb959f8b65d9))
+
 ### [1.24.2](https://github.com/alexfalkowski/docker/compare/v1.24.1...v1.24.2) (2022-03-08)
 
 ### [1.24.1](https://github.com/alexfalkowski/docker/compare/v1.24.0...v1.24.1) (2022-03-05)
