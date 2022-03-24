@@ -14,6 +14,11 @@ RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.9.2/hadol
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
 
+# Install buf.
+RUN curl -OL https://github.com/bufbuild/buf/releases/download/v1.1.1/buf-Linux-x86_64 && \
+  mv buf-Linux-x86_64 buf && \
+  chmod +x buf
+
 USER circleci
 WORKDIR /home/circleci/
 
