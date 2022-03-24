@@ -3,22 +3,27 @@ FROM cimg/openjdk:17.0.2
 USER root
 WORKDIR /usr/local/bin
 
-# Install dockerize
+# Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
-RUN curl -OL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-# Install hadolint
-RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.9.2/hadolint-Linux-x86_64 && \
+# Install hadolint.
+RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.9.2/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
+
+# Install buf.
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.1.1/buf-Linux-x86_64 && \
+  mv buf-Linux-x86_64 buf && \
+  chmod +x buf
 
 USER circleci
 WORKDIR /home/circleci/
 
-# Install gradle
-RUN curl -s "https://get.sdkman.io" | bash && \
+# Install gradle.
+RUN curl -sSL "https://get.sdkman.io" | bash && \
   bash -c "source /home/circleci/.sdkman/bin/sdkman-init.sh && \
   sdk install gradle 7.4"
 ENV PATH "/home/circleci/.sdkman/candidates/gradle/7.4/bin:$PATH"
@@ -32,5 +37,5 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
   rvm install 3.0.3 && rvm use 3.0.3"
 ENV PATH "/home/circleci/.rvm/rubies/ruby-3.0.3/bin:$PATH"
 
-# Update bundler
+# Update bundler.
 RUN gem update bundler
