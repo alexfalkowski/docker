@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.28.0](https://github.com/alexfalkowski/docker/compare/v1.27.2...v1.28.0) (2022-03-26)
+
+
+### Features
+
+* add jq and yq ([#63](https://github.com/alexfalkowski/docker/issues/63)) ([e844126](https://github.com/alexfalkowski/docker/commit/e8441260c73febe93a6e60fba2e99f270036e26c))
+
 ### [1.27.2](https://github.com/alexfalkowski/docker/compare/v1.27.1...v1.27.2) (2022-03-25)
 
 ### [1.27.1](https://github.com/alexfalkowski/docker/compare/v1.27.0...v1.27.1) (2022-03-25)
