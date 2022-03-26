@@ -24,6 +24,11 @@ RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux6
   mv jq-linux64 jq && \
   chmod +x jq
 
+# Install yq.
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/v4.23.1/yq_linux_amd64 && \
+  mv yq_linux_amd64 yq && \
+  chmod +x yq
+
 USER circleci
 WORKDIR /home/circleci/
 
