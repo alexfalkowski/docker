@@ -23,7 +23,7 @@ RUN curl -OL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_V
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Install hadolint
-RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.9.3/hadolint-Linux-x86_64 && \
+RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
 
