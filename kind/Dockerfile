@@ -2,37 +2,40 @@ FROM cimg/go:1.18.1
 
 USER root
 
-# Install helm
-RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+# Install deps
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    curl -s https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash && \
+    apt-get update && apt-get install --no-install-recommends -y \
+    git-lfs \
+    python3 \
+    python3-setuptools \
+    python3-pip \
+    yamllint \
+    shellcheck \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install yamllint
-RUN apt-get update && apt-get install --no-install-recommends -y \
-  python3 \
-  python3-setuptools \
-  python3-pip \
-  yamllint \
-  shellcheck \
-  && rm -rf /var/lib/apt/lists/*
+# Install lfs
+RUN git lfs install
 
 WORKDIR /usr/local/bin
 
 # Install dockerize
 ENV DOCKERIZE_VERSION v0.6.1
-RUN curl -OL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Install hadolint
-RUN curl -OL https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
   chmod +x hadolint
 
 # Install kubectl
-RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
+RUN curl -sSOL "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
   chmod +x kubectl
 
 # Install helm chart-testing
-RUN curl -OL https://github.com/helm/chart-testing/releases/download/v3.5.1/chart-testing_3.5.1_linux_amd64.tar.gz \
+RUN curl -sSOL https://github.com/helm/chart-testing/releases/download/v3.5.1/chart-testing_3.5.1_linux_amd64.tar.gz \
     && tar -C . -xzvf chart-testing_3.5.1_linux_amd64.tar.gz \
     && rm chart-testing_3.5.1_linux_amd64.tar.gz
 

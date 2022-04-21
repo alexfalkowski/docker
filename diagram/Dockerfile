@@ -1,6 +1,20 @@
 FROM cimg/openjdk:17.0.2
 
 USER root
+
+# Install deps
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    apt-get update && apt-get install --no-install-recommends -y \
+    git-lfs \
+    python3 \
+    python3-pip \
+    python3-setuptools \
+    graphviz \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install lfs
+RUN git lfs install
+
 WORKDIR /usr/local/bin
 
 # Install structurizr
@@ -10,14 +24,6 @@ RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/d
 
 # Install plantuml
 RUN curl -o plantuml.jar -L https://netix.dl.sourceforge.net/project/plantuml/plantuml.jar
-
-# Install python3
-RUN apt-get update && apt-get install --no-install-recommends -y \
-  python3 \
-  python3-pip \
-  python3-setuptools \
-  graphviz \
-  && rm -rf /var/lib/apt/lists/*
 
 USER circleci
 WORKDIR /home/circleci/
