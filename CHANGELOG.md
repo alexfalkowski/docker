@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.29.0](https://github.com/alexfalkowski/docker/compare/v1.28.2...v1.29.0) (2022-04-21)
+
+
+### Features
+
+* add git-lfs ([#66](https://github.com/alexfalkowski/docker/issues/66)) ([38373d6](https://github.com/alexfalkowski/docker/commit/38373d644e9689a21531e9f0d7e707dd93c15082))
+
 ### [1.28.2](https://github.com/alexfalkowski/docker/compare/v1.28.1...v1.28.2) (2022-04-14)
 
 ### [1.28.1](https://github.com/alexfalkowski/docker/compare/v1.28.0...v1.28.1) (2022-04-12)
