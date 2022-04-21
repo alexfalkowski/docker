@@ -2,20 +2,19 @@ FROM cimg/node:17.6.0
 
 USER root
 
-# Install software-properties-common
-RUN apt-get update && apt-get install --no-install-recommends -y \
-  software-properties-common \
-  && rm -rf /var/lib/apt/lists/*
-
-# Install gh
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 && \
+# Install deps
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 && \
     apt-add-repository https://cli.github.com/packages && \
     apt-get update && apt-get install --no-install-recommends -y \
+    software-properties-common \
+    git-lfs \
     gh \
     && rm -rf /var/lib/apt/lists/*
 
-# Install standard version
-RUN npm i -g standard-version
+# Setup deps
+RUN npm i -g standard-version && \
+    git lfs install
 
 # Add release script
 COPY release /usr/local/bin/
