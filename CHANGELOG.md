@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.30.0](https://github.com/alexfalkowski/docker/compare/v1.29.0...v1.30.0) (2022-04-22)
+
+
+### Features
+
+* add prometheus ([#67](https://github.com/alexfalkowski/docker/issues/67)) ([07d69cc](https://github.com/alexfalkowski/docker/commit/07d69cca02f4521080bd4efd04f4e504597b9445))
+
 ## [1.29.0](https://github.com/alexfalkowski/docker/compare/v1.28.2...v1.29.0) (2022-04-21)
 
 
