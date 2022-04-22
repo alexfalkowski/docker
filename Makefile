@@ -1,20 +1,19 @@
-help: ## Display this help
-	@ echo "Please use \`make <target>' where <target> is one of:"
-	@ echo
-	@ grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "    \033[36m%-10s\033[0m - %s\n", $$1, $$2}'
-	@ echo
-
-lint: ## Lint all the images
+# Lint all the images
+lint:
 	scripts/lint
 
-build: ## Build all the images
+# Build all the images
+build:
 	scripts/build
 
-push: ## Push all the images
+# Push all the images
+push:
 	scripts/push
 
-start: ## Start dependencies
+# Start dependencies
+start:
 	docker-compose up -d
 
-stop: ## Stop dependencies
+# Stop dependencies
+stop:
 	docker-compose down

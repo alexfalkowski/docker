@@ -76,3 +76,20 @@ services:
       VAULT_DEV_ROOT_TOKEN_ID: "vault-plaintext-root-token"
     cap_add:
       - IPC_LOCK
+
+  docker-host:
+    image: qoomon/docker-host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9000:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - ./prometheus:/prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/config.yml
+    depends_on:
+      - docker-host
