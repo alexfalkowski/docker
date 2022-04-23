@@ -11,6 +11,21 @@ services:
     volumes:
       - "${PWD}/config:/config"
 
+  konfig:
+    image: alexfalkowski/konfig
+    command: server
+    environment:
+      - CONFIG_FILE=/config/konfig.yml
+      - KONFIG_GIT_TOKEN=${GITHUB_TOKEN}
+      - VAULT_ADDR=http://vault:8200
+      - VAULT_TOKEN=vault-plaintext-root-token
+    ports:
+      - "4000:8080"
+    volumes:
+      - "${PWD}/config:/config"
+    depends_on:
+      - vault
+
   jaegertracing:
     image: jaegertracing/all-in-one
     ports:

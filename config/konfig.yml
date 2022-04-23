@@ -1,0 +1,27 @@
+health:
+  duration: 30s
+  timeout: 1s
+server:
+  v1:
+    source:
+      type: git
+      git:
+        url: https://github.com/alexfalkowski/app-config
+        dir: /tmp/app-config
+trace:
+  opentracing:
+    jaeger:
+      host: jaegertracing:6831
+transport:
+  http:
+    port: 8080
+    user_agent: "Konfig-server/1.0 http/1.0"
+    retry:
+      timeout: 2s
+      attempts: 3
+  grpc:
+    port: 9090
+    user_agent: "Konfig-server/1.0 grpc/1.0"
+    retry:
+      timeout: 2s
+      attempts: 3

@@ -10,6 +10,10 @@ build:
 push:
 	scripts/push
 
+# Pull latest containers.
+pull:
+	docker compose pull
+
 # Start dependencies.
 start:
 	docker-compose up -d --remove-orphans
