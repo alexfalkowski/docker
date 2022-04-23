@@ -6,5 +6,5 @@ scrape_configs:
     static_configs:
       - targets:
         - 'prometheus:9090'
-        - 'standort:8080'
-        - 'konfig:8080'
+        - 'standort:3000'
+        - 'konfig:4000'
