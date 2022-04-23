@@ -6,5 +6,5 @@ scrape_configs:
     static_configs:
       - targets:
         - 'prometheus:9090'
-        - 'docker-host:8080'
-        - 'docker-host:8081'
+        - 'standort:8080'
+        - 'konfig:8080'
