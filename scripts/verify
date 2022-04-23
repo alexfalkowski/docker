@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+
+# Verify standort works.
+curl -sf http://localhost:3000/v1/location/ip/95.91.246.242 | grep '"continent":"EU"'
+curl -sf http://localhost:3000/v1/location/lat/52.515816/lng/13.454293 | grep '"continent":"EU"'
