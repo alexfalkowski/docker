@@ -7,6 +7,17 @@ jobs:
     steps:
       - checkout
       - run: make lint
+  test:
+    docker:
+      - image: alexfalkowski/go:1.18
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: docker-compose -f test-docker-compose.yml up -d --remove-orphans
+      - run: docker compose -f test-docker-compose.yml logs standort
+      - run: docker compose -f test-docker-compose.yml logs konfig
+      - run: dockerize -wait tcp://localhost:3000 -wait tcp://localhost:4000 -timeout 1m
+      - run: make verify
   build:
     docker:
       - image: alexfalkowski/go:1.18
@@ -39,8 +50,11 @@ workflows:
   docker:
     jobs:
       - lint
+      - test
       - build:
           context: docker
+          requires:
+            - lint
           filters:
             branches:
               ignore: master
@@ -48,6 +62,7 @@ workflows:
           context: docker
           requires:
             - lint
+            - test
             - build
           filters:
             branches:

@@ -25,3 +25,7 @@ stop:
 # Logs from a service.
 logs:
 	docker compose logs -f $(service)
+
+# Verify the services.
+verify:
+	./scripts/verify

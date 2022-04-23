@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  standort:
+    image: alexfalkowski/standort
+    command: server
+    environment:
+      CONFIG_FILE: /config/standort.yml
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - "${PWD}/config:/config"
+
+  konfig:
+    image: alexfalkowski/konfig
+    command: server
+    environment:
+      - CONFIG_FILE=/config/konfig.yml
+      - KONFIG_GIT_TOKEN=${GITHUB_TOKEN}
+      - VAULT_ADDR=http://vault:8200
+      - VAULT_TOKEN=vault-plaintext-root-token
+    ports:
+      - "4000:4000"
+      - "4001:4001"
+    volumes:
+      - "${PWD}/config:/config"
+    depends_on:
+      - vault
+
+  vault:
+    image: vault
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "vault-plaintext-root-token"
+    cap_add:
+      - IPC_LOCK
