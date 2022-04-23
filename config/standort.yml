@@ -1,0 +1,31 @@
+health:
+  duration: 1s
+  timeout: 1s
+location:
+  continent:
+    africa_path: /assets/africa.geojson
+    north_america_path: /assets/north_america.geojson
+    oceania_path: /assets/oceania.geojson
+    antarctica_path: /assets/antarctica.geojson
+    asia_path: /assets/asia.geojson
+    europe_path: /assets/europe.geojson
+    south_america_path: /assets/south_america.geojson
+  ip:
+    path: /assets/ip2location.bin
+trace:
+  opentracing:
+    jaeger:
+      host: jaegertracing:6831
+transport:
+  http:
+    port: 8080
+    user_agent: "Standort-server/1.0 http/1.0"
+    retry:
+      timeout: 2s
+      attempts: 3
+  grpc:
+    port: 9090
+    user_agent: "Standort-server/1.0 grpc/1.0"
+    retry:
+      timeout: 2s
+      attempts: 3
