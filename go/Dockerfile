@@ -25,7 +25,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.10.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.3.1/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.4.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
@@ -44,6 +44,9 @@ WORKDIR /home/circleci/
 
 # Install golangci-lint.
 RUN curl -sSL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.45.2
+
+# Install gosec.
+RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.11.0
 
 # Install go deps.
 RUN go install github.com/psampaz/go-mod-outdated@latest && \
