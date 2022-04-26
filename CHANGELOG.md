@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.32.0](https://github.com/alexfalkowski/docker/compare/v1.31.1...v1.32.0) (2022-04-26)
+
+
+### Features
+
+* **go:** add gosec ([#71](https://github.com/alexfalkowski/docker/issues/71)) ([c628005](https://github.com/alexfalkowski/docker/commit/c628005bf8e9f63fd7ef9c58f13d473699c12b1e))
+
 ### [1.31.1](https://github.com/alexfalkowski/docker/compare/v1.31.0...v1.31.1) (2022-04-24)
 
 ## [1.31.0](https://github.com/alexfalkowski/docker/compare/v1.30.0...v1.31.0) (2022-04-23)
