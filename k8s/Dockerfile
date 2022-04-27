@@ -50,3 +50,15 @@ WORKDIR /home/circleci/
 # Install deps
 RUN go install sigs.k8s.io/kind@v0.12.0 && \
     pip3 install --no-cache-dir -U yamale==4.0.3 --user
+
+# Install ruby.
+RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
+  curl -sSL https://rvm.io/pkuczynski.asc | gpg --import - && \
+  curl -sSL https://get.rvm.io | bash -s stable && \
+  bash -c "source $HOME/.rvm/scripts/rvm && \
+  rvm requirements && \
+  rvm install 3.0.3 && rvm use 3.0.3"
+ENV PATH "/home/circleci/.rvm/rubies/ruby-3.0.3/bin:$PATH"
+
+# Update bundler.
+RUN gem update bundler
