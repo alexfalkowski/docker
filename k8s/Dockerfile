@@ -34,6 +34,11 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.10.0/ha
 RUN curl -sSOL "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
   chmod +x kubectl
 
+# Install minikube
+RUN curl -sSOL https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && \
+  mv minikube-linux-amd64 minikube && \
+  chmod +x minikube
+
 # Install helm chart-testing
 RUN curl -sSOL https://github.com/helm/chart-testing/releases/download/v3.5.1/chart-testing_3.5.1_linux_amd64.tar.gz \
     && tar -C . -xzvf chart-testing_3.5.1_linux_amd64.tar.gz \
