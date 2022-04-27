@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.33.0](https://github.com/alexfalkowski/docker/compare/v1.32.0...v1.33.0) (2022-04-27)
+
+
+### Features
+
+* **k8s:** add all the tools required to work with kubernetes ([#72](https://github.com/alexfalkowski/docker/issues/72)) ([311f351](https://github.com/alexfalkowski/docker/commit/311f3511e15ae5e606dc34d1aa7f18f220d61ee7))
+
 ## [1.32.0](https://github.com/alexfalkowski/docker/compare/v1.31.1...v1.32.0) (2022-04-26)
 
 
