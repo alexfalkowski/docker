@@ -42,5 +42,5 @@ RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/v4.24.4/yq_linu
 USER circleci
 WORKDIR /home/circleci/
 
-# Update bundler.
-RUN gem update bundler
+# Install gems.
+RUN gem update bundler --force
