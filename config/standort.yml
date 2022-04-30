@@ -2,16 +2,8 @@ health:
   duration: 1s
   timeout: 1s
 location:
-  continent:
-    africa_path: /assets/africa.geojson
-    north_america_path: /assets/north_america.geojson
-    oceania_path: /assets/oceania.geojson
-    antarctica_path: /assets/antarctica.geojson
-    asia_path: /assets/asia.geojson
-    europe_path: /assets/europe.geojson
-    south_america_path: /assets/south_america.geojson
   ip:
-    path: /assets/ip2location.bin
+    type: ip2location
 trace:
   opentracing:
     jaeger:
