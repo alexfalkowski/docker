@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.34.0](https://github.com/alexfalkowski/docker/compare/v1.33.0...v1.34.0) (2022-04-30)
+
+
+### Features
+
+* **standort:** update config ([#73](https://github.com/alexfalkowski/docker/issues/73)) ([f8ba584](https://github.com/alexfalkowski/docker/commit/f8ba5842e1f2a745b2d2962d5be805127541b62a))
+
 ## [1.33.0](https://github.com/alexfalkowski/docker/compare/v1.32.0...v1.33.0) (2022-04-27)
 
 
