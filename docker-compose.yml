@@ -112,3 +112,8 @@ services:
       - ./prometheus:/etc/prometheus
       - ./prometheus:/prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/config.yml
+
+  grafana:
+    image: grafana/grafana-oss
+    ports:
+      - 10000:3000
