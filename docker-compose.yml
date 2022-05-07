@@ -4,6 +4,7 @@ services:
   standort:
     image: alexfalkowski/standort
     command: server
+    restart: always
     environment:
       CONFIG_FILE: /config/standort.yml
     ports:
@@ -14,6 +15,7 @@ services:
   konfig:
     image: alexfalkowski/konfig
     command: server
+    restart: always
     environment:
       - CONFIG_FILE=/config/konfig.yml
       - KONFIG_GIT_TOKEN=${GITHUB_TOKEN}
