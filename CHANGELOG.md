@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.35.0](https://github.com/alexfalkowski/docker/compare/v1.34.1...v1.35.0) (2022-05-07)
+
+
+### Features
+
+* **grafana:** add to docker compose ([#75](https://github.com/alexfalkowski/docker/issues/75)) ([9f8327e](https://github.com/alexfalkowski/docker/commit/9f8327e8ca5ea0085d3e2408f7eeb2477783564e))
+
 ### [1.34.1](https://github.com/alexfalkowski/docker/compare/v1.34.0...v1.34.1) (2022-05-07)
 
 
