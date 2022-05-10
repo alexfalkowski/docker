@@ -113,19 +113,9 @@ services:
       - ./prometheus:/prometheus
     command: --web.enable-lifecycle --config.file=/etc/prometheus/config.yml
 
-  prometheus-node-exporter:
-    image: prom/node-exporter
-    command:
-      - '--path.rootfs=/host'
-    network_mode: host
-    pid: host
-    volumes:
-      - '/:/host:ro,rslave'
-
   grafana:
     image: grafana/grafana-oss
     ports:
       - 10000:3000
     depends_on:
       - prometheus
-      - prometheus-node-exporter
