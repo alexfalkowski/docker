@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.36.1](https://github.com/alexfalkowski/docker/compare/v1.36.0...v1.36.1) (2022-05-10)
+
 ## [1.36.0](https://github.com/alexfalkowski/docker/compare/v1.35.0...v1.36.0) (2022-05-10)
 
 
