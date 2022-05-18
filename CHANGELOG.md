@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.37.0](https://github.com/alexfalkowski/docker/compare/v1.36.3...v1.37.0) (2022-05-18)
+
+
+### Features
+
+* **configs:** update to use one port ([#80](https://github.com/alexfalkowski/docker/issues/80)) ([e62e046](https://github.com/alexfalkowski/docker/commit/e62e046d314b062c427f1687e9c3849a72ac0d05))
+
 ### [1.36.3](https://github.com/alexfalkowski/docker/compare/v1.36.2...v1.36.3) (2022-05-13)
 
 ### [1.36.2](https://github.com/alexfalkowski/docker/compare/v1.36.1...v1.36.2) (2022-05-13)
