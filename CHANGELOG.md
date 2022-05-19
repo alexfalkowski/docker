@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.38.0](https://github.com/alexfalkowski/docker/compare/v1.37.0...v1.38.0) (2022-05-19)
+
+
+### Features
+
+* **configs:** add runtime ([#81](https://github.com/alexfalkowski/docker/issues/81)) ([134a910](https://github.com/alexfalkowski/docker/commit/134a91073f9b5ddb9bc5ca2d2509bd4590c35170))
+
 ## [1.37.0](https://github.com/alexfalkowski/docker/compare/v1.36.3...v1.37.0) (2022-05-18)
 
 
