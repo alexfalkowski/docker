@@ -1,4 +1,4 @@
-FROM cimg/ruby:3.0.3
+FROM cimg/ruby:3.1.2
 
 USER root
 
