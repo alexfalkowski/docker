@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-buster
+FROM openjdk:18-jdk-buster
 
 USER root
 WORKDIR /tmp
