@@ -1,38 +1,38 @@
 version: 2
 updates:
   - package-ecosystem: "docker"
-    directory: "/diagram/Dockerfile"
+    directory: "/diagram"
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/go/Dockerfile"
+    directory: "/go"
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/hbase/Dockerfile"
+    directory: "/hbase"
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/java/Dockerfile"
+    directory: "/java"
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/k8s/Dockerfile"
+    directory: "/k8s"
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/kotlin/Dockerfile"
+    directory: "/kotlin"
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/release/Dockerfile"
+    directory: "/release"
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/ruby/Dockerfile"
+    directory: "/ruby"
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/scala/Dockerfile"
+    directory: "/scala"
     schedule:
       interval: "daily"
