@@ -1,4 +1,4 @@
-FROM cimg/node:17.6.0
+FROM cimg/node:18.2.0
 
 USER root
 
