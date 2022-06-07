@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.41.0](https://github.com/alexfalkowski/docker/compare/v1.40.0...v1.41.0) (2022-06-07)
+
+
+### Features
+
+* **c:** add clang-format ([#97](https://github.com/alexfalkowski/docker/issues/97)) ([c521675](https://github.com/alexfalkowski/docker/commit/c521675e3dd5cd56ec14f5d4e2cd4c788b4786a5))
+
 ## [1.40.0](https://github.com/alexfalkowski/docker/compare/v1.39.11...v1.40.0) (2022-06-06)
 
 
