@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.42.0](https://github.com/alexfalkowski/docker/compare/v1.41.1...v1.42.0) (2022-06-08)
+
+
+### Features
+
+* **clang:** add xmake ([#99](https://github.com/alexfalkowski/docker/issues/99)) ([8816acc](https://github.com/alexfalkowski/docker/commit/8816acca6e560843a01768faf40ce075f357eda8))
+
 ### [1.41.1](https://github.com/alexfalkowski/docker/compare/v1.41.0...v1.41.1) (2022-06-07)
 
 ## [1.41.0](https://github.com/alexfalkowski/docker/compare/v1.40.0...v1.41.0) (2022-06-07)
