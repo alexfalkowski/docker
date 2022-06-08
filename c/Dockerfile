@@ -44,12 +44,12 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install homebrew
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-RUN ls -la /home/linuxbrew/.linuxbrew
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ENV PATH "/home/linuxbrew/.linuxbrew/bin:$PATH"
-
-# Add support for Brewfile
 RUN brew bundle --help
+
+# Install xmake
+RUN bash -c "$(curl -fsSL https://xmake.io/shget.text)"
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
