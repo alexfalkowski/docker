@@ -16,11 +16,11 @@ pull:
 
 # Start dependencies.
 start:
-	docker-compose up -d --remove-orphans
+	docker compose up -d --remove-orphans
 
 # Stop dependencies.
 stop:
-	docker-compose down --remove-orphans
+	docker compose down --remove-orphans
 
 # Logs from a service.
 logs:
