@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.44.0](https://github.com/alexfalkowski/docker/compare/v1.43.0...v1.44.0) (2022-06-14)
+
+
+### Features
+
+* add ssm ([#102](https://github.com/alexfalkowski/docker/issues/102)) ([70d2a3a](https://github.com/alexfalkowski/docker/commit/70d2a3a7366d76c5f1fb1781ae0fd7188f6efcd2))
+
 ## [1.43.0](https://github.com/alexfalkowski/docker/compare/v1.42.1...v1.43.0) (2022-06-14)
 
 
