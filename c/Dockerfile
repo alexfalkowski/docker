@@ -47,6 +47,7 @@ WORKDIR /home/circleci/
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ENV PATH "/home/linuxbrew/.linuxbrew/bin:$PATH"
 RUN brew bundle --help
+ENV LIBRARY_PATH "$LIBRARY_PATH:$(brew --prefix)/lib"
 
 # Install xmake
 RUN bash -c "$(curl -fsSL https://xmake.io/shget.text)"
