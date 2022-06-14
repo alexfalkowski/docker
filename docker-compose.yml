@@ -87,8 +87,9 @@ services:
     ports:
       - "127.0.0.1:4566:4566"
       - "127.0.0.1:4571:4571"
+      - "127.0.0.1:4583:4583"
     environment:
-      - SERVICES=s3,sqs
+      - SERVICES=s3,sqs,ssm
       - HOST_TMP_FOLDER=${TMPDIR:-/tmp/}localstack
       - DOCKER_HOST=unix:///var/run/docker.sock
     volumes:
