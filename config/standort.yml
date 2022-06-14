@@ -3,10 +3,10 @@ health:
   timeout: 1s
 location:
   ip:
-    type: ip2location
+    kind: ip2location
 trace:
   opentracing:
-    type: jaeger
+    kind: jaeger
     host: jaegertracing:6831
 runtime: container
 transport:

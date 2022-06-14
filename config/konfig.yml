@@ -5,13 +5,13 @@ runtime: container
 server:
   v1:
     source:
-      type: git
+      kind: git
       git:
         url: https://github.com/alexfalkowski/app-config
         dir: /tmp/app-config
 trace:
   opentracing:
-    type: jaeger
+    kind: jaeger
     host: jaegertracing:6831
 transport:
   port: 8080
