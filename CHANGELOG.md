@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.43.0](https://github.com/alexfalkowski/docker/compare/v1.42.1...v1.43.0) (2022-06-14)
+
+
+### Features
+
+* **c:** add library path ([#101](https://github.com/alexfalkowski/docker/issues/101)) ([2f83921](https://github.com/alexfalkowski/docker/commit/2f8392131fbaa942d114a5aaed2cb4ac1426994d))
+
 ### [1.42.1](https://github.com/alexfalkowski/docker/compare/v1.42.0...v1.42.1) (2022-06-13)
 
 ## [1.42.0](https://github.com/alexfalkowski/docker/compare/v1.41.1...v1.42.0) (2022-06-08)
