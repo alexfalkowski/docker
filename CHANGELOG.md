@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.45.0](https://github.com/alexfalkowski/docker/compare/v1.44.1...v1.45.0) (2022-06-15)
+
+
+### Features
+
+* **config:** update to latest ([#104](https://github.com/alexfalkowski/docker/issues/104)) ([c8690af](https://github.com/alexfalkowski/docker/commit/c8690af64f41c7e6929d9e7870d3129b2f8e2f12))
+
 ### [1.44.1](https://github.com/alexfalkowski/docker/compare/v1.44.0...v1.44.1) (2022-06-14)
 
 ## [1.44.0](https://github.com/alexfalkowski/docker/compare/v1.43.0...v1.44.0) (2022-06-14)
