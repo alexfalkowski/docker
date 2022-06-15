@@ -83,7 +83,6 @@ services:
 
   localstack:
     image: localstack/localstack
-    network_mode: bridge
     ports:
       - "4566:4566"
     environment:

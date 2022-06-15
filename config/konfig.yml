@@ -4,6 +4,12 @@ health:
 runtime: container
 server:
   v1:
+    provider:
+      ssm:
+        access: access
+        secret: secret
+        region: eu-west-1
+        url: http://localstack:4566
     source:
       kind: git
       git:
