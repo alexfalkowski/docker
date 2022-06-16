@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.46.0](https://github.com/alexfalkowski/docker/compare/v1.45.2...v1.46.0) (2022-06-16)
+
+
+### Features
+
+* remove java languages ([#109](https://github.com/alexfalkowski/docker/issues/109)) ([f8b6112](https://github.com/alexfalkowski/docker/commit/f8b6112b97244d850ef26cf70f9b98d066c5ebff))
+
 ### [1.45.2](https://github.com/alexfalkowski/docker/compare/v1.45.1...v1.45.2) (2022-06-16)
 
 ### [1.45.1](https://github.com/alexfalkowski/docker/compare/v1.45.0...v1.45.1) (2022-06-16)
