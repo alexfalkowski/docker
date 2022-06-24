@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.48.0](https://github.com/alexfalkowski/docker/compare/v1.47.1...v1.48.0) (2022-06-24)
+
+
+### Features
+
+* **konfig:** needs to depend on localstack ([#112](https://github.com/alexfalkowski/docker/issues/112)) ([0ed45a3](https://github.com/alexfalkowski/docker/commit/0ed45a33dcf98d85843fd2c0723c26b6cbf98661))
+
 ### [1.47.1](https://github.com/alexfalkowski/docker/compare/v1.47.0...v1.47.1) (2022-06-17)
 
 ## [1.47.0](https://github.com/alexfalkowski/docker/compare/v1.46.0...v1.47.0) (2022-06-16)
