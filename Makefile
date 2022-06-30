@@ -26,6 +26,10 @@ stop:
 logs:
 	docker compose logs -f $(service)
 
+# Clean all unused docker images.
+clean:
+	docker image prune -a -f
+
 # Verify the services.
 verify:
 	scripts/verify
