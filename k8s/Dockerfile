@@ -58,7 +58,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install deps
-RUN go install sigs.k8s.io/kind@v0.13.0 && \
+RUN go install sigs.k8s.io/kind@v0.14.0 && \
     go install github.com/controlplaneio/kubesec/v2@v2.11.4 && \
     pip3 install --no-cache-dir -U yamale==4.0.3 --user
 
