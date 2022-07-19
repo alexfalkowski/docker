@@ -25,7 +25,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.10.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.4.0/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.6.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
@@ -35,7 +35,7 @@ RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux6
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.25.1/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.26.1/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
@@ -43,7 +43,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint.
-RUN curl -sSL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.46.2
+RUN curl -sSL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v1.47.1
 
 # Install gosec.
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.12.0

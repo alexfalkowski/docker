@@ -40,14 +40,14 @@ RUN curl -sSOL https://storage.googleapis.com/minikube/releases/latest/minikube-
   chmod +x minikube
 
 # Install helm chart-testing
-RUN curl -sSOL https://github.com/helm/chart-testing/releases/download/v3.5.1/chart-testing_3.5.1_linux_amd64.tar.gz \
-    && tar -C . -xzvf chart-testing_3.5.1_linux_amd64.tar.gz \
-    && rm chart-testing_3.5.1_linux_amd64.tar.gz
+RUN curl -sSOL https://github.com/helm/chart-testing/releases/download/v3.6.0/chart-testing_3.6.0_linux_amd64.tar.gz \
+    && tar -C . -xzvf chart-testing_3.6.0_linux_amd64.tar.gz \
+    && rm chart-testing_3.6.0_linux_amd64.tar.gz
 
 # Install kubeaudit
-RUN curl -sSOL https://github.com/Shopify/kubeaudit/releases/download/0.16.0/kubeaudit_0.16.0_linux_amd64.tar.gz \
-    && tar -C . -xzvf kubeaudit_0.16.0_linux_amd64.tar.gz \
-    && rm kubeaudit_0.16.0_linux_amd64.tar.gz
+RUN curl -sSOL https://github.com/Shopify/kubeaudit/releases/download/v0.19.0/kubeaudit_0.19.0_linux_amd64.tar.gz \
+    && tar -C . -xzvf kubeaudit_0.19.0_linux_amd64.tar.gz \
+    && rm kubeaudit_0.19.0_linux_amd64.tar.gz
 
 # Add helm chart-testing files
 RUN mkdir -p /usr/local/etc/ct
@@ -58,7 +58,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install deps
-RUN go install sigs.k8s.io/kind@v0.13.0 && \
+RUN go install sigs.k8s.io/kind@v0.14.0 && \
     go install github.com/controlplaneio/kubesec/v2@v2.11.4 && \
     pip3 install --no-cache-dir -U yamale==4.0.3 --user
 
