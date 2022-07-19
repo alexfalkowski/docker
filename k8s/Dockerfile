@@ -45,9 +45,9 @@ RUN curl -sSOL https://github.com/helm/chart-testing/releases/download/v3.6.0/ch
     && rm chart-testing_3.6.0_linux_amd64.tar.gz
 
 # Install kubeaudit
-RUN curl -sSOL https://github.com/Shopify/kubeaudit/releases/download/0.16.0/kubeaudit_0.16.0_linux_amd64.tar.gz \
-    && tar -C . -xzvf kubeaudit_0.16.0_linux_amd64.tar.gz \
-    && rm kubeaudit_0.16.0_linux_amd64.tar.gz
+RUN curl -sSOL https://github.com/Shopify/kubeaudit/releases/download/v0.19.0/kubeaudit_0.19.0_linux_amd64.tar.gz \
+    && tar -C . -xzvf kubeaudit_0.19.0_linux_amd64.tar.gz \
+    && rm kubeaudit_0.19.0_linux_amd64.tar.gz
 
 # Add helm chart-testing files
 RUN mkdir -p /usr/local/etc/ct
