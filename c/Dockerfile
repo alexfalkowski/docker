@@ -40,6 +40,10 @@ RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.26.1/yq_linux
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
+# Install codecov.
+RUN curl -Os https://uploader.codecov.io/latest/linux/codecov && \
+  chmod +x codecov
+
 USER circleci
 WORKDIR /home/circleci/
 
