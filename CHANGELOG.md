@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.49.0](https://github.com/alexfalkowski/docker/compare/v1.48.11...v1.49.0) (2022-08-03)
+
+
+### Features
+
+* **go:** update go to v1.19 ([#125](https://github.com/alexfalkowski/docker/issues/125)) ([9b0fe23](https://github.com/alexfalkowski/docker/commit/9b0fe23ccb45e266813db85c487bdbe8b040899e))
+
 ### [1.48.11](https://github.com/alexfalkowski/docker/compare/v1.48.10...v1.48.11) (2022-08-03)
 
 ### [1.48.10](https://github.com/alexfalkowski/docker/compare/v1.48.9...v1.48.10) (2022-08-03)
