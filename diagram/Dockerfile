@@ -1,4 +1,4 @@
-FROM cimg/openjdk:18.0.1
+FROM cimg/openjdk:18.0.2
 
 USER root
 
