@@ -46,7 +46,7 @@ WORKDIR /home/circleci/
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.48.0
 
 # Install gosec.
-RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.12.0
+RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.13.1
 
 # Install go deps.
 RUN go install github.com/psampaz/go-mod-outdated@latest && \
