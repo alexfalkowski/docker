@@ -29,4 +29,4 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install diagrams
-RUN pip3 install --no-cache-dir -U diagrams==0.21.1 --user
+RUN pip3 install --no-cache-dir -U diagrams==0.22.0 --user
