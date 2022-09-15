@@ -18,7 +18,7 @@ RUN git lfs install
 WORKDIR /usr/local/bin
 
 # Install structurizr
-RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.19.0/structurizr-cli-1.19.0.zip && \
+RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.20.1/structurizr-cli-1.20.1.zip && \
 	unzip -o structurizr-cli.zip && \
 	rm -f structurizr-cli.zip
 
