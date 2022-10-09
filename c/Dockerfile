@@ -4,10 +4,10 @@ USER root
 
 # Install deps
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
-    apt-get update && apt-get install --no-install-recommends -y \
-    clang-format \
-    git-lfs \
-    && rm -rf /var/lib/apt/lists/*
+  apt-get update && apt-get install --no-install-recommends -y \
+  clang-format \
+  git-lfs \
+  && rm -rf /var/lib/apt/lists/*
 
 # Install lfs
 RUN git lfs install
@@ -17,8 +17,8 @@ WORKDIR /usr/local/bin
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
 RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+  && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Install hadolint.
 RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 && \
@@ -36,7 +36,7 @@ RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux6
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.27.5/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.28.1/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
