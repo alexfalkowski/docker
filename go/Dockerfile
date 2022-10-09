@@ -4,9 +4,9 @@ USER root
 
 # Install deps
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
-    apt-get update && apt-get install --no-install-recommends -y \
-    git-lfs \
-    && rm -rf /var/lib/apt/lists/*
+  apt-get update && apt-get install --no-install-recommends -y \
+  git-lfs \
+  && rm -rf /var/lib/apt/lists/*
 
 # Install lfs
 RUN git lfs install
@@ -16,8 +16,8 @@ WORKDIR /usr/local/bin
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
 RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+  && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # Install hadolint.
 RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64 && \
@@ -43,15 +43,15 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.49.0
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.0
 
 # Install gosec.
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.13.1
 
 # Install go deps.
 RUN go install github.com/psampaz/go-mod-outdated@latest && \
-    go install github.com/mattn/goveralls@latest && \
-    go install github.com/alexfalkowski/gocovmerge@latest
+  go install github.com/mattn/goveralls@latest && \
+  go install github.com/alexfalkowski/gocovmerge@latest
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
