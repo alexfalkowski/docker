@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.51.0](https://github.com/alexfalkowski/docker/compare/v1.50.8...v1.51.0) (2022-10-09)
+
+
+### Features
+
+* **clang:** remove as we do not use it ([#141](https://github.com/alexfalkowski/docker/issues/141)) ([d454515](https://github.com/alexfalkowski/docker/commit/d4545151bee97620b980895966ab0c5ae0426450))
+
 ### [1.50.8](https://github.com/alexfalkowski/docker/compare/v1.50.7...v1.50.8) (2022-10-06)
 
 ### [1.50.7](https://github.com/alexfalkowski/docker/compare/v1.50.6...v1.50.7) (2022-10-06)
