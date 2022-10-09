@@ -1,0 +1,33 @@
+mapper:
+  identifiers:
+    req1: resp1
+    req2: resp2
+generator:
+  applications:
+    - name: uuid
+      kind: uuid
+    - name: ksuid
+      kind: ksuid
+    - name: ulid
+      kind: ulid
+    - name: snowflake
+      kind: snowflake
+health:
+  duration: 1s
+  timeout: 1s
+trace:
+  opentracing:
+    kind: jaeger
+    host: jaegertracing:6831
+transport:
+  port: 8080
+  http:
+    user_agent: "Bezeichner-server/1.0 http/1.0"
+    retry:
+      timeout: 2s
+      attempts: 3
+  grpc:
+    user_agent: "Bezeichner-server/1.0 grpc/1.0"
+    retry:
+      timeout: 2s
+      attempts: 3

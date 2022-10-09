@@ -1,6 +1,17 @@
 version: "3.9"
 
 services:
+  bezeichner:
+    image: alexfalkowski/bezeichner
+    command: server
+    restart: always
+    environment:
+      CONFIG_FILE: /config/bezeichner.yml
+    ports:
+      - "2000:8080"
+    volumes:
+      - "${PWD}/config:/config"
+
   standort:
     image: alexfalkowski/standort
     command: server
