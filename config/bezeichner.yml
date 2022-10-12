@@ -10,6 +10,8 @@ generator:
       kind: ksuid
     - name: ulid
       kind: ulid
+    - name: xid
+      kind: xid
     - name: snowflake
       kind: snowflake
 health:
