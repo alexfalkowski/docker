@@ -12,3 +12,4 @@ curl -sf http://localhost:4000/v1/config/test/v1.8.0/staging/eu/de/server | grep
 # Verify bezeichner works.
 curl -sf http://localhost:2000/v1/generate/snowflake/2 | grep 'ids'
 curl -sf http://localhost:2000/v1/generate/ulid/2 | grep 'ids'
+curl -sf http://localhost:2000/v1/generate/xid/2 | grep 'ids'
