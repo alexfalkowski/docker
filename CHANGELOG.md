@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.52.0](https://github.com/alexfalkowski/docker/compare/v1.51.1...v1.52.0) (2022-10-13)
+
+
+### Features
+
+* **redpanda:** add to docker compose ([#143](https://github.com/alexfalkowski/docker/issues/143)) ([2706234](https://github.com/alexfalkowski/docker/commit/27062345cc2815a1a97b143a0c063fd62584b1f7))
+
 ### [1.51.1](https://github.com/alexfalkowski/docker/compare/v1.51.0...v1.51.1) (2022-10-12)
 
 ## [1.51.0](https://github.com/alexfalkowski/docker/compare/v1.50.8...v1.51.0) (2022-10-09)
