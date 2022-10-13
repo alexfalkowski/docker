@@ -16,7 +16,7 @@ pull:
 
 # Start dependencies.
 start:
-	docker compose up -d --remove-orphans
+	docker compose up -d --remove-orphans $(service)
 
 # Stop dependencies.
 stop:
