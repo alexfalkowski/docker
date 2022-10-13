@@ -42,12 +42,14 @@ services:
 
   jaegertracing:
     image: jaegertracing/all-in-one
+    restart: always
     ports:
       - "16686:16686"
       - "6831:6831/udp"
 
   postgres:
     image: postgres
+    restart: always
     environment:
       POSTGRES_USER: test
       POSTGRES_PASSWORD: test
@@ -61,6 +63,7 @@ services:
 
   datadog:
     image: datadog/agent
+    restart: always
     environment:
       - DD_API_KEY=${DD_API_KEY}
       - DD_SITE=datadoghq.eu
@@ -75,6 +78,7 @@ services:
   nsqlookupd:
     image: nsqio/nsq
     command: /nsqlookupd -broadcast-address=localhost
+    restart: always
     ports:
       - "4160:4160"
       - "4161:4161"
@@ -82,6 +86,7 @@ services:
   nsqd:
     image: nsqio/nsq
     command: /nsqd -broadcast-address=localhost --lookupd-tcp-address=nsqlookupd:4160
+    restart: always
     depends_on:
       - nsqlookupd
     ports:
@@ -95,6 +100,7 @@ services:
 
   localstack:
     image: localstack/localstack
+    restart: always
     ports:
       - "4566:4566"
     environment:
@@ -102,6 +108,7 @@ services:
 
   vault:
     image: vault
+    restart: always
     ports:
       - "8200:8200"
     environment:
@@ -111,6 +118,7 @@ services:
 
   prometheus:
     image: prom/prometheus
+    restart: always
     ports:
       - 9000:9090
     volumes:
@@ -120,7 +128,36 @@ services:
 
   grafana:
     image: grafana/grafana-oss
+    restart: always
     ports:
       - 10000:3000
     depends_on:
       - prometheus
+
+  redpanda:
+    image: docker.redpanda.com/vectorized/redpanda:latest
+    command:
+      - redpanda
+      - start
+      - --smp
+      - '1'
+      - --reserve-memory
+      - 0M
+      - --overprovisioned
+      - --node-id
+      - '0'
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr
+      - PLAINTEXT://redpanda:29092,OUTSIDE://localhost:9092
+      - --pandaproxy-addr
+      - PLAINTEXT://0.0.0.0:28082,OUTSIDE://0.0.0.0:8082
+      - --advertise-pandaproxy-addr
+      - PLAINTEXT://redpanda:28082,OUTSIDE://localhost:8082
+    restart: always
+    ports:
+      - 8081:8081
+      - 8082:8082
+      - 9092:9092
+      - 28082:28082
+      - 29092:29092
