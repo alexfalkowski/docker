@@ -12,6 +12,8 @@ generator:
       kind: ulid
     - name: xid
       kind: xid
+    - name: nanoid
+      kind: nanoid
     - name: snowflake
       kind: snowflake
 health:
