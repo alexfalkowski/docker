@@ -35,7 +35,7 @@ RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux6
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.28.1/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.28.2/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
@@ -43,10 +43,10 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.0
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
 
 # Install gosec.
-RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.13.1
+RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.14.0
 
 # Install go deps.
 RUN go install github.com/psampaz/go-mod-outdated@latest && \
