@@ -41,7 +41,7 @@ services:
       - localstack
 
   redpanda:
-    image: alexfalkowski/redpanda
+    image: vectorized/redpanda:v22.1.9
     command: server
     restart: always
     ports:
