@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.53.0](https://github.com/alexfalkowski/docker/compare/v1.52.2...v1.53.0) (2022-10-26)
+
+
+### Features
+
+* **redpanda:** add our own image ([#148](https://github.com/alexfalkowski/docker/issues/148)) ([df96e68](https://github.com/alexfalkowski/docker/commit/df96e681b364979099a542746799b6846407321f))
+
 ### [1.52.2](https://github.com/alexfalkowski/docker/compare/v1.52.1...v1.52.2) (2022-10-23)
 
 ### [1.52.1](https://github.com/alexfalkowski/docker/compare/v1.52.0...v1.52.1) (2022-10-14)
