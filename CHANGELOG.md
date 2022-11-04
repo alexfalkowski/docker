@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.53.6](https://github.com/alexfalkowski/docker/compare/v1.53.5...v1.53.6) (2022-11-04)
+
+
+### Bug Fixes
+
+* **redpanda:** use provided image ([#155](https://github.com/alexfalkowski/docker/issues/155)) ([bb5409f](https://github.com/alexfalkowski/docker/commit/bb5409f5a2f9a1c6b1a929b658248f07c4b7e969))
+
 ### [1.53.5](https://github.com/alexfalkowski/docker/compare/v1.53.4...v1.53.5) (2022-11-03)
 
 ### [1.53.4](https://github.com/alexfalkowski/docker/compare/v1.53.3...v1.53.4) (2022-11-03)
