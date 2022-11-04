@@ -41,8 +41,7 @@ services:
       - localstack
 
   redpanda:
-    image: alexfalkowski/redpanda:1.0
-    command: server
+    image: vectorized/redpanda:latest
     restart: always
     ports:
       - "8081:8081"
