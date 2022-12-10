@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.54.0](https://github.com/alexfalkowski/docker/compare/v1.53.9...v1.54.0) (2022-12-10)
+
+
+### Features
+
+* remove k8s as can't be used in circleci ([#161](https://github.com/alexfalkowski/docker/issues/161)) ([ab24a30](https://github.com/alexfalkowski/docker/commit/ab24a30188daf0029ddbc3c75d143f2edb63db8b))
+
 ### [1.53.9](https://github.com/alexfalkowski/docker/compare/v1.53.8...v1.53.9) (2022-12-07)
 
 ### [1.53.8](https://github.com/alexfalkowski/docker/compare/v1.53.7...v1.53.8) (2022-12-07)
