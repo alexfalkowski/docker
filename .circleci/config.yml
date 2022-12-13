@@ -38,6 +38,7 @@ jobs:
     steps:
       - checkout
       - run: release
+    resource_class: large
 
 workflows:
   docker:

@@ -1,16 +1,6 @@
 FROM cimg/go:1.19.4
 
 USER root
-
-# Install deps
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
-  apt-get update && apt-get install --no-install-recommends -y \
-  git-lfs \
-  && rm -rf /var/lib/apt/lists/*
-
-# Install lfs
-RUN git lfs install
-
 WORKDIR /usr/local/bin
 
 # Install dockerize.
