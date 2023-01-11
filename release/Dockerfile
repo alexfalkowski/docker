@@ -9,6 +9,8 @@ RUN curl -sSOL https://raw.githubusercontent.com/gembaadvantage/uplift/main/scri
 COPY release /usr/local/bin/
 RUN chmod +x /usr/local/bin/release
 
+COPY .uplift.yml /etc/uplift
+
 USER circleci
 
 # Setup git
