@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.56.2](https://github.com/alexfalkowski/docker/compare/v1.56.1...v1.56.2) (2023-01-11)
+
+
+### Bug Fixes
+
+* **ruby:** move back to v3.1.3 until we work out issues ([#170](https://github.com/alexfalkowski/docker/issues/170)) ([2b4ca94](https://github.com/alexfalkowski/docker/commit/2b4ca944dae575943b957ce3bf90049cf421c7b6))
+
 ### [1.56.1](https://github.com/alexfalkowski/docker/compare/v1.56.0...v1.56.1) (2023-01-11)
 
 
