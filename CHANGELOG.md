@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.56.1](https://github.com/alexfalkowski/docker/compare/v1.56.0...v1.56.1) (2023-01-11)
+
+
+### Bug Fixes
+
+* **ci:** remove k8s from deps ([#169](https://github.com/alexfalkowski/docker/issues/169)) ([00ec53c](https://github.com/alexfalkowski/docker/commit/00ec53c76e46fc4f8cc2ffd5aa766faebc61404d))
+
 ## [1.56.0](https://github.com/alexfalkowski/docker/compare/v1.55.3...v1.56.0) (2023-01-11)
 
 
