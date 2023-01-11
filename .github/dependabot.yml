@@ -9,10 +9,6 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    directory: "/k8s"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "docker"
     directory: "/release"
     schedule:
       interval: "daily"
