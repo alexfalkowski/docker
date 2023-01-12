@@ -1,1 +1,5 @@
 commitMessage: "chore(release): $VERSION [ci skip]"
+
+changelog:
+  exclude:
+    - ^chore
