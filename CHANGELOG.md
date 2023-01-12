@@ -1,648 +1,590 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file.
 
-### [1.56.2](https://github.com/alexfalkowski/docker/compare/v1.56.1...v1.56.2) (2023-01-11)
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
 
-### Bug Fixes
+## [v1.56.2](https://github.com/alexfalkowski/docker/releases/tag/v1.56.2) - 2023-01-11
 
-* **ruby:** move back to v3.1.3 until we work out issues ([#170](https://github.com/alexfalkowski/docker/issues/170)) ([2b4ca94](https://github.com/alexfalkowski/docker/commit/2b4ca944dae575943b957ce3bf90049cf421c7b6))
+- [`2b4ca94`](https://github.com/alexfalkowski/docker/commit/2b4ca944dae575943b957ce3bf90049cf421c7b6) fix(ruby): move back to v3.1.3 until we work out issues (#170)
 
-### [1.56.1](https://github.com/alexfalkowski/docker/compare/v1.56.0...v1.56.1) (2023-01-11)
+## [v1.56.1](https://github.com/alexfalkowski/docker/releases/tag/v1.56.1) - 2023-01-11
 
+- [`00ec53c`](https://github.com/alexfalkowski/docker/commit/00ec53c76e46fc4f8cc2ffd5aa766faebc61404d) fix(ci): remove k8s from deps (#169)
 
-### Bug Fixes
+## [v1.56.0](https://github.com/alexfalkowski/docker/releases/tag/v1.56.0) - 2023-01-11
 
-* **ci:** remove k8s from deps ([#169](https://github.com/alexfalkowski/docker/issues/169)) ([00ec53c](https://github.com/alexfalkowski/docker/commit/00ec53c76e46fc4f8cc2ffd5aa766faebc61404d))
+- [`dc6c4f3`](https://github.com/alexfalkowski/docker/commit/dc6c4f39dbb423c5b67389de776f0953a1b7e1e4) feat(ruby): update to v3.2.0 (#168)
 
-## [1.56.0](https://github.com/alexfalkowski/docker/compare/v1.55.3...v1.56.0) (2023-01-11)
+## [v1.55.3](https://github.com/alexfalkowski/docker/releases/tag/v1.55.3) - 2023-01-07
 
+- [`b400c19`](https://github.com/alexfalkowski/docker/commit/b400c193ef539050043dfe0b922b9d21f67535dc) fix: verification for latest konfig (#167)
 
-### Features
+## [v1.55.2](https://github.com/alexfalkowski/docker/releases/tag/v1.55.2) - 2022-12-26
 
-* **ruby:** update to v3.2.0 ([#168](https://github.com/alexfalkowski/docker/issues/168)) ([dc6c4f3](https://github.com/alexfalkowski/docker/commit/dc6c4f39dbb423c5b67389de776f0953a1b7e1e4))
+- [`b984e23`](https://github.com/alexfalkowski/docker/commit/b984e23992c9c9da29c18da7b6745df1b4798c59) build(deps): update all (#165)
 
-### [1.55.3](https://github.com/alexfalkowski/docker/compare/v1.55.2...v1.55.3) (2023-01-07)
+## [v1.55.1](https://github.com/alexfalkowski/docker/releases/tag/v1.55.1) - 2022-12-21
 
+- [`9859c73`](https://github.com/alexfalkowski/docker/commit/9859c73fd523fd3078d7f0cc247afe684a8690cb) build(deps): bump cimg/node from 19.2.0 to 19.3.0 in /release (#164)
 
-### Bug Fixes
+## [v1.55.0](https://github.com/alexfalkowski/docker/releases/tag/v1.55.0) - 2022-12-13
 
-* verification for latest konfig ([#167](https://github.com/alexfalkowski/docker/issues/167)) ([b400c19](https://github.com/alexfalkowski/docker/commit/b400c193ef539050043dfe0b922b9d21f67535dc))
+- [`c582614`](https://github.com/alexfalkowski/docker/commit/c582614af934039b040ebb9eba7d6fc3846bbf96) feat(release): update node to v19.2.0 (#163)
 
-### [1.55.2](https://github.com/alexfalkowski/docker/compare/v1.55.1...v1.55.2) (2022-12-26)
+## [v1.54.0](https://github.com/alexfalkowski/docker/releases/tag/v1.54.0) - 2022-12-10
 
-### [1.55.1](https://github.com/alexfalkowski/docker/compare/v1.55.0...v1.55.1) (2022-12-21)
+- [`ab24a30`](https://github.com/alexfalkowski/docker/commit/ab24a30188daf0029ddbc3c75d143f2edb63db8b) feat: remove k8s as cant be used in circleci (#161)
 
-## [1.55.0](https://github.com/alexfalkowski/docker/compare/v1.54.0...v1.55.0) (2022-12-13)
+## [v1.53.9](https://github.com/alexfalkowski/docker/releases/tag/v1.53.9) - 2022-12-07
 
+- [`0a10dae`](https://github.com/alexfalkowski/docker/commit/0a10dae5e472806b3fbae9d71bba6e7ec2b9a5ae) build(deps): bump cimg/go from 1.19.3 to 1.19.4 in /k8s (#160)
 
-### Features
+## [v1.53.8](https://github.com/alexfalkowski/docker/releases/tag/v1.53.8) - 2022-12-07
 
-* **release:** update node to v19.2.0 ([#163](https://github.com/alexfalkowski/docker/issues/163)) ([c582614](https://github.com/alexfalkowski/docker/commit/c582614af934039b040ebb9eba7d6fc3846bbf96))
+- [`cc03a41`](https://github.com/alexfalkowski/docker/commit/cc03a41b6fe13e25b1c13bf590dcda828cb7943e) build(deps): bump cimg/go from 1.19.3 to 1.19.4 in /go (#159)
 
-## [1.54.0](https://github.com/alexfalkowski/docker/compare/v1.53.9...v1.54.0) (2022-12-10)
+## [v1.53.7](https://github.com/alexfalkowski/docker/releases/tag/v1.53.7) - 2022-11-29
 
+- [`80d5af0`](https://github.com/alexfalkowski/docker/commit/80d5af0f3da5feb4c7eb7d2a9e50a34a7fc60b74) build(deps): bump cimg/ruby from 3.1.2 to 3.1.3 in /ruby (#158)
 
-### Features
+## [v1.53.6](https://github.com/alexfalkowski/docker/releases/tag/v1.53.6) - 2022-11-04
 
-* remove k8s as can't be used in circleci ([#161](https://github.com/alexfalkowski/docker/issues/161)) ([ab24a30](https://github.com/alexfalkowski/docker/commit/ab24a30188daf0029ddbc3c75d143f2edb63db8b))
+- [`bb5409f`](https://github.com/alexfalkowski/docker/commit/bb5409f5a2f9a1c6b1a929b658248f07c4b7e969) fix(redpanda): use provided image (#155)
 
-### [1.53.9](https://github.com/alexfalkowski/docker/compare/v1.53.8...v1.53.9) (2022-12-07)
+## [v1.53.5](https://github.com/alexfalkowski/docker/releases/tag/v1.53.5) - 2022-11-03
 
-### [1.53.8](https://github.com/alexfalkowski/docker/compare/v1.53.7...v1.53.8) (2022-12-07)
+- [`0d0263d`](https://github.com/alexfalkowski/docker/commit/0d0263d46e8cd88a9613ca56da7752610d734ec5) build(deps): bump cimg/go from 1.19.2 to 1.19.3 in /k8s (#154)
 
-### [1.53.7](https://github.com/alexfalkowski/docker/compare/v1.53.6...v1.53.7) (2022-11-29)
+## [v1.53.4](https://github.com/alexfalkowski/docker/releases/tag/v1.53.4) - 2022-11-03
 
-### [1.53.6](https://github.com/alexfalkowski/docker/compare/v1.53.5...v1.53.6) (2022-11-04)
+- [`ce2983f`](https://github.com/alexfalkowski/docker/commit/ce2983f63324ffcbdb733c6f48c53abac7c2bb89) build(deps): bump cimg/go from 1.19.2 to 1.19.3 in /go (#153)
 
+## [v1.53.3](https://github.com/alexfalkowski/docker/releases/tag/v1.53.3) - 2022-10-28
 
-### Bug Fixes
+- [`2019b3f`](https://github.com/alexfalkowski/docker/commit/2019b3f860afb1778c2e9fddcf4cd9a06aa38df6) build(deps): bump cimg/openjdk from 18.0.2 to 19.0.1 in /diagram (#152)
 
-* **redpanda:** use provided image ([#155](https://github.com/alexfalkowski/docker/issues/155)) ([bb5409f](https://github.com/alexfalkowski/docker/commit/bb5409f5a2f9a1c6b1a929b658248f07c4b7e969))
+## [v1.53.2](https://github.com/alexfalkowski/docker/releases/tag/v1.53.2) - 2022-10-26
 
-### [1.53.5](https://github.com/alexfalkowski/docker/compare/v1.53.4...v1.53.5) (2022-11-03)
+- [`7b075af`](https://github.com/alexfalkowski/docker/commit/7b075af5a57045a40f0937e22658c62aeba6d181) fix(redpanda): remove (#151)
 
-### [1.53.4](https://github.com/alexfalkowski/docker/compare/v1.53.3...v1.53.4) (2022-11-03)
+## [v1.53.1](https://github.com/alexfalkowski/docker/releases/tag/v1.53.1) - 2022-10-26
 
-### [1.53.3](https://github.com/alexfalkowski/docker/compare/v1.53.2...v1.53.3) (2022-10-28)
+- [`9906437`](https://github.com/alexfalkowski/docker/commit/9906437ec2e68ccaae7875ef8b1902d9f507beed) fix(redpanda): version (#149)
 
-### [1.53.2](https://github.com/alexfalkowski/docker/compare/v1.53.1...v1.53.2) (2022-10-26)
+## [v1.53.0](https://github.com/alexfalkowski/docker/releases/tag/v1.53.0) - 2022-10-26
 
+- [`df96e68`](https://github.com/alexfalkowski/docker/commit/df96e681b364979099a542746799b6846407321f) feat(redpanda): add our own image (#148)
 
-### Bug Fixes
+## [v1.52.2](https://github.com/alexfalkowski/docker/releases/tag/v1.52.2) - 2022-10-23
 
-* **redpanda:** remove ([#151](https://github.com/alexfalkowski/docker/issues/151)) ([7b075af](https://github.com/alexfalkowski/docker/commit/7b075af5a57045a40f0937e22658c62aeba6d181))
+- [`73a1c33`](https://github.com/alexfalkowski/docker/commit/73a1c331337c9c493e27ef46f69b0ad30166d849) build(deps): update all (#146)
 
-### [1.53.1](https://github.com/alexfalkowski/docker/compare/v1.53.0...v1.53.1) (2022-10-26)
+## [v1.52.1](https://github.com/alexfalkowski/docker/releases/tag/v1.52.1) - 2022-10-14
 
+- [`5611e35`](https://github.com/alexfalkowski/docker/commit/5611e3518829aaba84a9b5b8d1568878e5189add) build(config): add nanoid (#144)
 
-### Bug Fixes
+## [v1.52.0](https://github.com/alexfalkowski/docker/releases/tag/v1.52.0) - 2022-10-13
 
-* **redpanda:** version ([#149](https://github.com/alexfalkowski/docker/issues/149)) ([9906437](https://github.com/alexfalkowski/docker/commit/9906437ec2e68ccaae7875ef8b1902d9f507beed))
+- [`2706234`](https://github.com/alexfalkowski/docker/commit/27062345cc2815a1a97b143a0c063fd62584b1f7) feat(redpanda): add to docker compose (#143)
 
-## [1.53.0](https://github.com/alexfalkowski/docker/compare/v1.52.2...v1.53.0) (2022-10-26)
+## [v1.51.1](https://github.com/alexfalkowski/docker/releases/tag/v1.51.1) - 2022-10-12
 
+- [`3cecbcf`](https://github.com/alexfalkowski/docker/commit/3cecbcf98af90a0c56abe8e74c7815655a594bf0) build(config): add xid (#142)
 
-### Features
+## [v1.51.0](https://github.com/alexfalkowski/docker/releases/tag/v1.51.0) - 2022-10-09
 
-* **redpanda:** add our own image ([#148](https://github.com/alexfalkowski/docker/issues/148)) ([df96e68](https://github.com/alexfalkowski/docker/commit/df96e681b364979099a542746799b6846407321f))
+- [`d454515`](https://github.com/alexfalkowski/docker/commit/d4545151bee97620b980895966ab0c5ae0426450) feat(clang): remove as we do not use it (#141)
 
-### [1.52.2](https://github.com/alexfalkowski/docker/compare/v1.52.1...v1.52.2) (2022-10-23)
+## [v1.50.8](https://github.com/alexfalkowski/docker/releases/tag/v1.50.8) - 2022-10-06
 
-### [1.52.1](https://github.com/alexfalkowski/docker/compare/v1.52.0...v1.52.1) (2022-10-14)
+- [`7be13eb`](https://github.com/alexfalkowski/docker/commit/7be13eb0fa9d6a5bff47d3925df251c9c3f0d87e) build(deps): bump cimg/go from 1.19.1 to 1.19.2 in /k8s (#139)
 
-## [1.52.0](https://github.com/alexfalkowski/docker/compare/v1.51.1...v1.52.0) (2022-10-13)
+## [v1.50.7](https://github.com/alexfalkowski/docker/releases/tag/v1.50.7) - 2022-10-06
 
+- [`18fe808`](https://github.com/alexfalkowski/docker/commit/18fe808412d03355d84eb2cfe4802be6dcfd56c8) build(deps): bump cimg/go from 1.19.1 to 1.19.2 in /go (#140)
 
-### Features
+## [v1.50.6](https://github.com/alexfalkowski/docker/releases/tag/v1.50.6) - 2022-09-16
 
-* **redpanda:** add to docker compose ([#143](https://github.com/alexfalkowski/docker/issues/143)) ([2706234](https://github.com/alexfalkowski/docker/commit/27062345cc2815a1a97b143a0c063fd62584b1f7))
+- [`828dbb6`](https://github.com/alexfalkowski/docker/commit/828dbb6eb07b5d7ac254c88a8e2f576a8a04e9b1) build(deps): update all (#135)
 
-### [1.51.1](https://github.com/alexfalkowski/docker/compare/v1.51.0...v1.51.1) (2022-10-12)
+## [v1.50.5](https://github.com/alexfalkowski/docker/releases/tag/v1.50.5) - 2022-09-08
 
-## [1.51.0](https://github.com/alexfalkowski/docker/compare/v1.50.8...v1.51.0) (2022-10-09)
+- [`f75b536`](https://github.com/alexfalkowski/docker/commit/f75b5361735b6890fe10f5c757b625a024122fee) build(deps): bump cimg/go from 1.19.0 to 1.19.1 in /k8s (#133)
 
+## [v1.50.4](https://github.com/alexfalkowski/docker/releases/tag/v1.50.4) - 2022-09-08
 
-### Features
+- [`014d26e`](https://github.com/alexfalkowski/docker/commit/014d26ea6f1ab509e3c18cebe2bc4876fad24a27) build(deps): bump cimg/go from 1.19.0 to 1.19.1 in /go (#134)
 
-* **clang:** remove as we do not use it ([#141](https://github.com/alexfalkowski/docker/issues/141)) ([d454515](https://github.com/alexfalkowski/docker/commit/d4545151bee97620b980895966ab0c5ae0426450))
+## [v1.50.3](https://github.com/alexfalkowski/docker/releases/tag/v1.50.3) - 2022-08-29
 
-### [1.50.8](https://github.com/alexfalkowski/docker/compare/v1.50.7...v1.50.8) (2022-10-06)
+- [`608bef5`](https://github.com/alexfalkowski/docker/commit/608bef5ab3e491d2e806a0c9034b36a06a778270) build(deps): bump cimg/node from 18.7.0 to 18.8.0 in /release (#132)
 
-### [1.50.7](https://github.com/alexfalkowski/docker/compare/v1.50.6...v1.50.7) (2022-10-06)
+## [v1.50.2](https://github.com/alexfalkowski/docker/releases/tag/v1.50.2) - 2022-08-21
 
-### [1.50.6](https://github.com/alexfalkowski/docker/compare/v1.50.5...v1.50.6) (2022-09-16)
+- [`ad926ef`](https://github.com/alexfalkowski/docker/commit/ad926eff184acb32d580d066cba70fe1c906b70a) build(deps): update gosec v2.13.1 (#131)
 
-### [1.50.5](https://github.com/alexfalkowski/docker/compare/v1.50.4...v1.50.5) (2022-09-08)
+## [v1.50.1](https://github.com/alexfalkowski/docker/releases/tag/v1.50.1) - 2022-08-10
 
-### [1.50.4](https://github.com/alexfalkowski/docker/compare/v1.50.3...v1.50.4) (2022-09-08)
+- [`18e8f96`](https://github.com/alexfalkowski/docker/commit/18e8f96534ad3f8289171d70521c1924bef75b62) build(deps): bump cimg/openjdk from 18.0.1 to 18.0.2 in /diagram (#130)
 
-### [1.50.3](https://github.com/alexfalkowski/docker/compare/v1.50.2...v1.50.3) (2022-08-29)
+## [v1.50.0](https://github.com/alexfalkowski/docker/releases/tag/v1.50.0) - 2022-08-07
 
-### [1.50.2](https://github.com/alexfalkowski/docker/compare/v1.50.1...v1.50.2) (2022-08-21)
+- [`2bbaa27`](https://github.com/alexfalkowski/docker/commit/2bbaa27a0093b9545844499552fd7dabda1c4f25) feat(ruby): update to v3.1.2 (#129)
 
-### [1.50.1](https://github.com/alexfalkowski/docker/compare/v1.50.0...v1.50.1) (2022-08-10)
+## [v1.49.3](https://github.com/alexfalkowski/docker/releases/tag/v1.49.3) - 2022-08-05
 
-## [1.50.0](https://github.com/alexfalkowski/docker/compare/v1.49.3...v1.50.0) (2022-08-07)
+- [`5c7b28c`](https://github.com/alexfalkowski/docker/commit/5c7b28cda5711ca1e30abee29afcacd9badae4cc) build(deps): update golangci-lint to v1.48.0 (#128)
 
+## [v1.49.2](https://github.com/alexfalkowski/docker/releases/tag/v1.49.2) - 2022-08-03
 
-### Features
+- [`4613cb8`](https://github.com/alexfalkowski/docker/commit/4613cb83b0a18f9de405091cd7f1ced01e40e8f6) build(deps): update golangci-lint to v1.47.3 (#127)
 
-* **ruby:** update to v3.1.2 ([#129](https://github.com/alexfalkowski/docker/issues/129)) ([2bbaa27](https://github.com/alexfalkowski/docker/commit/2bbaa27a0093b9545844499552fd7dabda1c4f25))
+## [v1.49.1](https://github.com/alexfalkowski/docker/releases/tag/v1.49.1) - 2022-08-03
 
-### [1.49.3](https://github.com/alexfalkowski/docker/compare/v1.49.2...v1.49.3) (2022-08-05)
+- [`6d44c89`](https://github.com/alexfalkowski/docker/commit/6d44c89e9265590671889203d5a38b4b9f3e75d5) build(deps): update golangci-lint to v1.47.3 (#126)
 
-### [1.49.2](https://github.com/alexfalkowski/docker/compare/v1.49.1...v1.49.2) (2022-08-03)
+## [v1.49.0](https://github.com/alexfalkowski/docker/releases/tag/v1.49.0) - 2022-08-03
 
-### [1.49.1](https://github.com/alexfalkowski/docker/compare/v1.49.0...v1.49.1) (2022-08-03)
+- [`9b0fe23`](https://github.com/alexfalkowski/docker/commit/9b0fe23ccb45e266813db85c487bdbe8b040899e) feat(go): update go to v1.19 (#125)
 
-## [1.49.0](https://github.com/alexfalkowski/docker/compare/v1.48.11...v1.49.0) (2022-08-03)
+## [v1.48.11](https://github.com/alexfalkowski/docker/releases/tag/v1.48.11) - 2022-08-03
 
+- [`f88241b`](https://github.com/alexfalkowski/docker/commit/f88241b5baf5b4471faa18678e3f0b1104454ea6) Revert "build(deps): bump cimg/go from 1.18.5 to 1.19.0 in /go (#122)" (#124)
 
-### Features
+## [v1.48.10](https://github.com/alexfalkowski/docker/releases/tag/v1.48.10) - 2022-08-03
 
-* **go:** update go to v1.19 ([#125](https://github.com/alexfalkowski/docker/issues/125)) ([9b0fe23](https://github.com/alexfalkowski/docker/commit/9b0fe23ccb45e266813db85c487bdbe8b040899e))
+- [`745f0be`](https://github.com/alexfalkowski/docker/commit/745f0be521100059d6dc05f884292222debf3510) build(deps): bump cimg/go from 1.18.5 to 1.19.0 in /k8s (#123)
 
-### [1.48.11](https://github.com/alexfalkowski/docker/compare/v1.48.10...v1.48.11) (2022-08-03)
+## [v1.48.9](https://github.com/alexfalkowski/docker/releases/tag/v1.48.9) - 2022-08-03
 
-### [1.48.10](https://github.com/alexfalkowski/docker/compare/v1.48.9...v1.48.10) (2022-08-03)
+- [`012c742`](https://github.com/alexfalkowski/docker/commit/012c742ab6cfaf2c2f93447ef56fb4cac9f04bf0) build(deps): bump cimg/go from 1.18.5 to 1.19.0 in /go (#122)
 
-### [1.48.9](https://github.com/alexfalkowski/docker/compare/v1.48.8...v1.48.9) (2022-08-03)
+## [v1.48.8](https://github.com/alexfalkowski/docker/releases/tag/v1.48.8) - 2022-08-02
 
-### [1.48.8](https://github.com/alexfalkowski/docker/compare/v1.48.7...v1.48.8) (2022-08-02)
+- [`7552c38`](https://github.com/alexfalkowski/docker/commit/7552c38ca5f2285ebfbd94cd9122d3664bdca1d9) build(deps): bump cimg/go from 1.18.4 to 1.18.5 in /go (#120)
 
-### [1.48.7](https://github.com/alexfalkowski/docker/compare/v1.48.6...v1.48.7) (2022-08-02)
+## [v1.48.7](https://github.com/alexfalkowski/docker/releases/tag/v1.48.7) - 2022-08-02
 
-### [1.48.6](https://github.com/alexfalkowski/docker/compare/v1.48.5...v1.48.6) (2022-07-31)
+- [`caff33b`](https://github.com/alexfalkowski/docker/commit/caff33b06b50578c9ac4d66f0f692016bb7eff41) build(deps): bump cimg/go from 1.18.4 to 1.18.5 in /k8s (#121)
 
-### [1.48.5](https://github.com/alexfalkowski/docker/compare/v1.48.4...v1.48.5) (2022-07-29)
+## [v1.48.6](https://github.com/alexfalkowski/docker/releases/tag/v1.48.6) - 2022-07-31
 
-### [1.48.4](https://github.com/alexfalkowski/docker/compare/v1.48.3...v1.48.4) (2022-07-19)
+- [`a0970fb`](https://github.com/alexfalkowski/docker/commit/a0970fb0d59dda35ebcce85e88285d9e4e384667) build(deps): update golangci-lint v1.47.2 (#119)
 
-### [1.48.3](https://github.com/alexfalkowski/docker/compare/v1.48.2...v1.48.3) (2022-07-14)
+## [v1.48.5](https://github.com/alexfalkowski/docker/releases/tag/v1.48.5) - 2022-07-29
 
-### [1.48.2](https://github.com/alexfalkowski/docker/compare/v1.48.1...v1.48.2) (2022-07-14)
+- [`a7f4d11`](https://github.com/alexfalkowski/docker/commit/a7f4d11c7e8496262cd26073617eb2321f23efbe) build(deps): bump cimg/node from 18.4.0 to 18.7.0 in /release (#118)
 
-### [1.48.1](https://github.com/alexfalkowski/docker/compare/v1.48.0...v1.48.1) (2022-06-30)
+## [v1.48.4](https://github.com/alexfalkowski/docker/releases/tag/v1.48.4) - 2022-07-19
 
-## [1.48.0](https://github.com/alexfalkowski/docker/compare/v1.47.1...v1.48.0) (2022-06-24)
+- [`90bceb2`](https://github.com/alexfalkowski/docker/commit/90bceb29bf1e002774ee3e974824d3990f6bd4a4) build(deps): update all (#116)
 
+## [v1.48.3](https://github.com/alexfalkowski/docker/releases/tag/v1.48.3) - 2022-07-14
 
-### Features
+- [`7603fae`](https://github.com/alexfalkowski/docker/commit/7603fae4fbbb6a5d0f7b2707225a581e24264e62) build(deps): bump cimg/go from 1.18.3 to 1.18.4 in /k8s (#115)
 
-* **konfig:** needs to depend on localstack ([#112](https://github.com/alexfalkowski/docker/issues/112)) ([0ed45a3](https://github.com/alexfalkowski/docker/commit/0ed45a33dcf98d85843fd2c0723c26b6cbf98661))
+## [v1.48.2](https://github.com/alexfalkowski/docker/releases/tag/v1.48.2) - 2022-07-14
 
-### [1.47.1](https://github.com/alexfalkowski/docker/compare/v1.47.0...v1.47.1) (2022-06-17)
+- [`c35477a`](https://github.com/alexfalkowski/docker/commit/c35477a754f246a5f9cd64ec6a94e4261907e2bf) build(deps): bump cimg/go from 1.18.3 to 1.18.4 in /go (#114)
 
-## [1.47.0](https://github.com/alexfalkowski/docker/compare/v1.46.0...v1.47.0) (2022-06-16)
+## [v1.48.1](https://github.com/alexfalkowski/docker/releases/tag/v1.48.1) - 2022-06-30
 
+- [`84957f8`](https://github.com/alexfalkowski/docker/commit/84957f82ba33789b55f06c96cc467bc477eb2472) build: add clean (#113)
 
-### Features
+## [v1.48.0](https://github.com/alexfalkowski/docker/releases/tag/v1.48.0) - 2022-06-24
 
-* update verify ([#110](https://github.com/alexfalkowski/docker/issues/110)) ([86d1085](https://github.com/alexfalkowski/docker/commit/86d1085c94b05e4de6660b9783b327f52e57e586))
+- [`0ed45a3`](https://github.com/alexfalkowski/docker/commit/0ed45a33dcf98d85843fd2c0723c26b6cbf98661) feat(konfig): needs to depend on localstack (#112)
 
-## [1.46.0](https://github.com/alexfalkowski/docker/compare/v1.45.2...v1.46.0) (2022-06-16)
+## [v1.47.1](https://github.com/alexfalkowski/docker/releases/tag/v1.47.1) - 2022-06-17
 
+- [`dafc9ec`](https://github.com/alexfalkowski/docker/commit/dafc9ecb9d8571f9289134b6cf0a0f44cfe14f3c) build(deps): bump cimg/node from 18.3.0 to 18.4.0 in /release (#111)
 
-### Features
+## [v1.47.0](https://github.com/alexfalkowski/docker/releases/tag/v1.47.0) - 2022-06-16
 
-* remove java languages ([#109](https://github.com/alexfalkowski/docker/issues/109)) ([f8b6112](https://github.com/alexfalkowski/docker/commit/f8b6112b97244d850ef26cf70f9b98d066c5ebff))
+- [`86d1085`](https://github.com/alexfalkowski/docker/commit/86d1085c94b05e4de6660b9783b327f52e57e586) feat: update verify (#110)
 
-### [1.45.2](https://github.com/alexfalkowski/docker/compare/v1.45.1...v1.45.2) (2022-06-16)
+## [v1.46.0](https://github.com/alexfalkowski/docker/releases/tag/v1.46.0) - 2022-06-16
 
-### [1.45.1](https://github.com/alexfalkowski/docker/compare/v1.45.0...v1.45.1) (2022-06-16)
+- [`f8b6112`](https://github.com/alexfalkowski/docker/commit/f8b6112b97244d850ef26cf70f9b98d066c5ebff) feat: remove java languages (#109)
 
-## [1.45.0](https://github.com/alexfalkowski/docker/compare/v1.44.1...v1.45.0) (2022-06-15)
+## [v1.45.2](https://github.com/alexfalkowski/docker/releases/tag/v1.45.2) - 2022-06-16
 
+- [`af836c3`](https://github.com/alexfalkowski/docker/commit/af836c38bcba023030d60bd7941f821939a70ade) build(deps): bump cimg/openjdk from 17.0.3 to 18.0.1 in /java (#107)
 
-### Features
+## [v1.45.1](https://github.com/alexfalkowski/docker/releases/tag/v1.45.1) - 2022-06-16
 
-* **config:** update to latest ([#104](https://github.com/alexfalkowski/docker/issues/104)) ([c8690af](https://github.com/alexfalkowski/docker/commit/c8690af64f41c7e6929d9e7870d3129b2f8e2f12))
+- [`911e138`](https://github.com/alexfalkowski/docker/commit/911e138d5cfbba2981141a7fd6c75c1abca3366f) build(deps): bump cimg/openjdk from 17.0.3 to 18.0.1 in /diagram (#106)
 
-### [1.44.1](https://github.com/alexfalkowski/docker/compare/v1.44.0...v1.44.1) (2022-06-14)
+## [v1.45.0](https://github.com/alexfalkowski/docker/releases/tag/v1.45.0) - 2022-06-15
 
-## [1.44.0](https://github.com/alexfalkowski/docker/compare/v1.43.0...v1.44.0) (2022-06-14)
+- [`c8690af`](https://github.com/alexfalkowski/docker/commit/c8690af64f41c7e6929d9e7870d3129b2f8e2f12) feat(config): update to latest (#104)
 
+## [v1.44.1](https://github.com/alexfalkowski/docker/releases/tag/v1.44.1) - 2022-06-14
 
-### Features
+- [`34d035b`](https://github.com/alexfalkowski/docker/commit/34d035be67220fea950cf65ffdcc7eafb38e85a3) refactor(localstack): remove unused ports (#103)
 
-* add ssm ([#102](https://github.com/alexfalkowski/docker/issues/102)) ([70d2a3a](https://github.com/alexfalkowski/docker/commit/70d2a3a7366d76c5f1fb1781ae0fd7188f6efcd2))
+## [v1.44.0](https://github.com/alexfalkowski/docker/releases/tag/v1.44.0) - 2022-06-14
 
-## [1.43.0](https://github.com/alexfalkowski/docker/compare/v1.42.1...v1.43.0) (2022-06-14)
+- [`70d2a3a`](https://github.com/alexfalkowski/docker/commit/70d2a3a7366d76c5f1fb1781ae0fd7188f6efcd2) feat: add ssm (#102)
 
+## [v1.43.0](https://github.com/alexfalkowski/docker/releases/tag/v1.43.0) - 2022-06-14
 
-### Features
+- [`2f83921`](https://github.com/alexfalkowski/docker/commit/2f8392131fbaa942d114a5aaed2cb4ac1426994d) feat(c): add library path (#101)
 
-* **c:** add library path ([#101](https://github.com/alexfalkowski/docker/issues/101)) ([2f83921](https://github.com/alexfalkowski/docker/commit/2f8392131fbaa942d114a5aaed2cb4ac1426994d))
+## [v1.42.1](https://github.com/alexfalkowski/docker/releases/tag/v1.42.1) - 2022-06-13
 
-### [1.42.1](https://github.com/alexfalkowski/docker/compare/v1.42.0...v1.42.1) (2022-06-13)
+- [`ea85702`](https://github.com/alexfalkowski/docker/commit/ea8570287ded8ff0c958bab2631ed09fc96a4e7f) build: use new compose (#100)
 
-## [1.42.0](https://github.com/alexfalkowski/docker/compare/v1.41.1...v1.42.0) (2022-06-08)
+## [v1.42.0](https://github.com/alexfalkowski/docker/releases/tag/v1.42.0) - 2022-06-08
 
+- [`8816acc`](https://github.com/alexfalkowski/docker/commit/8816acca6e560843a01768faf40ce075f357eda8) feat(clang): add xmake (#99)
 
-### Features
+## [v1.41.1](https://github.com/alexfalkowski/docker/releases/tag/v1.41.1) - 2022-06-07
 
-* **clang:** add xmake ([#99](https://github.com/alexfalkowski/docker/issues/99)) ([8816acc](https://github.com/alexfalkowski/docker/commit/8816acca6e560843a01768faf40ce075f357eda8))
+- [`f643997`](https://github.com/alexfalkowski/docker/commit/f6439971e7c2064320a64620669a42d36bcfb394) build(deps): bump cimg/node from 18.2.0 to 18.3.0 in /release (#98)
 
-### [1.41.1](https://github.com/alexfalkowski/docker/compare/v1.41.0...v1.41.1) (2022-06-07)
+## [v1.41.0](https://github.com/alexfalkowski/docker/releases/tag/v1.41.0) - 2022-06-07
 
-## [1.41.0](https://github.com/alexfalkowski/docker/compare/v1.40.0...v1.41.0) (2022-06-07)
+- [`c521675`](https://github.com/alexfalkowski/docker/commit/c521675e3dd5cd56ec14f5d4e2cd4c788b4786a5) feat(c): add clang-format (#97)
 
+## [v1.40.0](https://github.com/alexfalkowski/docker/releases/tag/v1.40.0) - 2022-06-06
 
-### Features
+- [`3146b3c`](https://github.com/alexfalkowski/docker/commit/3146b3c7682678c447db84150154e7c7920bc45a) feat(c): prepare to build projects (#96)
 
-* **c:** add clang-format ([#97](https://github.com/alexfalkowski/docker/issues/97)) ([c521675](https://github.com/alexfalkowski/docker/commit/c521675e3dd5cd56ec14f5d4e2cd4c788b4786a5))
+## [v1.39.11](https://github.com/alexfalkowski/docker/releases/tag/v1.39.11) - 2022-06-03
 
-## [1.40.0](https://github.com/alexfalkowski/docker/compare/v1.39.11...v1.40.0) (2022-06-06)
+- [`a09c1ab`](https://github.com/alexfalkowski/docker/commit/a09c1abe268f96388854a16f46307d4fd5ca2de8) build(deps): bump cimg/go from 1.18.2 to 1.18.3 in /k8s (#94)
 
+## [v1.39.10](https://github.com/alexfalkowski/docker/releases/tag/v1.39.10) - 2022-06-03
 
-### Features
+- [`1ded0d8`](https://github.com/alexfalkowski/docker/commit/1ded0d8ff70cfa58e0ebf51a5883f0ada94048c0) build(deps): bump cimg/go from 1.18.2 to 1.18.3 in /go (#95)
 
-* **c:** prepare to build projects ([#96](https://github.com/alexfalkowski/docker/issues/96)) ([3146b3c](https://github.com/alexfalkowski/docker/commit/3146b3c7682678c447db84150154e7c7920bc45a))
+## [v1.39.9](https://github.com/alexfalkowski/docker/releases/tag/v1.39.9) - 2022-05-24
 
-### [1.39.11](https://github.com/alexfalkowski/docker/compare/v1.39.10...v1.39.11) (2022-06-03)
+- [`cb33afc`](https://github.com/alexfalkowski/docker/commit/cb33afce8c999375f110aa199ce9b91dab2afbe9) build(deps): bump cimg/node from 17.6.0 to 18.2.0 in /release (#92)
 
-### [1.39.10](https://github.com/alexfalkowski/docker/compare/v1.39.9...v1.39.10) (2022-06-03)
+## [v1.39.8](https://github.com/alexfalkowski/docker/releases/tag/v1.39.8) - 2022-05-24
 
-### [1.39.9](https://github.com/alexfalkowski/docker/compare/v1.39.8...v1.39.9) (2022-05-24)
+- [`55aed8f`](https://github.com/alexfalkowski/docker/commit/55aed8f372a3754371f63dc6f2dbc121b35066d9) build(deps): bump cimg/openjdk from 17.0.2 to 17.0.3 in /scala (#91)
 
-### [1.39.8](https://github.com/alexfalkowski/docker/compare/v1.39.7...v1.39.8) (2022-05-24)
+## [v1.39.7](https://github.com/alexfalkowski/docker/releases/tag/v1.39.7) - 2022-05-24
 
-### [1.39.7](https://github.com/alexfalkowski/docker/compare/v1.39.6...v1.39.7) (2022-05-24)
+- [`349403f`](https://github.com/alexfalkowski/docker/commit/349403f407d5a2ffef5e54f5288027c865165c9c) build(deps): bump cimg/openjdk from 17.0.2 to 17.0.3 in /kotlin (#89)
 
-### [1.39.6](https://github.com/alexfalkowski/docker/compare/v1.39.5...v1.39.6) (2022-05-24)
+## [v1.39.6](https://github.com/alexfalkowski/docker/releases/tag/v1.39.6) - 2022-05-24
 
-### [1.39.5](https://github.com/alexfalkowski/docker/compare/v1.39.4...v1.39.5) (2022-05-24)
+- [`c3d667e`](https://github.com/alexfalkowski/docker/commit/c3d667e66e83d23aef9ad4ca753f332bdc5a89e4) build(deps): bump cimg/openjdk from 17.0.2 to 17.0.3 in /java (#87)
 
-### [1.39.4](https://github.com/alexfalkowski/docker/compare/v1.39.3...v1.39.4) (2022-05-24)
+## [v1.39.5](https://github.com/alexfalkowski/docker/releases/tag/v1.39.5) - 2022-05-24
 
-### [1.39.3](https://github.com/alexfalkowski/docker/compare/v1.39.2...v1.39.3) (2022-05-24)
+- [`d5f0c8d`](https://github.com/alexfalkowski/docker/commit/d5f0c8dd3c4b4fed7976828b36a63d814a1f1b84) build(deps): bump cimg/openjdk from 17.0.2 to 17.0.3 in /diagram (#86)
 
-### [1.39.2](https://github.com/alexfalkowski/docker/compare/v1.39.1...v1.39.2) (2022-05-24)
+## [v1.39.4](https://github.com/alexfalkowski/docker/releases/tag/v1.39.4) - 2022-05-24
 
-### [1.39.1](https://github.com/alexfalkowski/docker/compare/v1.39.0...v1.39.1) (2022-05-24)
+- [`057ca63`](https://github.com/alexfalkowski/docker/commit/057ca6349b89e1e6490852f5e41ab006a0146a69) build(deps): bump cimg/go from 1.18.1 to 1.18.2 in /k8s (#88)
 
-## [1.39.0](https://github.com/alexfalkowski/docker/compare/v1.38.0...v1.39.0) (2022-05-21)
+## [v1.39.3](https://github.com/alexfalkowski/docker/releases/tag/v1.39.3) - 2022-05-24
 
+- [`62f4c67`](https://github.com/alexfalkowski/docker/commit/62f4c67b15b3ddde40c23861ebccfd737138d825) ci: remove the file (#85)
 
-### Features
+## [v1.39.2](https://github.com/alexfalkowski/docker/releases/tag/v1.39.2) - 2022-05-24
 
-* **go:** update to version 1.18.2 ([#82](https://github.com/alexfalkowski/docker/issues/82)) ([fea5a5b](https://github.com/alexfalkowski/docker/commit/fea5a5b5e257a2a8cf85805350700d7f2cbfbcbb))
+- [`15876bb`](https://github.com/alexfalkowski/docker/commit/15876bb9457e9a0a4bba4be523899002c1239ca0) ci: look for all dockerfiles (#84)
 
-## [1.38.0](https://github.com/alexfalkowski/docker/compare/v1.37.0...v1.38.0) (2022-05-19)
+## [v1.39.1](https://github.com/alexfalkowski/docker/releases/tag/v1.39.1) - 2022-05-24
 
+- [`12353da`](https://github.com/alexfalkowski/docker/commit/12353dacfd3eb2253de4ac6083545b2c8c221e13) ci: add dependabot (#83)
 
-### Features
+## [v1.39.0](https://github.com/alexfalkowski/docker/releases/tag/v1.39.0) - 2022-05-21
 
-* **configs:** add runtime ([#81](https://github.com/alexfalkowski/docker/issues/81)) ([134a910](https://github.com/alexfalkowski/docker/commit/134a91073f9b5ddb9bc5ca2d2509bd4590c35170))
+- [`fea5a5b`](https://github.com/alexfalkowski/docker/commit/fea5a5b5e257a2a8cf85805350700d7f2cbfbcbb) feat(go): update to version 1.18.2 (#82)
 
-## [1.37.0](https://github.com/alexfalkowski/docker/compare/v1.36.3...v1.37.0) (2022-05-18)
+## [v1.38.0](https://github.com/alexfalkowski/docker/releases/tag/v1.38.0) - 2022-05-19
 
+- [`134a910`](https://github.com/alexfalkowski/docker/commit/134a91073f9b5ddb9bc5ca2d2509bd4590c35170) feat(configs): add runtime (#81)
 
-### Features
+## [v1.37.0](https://github.com/alexfalkowski/docker/releases/tag/v1.37.0) - 2022-05-18
 
-* **configs:** update to use one port ([#80](https://github.com/alexfalkowski/docker/issues/80)) ([e62e046](https://github.com/alexfalkowski/docker/commit/e62e046d314b062c427f1687e9c3849a72ac0d05))
+- [`e62e046`](https://github.com/alexfalkowski/docker/commit/e62e046d314b062c427f1687e9c3849a72ac0d05) feat(configs): update to use one port (#80)
 
-### [1.36.3](https://github.com/alexfalkowski/docker/compare/v1.36.2...v1.36.3) (2022-05-13)
+## [v1.36.3](https://github.com/alexfalkowski/docker/releases/tag/v1.36.3) - 2022-05-13
 
-### [1.36.2](https://github.com/alexfalkowski/docker/compare/v1.36.1...v1.36.2) (2022-05-13)
+- [`9ccf26a`](https://github.com/alexfalkowski/docker/commit/9ccf26ae4f4c0fc009feef696e90ebb58ea7baa2) build(deps): update golangci to v1.46.1 (#79)
 
-### [1.36.1](https://github.com/alexfalkowski/docker/compare/v1.36.0...v1.36.1) (2022-05-10)
+## [v1.36.2](https://github.com/alexfalkowski/docker/releases/tag/v1.36.2) - 2022-05-13
 
-## [1.36.0](https://github.com/alexfalkowski/docker/compare/v1.35.0...v1.36.0) (2022-05-10)
+- [`ee83dd3`](https://github.com/alexfalkowski/docker/commit/ee83dd32345112abc413b919dc2cb3a18ef88415) build(deps): update sigs.k8s.io/kind@v0.13.0 (#78)
 
+## [v1.36.1](https://github.com/alexfalkowski/docker/releases/tag/v1.36.1) - 2022-05-10
 
-### Features
+- [`2ba6087`](https://github.com/alexfalkowski/docker/commit/2ba6087f5336a4ce6b45d68929e3ee2db616a168) build(deps): update (#77)
 
-* remove node exporter ([#76](https://github.com/alexfalkowski/docker/issues/76)) ([95dc2ea](https://github.com/alexfalkowski/docker/commit/95dc2ea49b83c00f64c0ac861c9fdc4da97a2308))
+## [v1.36.0](https://github.com/alexfalkowski/docker/releases/tag/v1.36.0) - 2022-05-10
 
-## [1.35.0](https://github.com/alexfalkowski/docker/compare/v1.34.1...v1.35.0) (2022-05-07)
+- [`95dc2ea`](https://github.com/alexfalkowski/docker/commit/95dc2ea49b83c00f64c0ac861c9fdc4da97a2308) feat: remove node exporter (#76)
 
+## [v1.35.0](https://github.com/alexfalkowski/docker/releases/tag/v1.35.0) - 2022-05-07
 
-### Features
+- [`9f8327e`](https://github.com/alexfalkowski/docker/commit/9f8327e8ca5ea0085d3e2408f7eeb2477783564e) feat(grafana): add to docker compose (#75)
 
-* **grafana:** add to docker compose ([#75](https://github.com/alexfalkowski/docker/issues/75)) ([9f8327e](https://github.com/alexfalkowski/docker/commit/9f8327e8ca5ea0085d3e2408f7eeb2477783564e))
+## [v1.34.1](https://github.com/alexfalkowski/docker/releases/tag/v1.34.1) - 2022-05-07
 
-### [1.34.1](https://github.com/alexfalkowski/docker/compare/v1.34.0...v1.34.1) (2022-05-07)
+- [`8ef7966`](https://github.com/alexfalkowski/docker/commit/8ef796672a6cc745fa35d361ea34c43946c20b4e) fix(config): trace type (#74)
 
+## [v1.34.0](https://github.com/alexfalkowski/docker/releases/tag/v1.34.0) - 2022-04-30
 
-### Bug Fixes
+- [`f8ba584`](https://github.com/alexfalkowski/docker/commit/f8ba5842e1f2a745b2d2962d5be805127541b62a) feat(standort): update config (#73)
 
-* **config:** trace type ([#74](https://github.com/alexfalkowski/docker/issues/74)) ([8ef7966](https://github.com/alexfalkowski/docker/commit/8ef796672a6cc745fa35d361ea34c43946c20b4e))
+## [v1.33.0](https://github.com/alexfalkowski/docker/releases/tag/v1.33.0) - 2022-04-27
 
-## [1.34.0](https://github.com/alexfalkowski/docker/compare/v1.33.0...v1.34.0) (2022-04-30)
+- [`311f351`](https://github.com/alexfalkowski/docker/commit/311f3511e15ae5e606dc34d1aa7f18f220d61ee7) feat(k8s): add all the tools required to work with kubernetes (#72)
 
+## [v1.32.0](https://github.com/alexfalkowski/docker/releases/tag/v1.32.0) - 2022-04-26
 
-### Features
+- [`c628005`](https://github.com/alexfalkowski/docker/commit/c628005bf8e9f63fd7ef9c58f13d473699c12b1e) feat(go): add gosec (#71)
 
-* **standort:** update config ([#73](https://github.com/alexfalkowski/docker/issues/73)) ([f8ba584](https://github.com/alexfalkowski/docker/commit/f8ba5842e1f2a745b2d2962d5be805127541b62a))
+## [v1.31.1](https://github.com/alexfalkowski/docker/releases/tag/v1.31.1) - 2022-04-24
 
-## [1.33.0](https://github.com/alexfalkowski/docker/compare/v1.32.0...v1.33.0) (2022-04-27)
+- [`fcee2c5`](https://github.com/alexfalkowski/docker/commit/fcee2c5469e54e1f46c0ee56929a57e40a9a8f2c) test: verify v2 (#70)
 
+## [v1.31.0](https://github.com/alexfalkowski/docker/releases/tag/v1.31.0) - 2022-04-23
 
-### Features
+- [`6deaa53`](https://github.com/alexfalkowski/docker/commit/6deaa53c3ee833c2ac8bfcc721cd56da9b406dcd) feat: add standort and konfig service (#68)
 
-* **k8s:** add all the tools required to work with kubernetes ([#72](https://github.com/alexfalkowski/docker/issues/72)) ([311f351](https://github.com/alexfalkowski/docker/commit/311f3511e15ae5e606dc34d1aa7f18f220d61ee7))
+## [v1.30.0](https://github.com/alexfalkowski/docker/releases/tag/v1.30.0) - 2022-04-22
 
-## [1.32.0](https://github.com/alexfalkowski/docker/compare/v1.31.1...v1.32.0) (2022-04-26)
+- [`07d69cc`](https://github.com/alexfalkowski/docker/commit/07d69cca02f4521080bd4efd04f4e504597b9445) feat: add prometheus (#67)
 
+## [v1.29.0](https://github.com/alexfalkowski/docker/releases/tag/v1.29.0) - 2022-04-21
 
-### Features
+- [`38373d6`](https://github.com/alexfalkowski/docker/commit/38373d644e9689a21531e9f0d7e707dd93c15082) feat: add git-lfs (#66)
 
-* **go:** add gosec ([#71](https://github.com/alexfalkowski/docker/issues/71)) ([c628005](https://github.com/alexfalkowski/docker/commit/c628005bf8e9f63fd7ef9c58f13d473699c12b1e))
+## [v1.28.2](https://github.com/alexfalkowski/docker/releases/tag/v1.28.2) - 2022-04-14
 
-### [1.31.1](https://github.com/alexfalkowski/docker/compare/v1.31.0...v1.31.1) (2022-04-24)
+- [`591db90`](https://github.com/alexfalkowski/docker/commit/591db904670fb280386e66308c5673794db23246) build(deps): update go to v1.18.1 (#65)
 
-## [1.31.0](https://github.com/alexfalkowski/docker/compare/v1.30.0...v1.31.0) (2022-04-23)
+## [v1.28.1](https://github.com/alexfalkowski/docker/releases/tag/v1.28.1) - 2022-04-12
 
+- [`171c592`](https://github.com/alexfalkowski/docker/commit/171c592d14da5b5d61c3943ed6b9137b0f8697d3) build(deps): update (#64)
 
-### Features
+## [v1.28.0](https://github.com/alexfalkowski/docker/releases/tag/v1.28.0) - 2022-03-26
 
-* add standort and konfig service ([#68](https://github.com/alexfalkowski/docker/issues/68)) ([6deaa53](https://github.com/alexfalkowski/docker/commit/6deaa53c3ee833c2ac8bfcc721cd56da9b406dcd))
+- [`e844126`](https://github.com/alexfalkowski/docker/commit/e8441260c73febe93a6e60fba2e99f270036e26c) feat: add jq and yq (#63)
 
-## [1.30.0](https://github.com/alexfalkowski/docker/compare/v1.29.0...v1.30.0) (2022-04-22)
+## [v1.27.2](https://github.com/alexfalkowski/docker/releases/tag/v1.27.2) - 2022-03-25
 
+- [`4ed6faf`](https://github.com/alexfalkowski/docker/commit/4ed6fafbf597ca5eebea29dafa67bfa78e7288cc) build(deps): update buf to v1.3.0 (#62)
 
-### Features
+## [v1.27.1](https://github.com/alexfalkowski/docker/releases/tag/v1.27.1) - 2022-03-25
 
-* add prometheus ([#67](https://github.com/alexfalkowski/docker/issues/67)) ([07d69cc](https://github.com/alexfalkowski/docker/commit/07d69cca02f4521080bd4efd04f4e504597b9445))
+- [`9a8da31`](https://github.com/alexfalkowski/docker/commit/9a8da31163261a5d7739d31fce1f4c5213d2e3ee) build(deps): update (#61)
 
-## [1.29.0](https://github.com/alexfalkowski/docker/compare/v1.28.2...v1.29.0) (2022-04-21)
+## [v1.27.0](https://github.com/alexfalkowski/docker/releases/tag/v1.27.0) - 2022-03-24
 
+- [`d65ee31`](https://github.com/alexfalkowski/docker/commit/d65ee311032f9491cacf32c835ab346420a46d84) feat: add buf (#60)
 
-### Features
+## [v1.26.0](https://github.com/alexfalkowski/docker/releases/tag/v1.26.0) - 2022-03-22
 
-* add git-lfs ([#66](https://github.com/alexfalkowski/docker/issues/66)) ([38373d6](https://github.com/alexfalkowski/docker/commit/38373d644e9689a21531e9f0d7e707dd93c15082))
+- [`0695f78`](https://github.com/alexfalkowski/docker/commit/0695f78e11e7af42e827e0eda72e6c43f73ad71a) feat(local): add vault (#59)
 
-### [1.28.2](https://github.com/alexfalkowski/docker/compare/v1.28.1...v1.28.2) (2022-04-14)
+## [v1.25.2](https://github.com/alexfalkowski/docker/releases/tag/v1.25.2) - 2022-03-21
 
-### [1.28.1](https://github.com/alexfalkowski/docker/compare/v1.28.0...v1.28.1) (2022-04-12)
+- [`43fe249`](https://github.com/alexfalkowski/docker/commit/43fe249fb333c35534ce27be21187e2d15ed6cb5) build(deps): update hadolint to v2.9.2 (#58)
 
-## [1.28.0](https://github.com/alexfalkowski/docker/compare/v1.27.2...v1.28.0) (2022-03-26)
+## [v1.25.1](https://github.com/alexfalkowski/docker/releases/tag/v1.25.1) - 2022-03-20
 
+- [`35b72ff`](https://github.com/alexfalkowski/docker/commit/35b72ffc8fb760c4c9675651594feae7ab31d5f0) build(deps): downgrade to ruby v3.0.3 (#57)
 
-### Features
+## [v1.25.0](https://github.com/alexfalkowski/docker/releases/tag/v1.25.0) - 2022-03-19
 
-* add jq and yq ([#63](https://github.com/alexfalkowski/docker/issues/63)) ([e844126](https://github.com/alexfalkowski/docker/commit/e8441260c73febe93a6e60fba2e99f270036e26c))
+- [`bfb72c1`](https://github.com/alexfalkowski/docker/commit/bfb72c1f813d32b55de92769d0fffb959f8b65d9) feat: update to go v1.18.0 (#56)
 
-### [1.27.2](https://github.com/alexfalkowski/docker/compare/v1.27.1...v1.27.2) (2022-03-25)
+## [v1.24.2](https://github.com/alexfalkowski/docker/releases/tag/v1.24.2) - 2022-03-08
 
-### [1.27.1](https://github.com/alexfalkowski/docker/compare/v1.27.0...v1.27.1) (2022-03-25)
+- [`f521d7c`](https://github.com/alexfalkowski/docker/commit/f521d7ceb7390bb7ab925df8840f744841d769f6) build(deps): update kind to v0.12.0 (#55)
 
-## [1.27.0](https://github.com/alexfalkowski/docker/compare/v1.26.0...v1.27.0) (2022-03-24)
+## [v1.24.1](https://github.com/alexfalkowski/docker/releases/tag/v1.24.1) - 2022-03-05
 
+- [`54b464d`](https://github.com/alexfalkowski/docker/commit/54b464d07c0cf36915c852674873fcc5d167e87f) build(deps): update all (#54)
 
-### Features
+## [v1.24.0](https://github.com/alexfalkowski/docker/releases/tag/v1.24.0) - 2021-10-31
 
-* add buf ([#60](https://github.com/alexfalkowski/docker/issues/60)) ([d65ee31](https://github.com/alexfalkowski/docker/commit/d65ee311032f9491cacf32c835ab346420a46d84))
+- [`00c5e85`](https://github.com/alexfalkowski/docker/commit/00c5e85b2b2d22fddaa8fbf41a6888eac274671d) feat: add localstack to docker compose (#53)
 
-## [1.26.0](https://github.com/alexfalkowski/docker/compare/v1.25.2...v1.26.0) (2022-03-22)
+## [v1.23.0](https://github.com/alexfalkowski/docker/releases/tag/v1.23.0) - 2021-10-31
 
+- [`efc3f26`](https://github.com/alexfalkowski/docker/commit/efc3f26c59389a76f1535b7aed80fa60b82be7ec) feat: add nats to docker compose (#52)
 
-### Features
+## [v1.22.0](https://github.com/alexfalkowski/docker/releases/tag/v1.22.0) - 2021-09-19
 
-* **local:** add vault ([#59](https://github.com/alexfalkowski/docker/issues/59)) ([0695f78](https://github.com/alexfalkowski/docker/commit/0695f78e11e7af42e827e0eda72e6c43f73ad71a))
+- [`7c29867`](https://github.com/alexfalkowski/docker/commit/7c29867922c9923bfb382633d6e4bd16b75c58c1) feat: update deps to make images smaller (#51)
 
-### [1.25.2](https://github.com/alexfalkowski/docker/compare/v1.25.1...v1.25.2) (2022-03-21)
+## [v1.21.0](https://github.com/alexfalkowski/docker/releases/tag/v1.21.0) - 2021-09-18
 
-### [1.25.1](https://github.com/alexfalkowski/docker/compare/v1.25.0...v1.25.1) (2022-03-20)
+- [`d5c93b1`](https://github.com/alexfalkowski/docker/commit/d5c93b102341e55ad4ca634fb26ef36c9c1321c9) feat: check current branch (#50)
 
-## [1.25.0](https://github.com/alexfalkowski/docker/compare/v1.24.2...v1.25.0) (2022-03-19)
+## [v1.20.0](https://github.com/alexfalkowski/docker/releases/tag/v1.20.0) - 2021-09-18
 
+- [`0f61828`](https://github.com/alexfalkowski/docker/commit/0f61828f03fd5e490058c53342aa2bcb8cc2dfad) feat: update to ruby 3.0.2 (#49)
 
-### Features
+## [v1.19.0](https://github.com/alexfalkowski/docker/releases/tag/v1.19.0) - 2021-09-18
 
-* update to go v1.18.0 ([#56](https://github.com/alexfalkowski/docker/issues/56)) ([bfb72c1](https://github.com/alexfalkowski/docker/commit/bfb72c1f813d32b55de92769d0fffb959f8b65d9))
+- [`b38db74`](https://github.com/alexfalkowski/docker/commit/b38db74791c3b214602aba523639aebcd45ecb94) feat: update deps (#48)
 
-### [1.24.2](https://github.com/alexfalkowski/docker/compare/v1.24.1...v1.24.2) (2022-03-08)
+## [v1.18.0](https://github.com/alexfalkowski/docker/releases/tag/v1.18.0) - 2021-09-18
 
-### [1.24.1](https://github.com/alexfalkowski/docker/compare/v1.24.0...v1.24.1) (2022-03-05)
+- [`12950fa`](https://github.com/alexfalkowski/docker/commit/12950fadaef3c147239034ac6f2c51b4dd1974a8) feat(hbase): update to v2.4.6 (#47)
 
-## [1.24.0](https://github.com/alexfalkowski/docker/compare/v1.23.0...v1.24.0) (2021-10-31)
+## [v1.17.0](https://github.com/alexfalkowski/docker/releases/tag/v1.17.0) - 2021-09-18
 
+- [`a455a77`](https://github.com/alexfalkowski/docker/commit/a455a777e05bb905fa9bee7e509217923af8681c) feat: build branches (#46)
 
-### Features
+## [v1.16.0](https://github.com/alexfalkowski/docker/releases/tag/v1.16.0) - 2021-07-19
 
-* add localstack to docker compose ([#53](https://github.com/alexfalkowski/docker/issues/53)) ([00c5e85](https://github.com/alexfalkowski/docker/commit/00c5e85b2b2d22fddaa8fbf41a6888eac274671d))
+- [`ae10fc3`](https://github.com/alexfalkowski/docker/commit/ae10fc3cfdf58b6534fba73736ecb318c0ec0c1c) ci: fix release (#45)
+- [`071d81c`](https://github.com/alexfalkowski/docker/commit/071d81c4fe327caac5ff3598c70aa9a75920e637) feat(hbase): update to v2.4.4 (#44)
+- [`c201f77`](https://github.com/alexfalkowski/docker/commit/c201f77998af98040daa276f880ca19fb14d6323) fix: gpg keys for ruby (#43)
+- [`7e25055`](https://github.com/alexfalkowski/docker/commit/7e2505574f829dd1804278c732c7bc1af26e864f) fear(deps): update (#42)
 
-## [1.23.0](https://github.com/alexfalkowski/docker/compare/v1.22.0...v1.23.0) (2021-10-31)
+## [v1.15.1](https://github.com/alexfalkowski/docker/releases/tag/v1.15.1) - 2021-05-17
 
+- [`87ab1b5`](https://github.com/alexfalkowski/docker/commit/87ab1b579b9ea2166ebac3da61ef247cb59af0e3) fix(kind): add helm chart-testing files (#41)
 
-### Features
+## [v1.15.0](https://github.com/alexfalkowski/docker/releases/tag/v1.15.0) - 2021-05-16
 
-* add nats to docker compose ([#52](https://github.com/alexfalkowski/docker/issues/52)) ([efc3f26](https://github.com/alexfalkowski/docker/commit/efc3f26c59389a76f1535b7aed80fa60b82be7ec))
+- [`08ce2a1`](https://github.com/alexfalkowski/docker/commit/08ce2a1c0dbb6db2497f846d764bb71b738f6b12) feat(kind): add support (#40)
 
-## [1.22.0](https://github.com/alexfalkowski/docker/compare/v1.21.0...v1.22.0) (2021-09-19)
+## [v1.14.0](https://github.com/alexfalkowski/docker/releases/tag/v1.14.0) - 2021-05-15
 
+- [`30cdfeb`](https://github.com/alexfalkowski/docker/commit/30cdfeb114890022c6de26f56d10bad47073b7b8) feat(ruby): update to version 3.0.0 (#39)
 
-### Features
+## [v1.13.0](https://github.com/alexfalkowski/docker/releases/tag/v1.13.0) - 2021-05-15
 
-* update deps to make images smaller ([#51](https://github.com/alexfalkowski/docker/issues/51)) ([7c29867](https://github.com/alexfalkowski/docker/commit/7c29867922c9923bfb382633d6e4bd16b75c58c1))
+- [`4e2d4e9`](https://github.com/alexfalkowski/docker/commit/4e2d4e99bca9e5897b87f168521856a3446833e5) fix(ruby): update bundler (#38)
+- [`349fe5a`](https://github.com/alexfalkowski/docker/commit/349fe5a3168b5fd2d5abde46b313b9c26dc6b0a5) feat: update dependencies (#37)
 
-## [1.21.0](https://github.com/alexfalkowski/docker/compare/v1.20.0...v1.21.0) (2021-09-18)
+## [v1.12.1](https://github.com/alexfalkowski/docker/releases/tag/v1.12.1) - 2021-05-14
 
+- [`34cad88`](https://github.com/alexfalkowski/docker/commit/34cad88897afbf57c2b329da0a21cf5348470060) ci: add badge (#36)
 
-### Features
+## [v1.12.0](https://github.com/alexfalkowski/docker/releases/tag/v1.12.0) - 2021-05-14
 
-* check current branch ([#50](https://github.com/alexfalkowski/docker/issues/50)) ([d5c93b1](https://github.com/alexfalkowski/docker/commit/d5c93b102341e55ad4ca634fb26ef36c9c1321c9))
+- [`c5b324a`](https://github.com/alexfalkowski/docker/commit/c5b324a51c671a230dba66714e346358649cc74e) feat(go): add gocovmerge (#35)
 
-## [1.20.0](https://github.com/alexfalkowski/docker/compare/v1.19.0...v1.20.0) (2021-09-18)
+## [v1.11.4](https://github.com/alexfalkowski/docker/releases/tag/v1.11.4) - 2021-05-07
 
+- [`6a4aaeb`](https://github.com/alexfalkowski/docker/commit/6a4aaebdf32e073597c224683bcd407c340d5384) fix(compose): remove admin (#34)
 
-### Features
+## [v1.11.3](https://github.com/alexfalkowski/docker/releases/tag/v1.11.3) - 2021-05-07
 
-* update to ruby 3.1.0 ([#49](https://github.com/alexfalkowski/docker/issues/49)) ([0f61828](https://github.com/alexfalkowski/docker/commit/0f61828f03fd5e490058c53342aa2bcb8cc2dfad))
+- [`ca4514f`](https://github.com/alexfalkowski/docker/commit/ca4514f998fae26d04d1b6a07fa683342528d603) fix(compose): add broadcast address (#33)
 
-## [1.19.0](https://github.com/alexfalkowski/docker/compare/v1.18.0...v1.19.0) (2021-09-18)
+## [v1.11.2](https://github.com/alexfalkowski/docker/releases/tag/v1.11.2) - 2021-05-07
 
+- [`fb8a15b`](https://github.com/alexfalkowski/docker/commit/fb8a15b9079d0d210371c1dfcab16220b2568044) fix(compose): expose ports (#32)
 
-### Features
+## [v1.11.1](https://github.com/alexfalkowski/docker/releases/tag/v1.11.1) - 2021-05-07
 
-* update deps ([#48](https://github.com/alexfalkowski/docker/issues/48)) ([b38db74](https://github.com/alexfalkowski/docker/commit/b38db74791c3b214602aba523639aebcd45ecb94))
+- [`6bc84f7`](https://github.com/alexfalkowski/docker/commit/6bc84f73ae610d895ee9670538c86c284960a742) fix: use old docker compose (#31)
 
-## [1.18.0](https://github.com/alexfalkowski/docker/compare/v1.17.0...v1.18.0) (2021-09-18)
+## [v1.11.0](https://github.com/alexfalkowski/docker/releases/tag/v1.11.0) - 2021-05-06
 
+- [`b8fdebe`](https://github.com/alexfalkowski/docker/commit/b8fdebe18520d8c31ef47813c114a8667407fffc) feat(compose): add nsq (#30)
 
-### Features
+## [v1.10.0](https://github.com/alexfalkowski/docker/releases/tag/v1.10.0) - 2021-05-06
 
-* **hbase:** update to v2.4.6 ([#47](https://github.com/alexfalkowski/docker/issues/47)) ([12950fa](https://github.com/alexfalkowski/docker/commit/12950fadaef3c147239034ac6f2c51b4dd1974a8))
+- [`40971bc`](https://github.com/alexfalkowski/docker/commit/40971bc5ea28efa3c3c5ff0ad0cfc3e444bf16b7) feat(compose): add datadog (#29)
 
-## [1.17.0](https://github.com/alexfalkowski/docker/compare/v1.16.0...v1.17.0) (2021-09-18)
+## [v1.9.0](https://github.com/alexfalkowski/docker/releases/tag/v1.9.0) - 2021-05-06
 
+- [`bb53722`](https://github.com/alexfalkowski/docker/commit/bb53722589838f9531910df3674594c7b5d5cb25) feat: add docker compose (#28)
 
-### Features
+## [v1.8.0](https://github.com/alexfalkowski/docker/releases/tag/v1.8.0) - 2021-04-27
 
-* build branches ([#46](https://github.com/alexfalkowski/docker/issues/46)) ([a455a77](https://github.com/alexfalkowski/docker/commit/a455a777e05bb905fa9bee7e509217923af8681c))
+- [`8ca6a51`](https://github.com/alexfalkowski/docker/commit/8ca6a516965e4ea6d6b61aad33e3163f059d70a6) feat(go): install goveralls (#27)
 
-## [1.16.0](https://github.com/alexfalkowski/docker/compare/v1.15.1...v1.16.0) (2021-07-19)
+## [v1.7.0](https://github.com/alexfalkowski/docker/releases/tag/v1.7.0) - 2021-04-27
 
+- [`5a0961f`](https://github.com/alexfalkowski/docker/commit/5a0961f1736c2d2cf33c9fe638f3f48b4f7c3674) fix(kotlin): dont run dockerize (#26)
+- [`5934016`](https://github.com/alexfalkowski/docker/commit/59340161cb2daa2ce12f5a334fc5245de5f83c2a) feat: add dockerize (#25)
 
-### Features
+## [v1.6.0](https://github.com/alexfalkowski/docker/releases/tag/v1.6.0) - 2021-04-04
 
-* **hbase:** update to v2.4.4 ([#44](https://github.com/alexfalkowski/docker/issues/44)) ([071d81c](https://github.com/alexfalkowski/docker/commit/071d81c4fe327caac5ff3598c70aa9a75920e637))
+- [`697d3bd`](https://github.com/alexfalkowski/docker/commit/697d3bda4f6dc86f463e7ba5366c6f1f8739a245) fix(release): remove auth (#24)
+- [`578ca0f`](https://github.com/alexfalkowski/docker/commit/578ca0f4a44eb385f7022487e5c1bf3e2e95e655) feat(release): add gh release (#23)
 
+## [v1.5.0](https://github.com/alexfalkowski/docker/releases/tag/v1.5.0) - 2021-04-04
 
-### Bug Fixes
+- [`c1a56c6`](https://github.com/alexfalkowski/docker/commit/c1a56c6343c4d16ded73252c2111f2681bbbadb6) feat(docker): push to hub (#22)
 
-* gpg keys for ruby ([#43](https://github.com/alexfalkowski/docker/issues/43)) ([c201f77](https://github.com/alexfalkowski/docker/commit/c201f77998af98040daa276f880ca19fb14d6323))
+## [v1.4.0](https://github.com/alexfalkowski/docker/releases/tag/v1.4.0) - 2021-04-03
 
-### [1.15.1](https://github.com/alexfalkowski/docker/compare/v1.15.0...v1.15.1) (2021-05-17)
+- [`85cdc1a`](https://github.com/alexfalkowski/docker/commit/85cdc1a84ad43b6bc8b921b782641163e5fad6fe) feat(diagram): add Dockerfile (#21)
 
+## [v1.3.0](https://github.com/alexfalkowski/docker/releases/tag/v1.3.0) - 2021-04-03
 
-### Bug Fixes
+- [`95cb2a5`](https://github.com/alexfalkowski/docker/commit/95cb2a5aa7d74b0c28f79357bc77a931146cb952) feat: update versions (#20)
 
-* **kind:** add helm chart-testing files ([#41](https://github.com/alexfalkowski/docker/issues/41)) ([87ab1b5](https://github.com/alexfalkowski/docker/commit/87ab1b579b9ea2166ebac3da61ef247cb59af0e3))
+## [v1.2.0](https://github.com/alexfalkowski/docker/releases/tag/v1.2.0) - 2020-11-06
 
-## [1.15.0](https://github.com/alexfalkowski/docker/compare/v1.14.0...v1.15.0) (2021-05-16)
+- [`4c235e1`](https://github.com/alexfalkowski/docker/commit/4c235e163552094c64b3c17bc9f5dca9af201312) feat: lint with hadolint (#19)
 
+## [v1.1.1](https://github.com/alexfalkowski/docker/releases/tag/v1.1.1) - 2020-11-04
 
-### Features
+- [`a1447e5`](https://github.com/alexfalkowski/docker/commit/a1447e5747f60e51485da35eb48d36caf1e77c7e) ci: add docker linting (#18)
 
-* **kind:** add support ([#40](https://github.com/alexfalkowski/docker/issues/40)) ([08ce2a1](https://github.com/alexfalkowski/docker/commit/08ce2a1c0dbb6db2497f846d764bb71b738f6b12))
+## [v1.1.0](https://github.com/alexfalkowski/docker/releases/tag/v1.1.0) - 2020-11-04
 
-## [1.14.0](https://github.com/alexfalkowski/docker/compare/v1.13.0...v1.14.0) (2021-05-15)
-
-
-### Features
-
-* **ruby:** update to version 3.0.0 ([#39](https://github.com/alexfalkowski/docker/issues/39)) ([30cdfeb](https://github.com/alexfalkowski/docker/commit/30cdfeb114890022c6de26f56d10bad47073b7b8))
-
-## [1.13.0](https://github.com/alexfalkowski/docker/compare/v1.12.1...v1.13.0) (2021-05-15)
-
-
-### Features
-
-* update dependencies ([#37](https://github.com/alexfalkowski/docker/issues/37)) ([349fe5a](https://github.com/alexfalkowski/docker/commit/349fe5a3168b5fd2d5abde46b313b9c26dc6b0a5))
-
-
-### Bug Fixes
-
-* **ruby:** update bundler ([#38](https://github.com/alexfalkowski/docker/issues/38)) ([4e2d4e9](https://github.com/alexfalkowski/docker/commit/4e2d4e99bca9e5897b87f168521856a3446833e5))
-
-### [1.12.1](https://github.com/alexfalkowski/docker/compare/v1.12.0...v1.12.1) (2021-05-14)
-
-## [1.12.0](https://github.com/alexfalkowski/docker/compare/v1.11.4...v1.12.0) (2021-05-14)
-
-
-### Features
-
-* **go:** add gocovmerge ([#35](https://github.com/alexfalkowski/docker/issues/35)) ([c5b324a](https://github.com/alexfalkowski/docker/commit/c5b324a51c671a230dba66714e346358649cc74e))
-
-### [1.11.4](https://github.com/alexfalkowski/docker/compare/v1.11.3...v1.11.4) (2021-05-07)
-
-
-### Bug Fixes
-
-* **compose:** remove admin ([#34](https://github.com/alexfalkowski/docker/issues/34)) ([6a4aaeb](https://github.com/alexfalkowski/docker/commit/6a4aaebdf32e073597c224683bcd407c340d5384))
-
-### [1.11.3](https://github.com/alexfalkowski/docker/compare/v1.11.2...v1.11.3) (2021-05-07)
-
-
-### Bug Fixes
-
-* **compose:** add broadcast address ([#33](https://github.com/alexfalkowski/docker/issues/33)) ([ca4514f](https://github.com/alexfalkowski/docker/commit/ca4514f998fae26d04d1b6a07fa683342528d603))
-
-### [1.11.2](https://github.com/alexfalkowski/docker/compare/v1.11.1...v1.11.2) (2021-05-07)
-
-
-### Bug Fixes
-
-* **compose:** expose ports ([#32](https://github.com/alexfalkowski/docker/issues/32)) ([fb8a15b](https://github.com/alexfalkowski/docker/commit/fb8a15b9079d0d210371c1dfcab16220b2568044))
-
-### [1.11.1](https://github.com/alexfalkowski/docker/compare/v1.11.0...v1.11.1) (2021-05-07)
-
-
-### Bug Fixes
-
-* use old docker compose ([#31](https://github.com/alexfalkowski/docker/issues/31)) ([6bc84f7](https://github.com/alexfalkowski/docker/commit/6bc84f73ae610d895ee9670538c86c284960a742))
-
-## [1.11.0](https://github.com/alexfalkowski/docker/compare/v1.10.0...v1.11.0) (2021-05-06)
-
-
-### Features
-
-* **compose:** add nsq ([#30](https://github.com/alexfalkowski/docker/issues/30)) ([b8fdebe](https://github.com/alexfalkowski/docker/commit/b8fdebe18520d8c31ef47813c114a8667407fffc))
-
-## [1.10.0](https://github.com/alexfalkowski/docker/compare/v1.9.0...v1.10.0) (2021-05-06)
-
-
-### Features
-
-* **compose:** add datadog ([#29](https://github.com/alexfalkowski/docker/issues/29)) ([40971bc](https://github.com/alexfalkowski/docker/commit/40971bc5ea28efa3c3c5ff0ad0cfc3e444bf16b7))
-
-## [1.9.0](https://github.com/alexfalkowski/docker/compare/v1.8.0...v1.9.0) (2021-05-06)
-
-
-### Features
-
-* add docker compose ([#28](https://github.com/alexfalkowski/docker/issues/28)) ([bb53722](https://github.com/alexfalkowski/docker/commit/bb53722589838f9531910df3674594c7b5d5cb25))
-
-## [1.8.0](https://github.com/alexfalkowski/docker/compare/v1.7.0...v1.8.0) (2021-04-27)
-
-
-### Features
-
-* **go:** install goveralls ([#27](https://github.com/alexfalkowski/docker/issues/27)) ([8ca6a51](https://github.com/alexfalkowski/docker/commit/8ca6a516965e4ea6d6b61aad33e3163f059d70a6))
-
-## [1.7.0](https://github.com/alexfalkowski/docker/compare/v1.6.0...v1.7.0) (2021-04-27)
-
-
-### Features
-
-* add dockerize ([#25](https://github.com/alexfalkowski/docker/issues/25)) ([5934016](https://github.com/alexfalkowski/docker/commit/59340161cb2daa2ce12f5a334fc5245de5f83c2a))
-
-
-### Bug Fixes
-
-* **kotlin:** dont run dockerize ([#26](https://github.com/alexfalkowski/docker/issues/26)) ([5a0961f](https://github.com/alexfalkowski/docker/commit/5a0961f1736c2d2cf33c9fe638f3f48b4f7c3674))
-
-## [1.6.0](https://github.com/alexfalkowski/docker/compare/v1.5.0...v1.6.0) (2021-04-04)
-
-
-### Features
-
-* **release:** add gh release ([#23](https://github.com/alexfalkowski/docker/issues/23)) ([578ca0f](https://github.com/alexfalkowski/docker/commit/578ca0f4a44eb385f7022487e5c1bf3e2e95e655))
-
-
-### Bug Fixes
-
-* **release:** remove auth ([#24](https://github.com/alexfalkowski/docker/issues/24)) ([697d3bd](https://github.com/alexfalkowski/docker/commit/697d3bda4f6dc86f463e7ba5366c6f1f8739a245))
-
-## [1.5.0](https://github.com/alexfalkowski/docker/compare/v1.4.0...v1.5.0) (2021-04-04)
-
-
-### Features
-
-* **docker:** push to hub ([#22](https://github.com/alexfalkowski/docker/issues/22)) ([c1a56c6](https://github.com/alexfalkowski/docker/commit/c1a56c6343c4d16ded73252c2111f2681bbbadb6))
-
-## [1.4.0](https://github.com/alexfalkowski/docker/compare/v1.3.0...v1.4.0) (2021-04-03)
-
-
-### Features
-
-* **diagram:** add Dockerfile ([#21](https://github.com/alexfalkowski/docker/issues/21)) ([85cdc1a](https://github.com/alexfalkowski/docker/commit/85cdc1a84ad43b6bc8b921b782641163e5fad6fe))
-
-## [1.3.0](https://github.com/alexfalkowski/docker/compare/v1.2.0...v1.3.0) (2021-04-03)
-
-
-### Features
-
-* update versions ([#20](https://github.com/alexfalkowski/docker/issues/20)) ([95cb2a5](https://github.com/alexfalkowski/docker/commit/95cb2a5aa7d74b0c28f79357bc77a931146cb952))
-
-## [1.2.0](https://github.com/alexfalkowski/docker/compare/v1.1.1...v1.2.0) (2020-11-06)
-
-
-### Features
-
-* lint with hadolint ([#19](https://github.com/alexfalkowski/docker/issues/19)) ([4c235e1](https://github.com/alexfalkowski/docker/commit/4c235e163552094c64b3c17bc9f5dca9af201312))
-
-### [1.1.1](https://github.com/alexfalkowski/docker/compare/v1.1.0...v1.1.1) (2020-11-04)
-
-## 1.1.0 (2020-11-04)
-
-
-### Features
-
-* **ci:** add push ([98be131](https://github.com/alexfalkowski/docker/commit/98be131d54ba46ccfc6bc3e1a6df6ee3e7fcdc00))
-* **db:** add hbase ([8aaa2dc](https://github.com/alexfalkowski/docker/commit/8aaa2dc8f5b104c9d85efa3c988e066215045ac9))
-* **db:** add phonenix ([3eb9ed9](https://github.com/alexfalkowski/docker/commit/3eb9ed91167af3df3cb36eadc4ae487a9de05676))
-* **go:** add ci docker image ([0ce7c38](https://github.com/alexfalkowski/docker/commit/0ce7c380ac461af161e421edb148e2f6539c4a93))
-* **go:** add entry point ([6b4b5b0](https://github.com/alexfalkowski/docker/commit/6b4b5b04037b29c0fd72a1a3d7adc8ffa9b8c183))
-* **go:** add go tools ([86c296d](https://github.com/alexfalkowski/docker/commit/86c296d187363912b9b4460a8821b770f8726190))
-* **go:** update golangci-lint 1.32.1 ([bfdddae](https://github.com/alexfalkowski/docker/commit/bfdddae00cd8461fc60c8f386287def02ea3485a))
-* **go:** upgrade golangci-lint to v1.32.2 ([77af892](https://github.com/alexfalkowski/docker/commit/77af892114af3940543dd0ab68481bc78726cb05))
-* **java:** add ci docker image ([a5e4bd9](https://github.com/alexfalkowski/docker/commit/a5e4bd91c698994c69339093aab04575a035d3de))
-* **kotlin:** add image ([fc2d6de](https://github.com/alexfalkowski/docker/commit/fc2d6de1362fb6854b75f4417a2dff91264fe43d))
-* **release:** add image ([9491fba](https://github.com/alexfalkowski/docker/commit/9491fba43952ad9969eaa8270696ca164da29e5a))
-* **ruby:** add image ([078a10f](https://github.com/alexfalkowski/docker/commit/078a10f2cc7b8fdb5230d8c8ac87245c8ee98804))
-* **ruby:** use rvm ([44f5fcc](https://github.com/alexfalkowski/docker/commit/44f5fccdff0c2cd6c9950e24fe605bdde5a55303))
-* **scala:** add language ([db04eb5](https://github.com/alexfalkowski/docker/commit/db04eb53de6a475bdf6ce5b851d314fe680f2ad5))
-* **scala:** upgrade sbt 1.4.2 ([587c24d](https://github.com/alexfalkowski/docker/commit/587c24d43dab746d21bcf5c8fd994961503d46bb))
-* add editor config ([e38e2f6](https://github.com/alexfalkowski/docker/commit/e38e2f67343ded4c7feac8a3dccb41461754eca6))
-
-
-### Bug Fixes
-
-* **release:** allow release.sh to be exec ([7a220c3](https://github.com/alexfalkowski/docker/commit/7a220c323c3259394f7a7054d4d7ae3aeb08e4c6))
-* add dependency to circleci ([8c27483](https://github.com/alexfalkowski/docker/commit/8c27483c2cdaf333301d27bc3b3ed89155534e7b))
+- [`25413f5`](https://github.com/alexfalkowski/docker/commit/25413f5b5523de9cdda766587cbf02b9ff77105b) ci: add config (#17)
+- [`804c40b`](https://github.com/alexfalkowski/docker/commit/804c40bb15473fb2149bf4d70de3e8672999f437) Merge pull request #16 from alexfalkowski/feat/update-sbt
+- [`587c24d`](https://github.com/alexfalkowski/docker/commit/587c24d43dab746d21bcf5c8fd994961503d46bb) feat(scala): upgrade sbt 1.4.2
+- [`bd4a08b`](https://github.com/alexfalkowski/docker/commit/bd4a08b0ce60f1df3d6c4d295aabe77b3dad6e64) Merge pull request #15 from alexfalkowski/feat/update-go-lint
+- [`77af892`](https://github.com/alexfalkowski/docker/commit/77af892114af3940543dd0ab68481bc78726cb05) feat(go): upgrade golangci-lint to v1.32.2
+- [`3168478`](https://github.com/alexfalkowski/docker/commit/31684784b88dcd8ef03823836154188467f48660) Merge pull request #14 from alexfalkowski/feat/update-golangci-lint
+- [`bfdddae`](https://github.com/alexfalkowski/docker/commit/bfdddae00cd8461fc60c8f386287def02ea3485a) feat(go): update golangci-lint 1.32.1
+- [`6a18c6c`](https://github.com/alexfalkowski/docker/commit/6a18c6ca658dc6ca6814844050af38469b43b0a1) Merge pull request #13 from alexfalkowski/fix/release
+- [`7a220c3`](https://github.com/alexfalkowski/docker/commit/7a220c323c3259394f7a7054d4d7ae3aeb08e4c6) fix(release): allow release.sh to be exec
+- [`33f5b8b`](https://github.com/alexfalkowski/docker/commit/33f5b8b7e3cb49033c865179faa95d80a795207c) Merge pull request #12 from alexfalkowski/feat/release
+- [`b0137af`](https://github.com/alexfalkowski/docker/commit/b0137afb46767fb0b4bd66d8abda800b486f5d8c) docs(release): add readme
+- [`9491fba`](https://github.com/alexfalkowski/docker/commit/9491fba43952ad9969eaa8270696ca164da29e5a) feat(release): add image
+- [`ff3f776`](https://github.com/alexfalkowski/docker/commit/ff3f7761d4a3db52e18d59c71c24ae2837ab51d1) Merge pull request #11 from alexfalkowski/docs/fix
+- [`e395026`](https://github.com/alexfalkowski/docker/commit/e39502612c8d4b4a6c638706e55d7e2b36d4888e) docs(ruby): change wording
+- [`5f1f3ba`](https://github.com/alexfalkowski/docker/commit/5f1f3bac27f14773ec5053bede2978ea3481809e) Merge pull request #10 from alexfalkowski/feat/ruby
+- [`078a10f`](https://github.com/alexfalkowski/docker/commit/078a10f2cc7b8fdb5230d8c8ac87245c8ee98804) feat(ruby): add image
+- [`0a47aaf`](https://github.com/alexfalkowski/docker/commit/0a47aafe624d370bcb73e7a2368fb61989d5153b) Merge pull request #9 from alexfalkowski/docs/fix
+- [`36e6851`](https://github.com/alexfalkowski/docker/commit/36e685166e5044b97ba6379c83dac6be4bfcc86c) docs: add kotlin
+- [`35c9d1d`](https://github.com/alexfalkowski/docker/commit/35c9d1d60702035ef948f65f47cb8eefd4dc0052) Merge pull request #8 from alexfalkowski/feat/kotlin
+- [`fc2d6de`](https://github.com/alexfalkowski/docker/commit/fc2d6de1362fb6854b75f4417a2dff91264fe43d) feat(kotlin): add image
+- [`643e659`](https://github.com/alexfalkowski/docker/commit/643e6590d8fd63f730a245ceaaabe80167d98045) Merge pull request #7 from alexfalkowski/docs/readme
+- [`b3a0e0e`](https://github.com/alexfalkowski/docker/commit/b3a0e0e62ba99a789c816e3319296e08fbc2de02) docs: remove db
+- [`d18019b`](https://github.com/alexfalkowski/docker/commit/d18019b4ba47dcf7caf6881c74397b2fa8dfacf1) Merge pull request #6 from alexfalkowski/feat/use-rvm
+- [`44f5fcc`](https://github.com/alexfalkowski/docker/commit/44f5fccdff0c2cd6c9950e24fe605bdde5a55303) feat(ruby): use rvm
+- [`87322b2`](https://github.com/alexfalkowski/docker/commit/87322b2120dedc5a25d785e258ac4705412ee14d) Merge pull request #5 from alexfalkowski/feat/scala
+- [`8c27483`](https://github.com/alexfalkowski/docker/commit/8c27483c2cdaf333301d27bc3b3ed89155534e7b) fix: add dependency to circleci
+- [`48725af`](https://github.com/alexfalkowski/docker/commit/48725af30b1a954590c8bdea8827032ed85419ec) docs: add scala
+- [`e888279`](https://github.com/alexfalkowski/docker/commit/e888279d014be431f514351da978953a03ae2695) refactor: remove extra folders
+- [`1845b96`](https://github.com/alexfalkowski/docker/commit/1845b968e22e9116712b9e4210a3ef6c03a8dbc7) refactor: rename images
+- [`c47dede`](https://github.com/alexfalkowski/docker/commit/c47deded238817d68d7e4ef427db37ef91d2cfed) refactor(go): remove dependency to circleci
+- [`db04eb5`](https://github.com/alexfalkowski/docker/commit/db04eb53de6a475bdf6ce5b851d314fe680f2ad5) feat(scala): add language
+- [`fb31dde`](https://github.com/alexfalkowski/docker/commit/fb31dde0f2bbefaa7abdf8ad74395961c05c9033) refactor(java): remove dependency to circleci
+- [`cb02ec4`](https://github.com/alexfalkowski/docker/commit/cb02ec4d3d33824909240d48e7dc2b37d5b2735a) refactor(db): remove dependency to circle
+- [`9aa8129`](https://github.com/alexfalkowski/docker/commit/9aa8129c2577063b4b76209291ddc92fa4f54801) Merge pull request #4 from alexfalkowski/feat/java
+- [`bc59af3`](https://github.com/alexfalkowski/docker/commit/bc59af3eb6bd406b3f0f36136b4e43531bb5ab0e) docs(java): add to readme
+- [`a5e4bd9`](https://github.com/alexfalkowski/docker/commit/a5e4bd91c698994c69339093aab04575a035d3de) feat(java): add ci docker image
+- [`f5601dc`](https://github.com/alexfalkowski/docker/commit/f5601dcb488cb64afbc83bfb89851aeb5a031d05) Merge pull request #3 from alexfalkowski/feat/hbase
+- [`7bd6f8c`](https://github.com/alexfalkowski/docker/commit/7bd6f8cd47da410540f272faea948e85969fa0af) docs(db): add hbase
+- [`3eb9ed9`](https://github.com/alexfalkowski/docker/commit/3eb9ed91167af3df3cb36eadc4ae487a9de05676) feat(db): add phonenix
+- [`8aaa2dc`](https://github.com/alexfalkowski/docker/commit/8aaa2dc8f5b104c9d85efa3c988e066215045ac9) feat(db): add hbase
+- [`50df028`](https://github.com/alexfalkowski/docker/commit/50df0288f67d8bf03ff46a59478b43642abd84e3) Merge pull request #2 from alexfalkowski/feat/go-tools
+- [`86c296d`](https://github.com/alexfalkowski/docker/commit/86c296d187363912b9b4460a8821b770f8726190) feat(go): add go tools
+- [`e47cc6a`](https://github.com/alexfalkowski/docker/commit/e47cc6a2ad338c6f8be63060cdb2e67095eb0b9c) Merge pull request #1 from alexfalkowski/feat/ci
+- [`7d8c2f2`](https://github.com/alexfalkowski/docker/commit/7d8c2f2487c35a3b27c3daa4222a040231e86c8b) refactor(go): remove entrypoint
+- [`16bedee`](https://github.com/alexfalkowski/docker/commit/16bedee879a41341a20231dff3427110cafb8d1d) docs(ci): add readme
+- [`98be131`](https://github.com/alexfalkowski/docker/commit/98be131d54ba46ccfc6bc3e1a6df6ee3e7fcdc00) feat(ci): add push
+- [`6b4b5b0`](https://github.com/alexfalkowski/docker/commit/6b4b5b04037b29c0fd72a1a3d7adc8ffa9b8c183) feat(go): add entry point
+- [`0ce7c38`](https://github.com/alexfalkowski/docker/commit/0ce7c380ac461af161e421edb148e2f6539c4a93) feat(go): add ci docker image
+- [`e38e2f6`](https://github.com/alexfalkowski/docker/commit/e38e2f67343ded4c7feac8a3dccb41461754eca6) feat: add editor config
+- [`976758d`](https://github.com/alexfalkowski/docker/commit/976758db5f05b6eb050d41d4f1f9073149899dda) Initial commit
