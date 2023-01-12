@@ -2,5 +2,4 @@
 set -euo pipefail
 
 # Release with uplift.
-uplift changelog --all --exclude ^chore --config-dir /etc/uplift
-uplift tag --config-dir /etc/uplift
+uplift release --exclude ^chore --config-dir /etc/uplift
