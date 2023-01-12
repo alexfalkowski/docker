@@ -4,15 +4,31 @@ updates:
     directory: "/diagram"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: "fix"
+      prefix-development: "build"
+      include: "scope"
   - package-ecosystem: "docker"
     directory: "/go"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: "fix"
+      prefix-development: "build"
+      include: "scope"
   - package-ecosystem: "docker"
     directory: "/release"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: "fix"
+      prefix-development: "build"
+      include: "scope"
   - package-ecosystem: "docker"
     directory: "/ruby"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: "fix"
+      prefix-development: "build"
+      include: "scope"
