@@ -12,7 +12,7 @@ push:
 
 # Pull latest containers.
 pull:
-	docker compose pull
+	docker compose pull $(service)
 
 # Start dependencies.
 start:
