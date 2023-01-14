@@ -44,16 +44,6 @@ services:
       - vault
       - localstack
 
-  redpanda:
-    image: vectorized/redpanda:latest
-    restart: always
-    ports:
-      - "8081:8081"
-      - "8082:8082"
-      - "9092:9092"
-      - "28082:28082"
-      - "29092:29092"
-
   jaegertracing:
     image: jaegertracing/all-in-one
     restart: always
