@@ -32,6 +32,10 @@ services:
       - KONFIG_GIT_TOKEN=${GITHUB_TOKEN}
       - VAULT_ADDR=http://vault:8200
       - VAULT_TOKEN=vault-plaintext-root-token
+      - AWS_URL=http://localstack:4566
+      - AWS_REGION=eu-west-1
+      - AWS_ACCESS_KEY=access
+      - AWS_SECRET_KEY=secret
     ports:
       - "4000:8080"
     volumes:
