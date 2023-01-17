@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.60.1](https://github.com/alexfalkowski/docker/releases/tag/v1.60.1) - 2023-01-17
+
+- [`4cf0a5e`](https://github.com/alexfalkowski/docker/commit/4cf0a5ef21c9606f5ba497874632a151c8855251) fix(deps): bump cimg/go from 1.19.4 to 1.19.5 in /go (#181)
+- [`4b455f5`](https://github.com/alexfalkowski/docker/commit/4b455f5c1fecae13f76228ea6145fcff185f9b31) build: remove unused (#179)
+
 ## [v1.60.0](https://github.com/alexfalkowski/docker/releases/tag/v1.60.0) - 2023-01-14
 
 - [`c2a2f6d`](https://github.com/alexfalkowski/docker/commit/c2a2f6dc90986fc874971b5f0085bd9e9aedf644) feat(konfig): use env variables (#178)
