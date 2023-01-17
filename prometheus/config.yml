@@ -9,3 +9,4 @@ scrape_configs:
           - "standort:8080"
           - "konfig:8080"
           - "bezeichner:8080"
+          - "auth:8080"
