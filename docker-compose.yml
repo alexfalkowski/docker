@@ -51,6 +51,11 @@ services:
     environment:
       CONFIG_FILE: yaml:CONFIG
       CONFIG: >
+        cache:
+          ristretto:
+            max_counters: 10000000
+            max_cost: 100000000
+            buffer_items: 64
         server:
           v1:
             issuer: https://auth.falkowski.io
@@ -69,8 +74,6 @@ services:
                 m = r.sub == p.sub && r.obj == p.obj && r.act == p.act
               policy: |
                 p, konfig, standort, get-location
-            secret:
-                branca: B$$117SWwWHS5UUdJ$$PR@cTc&A3LT8MUC
             key:
               ed25519:
                 public: IRvqAoQ4YWqqTL2IURucPbJHVSLw0/IWLCzvriHlhfc=
