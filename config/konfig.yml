@@ -1,14 +1,11 @@
 health:
   duration: 30s
   timeout: 1s
-runtime: container
-server:
-  v1:
-    source:
-      kind: git
-      git:
-        url: https://github.com/alexfalkowski/app-config
-        dir: /tmp/app-config
+source:
+  kind: git
+  git:
+    url: https://github.com/alexfalkowski/app-config
+    dir: /tmp/app-config
 trace:
   opentracing:
     kind: jaeger

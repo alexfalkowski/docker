@@ -8,7 +8,6 @@ trace:
   opentracing:
     kind: jaeger
     host: jaegertracing:6831
-runtime: container
 transport:
   port: 8080
   http:
