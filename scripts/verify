@@ -7,8 +7,8 @@ curl -sf http://localhost:3000/v1/location/lat/52.515816/lng/13.454293 | grep '"
 curl -sf "http://localhost:3000/v2/location?point.lat=52.515816&point.lng=13.454293" | grep '"continent":"EU"'
 
 # Verify konfig works.
-curl -sf http://localhost:4000/v1/config/test/v1.9.0/staging/eu/de/server/yaml | grep '"version":"v1.9.0"'
-curl -sf http://localhost:4000/v1/config/test/v1.9.0/staging/eu/de/server/toml | grep '"version":"v1.9.0"'
+curl -sf http://localhost:4000/v1/config/test/v1.10.0/staging/eu/de/server/yaml | grep '"version":"v1.10.0"'
+curl -sf http://localhost:4000/v1/config/test/v1.10.0/staging/eu/de/server/toml | grep '"version":"v1.10.0"'
 
 # Verify bezeichner works.
 curl -sf http://localhost:2000/v1/generate/snowflake/2 | grep 'ids'
