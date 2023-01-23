@@ -3,7 +3,7 @@ FROM cimg/go:1.19.5
 USER root
 
 # Install uplift.
-RUN curl https://raw.githubusercontent.com/gembaadvantage/uplift/main/scripts/install | bash -s -- -v v2.20.0 --no-sudo
+RUN curl https://raw.githubusercontent.com/gembaadvantage/uplift/main/scripts/install | bash -s -- -v v2.21.0 --no-sudo
 
 # Add release script.
 COPY release /usr/local/bin/
