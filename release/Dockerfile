@@ -3,7 +3,10 @@ FROM cimg/go:1.19.5
 USER root
 
 # Install uplift.
-RUN curl https://raw.githubusercontent.com/gembaadvantage/uplift/main/scripts/install | bash -s -- -v v2.20.0 --no-sudo
+RUN echo 'deb [trusted=yes] https://fury.upliftci.dev/apt/ /' | tee /etc/apt/sources.list.d/uplift.list
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    uplift=2.21.0 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Add release script.
 COPY release /usr/local/bin/
