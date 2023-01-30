@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.66.1](https://github.com/alexfalkowski/docker/releases/tag/v1.66.1) - 2023-01-30
+
+- [`c781fd4`](https://github.com/alexfalkowski/docker/commit/c781fd4abbf267d2aed0d48461ad58704b04888b) fix(deps): bump cimg/openjdk from 19.0.1 to 19.0.2 in /diagram (#188)
+
 ## [v1.66.0](https://github.com/alexfalkowski/docker/releases/tag/v1.66.0) - 2023-01-29
 
 - [`4222f20`](https://github.com/alexfalkowski/docker/commit/4222f20a0b23fac430a1321e45a7a4e597d4e0ac) feat: update buf to v1.13.1 (#187)
