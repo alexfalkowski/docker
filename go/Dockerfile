@@ -1,4 +1,4 @@
-FROM cimg/go:1.19.5
+FROM cimg/go:1.20.0
 
 USER root
 WORKDIR /usr/local/bin
