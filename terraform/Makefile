@@ -1,8 +1,8 @@
 build:
-	docker build -t alexfalkowski/go:1.20-3.1 .
+	docker build -t alexfalkowski/terraform:1.0 .
 
 push: build
-	docker push alexfalkowski/go:1.20-3.1
+	docker push alexfalkowski/terraform:1.0
 
 lint:
 	hadolint Dockerfile
