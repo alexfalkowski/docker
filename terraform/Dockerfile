@@ -4,6 +4,7 @@ USER root
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
     gnupg \
+    python3-pip \
     software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
@@ -15,6 +16,9 @@ RUN curl -sSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/
       && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/local/bin
+
+# Install pips.
+RUN pip3 install --no-cache-dir -U checkov==2.3.3 terraform-local==0.6 --user
 
 # Install terragrunt.
 RUN curl -sSOL https://github.com/gruntwork-io/terragrunt/releases/download/v0.43.2/terragrunt_linux_amd64 && \
