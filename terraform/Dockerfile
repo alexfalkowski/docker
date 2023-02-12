@@ -16,6 +16,11 @@ RUN curl -sSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/
 
 WORKDIR /usr/local/bin
 
+# Install terragrunt.
+RUN curl -sSOL https://github.com/gruntwork-io/terragrunt/releases/download/v0.43.2/terragrunt_linux_amd64 && \
+  mv terragrunt_linux_amd64 terragrunt && \
+  chmod +x terragrunt
+
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
 RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
