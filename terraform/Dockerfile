@@ -30,6 +30,9 @@ RUN curl -sSOL https://github.com/snyk/driftctl/releases/latest/download/driftct
   mv driftctl_linux_amd64 driftctl && \
   chmod +x driftctl
 
+# Install infracost.
+RUN curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
+
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
 RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
