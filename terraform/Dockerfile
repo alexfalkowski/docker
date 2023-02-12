@@ -33,6 +33,11 @@ RUN curl -sSOL https://github.com/snyk/driftctl/releases/latest/download/driftct
 # Install infracost.
 RUN curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
 
+# Install regula.
+RUN curl -sSOL https://github.com/fugue/regula/releases/download/v3.1.0/regula_3.1.0_Linux_x86_64.tar.gz \
+  && tar -C . -xzvf regula_3.1.0_Linux_x86_64.tar.gz \
+  && rm regula_3.1.0_Linux_x86_64.tar.gz
+
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
 RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
