@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.69.0](https://github.com/alexfalkowski/docker/releases/tag/v1.69.0) - 2023-02-13
+
+- [`554d8b5`](https://github.com/alexfalkowski/docker/commit/554d8b54576a5a3f9cb4758282ce63223995eee4) feat: add terraform (#194)
+
 ## [v1.68.0](https://github.com/alexfalkowski/docker/releases/tag/v1.68.0) - 2023-02-03
 
 - [`942b67b`](https://github.com/alexfalkowski/docker/commit/942b67bcbe07481f1e0b789156edb7e5ec7ed56d) feat(go): update to v1.20 (#192)
