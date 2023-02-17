@@ -2,23 +2,14 @@ FROM cimg/go:1.20.0
 
 USER root
 
+# Install deps.
 RUN apt-get update && apt-get install --no-install-recommends -y \
     gnupg \
     python3-pip \
     software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
-    gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint && \
-    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list && \
-    apt-get update && apt-get install --no-install-recommends -y \
-      terraform \
-      && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /usr/local/bin
-
-# Install pips.
-RUN pip3 install --no-cache-dir -U checkov==2.3.3 terraform-local==0.6 --user
 
 # Install terragrunt.
 RUN curl -sSOL https://github.com/gruntwork-io/terragrunt/releases/download/v0.43.2/terragrunt_linux_amd64 && \
@@ -61,6 +52,14 @@ RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.30.8/yq_linux
 
 USER circleci
 WORKDIR /home/circleci/
+
+# Install tfenv.
+RUN git clone --depth 1 --branch v3.0.0 https://github.com/tfutils/tfenv.git /home/circleci/.tfenv
+ENV PATH "/home/circleci/.tfenv/bin:$PATH"
+
+# Install terraform.
+RUN tfenv use 1.3.9 && \
+    pip3 install --no-cache-dir -U checkov==2.3.3 terraform-local==0.6 --user
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
