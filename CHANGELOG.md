@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.71.0](https://github.com/alexfalkowski/docker/releases/tag/v1.71.0) - 2023-03-18
+
+- [`486db87`](https://github.com/alexfalkowski/docker/commit/486db875f2d488e36ea238a57f9868026eda15b0) feat(go): update golangci to v1.52.0 (#200)
+
 ## [v1.70.2](https://github.com/alexfalkowski/docker/releases/tag/v1.70.2) - 2023-03-08
 
 - [`463ee7b`](https://github.com/alexfalkowski/docker/commit/463ee7b77abbd3b70867bc539b3a636ca76f91de) fix(deps): bump cimg/go from 1.20.1 to 1.20.2 in /release (#199)
