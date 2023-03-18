@@ -46,7 +46,7 @@ RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux6
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.30.8/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.32.1/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
