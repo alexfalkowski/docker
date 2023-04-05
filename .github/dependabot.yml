@@ -32,3 +32,11 @@ updates:
       prefix: "fix"
       prefix-development: "build"
       include: "scope"
+  - package-ecosystem: "docker"
+    directory: "/terraform"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "fix"
+      prefix-development: "build"
+      include: "scope"
