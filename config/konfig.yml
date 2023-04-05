@@ -6,10 +6,9 @@ source:
   git:
     url: https://github.com/alexfalkowski/app-config
     dir: /tmp/app-config
-trace:
-  opentracing:
-    kind: jaeger
-    host: jaegertracing:6831
+otel:
+  kind: jaeger
+  host: jaegertracing:6831
 transport:
   port: 8080
   http:

@@ -15,7 +15,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.14.0/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.16.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
@@ -25,7 +25,7 @@ RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux6
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.32.1/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.33.2/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
@@ -33,7 +33,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.52.0
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.52.2
 
 # Install gosec.
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.15.0
@@ -49,8 +49,8 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
   curl -sSL https://get.rvm.io | bash -s stable && \
   bash -c "source $HOME/.rvm/scripts/rvm && \
   rvm requirements && \
-  rvm install 3.1.3 && rvm use 3.1.3"
-ENV PATH "/home/circleci/.rvm/rubies/ruby-3.1.3/bin:$PATH"
+  rvm install 3.1.4 && rvm use 3.1.4"
+ENV PATH "/home/circleci/.rvm/rubies/ruby-3.1.4/bin:$PATH"
 
 # Install gems.
 RUN gem update bundler --force

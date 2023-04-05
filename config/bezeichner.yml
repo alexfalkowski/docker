@@ -19,10 +19,9 @@ generator:
 health:
   duration: 1s
   timeout: 1s
-trace:
-  opentracing:
-    kind: jaeger
-    host: jaegertracing:6831
+otel:
+  kind: jaeger
+  host: jaegertracing:6831
 transport:
   port: 8080
   http:

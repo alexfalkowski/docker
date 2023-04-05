@@ -1,4 +1,4 @@
-FROM cimg/ruby:3.1.3
+FROM cimg/ruby:3.1.4
 
 USER root
 WORKDIR /usr/local/bin
@@ -15,7 +15,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.14.0/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.16.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
@@ -25,7 +25,7 @@ RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux6
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.32.1/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.33.2/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
