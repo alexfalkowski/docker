@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.73.0](https://github.com/alexfalkowski/docker/releases/tag/v1.73.0) - 2023-04-18
+
+- [`b9652bb`](https://github.com/alexfalkowski/docker/commit/b9652bb7c85398877fba3c467471cc2599aa3d9a) feat(compose): split files (#205)
+
 ## [v1.72.0](https://github.com/alexfalkowski/docker/releases/tag/v1.72.0) - 2023-04-05
 
 - [`82efcdc`](https://github.com/alexfalkowski/docker/commit/82efcdcb79962bdc32fdeb6b81b229bb20bc55a0) feat: update deps (#204)
