@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+
+  jaegertracing:
+    image: jaegertracing/all-in-one
+    restart: always
+    ports:
+      - "16686:16686"
+      - "6831:6831/udp"
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  nsqlookupd:
+    image: nsqio/nsq
+    command: /nsqlookupd -broadcast-address=localhost
+    restart: always
+    ports:
+      - "4160:4160"
+      - "4161:4161"
+
+  nsqd:
+    image: nsqio/nsq
+    command: /nsqd -broadcast-address=localhost --lookupd-tcp-address=nsqlookupd:4160
+    restart: always
+    depends_on:
+      - nsqlookupd
+    ports:
+      - "4150:4150"
+      - "4151:4151"
+
+  localstack:
+    image: localstack/localstack
+    restart: always
+    ports:
+      - "4566:4566"
+    environment:
+      SERVICES: "s3,sqs,ssm"
+
+  vault:
+    image: vault
+    restart: always
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "vault-plaintext-root-token"
+    cap_add:
+      - IPC_LOCK
