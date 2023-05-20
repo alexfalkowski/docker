@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.74.0](https://github.com/alexfalkowski/docker/releases/tag/v1.74.0) - 2023-05-20
+
+- [`32e96fc`](https://github.com/alexfalkowski/docker/commit/32e96fc4f0545c606bb1e51b7d4b6a710e181297) feat: update deps across projects (#209)
+
 ## [v1.73.3](https://github.com/alexfalkowski/docker/releases/tag/v1.73.3) - 2023-05-03
 
 - [`8c5e9f9`](https://github.com/alexfalkowski/docker/commit/8c5e9f9bf8217f15162e2527be2c2af45a2947ff) fix(deps): bump cimg/go from 1.20.3 to 1.20.4 in /go (#207)
