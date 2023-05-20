@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 WORKDIR /usr/local/bin
 
 # Install terragrunt.
-RUN curl -sSOL https://github.com/gruntwork-io/terragrunt/releases/download/v0.43.2/terragrunt_linux_amd64 && \
+RUN curl -sSOL https://github.com/gruntwork-io/terragrunt/releases/download/v0.45.15/terragrunt_linux_amd64 && \
   mv terragrunt_linux_amd64 terragrunt && \
   chmod +x terragrunt
 
@@ -25,9 +25,9 @@ RUN curl -sSOL https://github.com/snyk/driftctl/releases/latest/download/driftct
 RUN curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
 
 # Install regula.
-RUN curl -sSOL https://github.com/fugue/regula/releases/download/v3.1.0/regula_3.1.0_Linux_x86_64.tar.gz \
-  && tar -C . -xzvf regula_3.1.0_Linux_x86_64.tar.gz \
-  && rm regula_3.1.0_Linux_x86_64.tar.gz
+RUN curl -sSOL https://github.com/fugue/regula/releases/download/v3.2.1/regula_3.2.1_Linux_x86_64.tar.gz \
+  && tar -C . -xzvf regula_3.2.1_Linux_x86_64.tar.gz \
+  && rm regula_3.2.1_Linux_x86_64.tar.gz
 
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
@@ -46,7 +46,7 @@ RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux6
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.33.2/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.33.3/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
@@ -58,8 +58,8 @@ RUN git clone --depth 1 --branch v3.0.0 https://github.com/tfutils/tfenv.git /ho
 ENV PATH "/home/circleci/.tfenv/bin:$PATH"
 
 # Install terraform.
-RUN tfenv use 1.3.9 && \
-    pip3 install --no-cache-dir -U checkov==2.3.3 terraform-local==0.6 --user
+RUN tfenv use 1.4.6 && \
+    pip3 install --no-cache-dir -U checkov==2.3.247 terraform-local==0.8 --user
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
