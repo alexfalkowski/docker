@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 WORKDIR /usr/local/bin
 
 # Install structurizr
-RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.20.1/structurizr-cli-1.20.1.zip && \
+RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.30.0/structurizr-cli-1.30.0.zip && \
     unzip -o structurizr-cli.zip && \
     rm -f structurizr-cli.zip
 
