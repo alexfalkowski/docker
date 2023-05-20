@@ -58,8 +58,8 @@ RUN git clone --depth 1 --branch v3.0.0 https://github.com/tfutils/tfenv.git /ho
 ENV PATH "/home/circleci/.tfenv/bin:$PATH"
 
 # Install terraform.
-RUN tfenv use 1.3.9 && \
-    pip3 install --no-cache-dir -U checkov==2.3.3 terraform-local==0.6 --user
+RUN tfenv use 1.4.6 && \
+    pip3 install --no-cache-dir -U checkov==2.3.247 terraform-local==0.8 --user
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
