@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.74.4](https://github.com/alexfalkowski/docker/releases/tag/v1.74.4) - 2023-06-07
+
+- [`c218121`](https://github.com/alexfalkowski/docker/commit/c2181216bbe383168cd4e7501021daba83189546) fix(deps): bump cimg/go from 1.20.4 to 1.20.5 in /terraform (#213)
+
 ## [v1.74.3](https://github.com/alexfalkowski/docker/releases/tag/v1.74.3) - 2023-06-07
 
 - [`e8e1b5c`](https://github.com/alexfalkowski/docker/commit/e8e1b5cabec80c87aea0b579930720fe3a3a17cb) fix(deps): bump cimg/go from 1.20.4 to 1.20.5 in /release (#211)
