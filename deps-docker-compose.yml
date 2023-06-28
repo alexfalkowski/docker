@@ -50,7 +50,7 @@ services:
       SERVICES: "s3,sqs,ssm"
 
   vault:
-    image: vault
+    image: hashicorp/vault
     restart: always
     ports:
       - "8200:8200"
