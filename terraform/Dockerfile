@@ -41,7 +41,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install jq.
-RUN curl -sSOL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && \
+RUN curl -sSOL https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux64 && \
   mv jq-linux64 jq && \
   chmod +x jq
 
