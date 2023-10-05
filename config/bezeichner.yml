@@ -21,7 +21,7 @@ health:
   timeout: 1s
 telemetry:
   tracer:
-    host: jaegertracing:6831
+    host: jaegertracing:4318
     secure: false
 transport:
   http:
