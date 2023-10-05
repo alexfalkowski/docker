@@ -9,6 +9,7 @@ services:
       CONFIG_FILE: /config/bezeichner.yml
     ports:
       - "2000:8080"
+      - "2001:9090"
     volumes:
       - "${PWD}/config:/config"
 
@@ -20,6 +21,7 @@ services:
       CONFIG_FILE: /config/standort.yml
     ports:
       - "3000:8080"
+      - "3001:9090"
     volumes:
       - "${PWD}/config:/config"
 
@@ -38,6 +40,7 @@ services:
       - AWS_SECRET_KEY=secret
     ports:
       - "4000:8080"
+      - "4001:9090"
     volumes:
       - "${PWD}/config:/config"
     depends_on:
@@ -94,24 +97,26 @@ services:
               - id: standort
                 hash: $$2a$$10$$HsHqKfiEw8xSavbN.EAtV.Cqs.17m.hy7vVjKkyFU7DNrteDaDLKi
                 duration: 24h
-        trace:
-          opentracing:
-            kind: jaeger
+        telemetry:
+          tracer:
             host: jaegertracing:6831
+            secure: false
         transport:
-          port: 8080
           http:
+            port: 8080
             user_agent: "Auth-server/1.0 http/1.0"
             retry:
               timeout: 2s
               attempts: 3
           grpc:
+            port: 9090
             user_agent: "Auth-server/1.0 grpc/1.0"
             retry:
               timeout: 2s
               attempts: 3
     ports:
       - "5000:8080"
+      - "5001:9090"
     volumes:
       - "${PWD}/config:/config"
 
