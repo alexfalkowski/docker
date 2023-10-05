@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.82.0](https://github.com/alexfalkowski/docker/releases/tag/v1.82.0) - 2023-10-05
+
+- [`967f2bb`](https://github.com/alexfalkowski/docker/commit/967f2bb30ddbc8ad103d6e3c43c3b38ce8eaf691) feat: update cluster (#236)
+
 ## [v1.81.0](https://github.com/alexfalkowski/docker/releases/tag/v1.81.0) - 2023-10-04
 
 - [`21a5fcf`](https://github.com/alexfalkowski/docker/commit/21a5fcf60382bdce3cbb20b5e5e6ba63440a0719) feat: use docker-compose as we linked it to podman-compose (#235)
