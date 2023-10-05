@@ -6,17 +6,19 @@ source:
   git:
     url: https://github.com/alexfalkowski/app-config
     dir: /tmp/app-config
-otel:
-  kind: jaeger
-  host: jaegertracing:6831
+telemetry:
+  tracer:
+    host: jaegertracing:6831
+    secure: false
 transport:
-  port: 8080
   http:
+    port: 8080
     user_agent: "Konfig-server/1.0 http/1.0"
     retry:
       timeout: 2s
       attempts: 3
   grpc:
+    port: 9090
     user_agent: "Konfig-server/1.0 grpc/1.0"
     retry:
       timeout: 2s

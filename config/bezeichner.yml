@@ -19,17 +19,19 @@ generator:
 health:
   duration: 1s
   timeout: 1s
-otel:
-  kind: jaeger
-  host: jaegertracing:6831
+telemetry:
+  tracer:
+    host: jaegertracing:6831
+    secure: false
 transport:
-  port: 8080
   http:
+    port: 8080
     user_agent: "Bezeichner-server/1.0 http/1.0"
     retry:
       timeout: 2s
       attempts: 3
   grpc:
+    port: 9090
     user_agent: "Bezeichner-server/1.0 grpc/1.0"
     retry:
       timeout: 2s
