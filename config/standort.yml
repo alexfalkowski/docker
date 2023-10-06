@@ -16,6 +16,7 @@ transport:
       timeout: 2s
       attempts: 3
   grpc:
+    enabled: true
     port: 9090
     user_agent: "Standort-server/1.0 grpc/1.0"
     retry:
