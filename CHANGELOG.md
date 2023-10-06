@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.83.0](https://github.com/alexfalkowski/docker/releases/tag/v1.83.0) - 2023-10-06
+
+- [`24a4546`](https://github.com/alexfalkowski/docker/commit/24a4546cdffe81c94c986cd62159d75323371264) feat(cluster): update to latest config (#238)
+
 ## [v1.82.1](https://github.com/alexfalkowski/docker/releases/tag/v1.82.1) - 2023-10-05
 
 - [`3468104`](https://github.com/alexfalkowski/docker/commit/34681041b86f606a8107ecb1901fc812fe2ff2b0) fix(trace): use otlp (#237)
