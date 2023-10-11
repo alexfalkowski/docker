@@ -1,4 +1,4 @@
-FROM cimg/go:1.21.2
+FROM cimg/go:1.21.3
 
 USER root
 
