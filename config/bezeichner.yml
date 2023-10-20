@@ -20,6 +20,8 @@ health:
   duration: 1s
   timeout: 1s
 telemetry:
+  logger:
+    level: error
   tracer:
     host: jaegertracing:4318
     secure: false
