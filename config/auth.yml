@@ -1,6 +1,6 @@
 cache:
   ristretto:
-    max_counters: 10000000
+    num_counters: 10000000
     max_cost: 100000000
     buffer_items: 64
 casbin:
@@ -47,6 +47,8 @@ server:
               # iEzHjRpD8/sEMzCFPA0JqU/ItaBPZwYlsa6W53vHy6yy3MiDkbbhDapHljR5I+3Mzph7jTqrlBMADD1TdJPVAwMtUgfWMwoIQypFPqFYW2iXvTtCz1q4wloTJp+PToII/Q37VOyX26SN+pOsVh2QaxEg2eOIGIAxci4lBJ4MnZvrbYsDtKWNM1fm0JqPYtR6frpt9YyxP4X1dQG953eYFxLMle+SEi+Eh5NUeIpYVTnHW6/UUtkeNrJ7GZmz5RHCin2I5ccd3Euu+CncC87+zeniSWQdM4Sx1mrxJQTF4/bGxf629wpJzn5ah1oC1NjwvwUjdFQKWIU3mMlDQV7qCroLPTo7NFE6LpHOxna5Px8s6qLWnLGQDGCYK6YULFqxtQflpDAGGpLH4ZXwLqpiskOZw22uxgoRlQLphIQLfxa5I1Pdk/TLhSQadacY88Oym88mfgI/xTRTW69ChnbTLnwu65OWqzK8Sg7jkV+beMZL49B1008BGat/7truC1fYJfPGJEetNiOS4o4I+05qWeDs+3XayITf873j1yhj8uZULmBqEYhDSrpJbnswDpsy9GwG3WrE/lkwM7yp43oZ35bcMJneyMkThCRigMgiPHIS40uJGQpXzsWEVrBGjlAl1PoBYXxaxD5wrqvuemROGdswKxQ6Th5nf1Y5LXGpxeE=
         duration: 24h
 telemetry:
+  logger:
+    level: error
   tracer:
     host: localhost:4318
     secure: false
