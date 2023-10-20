@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.85.1](https://github.com/alexfalkowski/docker/releases/tag/v1.85.1) - 2023-10-20
+
+- [`383a84f`](https://github.com/alexfalkowski/docker/commit/383a84faa84d63f7f8fa4b94983a02489d7b9f93) fix(deps): bump cimg/openjdk from 20.0.1 to 21.0.0 in /diagram (#243)
+
 ## [v1.85.0](https://github.com/alexfalkowski/docker/releases/tag/v1.85.0) - 2023-10-20
 
 - [`737a3c9`](https://github.com/alexfalkowski/docker/commit/737a3c9be0cb24be732814cb46ad2548d941af25) feat(cluster): add logger (#244)
