@@ -1,3 +1,4 @@
+environment: production
 cache:
   ristretto:
     num_counters: 10000000

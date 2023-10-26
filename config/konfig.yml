@@ -1,3 +1,4 @@
+environment: production
 health:
   duration: 30s
   timeout: 1s
