@@ -1,3 +1,4 @@
+environment: production
 mapper:
   identifiers:
     req1: resp1
