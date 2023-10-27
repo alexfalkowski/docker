@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.87.0](https://github.com/alexfalkowski/docker/releases/tag/v1.87.0) - 2023-10-27
+
+- [`ab0817f`](https://github.com/alexfalkowski/docker/commit/ab0817f726250afb70589b36a298d19f657cf3c5) feat(cluster): verify grpc (#246)
+
 ## [v1.86.0](https://github.com/alexfalkowski/docker/releases/tag/v1.86.0) - 2023-10-26
 
 - [`63164f0`](https://github.com/alexfalkowski/docker/commit/63164f0561aa90bd5c47ed21376d3138a56aa064) feat(cluster): add environment (#245)
