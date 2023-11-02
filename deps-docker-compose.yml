@@ -74,3 +74,15 @@ services:
     volumes:
       - "${PWD}/config:/config"
 
+  status:
+    image: alexfalkowski/status
+    command: server
+    restart: always
+    environment:
+      CONFIG_FILE: /config/status.yml
+    ports:
+      - "6000:8080"
+      - "6001:9090"
+    volumes:
+      - "${PWD}/config:/config"
+
