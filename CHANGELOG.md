@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.90.0](https://github.com/alexfalkowski/docker/releases/tag/v1.90.0) - 2023-11-03
+
+- [`33e69a2`](https://github.com/alexfalkowski/docker/commit/33e69a2905c1930ddb703758881c07c6b7fd6cae) feat(go): update image tag (#251)
+
 ## [v1.89.2](https://github.com/alexfalkowski/docker/releases/tag/v1.89.2) - 2023-11-03
 
 - [`88e8051`](https://github.com/alexfalkowski/docker/commit/88e8051fa261b6fe1bd9084de1503db941df9ae2) fix(deps): auth config (#250)
