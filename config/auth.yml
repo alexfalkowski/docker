@@ -37,12 +37,14 @@ server:
         hash: $2a$10$gDNgEudBe.wJd7cZtBq9tuAFpHvXuzervylm593VY7Pt4O9I.zJEm
               # MCZxL$Y5beypAWj<JQENft@P_DXVuh#,]02rq1Hwd69mFg(R|7ci&TlaoBU8k3s4
     services:
-      - id: konfig
+      - id: e1602e185cba2a90d8bbcfc3f3c5530c
+        name: konfig
         hash: $2a$10$bimUI5M/pkRYgIC3UHzgy.cZjFetNvgt3vG.SPVQRsqU8OFb8V9UG
               # uC?MxwKO+r1@0RX[q8V5s4F|3oQ)yZ7TYDlUHmIfeNn9E&ScL2Pk{g$pi]z6bBta
               # PE7+1MdFLPkwb3BCTEYxesCsd96bb+3cfZbObbijWOsQ39HtvlQE9TuptDrurWOeD4gjhxzP1eGEF7A8CE9ddL1gUeulvWYJ16MKog+Rosbsxk3dze5j1yxhRiMzhH4bIe4MvCHdi2NPIRbT7qQcjBHr04KuHjO2qYya398kMuFq5Xezpl1uvv7idcpPQmgT6vKzFH14hVFR1R1S1ABCe7x2Fwxl6xDjaetoJ7vrpVwwbqOLl79L5U98QGyAHVE1kxEkursPQBGa7rb3s0LHAQCJOxS6daeV6Xkbd/y4rC2L+65xfB2FAMZtvg+bX+Tr6S4EyQyQt0GfJvX/8cNy6TN21UG73FNEk3TYIz46JAhRaGk2Atn4+AO35Ypz75ovZghn8snAkSSNjeZMnTFKf0uNIS6W/xULZcaZnxYKYwwjxsTwGsM/H97n2YqbaEOzG4fU69mJsz0KwA/2TE1aqhb5Hpf2GbJVxoN7AkNp6kRmmufMssZluXC5Xd+bKSrNsK2yzxAgPrV7X/xIfqeJZ653Vp6HevN7G41jQuXBXcgn4nnubnf+f/3CyvBpIcwm9OoVFFgb0C60nZFMmSex/yc6EwaRP+9EEESztCzX+W9kN0fNHCnq2+rYsVfc4wZVlQq0aRgtl1k9umGI1ikjGwWaJ8uwmxSOJHPyg6xFmDo=
         duration: 24h
-      - id: standort
+      - id: 7e8c24379930d107b2d281aa23247092
+        name: standort
         hash: $2a$10$HsHqKfiEw8xSavbN.EAtV.Cqs.17m.hy7vVjKkyFU7DNrteDaDLKi
               # Kt8GQkr/61q*bR:yFI72Xna0@MCvp$O]39m)ZJfxN<4}SDsETHh^We5PgBiodUlc
               # iEzHjRpD8/sEMzCFPA0JqU/ItaBPZwYlsa6W53vHy6yy3MiDkbbhDapHljR5I+3Mzph7jTqrlBMADD1TdJPVAwMtUgfWMwoIQypFPqFYW2iXvTtCz1q4wloTJp+PToII/Q37VOyX26SN+pOsVh2QaxEg2eOIGIAxci4lBJ4MnZvrbYsDtKWNM1fm0JqPYtR6frpt9YyxP4X1dQG953eYFxLMle+SEi+Eh5NUeIpYVTnHW6/UUtkeNrJ7GZmz5RHCin2I5ccd3Euu+CncC87+zeniSWQdM4Sx1mrxJQTF4/bGxf629wpJzn5ah1oC1NjwvwUjdFQKWIU3mMlDQV7qCroLPTo7NFE6LpHOxna5Px8s6qLWnLGQDGCYK6YULFqxtQflpDAGGpLH4ZXwLqpiskOZw22uxgoRlQLphIQLfxa5I1Pdk/TLhSQadacY88Oym88mfgI/xTRTW69ChnbTLnwu65OWqzK8Sg7jkV+beMZL49B1008BGat/7truC1fYJfPGJEetNiOS4o4I+05qWeDs+3XayITf873j1yhj8uZULmBqEYhDSrpJbnswDpsy9GwG3WrE/lkwM7yp43oZ35bcMJneyMkThCRigMgiPHIS40uJGQpXzsWEVrBGjlAl1PoBYXxaxD5wrqvuemROGdswKxQ6Th5nf1Y5LXGpxeE=
@@ -51,7 +53,7 @@ telemetry:
   logger:
     level: info
   tracer:
-    host: localhost:4318
+    host: jaegertracing:4318
     secure: false
 transport:
   http:
