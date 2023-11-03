@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.89.2](https://github.com/alexfalkowski/docker/releases/tag/v1.89.2) - 2023-11-03
+
+- [`88e8051`](https://github.com/alexfalkowski/docker/commit/88e8051fa261b6fe1bd9084de1503db941df9ae2) fix(deps): auth config (#250)
+
 ## [v1.89.1](https://github.com/alexfalkowski/docker/releases/tag/v1.89.1) - 2023-11-03
 
 - [`20f652b`](https://github.com/alexfalkowski/docker/commit/20f652bb2f648346132e5faf91d32cd222ab9c63) fix(deps): status port (#249)
