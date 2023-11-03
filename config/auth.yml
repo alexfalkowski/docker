@@ -49,7 +49,7 @@ server:
         duration: 24h
 telemetry:
   logger:
-    level: error
+    level: info
   tracer:
     host: localhost:4318
     secure: false
