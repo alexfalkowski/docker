@@ -3,13 +3,13 @@ version: 2.1
 jobs:
   lint:
     docker:
-      - image: alexfalkowski/go:1.20-3.1
+      - image: alexfalkowski/go:1.21-ruby
     steps:
       - checkout
       - run: make lint
   build:
     docker:
-      - image: alexfalkowski/go:1.20-3.1
+      - image: alexfalkowski/go:1.21-ruby
     steps:
       - checkout
       - setup_remote_docker:
@@ -21,7 +21,7 @@ jobs:
     resource_class: large
   push:
     docker:
-      - image: alexfalkowski/go:1.20-3.1
+      - image: alexfalkowski/go:1.21-ruby
     steps:
       - checkout
       - setup_remote_docker:
