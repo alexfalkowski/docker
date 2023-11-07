@@ -103,13 +103,14 @@ services:
 
   prometheus:
     image: prom/prometheus
+    user: root
     restart: always
     ports:
       - 9000:9090
     volumes:
       - ./prometheus:/etc/prometheus
-      - ./prometheus:/prometheus
-    command: --web.enable-lifecycle --config.file=/etc/prometheus/config.yml
+      - prom_data:/prometheus
+    command: --config.file=/etc/prometheus/config.yml
 
   grafana:
     image: grafana/grafana-oss
@@ -118,3 +119,6 @@ services:
       - 10000:3000
     depends_on:
       - prometheus
+
+volumes:
+  prom_data:
