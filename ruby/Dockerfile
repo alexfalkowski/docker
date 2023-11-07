@@ -29,6 +29,9 @@ RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.35.2/yq_linux
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
+# Install trivy.
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.47.0
+
 USER circleci
 WORKDIR /home/circleci/
 
