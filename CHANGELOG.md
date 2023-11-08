@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.92.3](https://github.com/alexfalkowski/docker/releases/tag/v1.92.3) - 2023-11-08
+
+- [`4a44a20`](https://github.com/alexfalkowski/docker/commit/4a44a209c4a98584c7820196d5d48d79def31c45) fix(deps): bump cimg/go from 1.21.3 to 1.21.4 in /release (#258)
+
+## [v1.92.2](https://github.com/alexfalkowski/docker/releases/tag/v1.92.2) - 2023-11-08
+
+- [`7e1948f`](https://github.com/alexfalkowski/docker/commit/7e1948f2304e8751d2a42ecca8c4a92bd87393d2) fix(deps): bump cimg/go from 1.21.3 to 1.21.4 in /go (#257)
+
+## [v1.92.1](https://github.com/alexfalkowski/docker/releases/tag/v1.92.1) - 2023-11-07
+
+- [`8938753`](https://github.com/alexfalkowski/docker/commit/89387530026da265291bef3d737e979f3015cc64) fix(cluster): prom mount points (#256)
+
 ## [v1.92.0](https://github.com/alexfalkowski/docker/releases/tag/v1.92.0) - 2023-11-07
 
 - [`6cd6cb4`](https://github.com/alexfalkowski/docker/commit/6cd6cb4740055c57cc62e384a0d32505013ec847) feat: add trivy (#254)
