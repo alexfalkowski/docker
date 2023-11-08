@@ -33,3 +33,7 @@ clean:
 # Verify the services.
 verify:
 	scripts/verify
+
+# Load test services.
+load:
+	scripts/load
