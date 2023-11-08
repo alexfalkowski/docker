@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.94.0](https://github.com/alexfalkowski/docker/releases/tag/v1.94.0) - 2023-11-09
+
+- [`d396243`](https://github.com/alexfalkowski/docker/commit/d3962437907da4305e0067833d64391dda3065ee) feat(grafana): add grpc (#260)
+
 ## [v1.93.0](https://github.com/alexfalkowski/docker/releases/tag/v1.93.0) - 2023-11-08
 
 - [`afce740`](https://github.com/alexfalkowski/docker/commit/afce740d660aa1c6af61b8fe96c8ba72de2c1dd7) feat(grafana): add dashboards (#259)
