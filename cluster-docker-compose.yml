@@ -93,11 +93,15 @@ services:
 
   vault:
     image: hashicorp/vault
+    user: root
     restart: always
     ports:
       - "8200:8200"
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: "vault-plaintext-root-token"
+    volumes:
+      - ./vault:/etc/vault
+    command: server -dev -config /etc/vault/server.hcl
     cap_add:
       - IPC_LOCK
 
@@ -109,7 +113,7 @@ services:
       - 9000:9090
     volumes:
       - ./prometheus:/etc/prometheus
-      - prom_data:/prometheus
+      - prometheus_data:/prometheus
     command: --config.file=/etc/prometheus/config.yml
 
   grafana:
@@ -121,4 +125,5 @@ services:
       - prometheus
 
 volumes:
-  prom_data:
+  prometheus_data:
+  vault_data:

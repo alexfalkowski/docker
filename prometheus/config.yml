@@ -2,11 +2,28 @@ global:
   scrape_interval: 1s
 
 scrape_configs:
-  - job_name: "prometheus"
+  - job_name: 'prometheus'
+    scrape_interval: 5s
     static_configs:
-      - targets:
-          - "prometheus:9090"
-          - "standort:8080"
-          - "konfig:8080"
-          - "bezeichner:8080"
-          - "auth:8080"
+      - targets: ['prometheus:9090']
+  - job_name: 'standort'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['standort:8080']
+  - job_name: 'konfig'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['konfig:8080']
+  - job_name: 'bezeichner'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['bezeichner:8080']
+  - job_name: 'auth'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['auth:8080']
+  - job_name: 'vault'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['vault:8200']
+    metrics_path: /v1/sys/metrics?format=prometheus
