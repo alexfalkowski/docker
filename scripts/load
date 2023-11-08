@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+
+ghz --insecure --call standort.v2.Service.GetLocation -c 10 -n 10000 --rps 200 -d '{"ip": "95.91.246.242"}' localhost:3001
