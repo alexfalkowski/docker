@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.93.0](https://github.com/alexfalkowski/docker/releases/tag/v1.93.0) - 2023-11-08
+
+- [`afce740`](https://github.com/alexfalkowski/docker/commit/afce740d660aa1c6af61b8fe96c8ba72de2c1dd7) feat(grafana): add dashboards (#259)
+
 ## [v1.92.3](https://github.com/alexfalkowski/docker/releases/tag/v1.92.3) - 2023-11-08
 
 - [`4a44a20`](https://github.com/alexfalkowski/docker/commit/4a44a209c4a98584c7820196d5d48d79def31c45) fix(deps): bump cimg/go from 1.21.3 to 1.21.4 in /release (#258)
