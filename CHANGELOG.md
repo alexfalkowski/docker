@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.94.2](https://github.com/alexfalkowski/docker/releases/tag/v1.94.2) - 2023-11-09
+
+- [`f16f3ff`](https://github.com/alexfalkowski/docker/commit/f16f3fff6a33898c05b9023baf800dd47df0f1b0) fix: remove old auth tokens (#262)
+
 ## [v1.94.1](https://github.com/alexfalkowski/docker/releases/tag/v1.94.1) - 2023-11-09
 
 - [`51518f3`](https://github.com/alexfalkowski/docker/commit/51518f3e540e2e96aa12659b5f04021a5bf18535) fix(cluster): rotate keys (#261)
