@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.94.1](https://github.com/alexfalkowski/docker/releases/tag/v1.94.1) - 2023-11-09
+
+- [`51518f3`](https://github.com/alexfalkowski/docker/commit/51518f3e540e2e96aa12659b5f04021a5bf18535) fix(cluster): rotate keys (#261)
+
 ## [v1.94.0](https://github.com/alexfalkowski/docker/releases/tag/v1.94.0) - 2023-11-09
 
 - [`d396243`](https://github.com/alexfalkowski/docker/commit/d3962437907da4305e0067833d64391dda3065ee) feat(grafana): add grpc (#260)
