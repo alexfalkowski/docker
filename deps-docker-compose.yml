@@ -62,18 +62,6 @@ services:
     cap_add:
       - IPC_LOCK
 
-  auth:
-    image: alexfalkowski/auth
-    command: server
-    restart: always
-    environment:
-      CONFIG_FILE: /config/auth.yml
-    ports:
-      - "5000:8080"
-      - "5001:9090"
-    volumes:
-      - "${PWD}/config:/config"
-
   status:
     image: alexfalkowski/status
     command: server

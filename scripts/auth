@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+
+basic=$(echo -n "su:${AUTH_SU_PASSWORD}" | base64)
+
+grpcurl -plaintext -H "Authorization: Basic $basic" localhost:5001 auth.v1.Service.GenerateAccessToken
+grpcurl -plaintext -H "Authorization: Bearer $AUTH_STANDORT_BEARER" -d '{"kind": "jwt", "audience": "konfig"}' localhost:5001 auth.v1.Service.GenerateServiceToken
