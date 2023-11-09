@@ -13,7 +13,7 @@ services:
       - "4318:4318"
 
   postgres:
-    image: postgres
+    image: postgres:16-bullseye
     restart: always
     environment:
       POSTGRES_USER: test
@@ -22,12 +22,12 @@ services:
       - "5432:5432"
 
   redis:
-    image: redis
+    image: redis:7.2-alpine
     ports:
       - "6379:6379"
 
   nsqlookupd:
-    image: nsqio/nsq
+    image: nsqio/nsq:v1.2.1
     command: /nsqlookupd -broadcast-address=localhost
     restart: always
     ports:
@@ -35,7 +35,7 @@ services:
       - "4161:4161"
 
   nsqd:
-    image: nsqio/nsq
+    image: nsqio/nsq:v1.2.1
     command: /nsqd -broadcast-address=localhost --lookupd-tcp-address=nsqlookupd:4160
     restart: always
     depends_on:
@@ -45,7 +45,7 @@ services:
       - "4151:4151"
 
   localstack:
-    image: localstack/localstack
+    image: localstack/localstack:2.3
     restart: always
     ports:
       - "4566:4566"
@@ -53,7 +53,7 @@ services:
       SERVICES: "s3,sqs,ssm"
 
   vault:
-    image: hashicorp/vault
+    image: hashicorp/vault:1.15
     restart: always
     ports:
       - "8200:8200"
