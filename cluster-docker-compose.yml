@@ -72,7 +72,7 @@ services:
       - "4318:4318"
 
   postgres:
-    image: postgres
+    image: postgres:16-bullseye
     restart: always
     environment:
       POSTGRES_USER: test
@@ -81,12 +81,12 @@ services:
       - "5432:5432"
 
   redis:
-    image: redis
+    image: redis:7.2-alpine
     ports:
       - "6379:6379"
 
   localstack:
-    image: localstack/localstack
+    image: localstack/localstack:2.3
     restart: always
     ports:
       - "4566:4566"
@@ -94,7 +94,7 @@ services:
       SERVICES: "s3,sqs,ssm"
 
   vault:
-    image: hashicorp/vault
+    image: hashicorp/vault:1.15
     user: root
     restart: always
     ports:
