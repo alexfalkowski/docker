@@ -53,6 +53,8 @@ services:
     restart: always
     environment:
       CONFIG_FILE: /config/auth.yml
+      AUTH_ED25519_PRIVATE_KEY: "${AUTH_ED25519_PRIVATE_KEY}"
+      AUTH_RSA_PRIVATE_KEY: "${AUTH_RSA_PRIVATE_KEY}"
     ports:
       - "5000:8080"
       - "5001:9090"

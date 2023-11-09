@@ -6,19 +6,19 @@ curl -sf http://localhost:3000/v1/location/ip/95.91.246.242
 curl -sf http://localhost:3000/v1/location/lat/52.515816/lng/13.454293
 curl -sf "http://localhost:3000/v2/location?ip=95.91.246.242"
 curl -sf "http://localhost:3000/v2/location?point.lat=52.515816&point.lng=13.454293"
-grpcurl -plaintext  -d '{"ip": "95.91.246.242"}' localhost:3001 standort.v2.Service.GetLocation
+grpcurl -plaintext -d '{"ip": "95.91.246.242"}' localhost:3001 standort.v2.Service.GetLocation
 
 # Verify konfig works.
 curl -sf http://localhost:4000/v1/config/test/v1.10.0/staging/eu/de/server/yaml
 curl -sf http://localhost:4000/v1/config/test/v1.10.0/staging/eu/de/server/toml
-grpcurl -plaintext  -d '{"application": "test", "version": "v1.10.0", "environment": "staging", "continent": "eu", "country": "de", "command": "server", "kind": "yaml" }' localhost:4001 konfig.v1.Service.GetConfig
+grpcurl -plaintext -d '{"application": "test", "version": "v1.10.0", "environment": "staging", "continent": "eu", "country": "de", "command": "server", "kind": "yaml" }' localhost:4001 konfig.v1.Service.GetConfig
 
 # Verify bezeichner works.
 curl -sf http://localhost:2000/v1/generate/snowflake/2
 curl -sf http://localhost:2000/v1/generate/ulid/2
 curl -sf http://localhost:2000/v1/generate/xid/2 |
 curl -sf http://localhost:2000/v1/generate/nanoid/2
-grpcurl -plaintext  -d '{"application": "snowflake", "count": 1}' localhost:2001 bezeichner.v1.Service.GenerateIdentifiers
+grpcurl -plaintext -d '{"application": "snowflake", "count": 1}' localhost:2001 bezeichner.v1.Service.GenerateIdentifiers
 
 # Verify auth works.
 curl -sf -H "Authorization: Basic c3UtMTIzNDpNQ1p4TCRZNWJleXBBV2o8SlFFTmZ0QFBfRFhWdWgjLF0wMnJxMUh3ZDY5bUZnKFJ8N2NpJlRsYW9CVThrM3M0" --data-raw '{}' http://localhost:5000/v1/access-token/generate
