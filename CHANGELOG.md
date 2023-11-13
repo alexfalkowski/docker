@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.95.0](https://github.com/alexfalkowski/docker/releases/tag/v1.95.0) - 2023-11-13
+
+- [`30fdece`](https://github.com/alexfalkowski/docker/commit/30fdecea07d62c0854847a0c097e2a82958c80f4) feat(config): add debug (#265)
+
 ## [v1.94.4](https://github.com/alexfalkowski/docker/releases/tag/v1.94.4) - 2023-11-11
 
 - [`ecc1942`](https://github.com/alexfalkowski/docker/commit/ecc1942d6eaebbbc3c18b76d9809ab94ce4e1538) fix: use postgres 15 (#264)
