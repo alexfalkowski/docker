@@ -1,10 +1,12 @@
 environment: production
+debug:
+  port: 6060
 health:
   duration: 1s
   timeout: 1s
 telemetry:
   logger:
-    level: info
+    level: warn
   tracer:
     host: jaegertracing:4318
     secure: false
