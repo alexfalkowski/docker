@@ -1,4 +1,6 @@
 environment: production
+debug:
+  port: 6060
 mapper:
   identifiers:
     req1: resp1
@@ -22,7 +24,7 @@ health:
   timeout: 1s
 telemetry:
   logger:
-    level: info
+    level: warn
   tracer:
     host: jaegertracing:4318
     secure: false
