@@ -16,6 +16,6 @@ grpcurl -plaintext -d '{"application": "test", "version": "v1.10.0", "environmen
 # Verify bezeichner works.
 curl -sf http://localhost:2000/v1/generate/snowflake/2
 curl -sf http://localhost:2000/v1/generate/ulid/2
-curl -sf http://localhost:2000/v1/generate/xid/2 |
+curl -sf http://localhost:2000/v1/generate/xid/2
 curl -sf http://localhost:2000/v1/generate/nanoid/2
 grpcurl -user-agent 'verify/1.0' -plaintext -d '{"application": "snowflake", "count": 1}' localhost:2001 bezeichner.v1.Service.GenerateIdentifiers
