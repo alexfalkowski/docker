@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.95.1](https://github.com/alexfalkowski/docker/releases/tag/v1.95.1) - 2023-11-14
+
+- [`dc5f4fe`](https://github.com/alexfalkowski/docker/commit/dc5f4fe20b3f52f835dcff04e8a8d79b634ac303) fix(verify): remove pipe (#266)
+
 ## [v1.95.0](https://github.com/alexfalkowski/docker/releases/tag/v1.95.0) - 2023-11-13
 
 - [`30fdece`](https://github.com/alexfalkowski/docker/commit/30fdecea07d62c0854847a0c097e2a82958c80f4) feat(config): add debug (#265)
