@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.98.0](https://github.com/alexfalkowski/docker/releases/tag/v1.98.0) - 2023-11-15
+
+- [`f161eb8`](https://github.com/alexfalkowski/docker/commit/f161eb88c9e35876fe7268fd07561867386d24d7) feat: move to procfile (#269)
+
 ## [v1.97.0](https://github.com/alexfalkowski/docker/releases/tag/v1.97.0) - 2023-11-15
 
 - [`7add769`](https://github.com/alexfalkowski/docker/commit/7add769d78e914d2c611b83a5fff6d5a690ffe2a) feat(auth): use tls (#268)
