@@ -1,7 +1,6 @@
 version: "3.9"
 
 services:
-
   jaegertracing:
     image: jaegertracing/all-in-one
     restart: always
@@ -62,6 +61,25 @@ services:
     cap_add:
       - IPC_LOCK
 
+  prometheus:
+    image: prom/prometheus
+    user: root
+    restart: always
+    ports:
+      - 9000:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
+    command: --config.file=/etc/prometheus/config.yml
+
+  grafana:
+    image: grafana/grafana-oss
+    restart: always
+    ports:
+      - 10000:3000
+    depends_on:
+      - prometheus
+
   status:
     image: alexfalkowski/status
     command: server
@@ -74,3 +92,5 @@ services:
     volumes:
       - "${PWD}/config:/config"
 
+volumes:
+  prometheus_data:
