@@ -48,13 +48,18 @@ server:
         duration: 24h
 telemetry:
   logger:
-    level: warn
+    level: info
   tracer:
     host: jaegertracing:4318
     secure: false
 transport:
   http:
     port: 8080
+    security:
+      cert_file: /config/certs/cert.pem
+      key_file: /config/certs/key.pem
+      client_cert_file: /config/certs/client-cert.pem
+      client_key_file: /config/certs/client-key.pem
     user_agent: "Auth-server/1.0 http/1.0"
     retry:
       timeout: 2s
@@ -62,6 +67,11 @@ transport:
   grpc:
     enabled: true
     port: 9090
+    security:
+      cert_file: /config/certs/cert.pem
+      key_file: /config/certs/key.pem
+      client_cert_file: /config/certs/client-cert.pem
+      client_key_file: /config/certs/client-key.pem
     user_agent: "Auth-server/1.0 grpc/1.0"
     retry:
       timeout: 2s
