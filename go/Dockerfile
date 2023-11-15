@@ -32,6 +32,11 @@ RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.35.2/yq_linux
 # Install trivy.
 RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.47.0
 
+# Install mkcert.
+RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
+  mv mkcert-v*-linux-amd64 mkcert && \
+  chmod +x mkcert
+
 USER circleci
 WORKDIR /home/circleci/
 
