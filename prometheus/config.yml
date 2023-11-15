@@ -9,21 +9,23 @@ scrape_configs:
   - job_name: 'standort'
     scrape_interval: 5s
     static_configs:
-      - targets: ['standort:8080']
+      - targets: ['host.containers.internal:3000']
   - job_name: 'konfig'
     scrape_interval: 5s
     static_configs:
-      - targets: ['konfig:8080']
+      - targets: ['host.containers.internal:4000']
   - job_name: 'bezeichner'
     scrape_interval: 5s
     static_configs:
-      - targets: ['bezeichner:8080']
+      - targets: ['host.containers.internal:2000']
   - job_name: 'auth'
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
     scrape_interval: 5s
     static_configs:
-      - targets: ['auth:8080']
-  - job_name: 'vault'
+      - targets: ['host.containers.internal:5000']
+  - job_name: 'status'
     scrape_interval: 5s
     static_configs:
-      - targets: ['vault:8200']
-    metrics_path: /v1/sys/metrics?format=prometheus
+      - targets: ['status:8080']

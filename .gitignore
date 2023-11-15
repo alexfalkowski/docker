@@ -1,1 +1,8 @@
 *.pem
+assets/*.geojson
+assets/*.bin
+assets/*.mmdb
+bin/auth
+bin/bezeichner
+bin/standort
+bin/konfig

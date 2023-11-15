@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 changed() {
     current_branch=$(git symbolic-ref -q --short HEAD)

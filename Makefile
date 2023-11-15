@@ -12,23 +12,44 @@ push:
 
 # Pull latest containers.
 pull:
-	docker-compose -f $(kind)-docker-compose.yml pull $(service)
+	docker-compose -f docker-compose.yml pull $(service)
 
 # Start dependencies.
 start:
-	docker-compose -f $(kind)-docker-compose.yml up -d --remove-orphans $(service)
+	docker-compose -f docker-compose.yml up -d --remove-orphans $(service)
 
 # Stop dependencies.
 stop:
-	docker-compose -f $(kind)-docker-compose.yml down --remove-orphans
+	docker-compose -f docker-compose.yml down --remove-orphans
 
 # Logs from a service.
 logs:
-	docker-compose -f $(kind)-docker-compose.yml logs -f $(service)
+	docker-compose -f docker-compose.yml logs -f $(service)
 
 # Clean all unused docker images.
 clean:
 	docker image prune -a -f
+
+# Start procs.
+start-procs:
+	overmind start -D
+
+# Start procs.
+stop-procs:
+	overmind quit
+
+# Logs from a proc.
+logs-procs:
+	overmind echo
+
+# Complile service.
+compile:
+	./scripts/compile $(service)
+
+# Create certificates.
+create-certs:
+	mkcert -key-file config/certs/key.pem -cert-file config/certs/cert.pem localhost host.containers.internal
+	mkcert -client -key-file config/certs/client-key.pem -cert-file config/certs/client-cert.pem localhost host.containers.internal
 
 # Verify the services.
 verify:
