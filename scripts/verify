@@ -20,3 +20,7 @@ curl -sf http://localhost:2000/v1/generate/ulid/2
 curl -sf http://localhost:2000/v1/generate/xid/2
 curl -sf http://localhost:2000/v1/generate/nanoid/2
 grpcurl -user-agent 'verify/1.0' -plaintext -d '{"application": "snowflake", "count": 1}' localhost:2001 bezeichner.v1.Service.GenerateIdentifiers
+
+# Vrify migrieren works.
+curl -sf http://localhost:7000/v1/migrate/postgres/1
+grpcurl -user-agent 'verify/1.0' -plaintext -d '{"database": "postgres", "version": "2"}' localhost:7001 migrieren.v1.Service.Migrate

@@ -6,3 +6,4 @@ bin/auth
 bin/bezeichner
 bin/standort
 bin/konfig
+bin/migrieren
