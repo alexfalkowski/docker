@@ -9,7 +9,7 @@ migrate:
     -
       name: postgres
       source: file://config/migrations
-      url: postgres://test:test@localhost:5432/test?sslmode=disable
+      url: pgx5://test:test@localhost:5432/test?sslmode=disable
 telemetry:
   logger:
     level: warn
