@@ -56,6 +56,7 @@ transport:
   http:
     port: 5000
     security:
+      enabled: true
       cert_file: config/certs/cert.pem
       key_file: config/certs/key.pem
       client_cert_file: config/certs/client-cert.pem
@@ -68,6 +69,7 @@ transport:
     enabled: true
     port: 5001
     security:
+      enabled: true
       cert_file: config/certs/cert.pem
       key_file: config/certs/key.pem
       client_cert_file: config/certs/client-cert.pem
