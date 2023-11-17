@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.102.0](https://github.com/alexfalkowski/docker/releases/tag/v1.102.0) - 2023-11-17
+
+- [`51adeca`](https://github.com/alexfalkowski/docker/commit/51adeca0bc368af2a14b7c4d939734722e546a42) feat(auth): add enabled (#273)
+
 ## [v1.101.0](https://github.com/alexfalkowski/docker/releases/tag/v1.101.0) - 2023-11-16
 
 - [`7ad5587`](https://github.com/alexfalkowski/docker/commit/7ad5587f51ff1873a3a61b6a76abb9754658edb6) feat(migrieren): use pgx5 (#272)
