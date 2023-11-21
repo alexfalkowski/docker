@@ -51,9 +51,17 @@ create-certs:
 	mkcert -key-file config/certs/key.pem -cert-file config/certs/cert.pem localhost host.containers.internal
 	mkcert -client -key-file config/certs/client-key.pem -cert-file config/certs/client-cert.pem localhost host.containers.internal
 
+# Recompile all the proces.
+procs:
+	scripts/procs
+
 # Verify the services.
 verify:
 	scripts/verify
+
+# Verify the auth.
+auth:
+	scripts/auth
 
 # Load test services.
 load:
