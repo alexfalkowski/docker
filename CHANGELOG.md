@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.105.0](https://github.com/alexfalkowski/docker/releases/tag/v1.105.0) - 2023-11-21
+
+- [`01600ec`](https://github.com/alexfalkowski/docker/commit/01600ecad824f8e1fd664e36f9026d82c6380134) feat: add new scripts to makefile (#277)
+
 ## [v1.104.1](https://github.com/alexfalkowski/docker/releases/tag/v1.104.1) - 2023-11-20
 
 - [`73ffbb6`](https://github.com/alexfalkowski/docker/commit/73ffbb60308adb75b2d9f142277bd42f6776f792) fix(config): remove auth as it is not used (#276)
