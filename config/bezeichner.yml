@@ -19,6 +19,8 @@ generator:
       kind: nanoid
     - name: snowflake
       kind: snowflake
+    - name: typeid
+      kind: typeid
 health:
   duration: 1s
   timeout: 1s
