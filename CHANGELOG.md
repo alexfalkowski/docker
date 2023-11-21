@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.106.0](https://github.com/alexfalkowski/docker/releases/tag/v1.106.0) - 2023-11-21
+
+- [`5aaa562`](https://github.com/alexfalkowski/docker/commit/5aaa562e4c66e8ca21d69cb56f73efdb5a24e38c) feat(bezeichner): add typeid (#278)
+
 ## [v1.105.0](https://github.com/alexfalkowski/docker/releases/tag/v1.105.0) - 2023-11-21
 
 - [`01600ec`](https://github.com/alexfalkowski/docker/commit/01600ecad824f8e1fd664e36f9026d82c6380134) feat: add new scripts to makefile (#277)
