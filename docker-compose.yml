@@ -92,5 +92,12 @@ services:
     volumes:
       - "${PWD}/config:/config"
 
+  flipt:
+    image: flipt/flipt
+    restart: always
+    ports:
+      - "8080:8080"
+      - "9000:9000"
+
 volumes:
   prometheus_data:
