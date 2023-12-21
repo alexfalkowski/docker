@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.107.1](https://github.com/alexfalkowski/docker/releases/tag/v1.107.1) - 2023-12-21
+
+- [`789cf93`](https://github.com/alexfalkowski/docker/commit/789cf933009a3542ea5e8f1d12de031aa6fa7b35) fix(deps): update (#282)
+
 ## [v1.107.0](https://github.com/alexfalkowski/docker/releases/tag/v1.107.0) - 2023-12-21
 
 - [`997be93`](https://github.com/alexfalkowski/docker/commit/997be93116e178e1b56b71d140e65cf114e4923e) feat: add flipt (#281)
