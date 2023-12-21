@@ -25,7 +25,7 @@ RUN curl -sSOL https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux64 
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.35.2/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.40.5/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
