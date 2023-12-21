@@ -20,7 +20,7 @@ RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.28.1/buf-Lin
   chmod +x buf
 
 # Install jq.
-RUN curl -sSOL https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux64 && \
+RUN curl -sSOL https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux64 && \
   mv jq-linux64 jq && \
   chmod +x jq
 
