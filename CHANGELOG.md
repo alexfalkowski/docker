@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.108.0](https://github.com/alexfalkowski/docker/releases/tag/v1.108.0) - 2024-01-12
+
+- [`eea7e36`](https://github.com/alexfalkowski/docker/commit/eea7e3657445e6ce8b17af0479e9495f5604f6af) feat: update trivy to v0.48.3 (#287)
+
 ## [v1.107.3](https://github.com/alexfalkowski/docker/releases/tag/v1.107.3) - 2024-01-10
 
 - [`4296f4d`](https://github.com/alexfalkowski/docker/commit/4296f4d1a5b7c783b600eceef28977e31e74745c) fix(deps): bump cimg/go from 1.21.5 to 1.21.6 in /release (#285)
