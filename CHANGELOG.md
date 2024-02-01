@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.110.0](https://github.com/alexfalkowski/docker/releases/tag/v1.110.0) - 2024-02-01
+
+- [`7a83a11`](https://github.com/alexfalkowski/docker/commit/7a83a113e2cf3bbd3c4a8e17d603d5fc24270480) feat: update trivy to v0.49.0 (#291)
+
 ## [v1.109.1](https://github.com/alexfalkowski/docker/releases/tag/v1.109.1) - 2024-02-01
 
 - [`a211614`](https://github.com/alexfalkowski/docker/commit/a211614b2090dfe59e96d966ee070141c36e4f8e) fix(diagram): update structurizr (#290)
