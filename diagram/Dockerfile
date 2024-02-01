@@ -1,4 +1,4 @@
-FROM cimg/openjdk:21.0.0
+FROM cimg/openjdk:21.0.2
 
 USER root
 
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 WORKDIR /usr/local/bin
 
 # Install structurizr
-RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/v1.30.0/structurizr-cli-1.30.0.zip && \
+RUN curl -o structurizr-cli.zip -L https://github.com/structurizr/cli/releases/download/2024.01.02/structurizr-cli.zip && \
     unzip -o structurizr-cli.zip && \
     rm -f structurizr-cli.zip
 
@@ -24,4 +24,4 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install diagrams
-RUN pip3 install --no-cache-dir -U diagrams==0.23.3 --user
+RUN pip3 install --no-cache-dir -U diagrams==0.23.4 --user
