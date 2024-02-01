@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.109.1](https://github.com/alexfalkowski/docker/releases/tag/v1.109.1) - 2024-02-01
+
+- [`a211614`](https://github.com/alexfalkowski/docker/commit/a211614b2090dfe59e96d966ee070141c36e4f8e) fix(diagram): update structurizr (#290)
+
 ## [v1.109.0](https://github.com/alexfalkowski/docker/releases/tag/v1.109.0) - 2024-01-26
 
 - [`bc17252`](https://github.com/alexfalkowski/docker/commit/bc17252d6f14fc663fcc7a63080222b5375bbbae) feat(deps): update buf to v1.29.0 (#288)
