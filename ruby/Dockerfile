@@ -1,4 +1,4 @@
-FROM cimg/ruby:3.2.2
+FROM cimg/ruby:3.3.0
 
 USER root
 WORKDIR /usr/local/bin
