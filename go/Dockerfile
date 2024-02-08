@@ -1,4 +1,4 @@
-FROM cimg/go:1.21.6
+FROM cimg/go:1.22.0
 
 USER root
 WORKDIR /usr/local/bin
@@ -41,7 +41,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.55.2
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.0
 
 # Install gosec.
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.16.0
@@ -57,8 +57,8 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
   curl -sSL https://get.rvm.io | bash -s stable && \
   bash -c "source $HOME/.rvm/scripts/rvm && \
   rvm requirements && \
-  rvm install 3.2.2 && rvm use 3.2.2"
-ENV PATH "/home/circleci/.rvm/rubies/ruby-3.2.2/bin:$PATH"
+  rvm install 3.3.0 && rvm use 3.3.0"
+ENV PATH "/home/circleci/.rvm/rubies/ruby-3.3.0/bin:$PATH"
 
 # Install gems.
 RUN gem update bundler --force
