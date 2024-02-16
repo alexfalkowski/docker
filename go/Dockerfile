@@ -1,4 +1,4 @@
-FROM cimg/go:1.21.7
+FROM cimg/go:1.22.0
 
 USER root
 WORKDIR /usr/local/bin
@@ -25,12 +25,12 @@ RUN curl -sSOL https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux6
   chmod +x jq
 
 # Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.40.5/yq_linux_amd64 && \
+RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.41.1/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
   chmod +x yq
 
 # Install trivy.
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.49.0
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.49.1
 
 # Install mkcert.
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
@@ -41,10 +41,10 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install golangci-lint.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.1
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
 
 # Install gosec.
-RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.16.0
+RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.19.0
 
 # Install go deps.
 RUN go install github.com/psampaz/go-mod-outdated@latest && \
