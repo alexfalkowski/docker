@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.113.2](https://github.com/alexfalkowski/docker/releases/tag/v1.113.2) - 2024-02-25
+
+- [`505b853`](https://github.com/alexfalkowski/docker/commit/505b853757455dcd86da4fa6ca5fecbcc463bbec) fix(config): enable telemetry (#300)
+
 ## [v1.113.1](https://github.com/alexfalkowski/docker/releases/tag/v1.113.1) - 2024-02-25
 
 - [`62600e8`](https://github.com/alexfalkowski/docker/commit/62600e89ac767985d28b24ce4551ce6dea844161) fix(config): enable telemetry (#299)
