@@ -48,8 +48,10 @@ server:
         duration: 24h
 telemetry:
   logger:
+    enabled: true
     level: warn
   tracer:
+    enabled: true
     host: localhost:4318
     secure: false
 transport:
