@@ -25,24 +25,6 @@ services:
     ports:
       - "6379:6379"
 
-  nsqlookupd:
-    image: nsqio/nsq:v1.2.1
-    command: /nsqlookupd -broadcast-address=localhost
-    restart: always
-    ports:
-      - "4160:4160"
-      - "4161:4161"
-
-  nsqd:
-    image: nsqio/nsq:v1.2.1
-    command: /nsqd -broadcast-address=localhost --lookupd-tcp-address=nsqlookupd:4160
-    restart: always
-    depends_on:
-      - nsqlookupd
-    ports:
-      - "4150:4150"
-      - "4151:4151"
-
   localstack:
     image: localstack/localstack:2.3
     restart: always
