@@ -19,16 +19,6 @@ RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.30.0/buf-Lin
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
-# Install jq.
-RUN curl -sSOL https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux64 && \
-  mv jq-linux64 jq && \
-  chmod +x jq
-
-# Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.41.1/yq_linux_amd64 && \
-  mv yq_linux_amd64 yq && \
-  chmod +x yq
-
 # Install trivy.
 RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.49.1
 
