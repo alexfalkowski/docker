@@ -15,19 +15,9 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.29.0/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.30.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
-
-# Install jq.
-RUN curl -sSOL https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux64 && \
-  mv jq-linux64 jq && \
-  chmod +x jq
-
-# Install yq.
-RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/4.41.1/yq_linux_amd64 && \
-  mv yq_linux_amd64 yq && \
-  chmod +x yq
 
 # Install trivy.
 RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.49.1
@@ -47,8 +37,7 @@ RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.19.0
 
 # Install go deps.
-RUN go install github.com/psampaz/go-mod-outdated@latest && \
-  go install github.com/mattn/goveralls@latest && \
+RUN go install github.com/mattn/goveralls@latest && \
   go install github.com/alexfalkowski/gocovmerge@latest
 
 # Install ruby.
