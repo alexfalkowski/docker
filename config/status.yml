@@ -1,19 +1,18 @@
 environment: production
-debug:
-  port: 6060
 health:
   duration: 1s
   timeout: 1s
 telemetry:
+  enabled: true
   logger:
-    enabled: true
-    level: warn
+    level: info
   tracer:
     enabled: true
     host: localhost:4318
     secure: false
 transport:
   http:
+    enabled: true
     port: 8080
     user_agent: "Status-server/1.0 http/1.0"
     retry:
