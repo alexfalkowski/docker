@@ -38,7 +38,8 @@ RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh
 
 # Install go deps.
 RUN go install github.com/mattn/goveralls@latest && \
-  go install github.com/alexfalkowski/gocovmerge@latest
+  go install github.com/alexfalkowski/gocovmerge@latest && \
+  go install golang.org/x/vuln/cmd/govulncheck@latest
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
