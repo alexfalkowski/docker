@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.119.4](https://github.com/alexfalkowski/docker/releases/tag/v1.119.4) - 2024-03-22
+
+- [`18e9a2b`](https://github.com/alexfalkowski/docker/commit/18e9a2b6e685c2ae9f4f47229b0abe4b8cccc64d) fix: remove auth (#313)
+
 ## [v1.119.3](https://github.com/alexfalkowski/docker/releases/tag/v1.119.3) - 2024-03-21
 
 - [`b189228`](https://github.com/alexfalkowski/docker/commit/b18922824ef6e8fe451dc12887238711bdeec1b1) fix: use docker compose (#312)
