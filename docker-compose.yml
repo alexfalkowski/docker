@@ -60,18 +60,6 @@ services:
     depends_on:
       - prometheus
 
-  auth:
-    image: docker.io/alexfalkowski/auth
-    command: server
-    restart: always
-    environment:
-      CONFIG_FILE: /config/auth.yml
-    ports:
-      - "5000:8080"
-      - "5001:9090"
-    volumes:
-      - "${PWD}/config:/config"
-
   status:
     image: docker.io/alexfalkowski/status
     command: server
