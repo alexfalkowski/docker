@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.119.2](https://github.com/alexfalkowski/docker/releases/tag/v1.119.2) - 2024-03-21
+
+- [`1bf5e8e`](https://github.com/alexfalkowski/docker/commit/1bf5e8eb91fe066574c92e3a3e55561ecc1bf264) fix: prefix with docker (#311)
+
 ## [v1.119.1](https://github.com/alexfalkowski/docker/releases/tag/v1.119.1) - 2024-03-21
 
 - [`7690bcc`](https://github.com/alexfalkowski/docker/commit/7690bccf80ce83bd42fdd72f41590b837d0aa9f0) fix: prefix with docker.io (#310)
