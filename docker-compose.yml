@@ -87,7 +87,7 @@ services:
       - "${PWD}/config:/config"
 
   flipt:
-    image: flipt/flipt
+    image: docker.io/flipt/flipt
     restart: always
     ports:
       - "8080:8080"
