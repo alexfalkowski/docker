@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.119.0](https://github.com/alexfalkowski/docker/releases/tag/v1.119.0) - 2024-03-21
+
+- [`b1d8c89`](https://github.com/alexfalkowski/docker/commit/b1d8c89a68bff8440cf24e70006125c3fa8b7b98) feat(go): update golangci to v1.57.1 (#309)
+
 ## [v1.118.0](https://github.com/alexfalkowski/docker/releases/tag/v1.118.0) - 2024-03-20
 
 - [`37b599e`](https://github.com/alexfalkowski/docker/commit/37b599ef7c4102f6ccff43fc44c3a4077bc34ea7) feat(go): github.com/golangci/golangci-lint/cmd/golangci-lint@v1.57.0 (#308)
