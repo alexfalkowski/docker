@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.119.1](https://github.com/alexfalkowski/docker/releases/tag/v1.119.1) - 2024-03-21
+
+- [`7690bcc`](https://github.com/alexfalkowski/docker/commit/7690bccf80ce83bd42fdd72f41590b837d0aa9f0) fix: prefix with docker.io (#310)
+
 ## [v1.119.0](https://github.com/alexfalkowski/docker/releases/tag/v1.119.0) - 2024-03-21
 
 - [`b1d8c89`](https://github.com/alexfalkowski/docker/commit/b1d8c89a68bff8440cf24e70006125c3fa8b7b98) feat(go): update golangci to v1.57.1 (#309)
