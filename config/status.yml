@@ -1,10 +1,13 @@
-environment: production
+debug:
+  enabled: true
+  port: 6060
+environment: dev
 health:
   duration: 1s
   timeout: 1s
 telemetry:
-  enabled: true
   logger:
+    enabled: true
     level: info
   tracer:
     enabled: true

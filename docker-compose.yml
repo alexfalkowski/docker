@@ -1,11 +1,9 @@
-version: "3.9"
-
 services:
   jaegertracing:
     image: docker.io/jaegertracing/all-in-one
     restart: always
     environment:
-      COLLECTOR_OTLP_ENABLED: true
+      COLLECTOR_OTLP_ENABLED: "true"
     ports:
       - "16686:16686"
       - "4317:4317"
@@ -48,7 +46,7 @@ services:
     user: root
     restart: always
     ports:
-      - 9000:9090
+      - 9090:9090
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus_data:/prometheus
