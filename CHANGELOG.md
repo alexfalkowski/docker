@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.121.0](https://github.com/alexfalkowski/docker/releases/tag/v1.121.0) - 2024-03-22
+
+- [`2bd52f0`](https://github.com/alexfalkowski/docker/commit/2bd52f01422e22e1147998526fc64be006b8342b) feat(verify): load test (#315)
+
 ## [v1.120.0](https://github.com/alexfalkowski/docker/releases/tag/v1.120.0) - 2024-03-22
 
 - [`468369a`](https://github.com/alexfalkowski/docker/commit/468369a7b39984e9362a21401ccd30663bb258e5) feat: allow to choose your container runtime (#314)
