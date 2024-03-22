@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+if command -v podman &> /dev/null
+then
+    podman "$@"
+    exit 0
+fi
+
+if command -v docker &> /dev/null
+then
+    docker "$@"
+    exit 0
+fi
+
+exit 1
