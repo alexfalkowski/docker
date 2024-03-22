@@ -12,11 +12,11 @@ case $1 in
     grpcurl -user-agent 'verify/1.0' -plaintext -d '{"ip": "95.91.246.242"}' localhost:12000 standort.v2.Service.GetLocation
 
     ;;
-
   konfig)
     curl -sf http://localhost:11000/v1/config/test/v1.10.0/staging/eu/de/server/yaml
     curl -sf http://localhost:11000/v1/config/test/v1.10.0/staging/eu/de/server/toml
     grpcurl -plaintext -d '{"application": "test", "version": "v1.10.0", "environment": "staging", "continent": "eu", "country": "de", "command": "server", "kind": "yaml" }' localhost:12000 konfig.v1.Service.GetConfig
+    ghz --insecure --call konfig.v1.Service.GetConfig -c 10 -n 10000 --rps 200 -d '{"application": "test", "version": "v1.10.0", "environment": "staging", "continent": "eu", "country": "de", "command": "server", "kind": "yaml" }' localhost:12000
 
     ;;
 
@@ -27,12 +27,14 @@ case $1 in
     curl -sf http://localhost:11000/v1/generate/nanoid/2
     curl -sf http://localhost:11000/v1/generate/typeid/2
     grpcurl -user-agent 'verify/1.0' -plaintext -d '{"application": "snowflake", "count": 1}' localhost:12000 bezeichner.v1.Service.GenerateIdentifiers
+    ghz --insecure --call bezeichner.v1.Service.GenerateIdentifiers -c 10 -n 10000 --rps 200 -d '{"application": "snowflake", "count": 1}' localhost:12000
 
     ;;
 
   migrieren)
     curl -sf http://localhost:11000/v1/migrate/postgres/1
     grpcurl -user-agent 'verify/1.0' -plaintext -d '{"database": "postgres", "version": "2"}' localhost:12000 migrieren.v1.Service.Migrate
+    ghz --insecure --call migrieren.v1.Service.Migrate -c 10 -n 10000 --rps 200 -d '{"database": "postgres", "version": "2"}' localhost:12000
 
     ;;
 esac
