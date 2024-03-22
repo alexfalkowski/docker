@@ -1,7 +1,7 @@
 debug:
   enabled: true
   port: 6060
-environment: dev
+environment: development
 health:
   duration: 1s
   timeout: 1s
