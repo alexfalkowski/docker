@@ -2,26 +2,37 @@
 
 set -e
 
-# Verify standort works.
-curl -sf http://localhost:3000/v1/location/ip/95.91.246.242
-curl -sf http://localhost:3000/v1/location/lat/52.515816/lng/13.454293
-curl -sf "http://localhost:3000/v2/location?ip=95.91.246.242"
-curl -sf "http://localhost:3000/v2/location?point.lat=52.515816&point.lng=13.454293"
-grpcurl -user-agent 'verify/1.0' -plaintext -d '{"ip": "95.91.246.242"}' localhost:3001 standort.v2.Service.GetLocation
+case $1 in
 
-# Verify konfig works.
-curl -sf http://localhost:4000/v1/config/test/v1.10.0/staging/eu/de/server/yaml
-curl -sf http://localhost:4000/v1/config/test/v1.10.0/staging/eu/de/server/toml
-grpcurl -plaintext -d '{"application": "test", "version": "v1.10.0", "environment": "staging", "continent": "eu", "country": "de", "command": "server", "kind": "yaml" }' localhost:4001 konfig.v1.Service.GetConfig
+  standort)
+    curl -sf http://localhost:11000/v1/location/ip/95.91.246.242
+    curl -sf http://localhost:11000/v1/location/lat/52.515816/lng/13.454293
+    curl -sf "http://localhost:11000/v2/location?ip=95.91.246.242"
+    curl -sf "http://localhost:11000/v2/location?point.lat=52.515816&point.lng=13.454293"
+    grpcurl -user-agent 'verify/1.0' -plaintext -d '{"ip": "95.91.246.242"}' localhost:12000 standort.v2.Service.GetLocation
 
-# Verify bezeichner works.
-curl -sf http://localhost:2000/v1/generate/snowflake/2
-curl -sf http://localhost:2000/v1/generate/ulid/2
-curl -sf http://localhost:2000/v1/generate/xid/2
-curl -sf http://localhost:2000/v1/generate/nanoid/2
-curl -sf http://localhost:2000/v1/generate/typeid/2
-grpcurl -user-agent 'verify/1.0' -plaintext -d '{"application": "snowflake", "count": 1}' localhost:2001 bezeichner.v1.Service.GenerateIdentifiers
+    ;;
 
-# Vrify migrieren works.
-curl -sf http://localhost:7000/v1/migrate/postgres/1
-grpcurl -user-agent 'verify/1.0' -plaintext -d '{"database": "postgres", "version": "2"}' localhost:7001 migrieren.v1.Service.Migrate
+  konfig)
+    curl -sf http://localhost:11000/v1/config/test/v1.10.0/staging/eu/de/server/yaml
+    curl -sf http://localhost:11000/v1/config/test/v1.10.0/staging/eu/de/server/toml
+    grpcurl -plaintext -d '{"application": "test", "version": "v1.10.0", "environment": "staging", "continent": "eu", "country": "de", "command": "server", "kind": "yaml" }' localhost:12000 konfig.v1.Service.GetConfig
+
+    ;;
+
+  bezeichner)
+    curl -sf http://localhost:11000/v1/generate/snowflake/2
+    curl -sf http://localhost:11000/v1/generate/ulid/2
+    curl -sf http://localhost:11000/v1/generate/xid/2
+    curl -sf http://localhost:11000/v1/generate/nanoid/2
+    curl -sf http://localhost:11000/v1/generate/typeid/2
+    grpcurl -user-agent 'verify/1.0' -plaintext -d '{"application": "snowflake", "count": 1}' localhost:12000 bezeichner.v1.Service.GenerateIdentifiers
+
+    ;;
+
+  migrieren)
+    curl -sf http://localhost:11000/v1/migrate/postgres/1
+    grpcurl -user-agent 'verify/1.0' -plaintext -d '{"database": "postgres", "version": "2"}' localhost:12000 migrieren.v1.Service.Migrate
+
+    ;;
+esac
