@@ -1,7 +1,3 @@
-auth:
-  client:
-    v1:
-      host: none
 client:
   v1:
     host: localhost:12000
