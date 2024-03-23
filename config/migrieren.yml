@@ -1,7 +1,3 @@
-auth:
-  client:
-    v1:
-      host: none
 environment: development
 debug:
   port: 6060
