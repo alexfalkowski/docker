@@ -1,8 +1,8 @@
-build:
+build-docker:
 	docker build -t alexfalkowski/ruby:3.3 .
 
-push: build
+push-docker: build-docker
 	docker push alexfalkowski/ruby:3.3
 
-lint:
+lint-docker:
 	hadolint Dockerfile

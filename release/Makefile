@@ -1,8 +1,8 @@
-build:
+build-docker:
 	docker build -t alexfalkowski/release:3.1 .
 
-push: build
+push-docker: build-docker
 	docker push alexfalkowski/release:3.1
 
-lint:
+lint-docker:
 	hadolint Dockerfile
