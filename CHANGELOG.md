@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.125.1](https://github.com/alexfalkowski/docker/releases/tag/v1.125.1) - 2024-03-30
+
+- [`7eaf22c`](https://github.com/alexfalkowski/docker/commit/7eaf22c2e511805a90688271b1f8291124b5f96e) fix(build): ignore folders (#322)
+- [`7afa6f4`](https://github.com/alexfalkowski/docker/commit/7afa6f4e8e2c023fca472ce1d2a7deda43330d05) build(dependabot): add gitsubmodule (#321)
+
 ## [v1.125.0](https://github.com/alexfalkowski/docker/releases/tag/v1.125.0) - 2024-03-30
 
 - [`4fa75a1`](https://github.com/alexfalkowski/docker/commit/4fa75a177ad2829d1a8a3179649a6c486656176f) feat(bin): add git targets (#320)
