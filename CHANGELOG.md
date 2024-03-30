@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.125.0](https://github.com/alexfalkowski/docker/releases/tag/v1.125.0) - 2024-03-30
+
+- [`4fa75a1`](https://github.com/alexfalkowski/docker/commit/4fa75a177ad2829d1a8a3179649a6c486656176f) feat(bin): add git targets (#320)
+
 ## [v1.124.0](https://github.com/alexfalkowski/docker/releases/tag/v1.124.0) - 2024-03-30
 
 - [`fe2b132`](https://github.com/alexfalkowski/docker/commit/fe2b13227884df44ca28a9a53de8b32da6bdd67f) feat: change the makefile contract to avoid conflicts (#319)
