@@ -1,8 +1,8 @@
-build:
+build-docker:
 	# Do nothing
 
-push: build
+push-docker:
 	# Do nothing
 
-lint:
+lint-docker:
 	# Do nothing

@@ -1,8 +1,8 @@
-build:
+build-docker:
 	docker build -t alexfalkowski/diagram:1.0 .
 
-push: build
+push-docker: build-docker
 	docker push alexfalkowski/diagram:1.0
 
-lint:
+lint-docker:
 	hadolint Dockerfile

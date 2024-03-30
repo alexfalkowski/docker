@@ -3,4 +3,4 @@
 set -e
 
 source scripts/lib.sh
-perform "push"
+perform "push-docker"
