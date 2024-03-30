@@ -6,31 +6,37 @@ jobs:
       - image: alexfalkowski/go:1.22-ruby
     steps:
       - checkout
-      - run: make lint
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run: make lint-docker
   build:
     docker:
       - image: alexfalkowski/go:1.22-ruby
     steps:
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make build
+      - run: make build-docker
     resource_class: large
   push:
     docker:
       - image: alexfalkowski/go:1.22-ruby
     steps:
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make build
-      - run: make push
+      - run: make build-docker
+      - run: make push-docker
     resource_class: large
   release:
     docker:
