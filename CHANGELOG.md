@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.125.2](https://github.com/alexfalkowski/docker/releases/tag/v1.125.2) - 2024-04-04
+
+- [`d1d5221`](https://github.com/alexfalkowski/docker/commit/d1d5221c55295663857773784c2078404e8de7a8) fix(deps): bump cimg/go from 1.22.1 to 1.22.2 in /go (#327)
+- [`d2c5a35`](https://github.com/alexfalkowski/docker/commit/d2c5a3590d6658e2b649b0c800390e213c2f2a81) build(deps): bump bin from `ed17684` to `13a7302` (#325)
+- [`81dec5b`](https://github.com/alexfalkowski/docker/commit/81dec5b3ecc98feb541ce693a1ee160ec3b95865) build(deps): bump bin from `024be7f` to `ed17684` (#324)
+- [`75e8925`](https://github.com/alexfalkowski/docker/commit/75e8925c0cdb16f1b8f9a9ab8027d0f3194e9b77) build(deps): bump bin from `ec591e3` to `024be7f` (#323)
+
 ## [v1.125.1](https://github.com/alexfalkowski/docker/releases/tag/v1.125.1) - 2024-03-30
 
 - [`7eaf22c`](https://github.com/alexfalkowski/docker/commit/7eaf22c2e511805a90688271b1f8291124b5f96e) fix(build): ignore folders (#322)
