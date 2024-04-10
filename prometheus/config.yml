@@ -1,6 +1,9 @@
 global:
   scrape_interval: 1s
 
+remote_write:
+  - url: http://mimir:9009/api/v1/push
+
 scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 5s
@@ -19,9 +22,6 @@ scrape_configs:
     static_configs:
       - targets: ['host.containers.internal:2000']
   - job_name: 'auth'
-    scheme: https
-    tls_config:
-      insecure_skip_verify: true
     scrape_interval: 5s
     static_configs:
       - targets: ['host.containers.internal:5000']
