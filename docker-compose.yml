@@ -61,7 +61,7 @@ services:
       - 9009:9009
     volumes:
       - ./prometheus:/etc/prometheus
-    command: --config.file=/etc/prometheus/mirmir.yml
+    command: --config.file=/etc/prometheus/mimir.yml
 
   grafana:
     image: docker.io/grafana/grafana-oss

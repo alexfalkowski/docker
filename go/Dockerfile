@@ -30,14 +30,13 @@ RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
 USER circleci
 WORKDIR /home/circleci/
 
-# Install golangci-lint.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.57.2
-
 # Install gosec.
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.19.0
 
 # Install go deps.
-RUN go install github.com/mattn/goveralls@latest && \
+RUN go clean --cache -testcache -fuzzcache -modcache && \
+  go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.57.2 && \
+  go install github.com/mattn/goveralls@latest && \
   go install github.com/alexfalkowski/gocovmerge@latest && \
   go install golang.org/x/vuln/cmd/govulncheck@latest
 
