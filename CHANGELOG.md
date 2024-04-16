@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.128.0](https://github.com/alexfalkowski/docker/releases/tag/v1.128.0) - 2024-04-16
+
+- [`e4e1225`](https://github.com/alexfalkowski/docker/commit/e4e122599be00424b1f7294687965689bd9de658) feat(go): install gotest.tools/gotestsum@v1.11.0 (#334)
+
 ## [v1.127.0](https://github.com/alexfalkowski/docker/releases/tag/v1.127.0) - 2024-04-16
 
 - [`ac72c08`](https://github.com/alexfalkowski/docker/commit/ac72c08d7c56ad847c8b4a490a2a2b63e011d3ac) feat(go): clean caches (#333)
