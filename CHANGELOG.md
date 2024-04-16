@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.127.0](https://github.com/alexfalkowski/docker/releases/tag/v1.127.0) - 2024-04-16
+
+- [`ac72c08`](https://github.com/alexfalkowski/docker/commit/ac72c08d7c56ad847c8b4a490a2a2b63e011d3ac) feat(go): clean caches (#333)
+- [`2d90291`](https://github.com/alexfalkowski/docker/commit/2d902912147bdc31bf5b775fa8bfaae0a916a037) build(deps): bump bin from `c322696` to `51c6ece` (#332)
+- [`b508c0c`](https://github.com/alexfalkowski/docker/commit/b508c0cb1024277e69b5329dd60345a68d7796a2) build(deps): bump bin from `13a7302` to `c322696` (#331)
+
 ## [v1.126.0](https://github.com/alexfalkowski/docker/releases/tag/v1.126.0) - 2024-04-10
 
 - [`e6bd497`](https://github.com/alexfalkowski/docker/commit/e6bd49778cc76ed1d55052f0f150eae47bf981d9) feat(prometheus): add mirmir (#330)
