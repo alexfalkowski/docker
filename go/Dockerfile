@@ -38,7 +38,8 @@ RUN go clean --cache -testcache -fuzzcache -modcache && \
   go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.57.2 && \
   go install github.com/mattn/goveralls@latest && \
   go install github.com/alexfalkowski/gocovmerge@latest && \
-  go install golang.org/x/vuln/cmd/govulncheck@latest
+  go install golang.org/x/vuln/cmd/govulncheck@latest && \
+  go install gotest.tools/gotestsum@v1.11.0
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
