@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.129.0](https://github.com/alexfalkowski/docker/releases/tag/v1.129.0) - 2024-04-24
+
+- [`fb4b25c`](https://github.com/alexfalkowski/docker/commit/fb4b25ccc96580975810a8bb73e6822763af28fc) feat(deps): upgrade buf to v1.31.0 (#337)
+- [`1348cee`](https://github.com/alexfalkowski/docker/commit/1348cee2aed983c1801a66d79d11593e1c4eb8cf) build(deps): bump bin from `d5f116d` to `c06391c` (#336)
+- [`405f248`](https://github.com/alexfalkowski/docker/commit/405f248dd56e25d5905f756df669c753a525a22c) build(deps): bump bin from `51c6ece` to `d5f116d` (#335)
+
 ## [v1.128.0](https://github.com/alexfalkowski/docker/releases/tag/v1.128.0) - 2024-04-16
 
 - [`e4e1225`](https://github.com/alexfalkowski/docker/commit/e4e122599be00424b1f7294687965689bd9de658) feat(go): install gotest.tools/gotestsum@v1.11.0 (#334)
