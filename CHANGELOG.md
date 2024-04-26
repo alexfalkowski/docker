@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.131.1](https://github.com/alexfalkowski/docker/releases/tag/v1.131.1) - 2024-04-26
+
+- [`8eed0f8`](https://github.com/alexfalkowski/docker/commit/8eed0f8d221cd709b745608ca0f5c7145900de93) fix(sudo): remove sudoers as it already has it (#341)
+
 ## [v1.131.0](https://github.com/alexfalkowski/docker/releases/tag/v1.131.0) - 2024-04-26
 
 - [`f7afb94`](https://github.com/alexfalkowski/docker/commit/f7afb9460db99d83ebf4ace4f1546057694915f3) feat(sudo): add circleci user to sudoers (#340)
