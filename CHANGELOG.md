@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.131.0](https://github.com/alexfalkowski/docker/releases/tag/v1.131.0) - 2024-04-26
+
+- [`f7afb94`](https://github.com/alexfalkowski/docker/commit/f7afb9460db99d83ebf4ace4f1546057694915f3) feat(sudo): add circleci user to sudoers (#340)
+
 ## [v1.130.0](https://github.com/alexfalkowski/docker/releases/tag/v1.130.0) - 2024-04-25
 
 - [`f7a1c31`](https://github.com/alexfalkowski/docker/commit/f7a1c3162f914abfd2b3f2a36ba7009c87af8d5d) feat(ruby): upgrade to v3.3.1 (#339)
