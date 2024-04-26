@@ -8,9 +8,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     iproute2 \
     && rm -rf /var/lib/apt/lists/*
 
-# Add circleci to sudoers
-RUN echo "circleci ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee "/etc/sudoers.d/dont-prompt-circleci-for-sudo-password"
-
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
 RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
