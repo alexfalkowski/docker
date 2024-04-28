@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.132.0](https://github.com/alexfalkowski/docker/releases/tag/v1.132.0) - 2024-04-28
+
+- [`b7a34e2`](https://github.com/alexfalkowski/docker/commit/b7a34e22ad7fa73d7a632cc788530e346d37a8b4) feat(go): remove goveralls (#342)
+
 ## [v1.131.1](https://github.com/alexfalkowski/docker/releases/tag/v1.131.1) - 2024-04-26
 
 - [`8eed0f8`](https://github.com/alexfalkowski/docker/commit/8eed0f8d221cd709b745608ca0f5c7145900de93) fix(sudo): remove sudoers as it already has it (#341)
