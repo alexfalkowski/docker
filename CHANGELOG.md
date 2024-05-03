@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.133.0](https://github.com/alexfalkowski/docker/releases/tag/v1.133.0) - 2024-05-03
+
+- [`3d2e60d`](https://github.com/alexfalkowski/docker/commit/3d2e60d16a6f0ea69fd061a7fa4a79e8c823bab9) feat(trivy): upgrade to v0.51.0 (#347)
+- [`8795a52`](https://github.com/alexfalkowski/docker/commit/8795a52106193ff55942efba2af89ff42cd90e6f) build(deps): bump bin from `63b9d75` to `253f8fe` (#346)
+- [`374e15b`](https://github.com/alexfalkowski/docker/commit/374e15b1044e258e5b9cfb2af96d0dc4df8ae5f7) build(deps): bump bin from `e47704b` to `63b9d75` (#345)
+- [`8eb99ce`](https://github.com/alexfalkowski/docker/commit/8eb99cee10a72e2a798380aed170795a5436e7cf) build(deps): bump bin from `3976e45` to `e47704b` (#344)
+- [`9ca6f39`](https://github.com/alexfalkowski/docker/commit/9ca6f399275a81f39c276ba0631c5450207e7402) build(deps): bump bin from `c06391c` to `3976e45` (#343)
+
 ## [v1.132.0](https://github.com/alexfalkowski/docker/releases/tag/v1.132.0) - 2024-04-28
 
 - [`b7a34e2`](https://github.com/alexfalkowski/docker/commit/b7a34e22ad7fa73d7a632cc788530e346d37a8b4) feat(go): remove goveralls (#342)
