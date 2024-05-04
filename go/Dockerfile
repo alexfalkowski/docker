@@ -39,7 +39,7 @@ WORKDIR /home/circleci/
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.19.0
 
 # Install go deps.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.57.2 && \
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.58.0 && \
   go install github.com/alexfalkowski/gocovmerge@latest && \
   go install golang.org/x/vuln/cmd/govulncheck@latest && \
   go install gotest.tools/gotestsum@v1.11.0 \
