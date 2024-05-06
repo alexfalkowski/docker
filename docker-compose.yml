@@ -10,7 +10,7 @@ services:
       - "4318:4318"
 
   postgres:
-    image: docker.io/postgres:15-bullseye
+    image: docker.io/postgres:16-bullseye
     restart: always
     environment:
       POSTGRES_USER: test
@@ -24,7 +24,7 @@ services:
       - "6379:6379"
 
   localstack:
-    image: docker.io/localstack/localstack:2.3
+    image: docker.io/localstack/localstack:3.4
     restart: always
     ports:
       - "4566:4566"
@@ -32,7 +32,7 @@ services:
       SERVICES: "s3,sqs,ssm"
 
   vault:
-    image: docker.io/hashicorp/vault:1.15
+    image: docker.io/hashicorp/vault:1.16
     restart: always
     ports:
       - "8200:8200"
