@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.136.0](https://github.com/alexfalkowski/docker/releases/tag/v1.136.0) - 2024-05-10
+
+- [`e1240cc`](https://github.com/alexfalkowski/docker/commit/e1240cc8b1e40e83fe09683163d08063215fc614) feat(go): add fieldalignment (#356)
+- [`3b5ff5a`](https://github.com/alexfalkowski/docker/commit/3b5ff5a2438e1f66f1b6260fa9ee2d6efadb72bd) build(deps): bump bin from `693b345` to `55a2500` (#355)
+
 ## [v1.135.3](https://github.com/alexfalkowski/docker/releases/tag/v1.135.3) - 2024-05-09
 
 - [`3f12e4d`](https://github.com/alexfalkowski/docker/commit/3f12e4dcf67665a0259bde8ef4df468f9c8d9a5f) fix(go): upgraded golangci-lint to v1.58.1 (#354)
