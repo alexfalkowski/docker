@@ -42,7 +42,8 @@ RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.58.1 && \
   go install github.com/alexfalkowski/gocovmerge@latest && \
   go install golang.org/x/vuln/cmd/govulncheck@latest && \
-  go install gotest.tools/gotestsum@v1.11.0 \
+  go install gotest.tools/gotestsum@v1.11.0 && \
+  go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@latest \
   && go clean --cache -testcache -fuzzcache -modcache
 
 # Install ruby.
