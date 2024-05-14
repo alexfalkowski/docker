@@ -32,6 +32,12 @@ RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
   mv mkcert-v*-linux-amd64 mkcert && \
   chmod +x mkcert
 
+# Install doctl.
+ENV DOCTL_VERSION 1.104.0
+RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_VERSION/doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
+  && tar C . -xf doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
+  && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
+
 USER circleci
 WORKDIR /home/circleci/
 
