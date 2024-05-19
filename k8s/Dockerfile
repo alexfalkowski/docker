@@ -21,3 +21,7 @@ RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_V
 
 USER circleci
 WORKDIR /home/circleci/
+
+# Install go tools.
+RUN go install golang.stackrox.io/kube-linter/cmd/kube-linter@v0.6.8 \
+  && go clean --cache -testcache -fuzzcache -modcache
