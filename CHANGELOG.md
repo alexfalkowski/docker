@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.142.0](https://github.com/alexfalkowski/docker/releases/tag/v1.142.0) - 2024-05-19
+
+- [`9852c13`](https://github.com/alexfalkowski/docker/commit/9852c1368439767d964f220df1dbc6627b86efbf) feat(k8s): add kube-linter (#363)
+
 ## [v1.141.0](https://github.com/alexfalkowski/docker/releases/tag/v1.141.0) - 2024-05-18
 
 - [`c722b65`](https://github.com/alexfalkowski/docker/commit/c722b6568714ab2a95c7940bc627e00a7a7786e1) feat(config): add ability to verify (#362)
