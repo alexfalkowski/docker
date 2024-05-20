@@ -20,7 +20,7 @@ RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.32.0/buf-Lin
   chmod +x buf
 
 # Install trivy.
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.51.1
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.51.2
 
 # Install mkcert.
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
@@ -34,7 +34,7 @@ WORKDIR /home/circleci/
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.20.0
 
 # Install go deps.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.58.1 && \
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.58.2 && \
   go install github.com/alexfalkowski/gocovmerge@latest && \
   go install golang.org/x/vuln/cmd/govulncheck@latest && \
   go install gotest.tools/gotestsum@v1.11.0 && \
