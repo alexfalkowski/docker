@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.144.0](https://github.com/alexfalkowski/docker/releases/tag/v1.144.0) - 2024-05-20
+
+- [`23c683f`](https://github.com/alexfalkowski/docker/commit/23c683f2ba0fc00010e9ec4642fabdcbc19b1791) feat(deps): update (#365)
+
 ## [v1.143.0](https://github.com/alexfalkowski/docker/releases/tag/v1.143.0) - 2024-05-20
 
 - [`6531dea`](https://github.com/alexfalkowski/docker/commit/6531dea348add3d0252d99569784e364170d6638) feat(compose): add redis password (#364)
