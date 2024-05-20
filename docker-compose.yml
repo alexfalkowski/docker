@@ -19,9 +19,11 @@ services:
       - "5432:5432"
 
   redis:
-    image: docker.io/redis:7.2-alpine
+    image: docker.io/bitnami/redis:7.2
     ports:
       - "6379:6379"
+    environment:
+      REDIS_PASSWORD: test
 
   localstack:
     image: docker.io/localstack/localstack:3.4
