@@ -23,5 +23,6 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install golang.stackrox.io/kube-linter/cmd/kube-linter@v0.6.8 \
+RUN go install golang.stackrox.io/kube-linter/cmd/kube-linter@v0.6.8 && \
+  go install github.com/zegl/kube-score/cmd/kube-score@v1.18.0 \
   && go clean --cache -testcache -fuzzcache -modcache
