@@ -19,6 +19,11 @@ RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_V
   && tar C . -xf doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
 
+# Install pkl.
+RUN curl -sSOL https://github.com/apple/pkl/releases/download/0.25.3/pkl-linux-amd64 && \
+  mv pkl-linux-amd64 pkl && \
+  chmod +x pkl
+
 USER circleci
 WORKDIR /home/circleci/
 
