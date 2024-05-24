@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.148.0](https://github.com/alexfalkowski/docker/releases/tag/v1.148.0) - 2024-05-24
+
+- [`c29c03c`](https://github.com/alexfalkowski/docker/commit/c29c03c355040794f96ce6172d28df7deefb7639) feat(k8s): remove pkl from k8s (#370)
+
 ## [v1.147.0](https://github.com/alexfalkowski/docker/releases/tag/v1.147.0) - 2024-05-23
 
 - [`9b83c38`](https://github.com/alexfalkowski/docker/commit/9b83c387a98c7bfbc43eebb2b8831b39c34ca668) feat(k8s): add pkl (#369)
