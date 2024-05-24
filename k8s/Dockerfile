@@ -26,3 +26,13 @@ WORKDIR /home/circleci/
 RUN go install golang.stackrox.io/kube-linter/cmd/kube-linter@v0.6.8 && \
   go install github.com/zegl/kube-score/cmd/kube-score@v1.18.0 \
   && go clean --cache -testcache -fuzzcache -modcache
+
+# Install ruby.
+RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
+  curl -sSL https://rvm.io/pkuczynski.asc | gpg --import - && \
+  curl -sSL https://get.rvm.io | bash -s stable && \
+  bash -c "source $HOME/.rvm/scripts/rvm && rvm requirements && rvm install 3.3.1 && rvm use 3.3.1"
+ENV PATH "/home/circleci/.rvm/rubies/ruby-3.3.1/bin:$PATH"
+
+# Install gems.
+RUN gem update bundler --force

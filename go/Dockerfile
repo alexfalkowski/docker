@@ -33,7 +33,7 @@ WORKDIR /home/circleci/
 # Install gosec.
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.20.0
 
-# Install go deps.
+# Install go tools.
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.58.2 && \
   go install github.com/alexfalkowski/gocovmerge@latest && \
   go install golang.org/x/vuln/cmd/govulncheck@v1.1.1 && \
@@ -45,9 +45,7 @@ RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.58.2 && \
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
   curl -sSL https://rvm.io/pkuczynski.asc | gpg --import - && \
   curl -sSL https://get.rvm.io | bash -s stable && \
-  bash -c "source $HOME/.rvm/scripts/rvm && \
-  rvm requirements && \
-  rvm install 3.3.1 && rvm use 3.3.1"
+  bash -c "source $HOME/.rvm/scripts/rvm && rvm requirements && rvm install 3.3.1 && rvm use 3.3.1"
 ENV PATH "/home/circleci/.rvm/rubies/ruby-3.3.1/bin:$PATH"
 
 # Install gems.
