@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.152.0](https://github.com/alexfalkowski/docker/releases/tag/v1.152.0) - 2024-05-31
+
+- [`e30a2f4`](https://github.com/alexfalkowski/docker/commit/e30a2f4375ee0e9410958eed538c9a7d7061f8c6) feat(go): update gotest.tools/gotestsum@v1.12.0 (#378)
+
 ## [v1.151.0](https://github.com/alexfalkowski/docker/releases/tag/v1.151.0) - 2024-05-31
 
 - [`2dbfb47`](https://github.com/alexfalkowski/docker/commit/2dbfb47b690c648a54b35aac95ef1a850ef12203) feat(k8s): upgrade doctl to v1.107.0 (#377)
