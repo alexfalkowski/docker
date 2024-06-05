@@ -1,3 +1,3 @@
-IMAGE:=config:1.0
+IMAGE:=config:1.0-slim
 
 include ../scripts/include.mk
