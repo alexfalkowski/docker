@@ -3,6 +3,9 @@ FROM cimg/go:1.22.4
 USER root
 WORKDIR /usr/local/bin
 
+# Cleanup.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Install kubectl.
 RUN curl -sSOL https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl && \
   chmod +x kubectl

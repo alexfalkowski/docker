@@ -3,6 +3,9 @@ FROM cimg/go:1.22.4
 USER root
 WORKDIR /usr/local/bin
 
+# Cleanup.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
 RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
