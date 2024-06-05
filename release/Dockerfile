@@ -6,7 +6,7 @@ USER root
 RUN echo 'deb [trusted=yes] https://fury.upliftci.dev/apt/ /' | tee /etc/apt/sources.list.d/uplift.list
 RUN apt-get update && apt-get install --no-install-recommends -y \
     uplift=2.23.0 \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add release script.
 COPY release /usr/local/bin/

@@ -3,6 +3,9 @@ FROM cimg/go:1.22.4
 USER root
 WORKDIR /usr/local/bin
 
+# Cleanup.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Install yq.
 RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/v4.44.1/yq_linux_amd64 && \
   mv yq_linux_amd64 yq && \
