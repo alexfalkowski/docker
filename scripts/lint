@@ -2,5 +2,6 @@
 
 set -e
 
+# shellcheck disable=SC1091
 source scripts/lib.sh
 perform "lint-docker"
