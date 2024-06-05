@@ -9,6 +9,7 @@ jobs:
       - run: git submodule sync
       - run: git submodule update --init
       - run: make lint-docker
+    resource_class: large
   build:
     docker:
       - image: alexfalkowski/go:1.22-ruby
