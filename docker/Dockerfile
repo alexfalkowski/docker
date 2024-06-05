@@ -14,7 +14,8 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
 # Install slim.
 RUN curl -sSOL https://github.com/slimtoolkit/slim/releases/download/1.40.11/dist_linux.tar.gz \
   && tar C . -xf dist_linux.tar.gz \
-  && rm dist_linux.tar.gz
+  && mv dist_linux/* . \
+  && rm -rf dist_linux*
 
 USER circleci
 WORKDIR /home/circleci/
