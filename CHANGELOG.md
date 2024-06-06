@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.167.1](https://github.com/alexfalkowski/docker/releases/tag/v1.167.1) - 2024-06-06
+
+- [`048433d`](https://github.com/alexfalkowski/docker/commit/048433d593cfd3b2a03d6ad4d05e4f7bb881cfc7) fix(go): upgrade golang.org/x/vuln/cmd/govulncheck@v1.1.2 (#410)
+
 ## [v1.167.0](https://github.com/alexfalkowski/docker/releases/tag/v1.167.0) - 2024-06-06
 
 - [`db0109f`](https://github.com/alexfalkowski/docker/commit/db0109f8174ed08874f3ebad70985087efb02348) feat(deps): remove slim (#409)
