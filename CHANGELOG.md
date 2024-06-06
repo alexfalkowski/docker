@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.162.0](https://github.com/alexfalkowski/docker/releases/tag/v1.162.0) - 2024-06-06
+
+- [`3a8667f`](https://github.com/alexfalkowski/docker/commit/3a8667fa02327f806c2817bd480926ad971b61c5) feat(ci): specify target for slim build (#394)
+
 ## [v1.161.0](https://github.com/alexfalkowski/docker/releases/tag/v1.161.0) - 2024-06-06
 
 - [`82c077e`](https://github.com/alexfalkowski/docker/commit/82c077e81cdacc6ba0a2e4ce5f294da7b4da7475) feat(ci): use slim (#393)
