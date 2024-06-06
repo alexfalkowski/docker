@@ -1,3 +1,3 @@
-IMAGE:=go:1.22-slim
+IMAGE:=go:1.22
 
 include ../scripts/include.mk
