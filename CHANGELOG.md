@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.161.0](https://github.com/alexfalkowski/docker/releases/tag/v1.161.0) - 2024-06-06
+
+- [`82c077e`](https://github.com/alexfalkowski/docker/commit/82c077e81cdacc6ba0a2e4ce5f294da7b4da7475) feat(ci): use slim (#393)
+
 ## [v1.160.0](https://github.com/alexfalkowski/docker/releases/tag/v1.160.0) - 2024-06-05
 
 - [`5434f35`](https://github.com/alexfalkowski/docker/commit/5434f35df3f6edd0d658111fc54ea1bade274a45) feat(docker): make sure we put the cli in path (#392)
