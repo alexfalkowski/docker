@@ -1,6 +1,6 @@
 # Build docker image.
 build-docker:
-	docker build -t alexfalkowski/$(IMAGE):$(VERSION) .
+	docker build --no-cache -t alexfalkowski/$(IMAGE):$(VERSION) .
 	slim build --http-probe-off --continue-after=1 --target alexfalkowski/$(IMAGE):$(VERSION) --tag alexfalkowski/$(IMAGE):$(VERSION)-slim
 
 # Push built docker image.
