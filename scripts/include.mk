@@ -1,7 +1,6 @@
 # Build docker image.
 build-docker:
-	docker build --compress -t alexfalkowski/$(IMAGE) .
-	slim build --http-probe-off --continue-after=1 --target alexfalkowski/$(IMAGE) alexfalkowski/$(IMAGE)
+	slim build --http-probe-off --continue-after=1 --target alexfalkowski/$(IMAGE) .
 
 # Push built docker image.
 push-docker: build-docker
