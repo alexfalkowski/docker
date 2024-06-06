@@ -1,3 +1,3 @@
-IMAGE:=release:3.1-slim
+IMAGE:=release:3.1
 
 include ../scripts/include.mk
