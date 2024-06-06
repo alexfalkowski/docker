@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.167.0](https://github.com/alexfalkowski/docker/releases/tag/v1.167.0) - 2024-06-06
+
+- [`db0109f`](https://github.com/alexfalkowski/docker/commit/db0109f8174ed08874f3ebad70985087efb02348) feat(deps): remove slim (#409)
+- [`7c2ec8a`](https://github.com/alexfalkowski/docker/commit/7c2ec8acead0b2745290682ba914e39926ca1641) feat(ci): only push on master (#408)
+
 ## [v1.166.0](https://github.com/alexfalkowski/docker/releases/tag/v1.166.0) - 2024-06-06
 
 - [`d1233b8`](https://github.com/alexfalkowski/docker/commit/d1233b8afd5d7e7eb87325ca7b02dc770244db15) feat(ci): use preserve-path-file (#405)
