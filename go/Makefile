@@ -1,3 +1,3 @@
-IMAGE:=go:1.22-ruby
+IMAGE:=go:1.22-slim
 
 include ../scripts/include.mk

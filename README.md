@@ -4,7 +4,7 @@
 
 Common images used for my projects.
 
-These are images that are used for [CircleCI](https://circleci.com/). They have docker-compose so we can run what is locally setup.
+These are images that are used for [CircleCI](https://circleci.com/) and slimmed by [SlimToolkit](https://github.com/slimtoolkit/slim).
 
 ## Images
 
