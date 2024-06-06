@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.166.0](https://github.com/alexfalkowski/docker/releases/tag/v1.166.0) - 2024-06-06
+
+- [`d1233b8`](https://github.com/alexfalkowski/docker/commit/d1233b8afd5d7e7eb87325ca7b02dc770244db15) feat(ci): use preserve-path-file (#405)
+
 ## [v1.165.0](https://github.com/alexfalkowski/docker/releases/tag/v1.165.0) - 2024-06-06
 
 - [`39115cb`](https://github.com/alexfalkowski/docker/commit/39115cbd1c78f358a96789b01aca12eb901801ef) feat(ci): do not compress docker build (#402)
