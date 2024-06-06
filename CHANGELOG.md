@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.164.0](https://github.com/alexfalkowski/docker/releases/tag/v1.164.0) - 2024-06-06
+
+- [`c100034`](https://github.com/alexfalkowski/docker/commit/c1000343a5fc6de8f206a86136eccf41d28c0e7f) feat(ci): seperate version so we can push all tags (#399)
+- [`ac9d64e`](https://github.com/alexfalkowski/docker/commit/ac9d64ee6571de43bc0f6fc4992022c9ca4cd721) feat(ci): build fat and slim image (#397)
+
 ## [v1.163.0](https://github.com/alexfalkowski/docker/releases/tag/v1.163.0) - 2024-06-06
 
 - [`032c57b`](https://github.com/alexfalkowski/docker/commit/032c57bc28791addf1acc218bd1aedf10882f976) feat(ci): build only with slim (#395)
