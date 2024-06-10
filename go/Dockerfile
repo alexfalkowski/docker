@@ -37,7 +37,7 @@ WORKDIR /home/circleci/
 RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.20.0
 
 # Install go tools.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.0 && \
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1 && \
   go install github.com/alexfalkowski/gocovmerge@latest && \
   go install golang.org/x/vuln/cmd/govulncheck@v1.1.2 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
