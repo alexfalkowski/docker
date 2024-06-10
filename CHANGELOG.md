@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.168.1](https://github.com/alexfalkowski/docker/releases/tag/v1.168.1) - 2024-06-10
+
+- [`60cc272`](https://github.com/alexfalkowski/docker/commit/60cc272d4bd56de1a74de84c286b2acde9fcccf9) fix(go): upgrade golangci-lint@v1.59.1 (#413)
+- [`7bb9a2c`](https://github.com/alexfalkowski/docker/commit/7bb9a2cc6d14a759b5d791f07400da44fb300148) build(deps): bump bin from `955891d` to `897d5f1` (#412)
+
 ## [v1.168.0](https://github.com/alexfalkowski/docker/releases/tag/v1.168.0) - 2024-06-07
 
 - [`2a28f8d`](https://github.com/alexfalkowski/docker/commit/2a28f8db898608b7fa4bb8f27b2a74ff21050eec) feat(go): add size-analyzer (#411)
