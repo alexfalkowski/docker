@@ -23,7 +23,7 @@ RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.32.2/buf-Lin
   chmod +x buf
 
 # Install trivy.
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.52.0
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.52.1
 
 # Install mkcert.
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
@@ -42,7 +42,7 @@ RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1 && \
   go install golang.org/x/vuln/cmd/govulncheck@v1.1.2 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
   go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.22.0 && \
-  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.1.0 \
+  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.2.2 \
   && go clean --cache -testcache -fuzzcache -modcache
 
 # Install ruby.
