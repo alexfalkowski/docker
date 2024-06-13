@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.170.0](https://github.com/alexfalkowski/docker/releases/tag/v1.170.0) - 2024-06-13
+
+- [`290d481`](https://github.com/alexfalkowski/docker/commit/290d481ad65c637b55c7d3302ddc16f1f049cf89) feat(root): add an image that all other images can depend on (#417)
+
 ## [v1.169.2](https://github.com/alexfalkowski/docker/releases/tag/v1.169.2) - 2024-06-13
 
 - [`817ae9e`](https://github.com/alexfalkowski/docker/commit/817ae9e0d55c1cfc679db3dbd6603e7f7be4e8dd) fix(deps): update ruby to v3.3.3 (#416)
