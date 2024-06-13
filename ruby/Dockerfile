@@ -1,12 +1,7 @@
-FROM cimg/ruby:3.3.2
+FROM alexfalkowski/root:1.0
 
 USER root
 WORKDIR /usr/local/bin
-
-# Install deps
-RUN apt-get update && apt-get install --no-install-recommends -y \
-    iproute2 \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install dockerize.
 ENV DOCKERIZE_VERSION v0.6.1
@@ -31,9 +26,3 @@ RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
   mv mkcert-v*-linux-amd64 mkcert && \
   chmod +x mkcert
-
-USER circleci
-WORKDIR /home/circleci/
-
-# Install gems.
-RUN gem update bundler --force

@@ -1,4 +1,4 @@
-FROM cimg/go:1.22.4
+FROM alexfalkowski/root:1.0
 
 USER root
 
