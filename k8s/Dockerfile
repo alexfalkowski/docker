@@ -7,11 +7,11 @@ WORKDIR /usr/local/bin
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install kubectl.
-RUN curl -sSOL https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl && \
+RUN curl -sSOL https://dl.k8s.io/release/v1.30.2/bin/linux/amd64/kubectl && \
   chmod +x kubectl
 
 # Install helm.
-ENV HELM_VERSION v3.14.4
+ENV HELM_VERSION v3.15.2
 RUN curl -sSOL https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz \
   && tar C . -xf helm-$HELM_VERSION-linux-amd64.tar.gz \
   && mv linux-amd64/helm .
@@ -26,8 +26,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install golang.stackrox.io/kube-linter/cmd/kube-linter@v0.6.8 && \
-  go install github.com/zegl/kube-score/cmd/kube-score@v1.18.0 \
+RUN go install github.com/zegl/kube-score/cmd/kube-score@v1.18.0 \
   && go clean --cache -testcache -fuzzcache -modcache
 
 # Install ruby.
