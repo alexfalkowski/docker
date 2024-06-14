@@ -15,7 +15,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.32.2/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.33.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
@@ -39,5 +39,5 @@ RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1 && \
   go install golang.org/x/vuln/cmd/govulncheck@v1.1.2 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
   go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.22.0 && \
-  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.2.2 \
+  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.2.3 \
   && go clean --cache -testcache -fuzzcache -modcache
