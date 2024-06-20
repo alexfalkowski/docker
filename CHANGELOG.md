@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.172.2](https://github.com/alexfalkowski/docker/releases/tag/v1.172.2) - 2024-06-20
+
+- [`d344f80`](https://github.com/alexfalkowski/docker/commit/d344f808baed6d59c69b0ff6c089ac356e9687dc) fix(go): upgrade github.com/Zxilly/go-size-analyzer to v1.3.5 (#422)
+
 ## [v1.172.1](https://github.com/alexfalkowski/docker/releases/tag/v1.172.1) - 2024-06-14
 
 - [`568b37e`](https://github.com/alexfalkowski/docker/commit/568b37e70d8aeda34f726c99eff3bc44d545420f) fix(deps): upgrade trivy to v0.52.2 (#421)
