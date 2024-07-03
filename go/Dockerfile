@@ -40,4 +40,4 @@ RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
   go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.22.0 && \
   go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.3.14 \
-  && go clean --cache -testcache -fuzzcache -modcache
+  && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
