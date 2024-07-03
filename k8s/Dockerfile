@@ -24,4 +24,4 @@ WORKDIR /home/circleci/
 
 # Install go tools.
 RUN go install github.com/zegl/kube-score/cmd/kube-score@v1.18.0 \
-  && go clean --cache -testcache -fuzzcache -modcache
+  && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"

@@ -1,13 +1,27 @@
-FROM cimg/go:1.22.5
+FROM cimg/base:2024.07-22.04
 
 USER root
 WORKDIR /usr/local/bin
 
-# Cleanup.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Install packages.
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    g++ \
+    libc6-dev \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Install go
+ENV GO_VERSION 1.22.5
+RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
+  && tar C . -xf go$GO_VERSION.linux-amd64.tar.gz \
+  && rm go$GO_VERSION.linux-amd64.tar.gz
 
 USER circleci
 WORKDIR /home/circleci/
+
+# Setup go.
+RUN mkdir -p go/bin
+ENV GOPATH /home/circleci/go
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 # Install ruby.
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
