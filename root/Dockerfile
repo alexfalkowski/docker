@@ -1,7 +1,6 @@
 FROM cimg/base:2024.07-22.04
 
 USER root
-WORKDIR /usr/local/bin
 
 # Install packages.
 RUN apt-get update && apt-get install --no-install-recommends -y \
