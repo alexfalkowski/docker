@@ -36,8 +36,8 @@ RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh
 # Install go tools.
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1 && \
   go install github.com/alexfalkowski/gocovmerge@latest && \
-  go install golang.org/x/vuln/cmd/govulncheck@v1.1.2 && \
+  go install golang.org/x/vuln/cmd/govulncheck@v1.1.3 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
   go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.22.0 && \
-  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.4.3 \
+  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.5.0 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
