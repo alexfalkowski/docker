@@ -20,7 +20,7 @@ RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.35.1/buf-Lin
   chmod +x buf
 
 # Install trivy.
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.54.0
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.54.1
 
 # Install mkcert.
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
