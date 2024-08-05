@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.192.0](https://github.com/alexfalkowski/docker/releases/tag/v1.192.0) - 2024-08-05
+
+- [`238576f`](https://github.com/alexfalkowski/docker/commit/238576ff8b79a969fc26590613f9ccdff844d19f) feat(config): update versions (#461)
+
 ## [v1.191.2](https://github.com/alexfalkowski/docker/releases/tag/v1.191.2) - 2024-08-02
 
 - [`a1804e1`](https://github.com/alexfalkowski/docker/commit/a1804e15aeb536af8e7f901678aad63a07d012cf) fix(go): update github.com/Zxilly/go-size-analyzer to v1.6.1 (#460)
