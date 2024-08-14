@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: git submodule sync
       - run: git submodule update --init
-      - run: make lint-docker
+      - run: make docker-lint
     resource_class: large
   build:
     docker:
@@ -22,7 +22,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make build-docker
+      - run: make docker-build
     resource_class: large
   push:
     docker:
@@ -36,7 +36,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make push-docker
+      - run: make docker-push
     resource_class: large
   release:
     docker:
