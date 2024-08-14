@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.201.0](https://github.com/alexfalkowski/docker/releases/tag/v1.201.0) - 2024-08-14
+
+- [`4ce8239`](https://github.com/alexfalkowski/docker/commit/4ce8239e6ff9c2dd4fef692883df1dcc7101067b) feat(k8s): update kubectl to v1.31.0 (#474)
+
 ## [v1.200.0](https://github.com/alexfalkowski/docker/releases/tag/v1.200.0) - 2024-08-14
 
 - [`282b0a9`](https://github.com/alexfalkowski/docker/commit/282b0a99ab010e6f6c62e837d7babcc9b2c61624) feat(codecov): add codecov (#473)
