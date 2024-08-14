@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.199.1](https://github.com/alexfalkowski/docker/releases/tag/v1.199.1) - 2024-08-14
+
+- [`e0ed41f`](https://github.com/alexfalkowski/docker/commit/e0ed41fc32e527c05710855b3ba31bf45ec55377) fix(k8s): remove extra line (#472)
+
 ## [v1.199.0](https://github.com/alexfalkowski/docker/releases/tag/v1.199.0) - 2024-08-14
 
 - [`6c6a631`](https://github.com/alexfalkowski/docker/commit/6c6a6316a2bfe3b1d31fddfd568ccfce098e7de7) feat(k8s): add pulumi (#471)
