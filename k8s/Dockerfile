@@ -11,13 +11,25 @@ RUN curl -sSOL https://dl.k8s.io/release/v1.30.3/bin/linux/amd64/kubectl && \
 ENV HELM_VERSION v3.15.3
 RUN curl -sSOL https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz \
   && tar C . -xf helm-$HELM_VERSION-linux-amd64.tar.gz \
-  && mv linux-amd64/helm .
+  && mv linux-amd64/helm . \
+  && rm -rf linux-amd64 \
+  && rm helm-$HELM_VERSION-linux-amd64.tar.gz
 
 # Install doctl.
 ENV DOCTL_VERSION 1.111.0
 RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_VERSION/doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && tar C . -xf doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
+
+
+# Install pulumi.
+ENV PULUMI_VERSION v3.129.0
+RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-$PULUMI_VERSION-linux-x64.tar.gz \
+  && tar C . -xf pulumi-$PULUMI_VERSION-linux-x64.tar.gz \
+  && mv pulumi temp \
+  && mv temp/* . \
+  && rm -rf temp \
+  && rm pulumi-$PULUMI_VERSION-linux-x64.tar.gz
 
 USER circleci
 WORKDIR /home/circleci/
