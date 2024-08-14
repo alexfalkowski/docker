@@ -1,19 +1,19 @@
 include bin/build/make/git.mak
 
 # Lint all the images.
-lint-docker:
+docker-lint:
 	scripts/lint
 
 # Build all the images.
-build-docker:
+docker-build:
 	scripts/build
 
 # Push all the images.
-push-docker:
+docker-push:
 	scripts/push
 
 # Pull latest containers.
-pull-docker:
+docker-pull:
 	scripts/compose -f docker-compose.yml pull $(service)
 
 # Start dependencies.

@@ -26,3 +26,10 @@ RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
   mv mkcert-v*-linux-amd64 mkcert && \
   chmod +x mkcert
+
+# Install codecov.
+RUN curl -sSOL https://cli.codecov.io/latest/linux/codecov && \
+  chmod +x codecov
+
+USER circleci
+WORKDIR /home/circleci/
