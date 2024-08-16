@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.202.1](https://github.com/alexfalkowski/docker/releases/tag/v1.202.1) - 2024-08-16
+
+- [`102ac16`](https://github.com/alexfalkowski/docker/commit/102ac1695904bac1543bdc238b909a7664c7bbfb) fix(codecov): update codecov to v0.7.4 (#477)
+- [`8fdf948`](https://github.com/alexfalkowski/docker/commit/8fdf94859b558de8c9920c211a1fefac55a548ff) build(deps): bump bin from `808558f` to `41b7c8b` (#476)
+
 ## [v1.202.0](https://github.com/alexfalkowski/docker/releases/tag/v1.202.0) - 2024-08-14
 
 - [`bd9096b`](https://github.com/alexfalkowski/docker/commit/bd9096bbb36e17e4d687213c93933c89def14ab9) feat(codecov): make sure we use v0.7.3 (#475)
