@@ -15,7 +15,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.38.0/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.39.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
