@@ -44,5 +44,5 @@ RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.60.3 && \
   go install golang.org/x/vuln/cmd/govulncheck@v1.1.3 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
   go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.22.0 && \
-  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.6.2 \
+  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.7.2 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
