@@ -36,7 +36,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install gosec.
-RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.20.0
+RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.20.1
 
 # Install go tools.
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.60.3 && \
