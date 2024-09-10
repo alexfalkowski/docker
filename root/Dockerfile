@@ -6,6 +6,7 @@ USER root
 RUN apt-get update && apt-get install --no-install-recommends -y \
     g++ \
     libc6-dev \
+    libpq-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install go
