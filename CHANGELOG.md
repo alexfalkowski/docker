@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.213.1](https://github.com/alexfalkowski/docker/releases/tag/v1.213.1) - 2024-09-10
+
+- [`03ce962`](https://github.com/alexfalkowski/docker/commit/03ce962d2de058e30d31ededd144092646c03300) fix(root): add libpq-dev (#498)
+
 ## [v1.213.0](https://github.com/alexfalkowski/docker/releases/tag/v1.213.0) - 2024-09-10
 
 - [`71485f7`](https://github.com/alexfalkowski/docker/commit/71485f74628e202b3dd7966413a9b7626bda572a) feat(docker): update to v1.113.0 (#497)
