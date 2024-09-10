@@ -4,7 +4,7 @@ USER root
 
 # Install packages.
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    g++ \
+    clang \
     libc6-dev \
     libpq-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
