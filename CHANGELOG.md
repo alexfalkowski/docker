@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.228.0](https://github.com/alexfalkowski/docker/releases/tag/v1.228.0) - 2024-10-11
+
+- [`72224cb`](https://github.com/alexfalkowski/docker/commit/72224cb0d0a369a1a19cbe274e08a00bef342119) feat(go): update fieldalignment to v0.26.0 (#523)
+
 ## [v1.227.2](https://github.com/alexfalkowski/docker/releases/tag/v1.227.2) - 2024-10-10
 
 - [`f8da320`](https://github.com/alexfalkowski/docker/commit/f8da320d9c026815d0f51e8fcb789c364170aa22) fix(trivy): update to v0.56.2 (#522)
