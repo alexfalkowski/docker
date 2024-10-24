@@ -4,7 +4,7 @@ USER root
 WORKDIR /usr/local/bin
 
 # Install kubectl.
-RUN curl -sSOL https://dl.k8s.io/release/v1.31.1/bin/linux/amd64/kubectl && \
+RUN curl -sSOL https://dl.k8s.io/release/v1.31.2/bin/linux/amd64/kubectl && \
   chmod +x kubectl
 
 # Install helm.
@@ -16,7 +16,7 @@ RUN curl -sSOL https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz \
   && rm helm-$HELM_VERSION-linux-amd64.tar.gz
 
 # Install doctl.
-ENV DOCTL_VERSION 1.115.0
+ENV DOCTL_VERSION 1.116.0
 RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_VERSION/doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && tar C . -xf doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
