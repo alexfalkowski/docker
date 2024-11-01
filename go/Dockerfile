@@ -35,9 +35,6 @@ RUN curl -sSOL https://cli.codecov.io/v0.8.0/linux/codecov && \
 USER circleci
 WORKDIR /home/circleci/
 
-# Install gosec.
-RUN curl -sSL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.21.2
-
 # Install go tools.
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.61.0 && \
   go install github.com/alexfalkowski/gocovmerge@v1.3.15 && \
