@@ -5,7 +5,7 @@ USER root
 # Install uplift.
 RUN echo 'deb [trusted=yes] https://fury.upliftci.dev/apt/ /' | tee /etc/apt/sources.list.d/uplift.list
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    uplift=2.24.1 \
+    uplift=2.25.0 \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add release script.
