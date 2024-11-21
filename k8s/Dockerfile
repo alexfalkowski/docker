@@ -4,7 +4,7 @@ USER root
 WORKDIR /usr/local/bin
 
 # Install kubectl.
-RUN curl -sSOL https://dl.k8s.io/release/v1.31.2/bin/linux/amd64/kubectl && \
+RUN curl -sSOL https://dl.k8s.io/release/v1.31.3/bin/linux/amd64/kubectl && \
   chmod +x kubectl
 
 # Install helm.
