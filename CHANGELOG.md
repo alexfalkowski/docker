@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.243.2](https://github.com/alexfalkowski/docker/releases/tag/v1.243.2) - 2024-11-25
+
+- [`48d48f8`](https://github.com/alexfalkowski/docker/commit/48d48f82c8d46c8b301cfb21420aee16e766aa01) fix(k8s): update helm to v3.16.3 (#547)
+
 ## [v1.243.1](https://github.com/alexfalkowski/docker/releases/tag/v1.243.1) - 2024-11-21
 
 - [`d8289e0`](https://github.com/alexfalkowski/docker/commit/d8289e0ef28754757bee9739fe0572cb8965cebe) fix(k8s): update kubectl to v1.31.3 (#546)
