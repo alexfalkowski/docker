@@ -15,7 +15,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.46.0/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.47.2/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
@@ -37,9 +37,9 @@ WORKDIR /home/circleci/
 
 # Install go tools.
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.62.2 && \
-  go install github.com/alexfalkowski/gocovmerge@v1.3.16 && \
+  go install github.com/alexfalkowski/gocovmerge@v1.3.17 && \
   go install golang.org/x/vuln/cmd/govulncheck@v1.1.3 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
-  go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.27.0 && \
-  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.7.5 \
+  go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.28.0 && \
+  go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.7.6 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
