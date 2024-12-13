@@ -16,7 +16,7 @@ RUN curl -sSOL https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz \
   && rm helm-$HELM_VERSION-linux-amd64.tar.gz
 
 # Install doctl.
-ENV DOCTL_VERSION=1.119.1
+ENV DOCTL_VERSION=1.120.0
 RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_VERSION/doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && tar C . -xf doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
