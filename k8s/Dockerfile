@@ -8,7 +8,7 @@ RUN curl -sSOL https://dl.k8s.io/release/v1.32.0/bin/linux/amd64/kubectl && \
   chmod +x kubectl
 
 # Install helm.
-ENV HELM_VERSION=v3.16.3
+ENV HELM_VERSION=v3.16.4
 RUN curl -sSOL https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz \
   && tar C . -xf helm-$HELM_VERSION-linux-amd64.tar.gz \
   && mv linux-amd64/helm . \
