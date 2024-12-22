@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.255.0](https://github.com/alexfalkowski/docker/releases/tag/v1.255.0) - 2024-12-22
+
+- [`c02131a`](https://github.com/alexfalkowski/docker/commit/c02131ac836cc6f15289ed2a1402ac34005804e1) feat(root): gem update --system 3.6.1 (#562)
+- [`3ef32c4`](https://github.com/alexfalkowski/docker/commit/3ef32c4e51146e1964c4ce5e068c14c6f82f82c4) build(deps): bump bin from `10049eb` to `9fa29e2` (#561)
+
 ## [v1.254.1](https://github.com/alexfalkowski/docker/releases/tag/v1.254.1) - 2024-12-17
 
 - [`7ea2874`](https://github.com/alexfalkowski/docker/commit/7ea28746c17408ea5834d8143ac0fe2dbb2d6ea0) fix(k8s): update helm to v3.16.4 (#560)
