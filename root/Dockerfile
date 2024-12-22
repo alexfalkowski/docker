@@ -31,4 +31,4 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
 ENV PATH="/home/circleci/.rvm/rubies/ruby-3.3.6/bin:$PATH"
 
 # Install gems.
-RUN gem update --system 3.6.1 && gem install bundler -v 2.6.1
+RUN gem update --system 3.6.1 && gem install bundler -v 2.5.23
