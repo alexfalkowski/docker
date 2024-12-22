@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.261.0](https://github.com/alexfalkowski/docker/releases/tag/v1.261.0) - 2024-12-22
+
+- [`84c1a24`](https://github.com/alexfalkowski/docker/commit/84c1a2453690ce4e33895aa649bb8a60e355581b) feat(root): gem install bundler -v 2.6.1 (#568)
+
 ## [v1.260.0](https://github.com/alexfalkowski/docker/releases/tag/v1.260.0) - 2024-12-22
 
 - [`4b5743d`](https://github.com/alexfalkowski/docker/commit/4b5743db73ff9b9329318f90091e9002b9126b15) feat(root): update to v1.16 (#567)
