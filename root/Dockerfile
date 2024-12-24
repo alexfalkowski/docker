@@ -7,13 +7,32 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     clang \
     libc6-dev \
     libpq-dev \
+    libyaml-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install go
 ENV GO_VERSION=1.23.4
 RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
-  && tar C /usr/local/ -xf go$GO_VERSION.linux-amd64.tar.gz \
+  && tar -C /usr/local/ -xf go$GO_VERSION.linux-amd64.tar.gz \
   && rm go$GO_VERSION.linux-amd64.tar.gz
+
+# Install ruby.
+WORKDIR /home/circleci/
+ENV RUBY_VERSION=ruby-3.3.6
+ENV RUBY_FILE=$RUBY_VERSION.tar.gz
+RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/3.3/$RUBY_FILE && \
+  tar -C . -xzf $RUBY_FILE
+
+WORKDIR /home/circleci/$RUBY_VERSION
+RUN ./configure && \
+  make && \
+  make install
+
+WORKDIR /home/circleci/
+RUN rm $RUBY_FILE
+
+# Install gems.
+RUN gem update --system 3.6.1 && gem install bundler -v 2.6.1
 
 USER circleci
 WORKDIR /home/circleci/
@@ -22,13 +41,3 @@ WORKDIR /home/circleci/
 RUN mkdir -p go/bin
 ENV GOPATH=/home/circleci/go
 ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
-
-# Install ruby.
-RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && \
-  curl -sSL https://rvm.io/pkuczynski.asc | gpg --import - && \
-  curl -sSL https://get.rvm.io | bash -s stable && \
-  bash -c "source $HOME/.rvm/scripts/rvm && rvm requirements && rvm install 3.3.6 && rvm use 3.3.6"
-ENV PATH="/home/circleci/.rvm/rubies/ruby-3.3.6/bin:$PATH"
-
-# Install gems.
-RUN gem update --system 3.6.1 && gem install bundler -v 2.6.1
