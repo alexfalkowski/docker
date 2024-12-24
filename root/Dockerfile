@@ -32,7 +32,9 @@ WORKDIR /home/circleci/
 RUN rm $RUBY_FILE
 
 # Install gems.
-RUN gem update --system 3.6.1 && gem install bundler -v 2.6.1
+RUN gem update --system 3.6.1 && \
+  gem install bundler -v 2.6.1 && \
+  gem install executable-hooks -v 1.7.1
 
 USER circleci
 WORKDIR /home/circleci/
