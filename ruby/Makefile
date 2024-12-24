@@ -1,4 +1,4 @@
 IMAGE:=ruby
-VERSION:=3.3
+VERSION:=1.0
 
 include ../scripts/include.mk
