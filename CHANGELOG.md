@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.269.0](https://github.com/alexfalkowski/docker/releases/tag/v1.269.0) - 2024-12-24
+
+- [`80f9a17`](https://github.com/alexfalkowski/docker/commit/80f9a1711ff0cdec4bdc8d233d69c9854c2ff13c) feat(root): update root:1.20 (#578)
+
 ## [v1.268.0](https://github.com/alexfalkowski/docker/releases/tag/v1.268.0) - 2024-12-24
 
 - [`68b2a88`](https://github.com/alexfalkowski/docker/commit/68b2a888be2d521e93815bb67a0c5838238b7834) feat(root): update bumdler to 2.6.2 (#577)
