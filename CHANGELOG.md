@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.272.0](https://github.com/alexfalkowski/docker/releases/tag/v1.272.0) - 2025-01-07
+
+- [`0b485b3`](https://github.com/alexfalkowski/docker/commit/0b485b3d4e5b7ed417fdddbf721463a4597da50e) feat(k8s): add kubescape (#582)
+- [`870ffac`](https://github.com/alexfalkowski/docker/commit/870ffac1494aafbdef941a6966d4e0812c6ffe61) build(deps): bump bin from `bde1e44` to `a278340` (#581)
+
 ## [v1.271.0](https://github.com/alexfalkowski/docker/releases/tag/v1.271.0) - 2025-01-02
 
 - [`39f8318`](https://github.com/alexfalkowski/docker/commit/39f8318179470fa5514fa38bc60fbcb863c90542) feat(go): update golangci to v1.63.2 (#580)
