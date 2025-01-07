@@ -12,5 +12,5 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/servicectl@v0.134.0 \
+RUN go install github.com/alexfalkowski/servicectl@v0.158.1 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
