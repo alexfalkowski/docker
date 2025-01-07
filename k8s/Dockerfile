@@ -30,6 +30,9 @@ RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-$PULUMI_VERSION-linux-
   && rm -rf temp \
   && rm pulumi-$PULUMI_VERSION-linux-x64.tar.gz
 
+# Install kubescape.
+RUN curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash
+
 USER circleci
 WORKDIR /home/circleci/
 
