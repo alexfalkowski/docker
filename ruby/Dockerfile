@@ -15,12 +15,12 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.47.2/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.49.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
 # Install trivy.
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.58.0
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.58.2
 
 # Install mkcert.
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \

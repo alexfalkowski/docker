@@ -15,12 +15,12 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.47.2/buf-Linux-x86_64 && \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.49.0/buf-Linux-x86_64 && \
   mv buf-Linux-x86_64 buf && \
   chmod +x buf
 
 # Install trivy.
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.58.0
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.58.2
 
 # Install mkcert.
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
@@ -36,10 +36,10 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.63.2 && \
-  go install github.com/alexfalkowski/gocovmerge@v1.3.17 && \
-  go install golang.org/x/vuln/cmd/govulncheck@v1.1.3 && \
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.63.4 && \
+  go install github.com/alexfalkowski/gocovmerge@v1.3.18 && \
+  go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
-  go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.28.0 && \
+  go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.29.0 && \
   go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.7.6 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
