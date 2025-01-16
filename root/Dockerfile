@@ -4,11 +4,11 @@ USER root
 
 # Install packages.
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    clang \
-    libc6-dev \
-    libpq-dev \
-    libyaml-dev \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  clang \
+  libc6-dev \
+  libpq-dev \
+  libyaml-dev \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install go
 ENV GO_VERSION=1.23.4
@@ -18,7 +18,7 @@ RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
 
 # Install ruby.
 WORKDIR /home/circleci/
-ENV RUBY_VERSION=ruby-3.3.6
+ENV RUBY_VERSION=ruby-3.3.7
 ENV RUBY_FILE=$RUBY_VERSION.tar.gz
 RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/3.3/$RUBY_FILE && \
   tar -C . -xzf $RUBY_FILE
