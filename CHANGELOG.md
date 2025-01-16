@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.275.0](https://github.com/alexfalkowski/docker/releases/tag/v1.275.0) - 2025-01-16
+
+- [`d425a0c`](https://github.com/alexfalkowski/docker/commit/d425a0c50bfd177ff8d0d129f26436c0a59f95eb) feat(root): update ruby to v3.3.7 (#586)
+
 ## [v1.274.0](https://github.com/alexfalkowski/docker/releases/tag/v1.274.0) - 2025-01-14
 
 - [`8ed43a5`](https://github.com/alexfalkowski/docker/commit/8ed43a57a1321e9e788d9234fd8ace6368b956cc) feat(deps): update based on the latest (#585)
