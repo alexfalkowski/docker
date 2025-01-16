@@ -1,12 +1,12 @@
-FROM alexfalkowski/root:1.20
+FROM alexfalkowski/root:1.21
 
 USER root
 
 # Install uplift.
 RUN echo 'deb [trusted=yes] https://fury.upliftci.dev/apt/ /' | tee /etc/apt/sources.list.d/uplift.list
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    uplift=2.25.0 \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  uplift=2.25.0 \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add release script.
 COPY release /usr/local/bin/
@@ -20,4 +20,4 @@ USER circleci
 
 # Setup git.
 RUN git config --global user.email "alexrfalkowski@gmail.com" && \
-    git config --global user.name "Alejandro Falkowski"
+  git config --global user.name "Alejandro Falkowski"
