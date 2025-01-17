@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.21
+FROM alexfalkowski/root:1.22
 
 USER root
 WORKDIR /usr/local/bin
@@ -16,13 +16,13 @@ RUN curl -sSOL https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz \
   && rm helm-$HELM_VERSION-linux-amd64.tar.gz
 
 # Install doctl.
-ENV DOCTL_VERSION=1.120.1
+ENV DOCTL_VERSION=1.120.2
 RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_VERSION/doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && tar C . -xf doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
 
 # Install pulumi.
-ENV PULUMI_VERSION=v3.145.0
+ENV PULUMI_VERSION=v3.146.0
 RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-$PULUMI_VERSION-linux-x64.tar.gz \
   && tar C . -xf pulumi-$PULUMI_VERSION-linux-x64.tar.gz \
   && mv pulumi temp \
