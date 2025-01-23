@@ -1,6 +1,6 @@
 services:
   jaegertracing:
-    image: docker.io/jaegertracing/all-in-one
+    image: docker.io/jaegertracing/jaeger:2.2.0
     restart: always
     environment:
       COLLECTOR_OTLP_ENABLED: "true"
@@ -26,7 +26,7 @@ services:
       REDIS_PASSWORD: test
 
   localstack:
-    image: docker.io/localstack/localstack:3.8
+    image: docker.io/localstack/localstack:4.0
     restart: always
     ports:
       - "4566:4566"
@@ -44,7 +44,7 @@ services:
       - IPC_LOCK
 
   prometheus:
-    image: docker.io/prom/prometheus
+    image: docker.io/prom/prometheus:v3.1.0
     user: root
     restart: always
     ports:
