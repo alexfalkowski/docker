@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.22
+FROM alexfalkowski/root:1.23
 
 USER root
 WORKDIR /usr/local/bin
@@ -12,5 +12,5 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/servicectl@v0.173.0 \
+RUN go install github.com/alexfalkowski/servicectl@v0.196.0 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
