@@ -81,7 +81,7 @@ services:
       CONFIG_FILE: /config/status.yml
     ports:
       - "6000:8080"
-      - "6001:9090"
+      - "6001:6060"
     volumes:
       - "${PWD}/config:/config"
 

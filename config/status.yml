@@ -1,30 +1,18 @@
 debug:
-  enabled: true
-  port: 6060
+  timeout: 10s
 environment: development
 health:
   duration: 1s
   timeout: 1s
 telemetry:
   logger:
-    enabled: true
     level: info
-  tracer:
-    enabled: true
-    host: localhost:4318
-    secure: false
+  metrics:
+    kind: prometheus
 transport:
   http:
-    enabled: true
-    port: 8080
-    user_agent: "Status-server/1.0 http/1.0"
     retry:
-      timeout: 2s
       attempts: 3
-  grpc:
-    enabled: true
-    port: 9090
-    user_agent: "Status-server/1.0 grpc/1.0"
-    retry:
-      timeout: 2s
-      attempts: 3
+      backoff: 100ms
+      timeout: 10s
+    timeout: 5s
