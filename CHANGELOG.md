@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.288.0](https://github.com/alexfalkowski/docker/releases/tag/v1.288.0) - 2025-02-05
+
+- [`f72a46c`](https://github.com/alexfalkowski/docker/commit/f72a46c321de1918e58445fb740e8cf37a2e5f96) feat(config): use port 15000 as 6000 does not work (#603)
+
 ## [v1.287.0](https://github.com/alexfalkowski/docker/releases/tag/v1.287.0) - 2025-02-05
 
 - [`387c051`](https://github.com/alexfalkowski/docker/commit/387c0511d353a68ed7953c79bdd37b4ae7d793bb) feat(config): update status config (#602)
