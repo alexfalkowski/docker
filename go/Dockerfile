@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.23
+FROM alexfalkowski/root:1.24
 
 USER root
 WORKDIR /usr/local/bin
@@ -20,7 +20,7 @@ RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.50.0/buf-Lin
   chmod +x buf
 
 # Install trivy.
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.58.2
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.59.0
 
 # Install mkcert.
 RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
@@ -28,7 +28,7 @@ RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && \
   chmod +x mkcert
 
 # Install codecov.
-RUN curl -sSOL https://cli.codecov.io/v9.1.1/linux/codecov && \
+RUN curl -sSOL https://cli.codecov.io/v10.0.1/linux/codecov && \
   mv codecov codecovcli && \
   chmod +x codecovcli
 
