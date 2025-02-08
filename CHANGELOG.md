@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.289.0](https://github.com/alexfalkowski/docker/releases/tag/v1.289.0) - 2025-02-08
+
+- [`71c915d`](https://github.com/alexfalkowski/docker/commit/71c915d99a2e89a1812a15de02cb7a8a9ca17ffe) feat(trivy): update to v0.59.1 (#605)
+- [`9ec449e`](https://github.com/alexfalkowski/docker/commit/9ec449e901cb1efed4fcf2d8d440d7637d07a981) build(deps): bump bin from `5b56b0c` to `877a42c` (#604)
+
 ## [v1.288.0](https://github.com/alexfalkowski/docker/releases/tag/v1.288.0) - 2025-02-05
 
 - [`f72a46c`](https://github.com/alexfalkowski/docker/commit/f72a46c321de1918e58445fb740e8cf37a2e5f96) feat(config): use port 15000 as 6000 does not work (#603)
