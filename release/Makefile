@@ -1,4 +1,4 @@
 IMAGE:=release
-VERSION:=3.7
+VERSION:=3.8
 
 include ../scripts/include.mk
