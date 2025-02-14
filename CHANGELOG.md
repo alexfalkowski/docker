@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.300.0](https://github.com/alexfalkowski/docker/releases/tag/v1.300.0) - 2025-02-14
+
+- [`052cfdb`](https://github.com/alexfalkowski/docker/commit/052cfdb2ecaa70794e31011bb66fc4ade7fccfe3) feat(k8s): download kubescape from github (#621)
+
 ## [v1.299.0](https://github.com/alexfalkowski/docker/releases/tag/v1.299.0) - 2025-02-14
 
 - [`d4bfbec`](https://github.com/alexfalkowski/docker/commit/d4bfbec8c8b1647de9991bb53bffddd892b25c03) feat(go): update golangci-lint to v1.64.5 (#620)
