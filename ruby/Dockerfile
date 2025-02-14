@@ -9,6 +9,13 @@ RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE
   && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
+# Install shellcheck.
+ENV SHELLCHECK_VERSION=v0.10.0
+RUN curl -sSOL https://github.com/koalaman/shellcheck/releases/download/$SHELLCHECK_VERSION/shellcheck-$SHELLCHECK_VERSION.linux.x86_64.tar.xz \
+  && tar -C . -xvf shellcheck-$SHELLCHECK_VERSION.linux.x86_64.tar.xz \
+  && mv shellcheck-$SHELLCHECK_VERSION/shellcheck . \
+  && rm -rf shellcheck-$SHELLCHECK_VERSION/ shellcheck-$SHELLCHECK_VERSION.linux.x86_64.tar.xz
+
 # Install hadolint.
 RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 && \
   mv hadolint-Linux-x86_64 hadolint && \
