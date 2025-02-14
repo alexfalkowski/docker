@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.299.0](https://github.com/alexfalkowski/docker/releases/tag/v1.299.0) - 2025-02-14
+
+- [`d4bfbec`](https://github.com/alexfalkowski/docker/commit/d4bfbec8c8b1647de9991bb53bffddd892b25c03) feat(go): update golangci-lint to v1.64.5 (#620)
+- [`61adcca`](https://github.com/alexfalkowski/docker/commit/61adcca5d14f62a58e3c5ad94747c8640d7de5e6) docs(readme): remove slim (#619)
+- [`06676a2`](https://github.com/alexfalkowski/docker/commit/06676a2e4683d9db4a46f33c8cc328d40826818e) build(ci): lint scripts (#618)
+
 ## [v1.298.0](https://github.com/alexfalkowski/docker/releases/tag/v1.298.0) - 2025-02-14
 
 - [`d202340`](https://github.com/alexfalkowski/docker/commit/d20234086ad5b71500a436043cb2bfd493d88245) feat(shellcheck): add v0.10.0 (#617)
