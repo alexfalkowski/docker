@@ -18,7 +18,7 @@ RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
 
 # Install ruby.
 WORKDIR /home/circleci/
-ENV RUBY_VERSION=ruby-3.4.1
+ENV RUBY_VERSION=ruby-3.4.2
 ENV RUBY_FILE=$RUBY_VERSION.tar.gz
 RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/3.4/$RUBY_FILE && \
   tar -C . -xzf $RUBY_FILE
