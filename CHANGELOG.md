@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.303.0](https://github.com/alexfalkowski/docker/releases/tag/v1.303.0) - 2025-02-20
+
+- [`e02c89d`](https://github.com/alexfalkowski/docker/commit/e02c89d3c6d9a834ea0d513fee68ed9eef39b5cd) feat(go): update github.com/alexfalkowski/gocovmerge to v1.4.0 (#626)
+- [`583445c`](https://github.com/alexfalkowski/docker/commit/583445c38c098fa0cb22163d0881d5cc80f966bf) build(deps): bump bin from `dc45d04` to `8592a53` (#625)
+- [`12fd5df`](https://github.com/alexfalkowski/docker/commit/12fd5dfb9550c14ba9c20e9b807774649f8be926) build(deps): bump bin from `e1bf51d` to `dc45d04` (#624)
+
 ## [v1.302.0](https://github.com/alexfalkowski/docker/releases/tag/v1.302.0) - 2025-02-15
 
 - [`f9f4288`](https://github.com/alexfalkowski/docker/commit/f9f4288cf0c8590e105fdc890d399ca3c9b17ffd) feat(root): update alexfalkowski/root:1.26 (#623)
