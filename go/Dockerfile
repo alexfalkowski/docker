@@ -44,7 +44,7 @@ WORKDIR /home/circleci/
 
 # Install go tools.
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.64.5 && \
-  go install github.com/alexfalkowski/gocovmerge@v1.3.18 && \
+  go install github.com/alexfalkowski/gocovmerge@v1.4.0 && \
   go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 && \
   go install gotest.tools/gotestsum@v1.12.0 && \
   go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.30.0 && \
