@@ -62,8 +62,17 @@ services:
     ports:
       - 9009:9009
     volumes:
-      - ./prometheus:/etc/prometheus
-    command: --config.file=/etc/prometheus/mimir.yml
+      - ./grafana:/etc/grafana
+    command: --config.file=/etc/grafana/mimir.yml
+
+  loki:
+    image: docker.io/grafana/loki
+    restart: always
+    ports:
+      - 3100:3100
+    volumes:
+      - ./grafana:/etc/grafana
+    command: --config.file=/etc/grafana/loki.yml
 
   grafana:
     image: docker.io/grafana/grafana-oss
