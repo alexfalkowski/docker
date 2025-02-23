@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.307.0](https://github.com/alexfalkowski/docker/releases/tag/v1.307.0) - 2025-02-23
+
+- [`16d4710`](https://github.com/alexfalkowski/docker/commit/16d47108fa329408560f03b8cbe94af9b9c44458) feat(compose): add tempo (#631)
+
 ## [v1.306.0](https://github.com/alexfalkowski/docker/releases/tag/v1.306.0) - 2025-02-23
 
 - [`76bacc4`](https://github.com/alexfalkowski/docker/commit/76bacc4b5bafdbf17cfc1326e8607fba3713c942) feat(compose): rename to jaeger (#630)
