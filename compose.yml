@@ -1,14 +1,4 @@
 services:
-  jaeger:
-    image: docker.io/jaegertracing/jaeger:2.2.0
-    restart: always
-    environment:
-      COLLECTOR_OTLP_ENABLED: "true"
-    ports:
-      - "16686:16686"
-      - "4317:4317"
-      - "4318:4318"
-
   postgres:
     image: docker.io/postgres:17-bullseye
     restart: always
@@ -74,6 +64,17 @@ services:
       - ./grafana:/etc/grafana
     command: --config.file=/etc/grafana/loki.yml
 
+  tempo:
+    image: docker.io/grafana/tempo
+    restart: always
+    ports:
+      - 3200:3200
+      - 4317:4317
+      - 4318:4318
+    volumes:
+      - ./grafana:/etc/grafana
+    command: --config.file=/etc/grafana/tempo.yml
+
   grafana:
     image: docker.io/grafana/grafana-oss
     restart: always
@@ -81,6 +82,9 @@ services:
       - 10000:3000
     depends_on:
       - prometheus
+      - mimir
+      - loki
+      - tempo
 
   status:
     image: docker.io/alexfalkowski/status
