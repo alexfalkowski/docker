@@ -10,7 +10,3 @@ RUN curl -sSOL https://github.com/mikefarah/yq/releases/download/v4.45.1/yq_linu
 
 USER circleci
 WORKDIR /home/circleci/
-
-# Install go tools.
-RUN go install github.com/alexfalkowski/servicectl@v0.253.0 \
-  && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
