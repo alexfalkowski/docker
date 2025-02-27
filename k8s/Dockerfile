@@ -16,7 +16,7 @@ RUN curl -sSOL https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz \
   && rm helm-$HELM_VERSION-linux-amd64.tar.gz
 
 # Install doctl.
-ENV DOCTL_VERSION=1.120.2
+ENV DOCTL_VERSION=1.123.0
 RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_VERSION/doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && tar C . -xf doctl-$DOCTL_VERSION-linux-amd64.tar.gz \
   && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
@@ -31,7 +31,7 @@ RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-$PULUMI_VERSION-linux-
   && rm pulumi-$PULUMI_VERSION-linux-x64.tar.gz
 
 # Install kubescape.
-RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.29/kubescape-ubuntu-latest && \
+RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.30/kubescape-ubuntu-latest && \
   mv kubescape-ubuntu-latest kubescape && \
   chmod +x kubescape
 
