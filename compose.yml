@@ -91,12 +91,12 @@ services:
     command: server
     restart: always
     environment:
-      CONFIG_FILE: /config/status.yml
+      CONFIG_FILE: /status/server.yml
     ports:
       - "15000:8080"
       - "15001:6060"
     volumes:
-      - "${PWD}/config:/config"
+      - "${PWD}/status:/status"
 
   flipt:
     image: docker.io/flipt/flipt

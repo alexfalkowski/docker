@@ -1,0 +1,25 @@
+environment: development
+health:
+  duration: 1s
+  timeout: 1s
+limiter:
+  kind: user-agent
+  tokens: 1000
+  interval: 1s
+telemetry:
+  logger:
+    kind: stdout
+    level: info
+  metrics:
+    kind: prometheus
+  tracer:
+    kind: otlp
+    url: http://tempo:4318/v1/traces
+transport:
+  http:
+    address: :11000
+    retry:
+      attempts: 3
+      backoff: 100ms
+      timeout: 10s
+    timeout: 5s
