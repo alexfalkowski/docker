@@ -4,8 +4,8 @@ USER root
 WORKDIR /usr/local/bin
 
 # Install kubectl.
-RUN curl -sSOL https://dl.k8s.io/release/v1.32.2/bin/linux/amd64/kubectl && \
-  chmod +x kubectl
+RUN curl -sSOL https://dl.k8s.io/release/v1.32.2/bin/linux/amd64/kubectl \
+  && chmod +x kubectl
 
 # Install helm.
 ENV HELM_VERSION=v3.17.1
@@ -31,9 +31,9 @@ RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-$PULUMI_VERSION-linux-
   && rm pulumi-$PULUMI_VERSION-linux-x64.tar.gz
 
 # Install kubescape.
-RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.30/kubescape-ubuntu-latest && \
-  mv kubescape-ubuntu-latest kubescape && \
-  chmod +x kubescape
+RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.30/kubescape-ubuntu-latest \
+  && mv kubescape-ubuntu-latest kubescape \
+  && chmod +x kubescape
 
 USER circleci
 WORKDIR /home/circleci/
