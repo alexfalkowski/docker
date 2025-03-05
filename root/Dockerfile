@@ -16,7 +16,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash 
   && chmod +x bin/just
 
 # Install go
-ENV GO_VERSION=1.24.0
+ENV GO_VERSION=1.24.1
 RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
   && tar -C . -xf go$GO_VERSION.linux-amd64.tar.gz \
   && rm go$GO_VERSION.linux-amd64.tar.gz
