@@ -31,7 +31,7 @@ RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-$PULUMI_VERSION-linux-
   && rm pulumi-$PULUMI_VERSION-linux-x64.tar.gz
 
 # Install kubescape.
-RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.30/kubescape-ubuntu-latest \
+RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.31/kubescape-ubuntu-latest \
   && mv kubescape-ubuntu-latest kubescape \
   && chmod +x kubescape
 
