@@ -35,7 +35,7 @@ RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" \
   && chmod +x mkcert
 
 # Install codecov.
-RUN curl -sSOL https://cli.codecov.io/v10.2.0/linux/codecov \
+RUN curl -sSOL https://cli.codecov.io/v10.2.1/linux/codecov \
   && mv codecov codecovcli \
   && chmod +x codecovcli
 
@@ -43,7 +43,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.64.6 \
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.64.7 \
   && go install github.com/alexfalkowski/gocovmerge@v1.5.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
   && go install gotest.tools/gotestsum@v1.12.0 \
