@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.325.0](https://github.com/alexfalkowski/docker/releases/tag/v1.325.0) - 2025-03-13
+
+- [`9b3e884`](https://github.com/alexfalkowski/docker/commit/9b3e88452b4cc74ffb2dfeeb11641e4a2407cb0c) feat(k8s): update helm to v3.17.2 (#654)
+
 ## [v1.324.0](https://github.com/alexfalkowski/docker/releases/tag/v1.324.0) - 2025-03-13
 
 - [`cd22c6b`](https://github.com/alexfalkowski/docker/commit/cd22c6be4bbee6da12f88ed278399f959f8e46fc) feat(deps): update pulumi v3.155.0 (#653)
