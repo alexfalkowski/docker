@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.331.0](https://github.com/alexfalkowski/docker/releases/tag/v1.331.0) - 2025-03-25
+
+- [`6ceaf43`](https://github.com/alexfalkowski/docker/commit/6ceaf43945cf48078ec8940521a7ecabaf236ada) feat(k8s): update pulumi to v3.158.0 (#663)
+
 ## [v1.330.1](https://github.com/alexfalkowski/docker/releases/tag/v1.330.1) - 2025-03-25
 
 - [`f10f6d0`](https://github.com/alexfalkowski/docker/commit/f10f6d0343c00e0de087ece532209a49de07f4a8) fix(go): golangci-lint is in an folder (#662)
