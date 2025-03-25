@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.332.0](https://github.com/alexfalkowski/docker/releases/tag/v1.332.0) - 2025-03-25
+
+- [`3206e5e`](https://github.com/alexfalkowski/docker/commit/3206e5e7674579a5dd74a7a24d90707b099035b5) feat(error): set failure (#667)
+- [`f4bedc5`](https://github.com/alexfalkowski/docker/commit/f4bedc532e9a28b79b1b91b8e5efee2c1c73446d) build(deps): bump bin from `63f13e1` to `446c480` (#666)
+- [`e72f77a`](https://github.com/alexfalkowski/docker/commit/e72f77ae66c574a43ada0e46ed5732540f93dcb7) build(deps): bump bin from `b887116` to `63f13e1` (#665)
+- [`d9ac137`](https://github.com/alexfalkowski/docker/commit/d9ac137b159ace29ee84e07d6092645e2533accc) build(deps): add root to dependabot (#664)
+
 ## [v1.331.0](https://github.com/alexfalkowski/docker/releases/tag/v1.331.0) - 2025-03-25
 
 - [`6ceaf43`](https://github.com/alexfalkowski/docker/commit/6ceaf43945cf48078ec8940521a7ecabaf236ada) feat(k8s): update pulumi to v3.158.0 (#663)
