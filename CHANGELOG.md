@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.333.0](https://github.com/alexfalkowski/docker/releases/tag/v1.333.0) - 2025-03-25
+
+- [`861b116`](https://github.com/alexfalkowski/docker/commit/861b116b4d2eda44208f62dd5405f858a6dde37f) feat(status): add generator (#668)
+
 ## [v1.332.0](https://github.com/alexfalkowski/docker/releases/tag/v1.332.0) - 2025-03-25
 
 - [`3206e5e`](https://github.com/alexfalkowski/docker/commit/3206e5e7674579a5dd74a7a24d90707b099035b5) feat(error): set failure (#667)
