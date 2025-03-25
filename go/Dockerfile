@@ -39,14 +39,18 @@ RUN curl -sSOL https://cli.codecov.io/v10.2.1/linux/codecov \
   && mv codecov codecovcli \
   && chmod +x codecovcli
 
+# Install golangci-lint.
+ENV LINT_VERSION=2.0.1
+RUN curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$LINT_VERSION/golangci-lint-$LINT_VERSION-linux-amd64.tar.gz \
+  && tar -C . -xzvf golangci-lint-$LINT_VERSION-linux-amd64.tar.gz
+
 USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.64.7 \
-  && go install github.com/alexfalkowski/gocovmerge@v1.5.0 \
+RUN go install github.com/alexfalkowski/gocovmerge@v1.6.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
-  && go install gotest.tools/gotestsum@v1.12.0 \
+  && go install gotest.tools/gotestsum@v1.12.1 \
   && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.31.0 \
   && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.7.7 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
