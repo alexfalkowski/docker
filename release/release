@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -eo pipefail
 
 # Release with uplift.
 uplift release --config-dir /etc/uplift
