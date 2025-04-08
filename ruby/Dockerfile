@@ -22,7 +22,7 @@ RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/ha
   && chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.51.0/buf-Linux-x86_64 \
+RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.52.1/buf-Linux-x86_64 \
   && mv buf-Linux-x86_64 buf \
   && chmod +x buf
 
@@ -35,7 +35,7 @@ RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" \
   && chmod +x mkcert
 
 # Install codecov.
-RUN curl -sSOL https://cli.codecov.io/v10.3.0/linux/codecov \
+RUN curl -sSOL https://cli.codecov.io/v10.4.0/linux/codecov \
   && mv codecov codecovcli \
   && chmod +x codecovcli
 
