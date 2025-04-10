@@ -8,7 +8,7 @@ RUN curl -sSOL https://dl.k8s.io/release/v1.32.3/bin/linux/amd64/kubectl \
   && chmod +x kubectl
 
 # Install helm.
-ENV HELM_VERSION=v3.17.2
+ENV HELM_VERSION=v3.17.3
 RUN curl -sSOL https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz \
   && tar C . -xf helm-$HELM_VERSION-linux-amd64.tar.gz \
   && mv linux-amd64/helm . \
@@ -22,7 +22,7 @@ RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_V
   && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
 
 # Install pulumi.
-ENV PULUMI_VERSION=v3.161.0
+ENV PULUMI_VERSION=v3.162.0
 RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-$PULUMI_VERSION-linux-x64.tar.gz \
   && tar C . -xf pulumi-$PULUMI_VERSION-linux-x64.tar.gz \
   && mv pulumi temp \
