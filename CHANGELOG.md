@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.344.1](https://github.com/alexfalkowski/docker/releases/tag/v1.344.1) - 2025-04-11
+
+- [`2fc89c8`](https://github.com/alexfalkowski/docker/commit/2fc89c84c8cad1cbc5d14661a2caba2ab26d7397) fix(apps): remove healthz from monitoror (#688)
+
 ## [v1.344.0](https://github.com/alexfalkowski/docker/releases/tag/v1.344.0) - 2025-04-11
 
 - [`46f0c7c`](https://github.com/alexfalkowski/docker/commit/46f0c7c75df2a5ba2bca9341a17b23412e270c22) feat(monitoror): remove ping (#687)
