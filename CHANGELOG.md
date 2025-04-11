@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.344.0](https://github.com/alexfalkowski/docker/releases/tag/v1.344.0) - 2025-04-11
+
+- [`46f0c7c`](https://github.com/alexfalkowski/docker/commit/46f0c7c75df2a5ba2bca9341a17b23412e270c22) feat(monitoror): remove ping (#687)
+
 ## [v1.343.0](https://github.com/alexfalkowski/docker/releases/tag/v1.343.0) - 2025-04-11
 
 - [`841333b`](https://github.com/alexfalkowski/docker/commit/841333bfc544afac38dbd035a45d8711362e749d) feat(monitoror): add ability to visualise status of lean-projects (#686)
