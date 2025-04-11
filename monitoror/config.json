@@ -29,7 +29,7 @@
     {
       "type": "HTTP-STATUS",
       "params": {
-        "url": "https://monitoror.lean-thoughts.com/healthz"
+        "url": "https://monitoror.lean-thoughts.com"
       }
     }
   ]
