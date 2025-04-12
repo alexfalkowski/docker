@@ -4,6 +4,7 @@
   "tiles": [
     {
       "type": "HTTP-STATUS",
+      "label": "konfig",
       "params": {
         "url": "https://konfig.lean-thoughts.com/healthz"
       }
@@ -18,6 +19,7 @@
     },
     {
       "type": "HTTP-STATUS",
+      "label": "web",
       "params": {
         "url": "https://web.lean-thoughts.com/healthz"
       }
@@ -32,6 +34,7 @@
     },
     {
       "type": "HTTP-STATUS",
+      "label": "bezeichner",
       "params": {
         "url": "https://bezeichner.lean-thoughts.com/healthz"
       }
@@ -46,6 +49,7 @@
     },
     {
       "type": "HTTP-STATUS",
+      "label": "standort",
       "params": {
         "url": "https://standort.lean-thoughts.com/healthz"
       }
@@ -60,6 +64,7 @@
     },
     {
       "type": "HTTP-STATUS",
+      "label": "monitoror",
       "params": {
         "url": "https://monitoror.lean-thoughts.com"
       }
