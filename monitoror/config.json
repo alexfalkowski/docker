@@ -4,6 +4,14 @@
   "tiles": [
     {
       "type": "HTTP-STATUS",
+      "label": "monitoror",
+      "columnSpan": 2,
+      "params": {
+        "url": "https://monitoror.lean-thoughts.com"
+      }
+    },
+    {
+      "type": "HTTP-STATUS",
       "label": "konfig",
       "params": {
         "url": "https://konfig.lean-thoughts.com/healthz"
@@ -63,11 +71,19 @@
       }
     },
     {
-      "type": "HTTP-STATUS",
-      "label": "monitoror",
-      "columnSpan": 2,
+      "type": "GITHUB-CHECKS",
       "params": {
-        "url": "https://monitoror.lean-thoughts.com"
+        "owner": "alexfalkowski",
+        "repository": "infraops",
+        "ref": "master"
+      }
+    },
+    {
+      "type": "GITHUB-CHECKS",
+      "params": {
+        "owner": "alexfalkowski",
+        "repository": "docker",
+        "ref": "master"
       }
     }
   ]
