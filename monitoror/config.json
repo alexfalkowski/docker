@@ -1,11 +1,19 @@
 {
   "version": "2.0",
-  "columns": 1,
+  "columns": 2,
   "tiles": [
     {
       "type": "HTTP-STATUS",
       "params": {
         "url": "https://konfig.lean-thoughts.com/healthz"
+      }
+    },
+    {
+      "type": "GITHUB-CHECKS",
+      "params": {
+        "owner": "alexfalkowski",
+        "repository": "konfig",
+        "ref": "master"
       }
     },
     {
@@ -15,9 +23,25 @@
       }
     },
     {
+      "type": "GITHUB-CHECKS",
+      "params": {
+        "owner": "alexfalkowski",
+        "repository": "web",
+        "ref": "master"
+      }
+    },
+    {
       "type": "HTTP-STATUS",
       "params": {
         "url": "https://bezeichner.lean-thoughts.com/healthz"
+      }
+    },
+    {
+      "type": "GITHUB-CHECKS",
+      "params": {
+        "owner": "alexfalkowski",
+        "repository": "bezeichner",
+        "ref": "master"
       }
     },
     {
@@ -27,9 +51,25 @@
       }
     },
     {
+      "type": "GITHUB-CHECKS",
+      "params": {
+        "owner": "alexfalkowski",
+        "repository": "standort",
+        "ref": "master"
+      }
+    },
+    {
       "type": "HTTP-STATUS",
       "params": {
         "url": "https://monitoror.lean-thoughts.com"
+      }
+    },
+    {
+      "type": "GITHUB-CHECKS",
+      "params": {
+        "owner": "alexfalkowski",
+        "repository": "docker",
+        "ref": "master"
       }
     }
   ]
