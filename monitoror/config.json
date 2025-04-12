@@ -65,16 +65,9 @@
     {
       "type": "HTTP-STATUS",
       "label": "monitoror",
+      "columnSpan": 2,
       "params": {
         "url": "https://monitoror.lean-thoughts.com"
-      }
-    },
-    {
-      "type": "GITHUB-CHECKS",
-      "params": {
-        "owner": "alexfalkowski",
-        "repository": "docker",
-        "ref": "master"
       }
     }
   ]
