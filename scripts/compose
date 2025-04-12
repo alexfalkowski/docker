@@ -4,7 +4,7 @@ set -eo pipefail
 
 if command -v podman &> /dev/null
 then
-    podman-compose "$@"
+    podman compose "$@"
     exit 0
 fi
 
