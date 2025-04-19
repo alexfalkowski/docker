@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.29
+FROM alexfalkowski/root:1.30
 
 USER root
 WORKDIR /usr/local/bin
@@ -22,7 +22,7 @@ RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v$DOCTL_V
   && rm doctl-$DOCTL_VERSION-linux-amd64.tar.gz
 
 # Install pulumi.
-ENV PULUMI_VERSION=v3.162.0
+ENV PULUMI_VERSION=v3.163.0
 RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-$PULUMI_VERSION-linux-x64.tar.gz \
   && tar C . -xf pulumi-$PULUMI_VERSION-linux-x64.tar.gz \
   && mv pulumi temp \
