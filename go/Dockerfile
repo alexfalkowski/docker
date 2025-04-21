@@ -55,5 +55,5 @@ RUN go install github.com/alexfalkowski/gocovmerge@v1.6.0 \
   && go install gotest.tools/gotestsum@v1.12.1 \
   && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.32.0 \
   && go install github.com/boyter/scc/v3@latest \
-  && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.8.0 \
+  && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.8.1 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
