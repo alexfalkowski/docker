@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.356.0](https://github.com/alexfalkowski/docker/releases/tag/v1.356.0) - 2025-04-24
+
+- [`cfeb81b`](https://github.com/alexfalkowski/docker/commit/cfeb81b43f98298abe0fdb1b5116fdb3d3b4b2e6) feat(k8s): update kubectl to v1.33.0 (#704)
+- [`9fea6d4`](https://github.com/alexfalkowski/docker/commit/9fea6d408a85c0171dbe9a1fae3dc4ac0b8b8781) build(deps): bump bin from `dbf1984` to `b0fd780` (#703)
+- [`761249e`](https://github.com/alexfalkowski/docker/commit/761249e343dfa5a3363ec3b2becccf622eb13c34) build(ci): use alexfalkowski/docker:1.14 (#702)
+
 ## [v1.355.0](https://github.com/alexfalkowski/docker/releases/tag/v1.355.0) - 2025-04-22
 
 - [`a69bbf7`](https://github.com/alexfalkowski/docker/commit/a69bbf72897b2ed943319f4704241ff5454bf5fc) feat(buf): update to v1.53.0 (#701)
