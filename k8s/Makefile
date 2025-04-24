@@ -1,4 +1,4 @@
 IMAGE:=k8s
-VERSION:=1.39
+VERSION:=1.40
 
 include ../scripts/include.mk
