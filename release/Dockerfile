@@ -19,5 +19,5 @@ COPY .uplift.yml /etc/uplift
 USER circleci
 
 # Setup git.
-RUN git config --global user.email "alexrfalkowski@gmail.com" \
-  && git config --global user.name "Alejandro Falkowski"
+RUN git config --global user.email "ci@lean-thoughts.com" \
+  && git config --global user.name "lean-thoughts-ci"
