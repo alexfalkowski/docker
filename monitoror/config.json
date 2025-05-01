@@ -12,21 +12,6 @@
     },
     {
       "type": "HTTP-STATUS",
-      "label": "konfig",
-      "params": {
-        "url": "https://konfig.lean-thoughts.com/healthz"
-      }
-    },
-    {
-      "type": "GITHUB-CHECKS",
-      "params": {
-        "owner": "alexfalkowski",
-        "repository": "konfig",
-        "ref": "master"
-      }
-    },
-    {
-      "type": "HTTP-STATUS",
       "label": "web",
       "params": {
         "url": "https://web.lean-thoughts.com/healthz"
