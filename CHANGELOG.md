@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.361.0](https://github.com/alexfalkowski/docker/releases/tag/v1.361.0) - 2025-05-01
+
+- [`2c9b9b3`](https://github.com/alexfalkowski/docker/commit/2c9b9b3a529292b66b50ad6d8ad0ac6bc874d026) feat(monitoror): remove archived apps (#711)
+
 ## [v1.360.0](https://github.com/alexfalkowski/docker/releases/tag/v1.360.0) - 2025-04-29
 
 - [`0ddbf93`](https://github.com/alexfalkowski/docker/commit/0ddbf932f83f42ddae81710278287005d3e06ee5) feat(k8s): update kube-score to v1.20.0 (#710)
