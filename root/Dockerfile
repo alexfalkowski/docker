@@ -1,4 +1,4 @@
-FROM cimg/base:2025.04
+FROM cimg/base:2025.05
 
 USER root
 
@@ -41,6 +41,9 @@ RUN gem update --system 3.6.8 \
 
 USER circleci
 WORKDIR /home/circleci/
+
+# Make flags.
+ENV MAKEFLAGS=--no-print-directory
 
 # Setup go.
 RUN mkdir -p go/bin
