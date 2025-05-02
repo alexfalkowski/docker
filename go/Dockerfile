@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.30
+FROM alexfalkowski/root:1.31
 
 USER root
 WORKDIR /usr/local/bin
@@ -50,7 +50,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/gocovmerge@v1.6.0 \
+RUN go install github.com/alexfalkowski/gocovmerge@v1.7.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
   && go install gotest.tools/gotestsum@v1.12.1 \
   && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.32.0 \
