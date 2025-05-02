@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.362.0](https://github.com/alexfalkowski/docker/releases/tag/v1.362.0) - 2025-05-02
+
+- [`892e7ba`](https://github.com/alexfalkowski/docker/commit/892e7badeb028f90441f0a6411053e10d40a3ef2) feat(root): use cimg/base:2025.05 (#713)
+
 ## [v1.361.0](https://github.com/alexfalkowski/docker/releases/tag/v1.361.0) - 2025-05-01
 
 - [`2c9b9b3`](https://github.com/alexfalkowski/docker/commit/2c9b9b3a529292b66b50ad6d8ad0ac6bc874d026) feat(monitoror): remove archived apps (#711)
