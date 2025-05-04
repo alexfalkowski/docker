@@ -48,6 +48,7 @@ RUN curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$LIN
 
 USER circleci
 WORKDIR /home/circleci/
+ENV HOME=/home/circleci/
 
 # Install go tools.
 RUN go install github.com/alexfalkowski/gocovmerge@v1.7.0 \

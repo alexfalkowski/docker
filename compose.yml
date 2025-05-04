@@ -23,16 +23,6 @@ services:
     environment:
       SERVICES: "s3,sqs,ssm"
 
-  vault:
-    image: docker.io/hashicorp/vault:1.18
-    restart: always
-    ports:
-      - "8200:8200"
-    environment:
-      VAULT_DEV_ROOT_TOKEN_ID: "vault-plaintext-root-token"
-    cap_add:
-      - IPC_LOCK
-
   prometheus:
     image: docker.io/prom/prometheus:v3.1.0
     user: root
