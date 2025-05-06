@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install go
+WORKDIR /usr/local
 ENV GO_VERSION=1.24.2
 RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
   && tar -C . -xf go$GO_VERSION.linux-amd64.tar.gz \
