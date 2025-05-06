@@ -10,11 +10,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libyaml-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install just.
-WORKDIR /usr/local
-RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to bin \
-  && chmod +x bin/just
-
 # Install go
 ENV GO_VERSION=1.24.2
 RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
@@ -39,6 +34,11 @@ RUN gem update --system 3.6.8 \
   && gem install bundler -v 2.6.8 \
   && gem install executable-hooks -v 1.7.1
 
+# Install just.
+WORKDIR /usr/local
+RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to bin \
+  && chmod +x bin/just
+
 USER circleci
 WORKDIR /home/circleci/
 
@@ -48,4 +48,6 @@ ENV MAKEFLAGS=--no-print-directory
 # Setup go.
 RUN mkdir -p go/bin
 ENV GOPATH=/home/circleci/go
+ENV GOMEMLIMIT=6GiB
+ENV GOGC=30
 ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
