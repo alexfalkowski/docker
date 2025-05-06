@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.367.1](https://github.com/alexfalkowski/docker/releases/tag/v1.367.1) - 2025-05-06
+
+- [`40d51d7`](https://github.com/alexfalkowski/docker/commit/40d51d70b6a043ae538571879d83f9e2f3f385ae) fix(root): set WORKDIR /usr/local (#721)
+
 ## [v1.367.0](https://github.com/alexfalkowski/docker/releases/tag/v1.367.0) - 2025-05-06
 
 - [`392bf1a`](https://github.com/alexfalkowski/docker/commit/392bf1a08339412992a4ed4048c4c0bcf35fbab0) feat(root): add go limits (#719)
