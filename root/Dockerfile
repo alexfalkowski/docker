@@ -49,6 +49,5 @@ ENV MAKEFLAGS=--no-print-directory
 # Setup go.
 RUN mkdir -p go/bin
 ENV GOPATH=/home/circleci/go
-ENV GOMEMLIMIT=6GiB
 ENV GOGC=30
 ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
