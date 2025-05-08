@@ -28,7 +28,7 @@ RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_
   && rm doctl-${DOCTL_VERSION}-linux-amd64.tar.gz
 
 # Install pulumi.
-ARG PULUMI_VERSION=v3.168.0
+ARG PULUMI_VERSION=v3.169.0
 RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-${PULUMI_VERSION}-linux-x64.tar.gz \
   && tar C . -xf pulumi-${PULUMI_VERSION}-linux-x64.tar.gz \
   && mv pulumi temp \
