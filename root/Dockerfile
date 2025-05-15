@@ -19,7 +19,7 @@ RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
 
 # Install ruby.
 WORKDIR /home/circleci/
-ENV RUBY_VERSION=ruby-3.4.3
+ENV RUBY_VERSION=ruby-3.4.4
 ENV RUBY_FILE=$RUBY_VERSION.tar.gz
 RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/3.4/$RUBY_FILE \
   && tar -C . -xzf $RUBY_FILE \
@@ -30,9 +30,9 @@ RUN ./configure \
   && make \
   && make install
 
-# Install gems.
-RUN gem update --system 3.6.8 \
-  && gem install bundler -v 2.6.8 \
+# Install gems, https://rubygems.org/gems/rubygems-update.
+RUN gem update --system 3.6.9 \
+  && gem install bundler -v 2.6.9 \
   && gem install executable-hooks -v 1.7.1
 
 # Install just.
