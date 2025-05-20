@@ -4,7 +4,7 @@ USER root
 WORKDIR /usr/local/bin
 
 # Install kubectl.
-RUN curl -sSOL https://dl.k8s.io/release/v1.33.0/bin/linux/amd64/kubectl \
+RUN curl -sSOL https://dl.k8s.io/release/v1.33.1/bin/linux/amd64/kubectl \
   && chmod +x kubectl
 
 # Install vegeta.
@@ -14,7 +14,7 @@ RUN curl -sSOL https://github.com/tsenart/vegeta/releases/download/v${VEGETA_VER
   && chmod +x vegeta
 
 # Install helm.
-ARG HELM_VERSION=v3.17.3
+ARG HELM_VERSION=v3.18.0
 RUN curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz \
   && tar C . -xf helm-${HELM_VERSION}-linux-amd64.tar.gz \
   && mv linux-amd64/helm . \
