@@ -1,5 +1,15 @@
 #!/bin/bash
+# shellcheck disable=SC2155
+
 set -eo pipefail
 
 # Release with uplift.
 uplift release --config-dir /etc/uplift
+
+if [ -f .goreleaser.yaml ]; then
+  readonly message=$(git log --pretty=format:"%s" -n 1)
+
+  if [[ "$message" =~ ^chore* ]]; then
+      goreleaser release
+  fi
+fi
