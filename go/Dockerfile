@@ -35,7 +35,7 @@ RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" \
   && chmod +x mkcert
 
 # Install codecov.
-RUN curl -sSOL https://cli.codecov.io/v10.4.0/linux/codecov \
+RUN curl -sSOL https://cli.codecov.io/v11.0.0/linux/codecov \
   && mv codecov codecovcli \
   && chmod +x codecovcli
 
@@ -50,10 +50,10 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/gocovmerge@v1.7.0 \
+RUN go install github.com/alexfalkowski/gocovmerge@v1.8.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
-  && go install gotest.tools/gotestsum@v1.12.1 \
-  && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.32.0 \
+  && go install gotest.tools/gotestsum@v1.12.2 \
+  && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.33.0 \
   && go install github.com/boyter/scc/v3@latest \
-  && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.9.0 \
+  && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.9.2 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
