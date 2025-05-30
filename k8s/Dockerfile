@@ -14,7 +14,7 @@ RUN curl -sSOL https://github.com/tsenart/vegeta/releases/download/v${VEGETA_VER
   && chmod +x vegeta
 
 # Install helm.
-ARG HELM_VERSION=v3.18.0
+ARG HELM_VERSION=v3.18.1
 RUN curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz \
   && tar C . -xf helm-${HELM_VERSION}-linux-amd64.tar.gz \
   && mv linux-amd64/helm . \
@@ -28,7 +28,7 @@ RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_
   && rm doctl-${DOCTL_VERSION}-linux-amd64.tar.gz
 
 # Install pulumi.
-ARG PULUMI_VERSION=v3.171.0
+ARG PULUMI_VERSION=v3.173.0
 RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-${PULUMI_VERSION}-linux-x64.tar.gz \
   && tar C . -xf pulumi-${PULUMI_VERSION}-linux-x64.tar.gz \
   && mv pulumi temp \
