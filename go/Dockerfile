@@ -35,7 +35,7 @@ RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" \
   && chmod +x mkcert
 
 # Install codecov.
-RUN curl -sSOL https://cli.codecov.io/v11.0.2/linux/codecov \
+RUN curl -sSOL https://cli.codecov.io/v11.0.3/linux/codecov \
   && mv codecov codecovcli \
   && chmod +x codecovcli
 
