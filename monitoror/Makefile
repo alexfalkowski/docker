@@ -1,4 +1,4 @@
 IMAGE:=monitoror
-VERSION:=1.12
+VERSION:=1.13
 
 include ../scripts/include.mk
