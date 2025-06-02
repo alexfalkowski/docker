@@ -14,7 +14,7 @@ RUN curl -sSOL https://github.com/tsenart/vegeta/releases/download/v${VEGETA_VER
   && chmod +x vegeta
 
 # Install helm.
-ARG HELM_VERSION=v3.18.1
+ARG HELM_VERSION=v3.18.2
 RUN curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz \
   && tar C . -xf helm-${HELM_VERSION}-linux-amd64.tar.gz \
   && mv linux-amd64/helm . \
@@ -22,7 +22,7 @@ RUN curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz \
   && rm helm-${HELM_VERSION}-linux-amd64.tar.gz
 
 # Install doctl.
-ARG DOCTL_VERSION=1.126.0
+ARG DOCTL_VERSION=1.128.0
 RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz \
   && tar C . -xf doctl-${DOCTL_VERSION}-linux-amd64.tar.gz \
   && rm doctl-${DOCTL_VERSION}-linux-amd64.tar.gz
