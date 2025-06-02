@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.386.0](https://github.com/alexfalkowski/docker/releases/tag/v1.386.0) - 2025-06-02
+
+- [`fcca4c0`](https://github.com/alexfalkowski/docker/commit/fcca4c024fa2cac8c356e7228bc1da303f29eb5d) feat(root): use cimg/base:2025.06-22.04 (#755)
+- [`cd4ef47`](https://github.com/alexfalkowski/docker/commit/cd4ef47e0d329de6ed7dda0c8eb62378072e4ec3) build(deps): bump bin from `810b10e` to `9c21752` (#753)
+
 ## [v1.385.0](https://github.com/alexfalkowski/docker/releases/tag/v1.385.0) - 2025-05-31
 
 - [`1efb802`](https://github.com/alexfalkowski/docker/commit/1efb802d79cb5dc74eeb898359b69ead6d9d5d37) feat(codecov): update to v11.0.3 (#752)
