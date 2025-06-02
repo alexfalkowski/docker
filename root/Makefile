@@ -1,4 +1,4 @@
 IMAGE:=root
-VERSION:=1.34
+VERSION:=1.35
 
 include ../scripts/include.mk
