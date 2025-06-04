@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.35 AS build
+FROM alexfalkowski/root:1.36 AS build
 
 WORKDIR /tmp
 
