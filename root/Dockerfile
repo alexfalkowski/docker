@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # Install go
 WORKDIR /usr/local
-ENV GO_VERSION=1.24.3
+ENV GO_VERSION=1.24.4
 RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
   && tar -C . -xf go$GO_VERSION.linux-amd64.tar.gz \
   && rm go$GO_VERSION.linux-amd64.tar.gz
