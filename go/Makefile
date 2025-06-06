@@ -1,4 +1,4 @@
 IMAGE:=go
-VERSION:=2.25
+VERSION:=2.26
 
 include ../scripts/include.mk
