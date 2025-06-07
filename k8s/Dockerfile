@@ -22,13 +22,13 @@ RUN curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz \
   && rm helm-${HELM_VERSION}-linux-amd64.tar.gz
 
 # Install doctl.
-ARG DOCTL_VERSION=1.128.0
+ARG DOCTL_VERSION=1.129.0
 RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz \
   && tar C . -xf doctl-${DOCTL_VERSION}-linux-amd64.tar.gz \
   && rm doctl-${DOCTL_VERSION}-linux-amd64.tar.gz
 
 # Install pulumi.
-ARG PULUMI_VERSION=v3.173.0
+ARG PULUMI_VERSION=v3.175.0
 RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-${PULUMI_VERSION}-linux-x64.tar.gz \
   && tar C . -xf pulumi-${PULUMI_VERSION}-linux-x64.tar.gz \
   && mv pulumi temp \
