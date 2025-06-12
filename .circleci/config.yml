@@ -1,72 +1,16 @@
 version: 2.1
 
-jobs:
-  lint:
-    docker:
-      - image: alexfalkowski/docker:1.20
-    steps:
-      - checkout
-      - run: git submodule sync
-      - run: git submodule update --init
-      - run: make lint
-    resource_class: large
-  build:
-    docker:
-      - image: alexfalkowski/docker:1.20
-    steps:
-      - checkout
-      - run: git submodule sync
-      - run: git submodule update --init
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: make login
-          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make docker-build
-    resource_class: large
-  push:
-    docker:
-      - image: alexfalkowski/docker:1.20
-    steps:
-      - checkout
-      - run: git submodule sync
-      - run: git submodule update --init
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: make login
-          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make docker-push
-    resource_class: large
-  release:
-    docker:
-      - image: alexfalkowski/release:3.24
-    steps:
-      - checkout
-      - run: release
-    resource_class: large
+setup: true
+
+orbs:
+  path_filtering: circleci/path-filtering@2.0.0
 
 workflows:
-  docker:
+  filter:
     jobs:
-      - lint
-      - build:
-          context: docker
-          filters:
-            branches:
-              ignore: master
-      - push:
-          context: docker
-          requires:
-            - lint
-            - build
-          filters:
-            branches:
-              only: master
-      - release:
-          context: gh
-          requires:
-            - push
-          filters:
-            branches:
-              only: master
+      - path_filtering/filter:
+          mapping: |
+            .circleci/.* root true
+            root/.* root true
+          base-revision: origin/master
+          resource_class: large

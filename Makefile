@@ -3,7 +3,7 @@ include bin/build/make/git.mak
 
 # Lint all scripts.
 scripts-lint:
-	@shellcheck scripts/*.sh scripts/build scripts/clean scripts/compose scripts/lint scripts/push
+	@shellcheck scripts/clean scripts/compose
 
 # Lint all the images.
 docker-lint:
