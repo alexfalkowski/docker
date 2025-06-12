@@ -5,21 +5,6 @@ include bin/build/make/git.mak
 scripts-lint:
 	@shellcheck scripts/clean scripts/compose
 
-# Lint all the images.
-docker-lint:
-	@scripts/lint
-
-# Run all linters.
-lint: docker-lint scripts-lint
-
-# Build all the images.
-docker-build:
-	@scripts/build
-
-# Push all the images.
-docker-push:
-	@scripts/push
-
 # Pull latest containers.
 docker-pull:
 	@scripts/compose -f compose.yml pull $(service)
