@@ -3,8 +3,8 @@ build-docker:
 	docker build -t alexfalkowski/$(IMAGE):$(VERSION) .
 
 # Push built docker image.
-push-docker: build-docker
-	docker push alexfalkowski/$(IMAGE) --all-tags
+push-docker:
+	docker build -t alexfalkowski/$(IMAGE):$(VERSION) --push .
 
 # Lint docker image.
 lint-docker:

@@ -11,6 +11,8 @@ workflows:
       - path_filtering/filter:
           mapping: |
             .circleci/.* root true
+            Makefile root true
+            scripts/include.mk root true
             root/.* root true
           base-revision: origin/master
           resource_class: large
