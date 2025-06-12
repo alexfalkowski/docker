@@ -1,13 +1,15 @@
-multi-builder-docker:
-	docker buildx create --name docker-multi-builder --driver docker-container
-
 # Build docker image.
-build-docker: multi-builder-docker
-	docker buildx build --builder docker-multi-builder --platform $(platform) -t alexfalkowski/$(IMAGE):$(VERSION) .
+build-docker:
+	docker build -t alexfalkowski/$(IMAGE)-$(platform):$(VERSION) .
 
 # Push built docker image.
-push-docker: multi-builder-docker
-	docker buildx build --builder docker-multi-builder --platform $(platform) -t alexfalkowski/$(IMAGE):$(VERSION) --push .
+push-docker:
+	docker build -t alexfalkowski/$(IMAGE)-$(platform):$(VERSION) --push .
+
+# Create a manifest.
+manifest-docker:
+	docker manifest create alexfalkowski/$(IMAGE)-$(platform):$(VERSION) --amend alexfalkowski/$(IMAGE)-amd64:$(VERSION) --amend alexfalkowski/$(IMAGE)-amd64:$(VERSION)
+	docker manifest push alexfalkowski/$(IMAGE)-$(platform):$(VERSION)
 
 # Lint docker image.
 lint-docker:

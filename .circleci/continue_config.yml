@@ -50,7 +50,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root platform=linux/amd64 build-docker
+      - run: make -C root platform=amd64 build-docker
     resource_class: large
   root-push:
     docker:
@@ -64,7 +64,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root platform=linux/amd64 push-docker
+      - run: make -C root platform=amd64 push-docker
     resource_class: large
   root-build-arm:
     docker:
@@ -79,7 +79,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root platform=linux/arm64 build-docker
+      - run: make -C root platform=arm64 build-docker
     resource_class: arm.medium
   root-push-arm:
     docker:
@@ -93,8 +93,22 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root platform=linux/arm64 push-docker
+      - run: make -C root platform=arm64 push-docker
     resource_class: arm.medium
+  root-manifest:
+    docker:
+      - image: cimg/base:2025.06-24.04
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C root manifest-docker
+    resource_class: large
 
 workflows:
   lint:
@@ -128,6 +142,14 @@ workflows:
               only: master
       - root-push-arm:
           context: docker
+          filters:
+            branches:
+              only: master
+      - root-manifest:
+          context: docker
+          requires:
+            - root-push
+            - root-push-arm
           filters:
             branches:
               only: master
