@@ -50,7 +50,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root build-docker
+      - run: make -C root platform=linux/amd64 build-docker
     resource_class: large
   root-push:
     docker:
@@ -64,7 +64,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root push-docker
+      - run: make -C root platform=linux/amd64 push-docker
     resource_class: large
   root-build-arm:
     docker:
@@ -79,7 +79,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root build-docker
+      - run: make -C root platform=linux/arm64 build-docker
     resource_class: arm.medium
   root-push-arm:
     docker:
@@ -93,7 +93,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root push-docker
+      - run: make -C root platform=linux/arm64 push-docker
     resource_class: arm.medium
 
 workflows:
