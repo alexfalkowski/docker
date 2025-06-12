@@ -1,10 +1,13 @@
+multi-builder-docker:
+	docker buildx create --name docker-multi-builder --driver docker-container
+
 # Build docker image.
-build-docker:
-	docker build -t alexfalkowski/$(IMAGE):$(VERSION) .
+build-docker: multi-builder-docker
+	docker build --builder docker-multi-builder --platform $(platform) --build-arg platform=$(platform) -t alexfalkowski/$(IMAGE):$(VERSION) .
 
 # Push built docker image.
-push-docker: build-docker
-	docker push alexfalkowski/$(IMAGE) --all-tags
+push-docker: multi-builder-docker
+	docker build --builder docker-multi-builder --platform $(platform) --build-arg platform=$(platform) -t alexfalkowski/$(IMAGE):$(VERSION) --push .
 
 # Lint docker image.
 lint-docker:

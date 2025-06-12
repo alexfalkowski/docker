@@ -14,11 +14,11 @@ lint: docker-lint scripts-lint
 
 # Build all the images.
 docker-build:
-	@scripts/build
+	@scripts/build $(platform)
 
 # Push all the images.
 docker-push:
-	@scripts/push
+	@scripts/push $(platform)
 
 # Pull latest containers.
 docker-pull:

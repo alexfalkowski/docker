@@ -1,3 +1,5 @@
+ARG platform=linux-amd64
+
 FROM cimg/base:2025.06-24.04
 
 USER root
@@ -12,15 +14,15 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # Install go
 WORKDIR /usr/local
-ENV GO_VERSION=1.24.4
-RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz \
-  && tar -C . -xf go$GO_VERSION.linux-amd64.tar.gz \
-  && rm go$GO_VERSION.linux-amd64.tar.gz
+ARG GO_VERSION=1.24.4
+RUN curl -sSOL https://go.dev/dl/go$GO_VERSION.$platform.tar.gz \
+  && tar -C . -xf go$GO_VERSION.$platform.tar.gz \
+  && rm go$GO_VERSION.$platform.tar.gz
 
 # Install ruby.
 WORKDIR /home/circleci/
-ENV RUBY_VERSION=ruby-3.4.4
-ENV RUBY_FILE=$RUBY_VERSION.tar.gz
+ARG RUBY_VERSION=ruby-3.4.4
+ARG RUBY_FILE=$RUBY_VERSION.tar.gz
 RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/3.4/$RUBY_FILE \
   && tar -C . -xzf $RUBY_FILE \
   && rm $RUBY_FILE

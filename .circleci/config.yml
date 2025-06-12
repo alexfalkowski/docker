@@ -10,7 +10,7 @@ jobs:
       - run: git submodule update --init
       - run: make lint
     resource_class: large
-  build:
+  build-linux-amd64:
     docker:
       - image: alexfalkowski/docker:1.20
     steps:
@@ -22,9 +22,9 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make docker-build
+      - run: make platform=linux-amd64 docker-build
     resource_class: large
-  push:
+  push-linux-amd64:
     docker:
       - image: alexfalkowski/docker:1.20
     steps:
@@ -36,7 +36,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make docker-push
+      - run: make platform=linux-amd64 docker-push
     resource_class: large
   release:
     docker:
@@ -50,23 +50,23 @@ workflows:
   docker:
     jobs:
       - lint
-      - build:
+      - build-linux-amd64:
           context: docker
           filters:
             branches:
               ignore: master
-      - push:
+      - push-linux-amd64:
           context: docker
           requires:
             - lint
-            - build
+            - build-linux-amd64
           filters:
             branches:
               only: master
       - release:
           context: gh
           requires:
-            - push
+            - push-linux-amd64
           filters:
             branches:
               only: master
