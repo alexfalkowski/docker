@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1091
 
 set -eo pipefail
 
-# shellcheck disable=SC1091
 source scripts/lib.sh
 perform "push-docker"
