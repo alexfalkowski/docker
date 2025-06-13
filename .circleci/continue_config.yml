@@ -19,6 +19,9 @@ parameters:
   root:
     type: boolean
     default: false
+  ruby:
+    type: boolean
+    default: false
 
 jobs:
   lint:
@@ -497,6 +500,89 @@ jobs:
       - run: make -C root manifest-platform-docker
     resource_class: large
 
+  ruby-lint:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run: make -C ruby lint-docker
+    resource_class: large
+  ruby-build-amd64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C ruby platform=amd64 build-platform-docker
+    resource_class: large
+  ruby-push-amd64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C ruby platform=amd64 push-platform-docker
+    resource_class: large
+  ruby-build-arm64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C ruby platform=arm64 build-platform-docker
+    resource_class: arm.medium
+  ruby-push-arm64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C ruby platform=arm64 push-platform-docker
+    resource_class: arm.medium
+  ruby-manifest:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C ruby manifest-platform-docker
+    resource_class: large
+
 workflows:
   lint:
     jobs:
@@ -684,6 +770,38 @@ workflows:
           requires:
             - root-push-amd64
             - root-push-arm64
+          filters:
+            branches:
+              only: master
+  ruby:
+    when: << pipeline.parameters.ruby >>
+    jobs:
+      - ruby-lint
+      - ruby-build-amd64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - ruby-build-arm64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - ruby-push-amd64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - ruby-push-arm64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - ruby-manifest:
+          context: docker
+          requires:
+            - ruby-push-amd64
+            - ruby-push-arm64
           filters:
             branches:
               only: master

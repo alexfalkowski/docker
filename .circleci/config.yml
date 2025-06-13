@@ -39,5 +39,10 @@ workflows:
             Makefile root true
             scripts/include.mk root true
             root/.* root true
+
+            .circleci/.* ruby true
+            Makefile ruby true
+            scripts/include.mk ruby true
+            ruby/.* ruby true
           base-revision: origin/master
           resource_class: large
