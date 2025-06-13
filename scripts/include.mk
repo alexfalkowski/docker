@@ -14,10 +14,16 @@ build-platform-docker:
 push-platform-docker:
 	docker build -t alexfalkowski/$(IMAGE):$(VERSION).$(platform) --push .
 
-# Create a platform manifest.
-manifest-platform-docker:
+manifest-platform-version-docker:
 	docker manifest create alexfalkowski/$(IMAGE):$(VERSION) --amend alexfalkowski/$(IMAGE):$(VERSION).amd64 --amend alexfalkowski/$(IMAGE):$(VERSION).arm64
 	docker manifest push alexfalkowski/$(IMAGE):$(VERSION)
+
+manifest-platform-latest-docker:
+	docker manifest create alexfalkowski/$(IMAGE):latest --amend alexfalkowski/$(IMAGE):$(VERSION).amd64 --amend alexfalkowski/$(IMAGE):$(VERSION).arm64
+	docker manifest push alexfalkowski/$(IMAGE):latest
+
+# Create a platform manifest.
+manifest-platform-docker: manifest-platform-version-docker manifest-platform-latest-docker
 
 # Lint docker image.
 lint-docker:
