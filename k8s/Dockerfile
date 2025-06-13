@@ -1,40 +1,32 @@
-FROM alexfalkowski/root:1.37
+FROM alexfalkowski/root:1.38
 
 USER root
 WORKDIR /usr/local/bin
 
 # Install kubectl.
-RUN curl -sSOL https://dl.k8s.io/release/v1.33.1/bin/linux/amd64/kubectl \
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://dl.k8s.io/release/v1.33.1/bin/linux/$machine/kubectl \
   && chmod +x kubectl
 
 # Install vegeta.
 ARG VEGETA_VERSION=12.12.0
-RUN curl -sSOL https://github.com/tsenart/vegeta/releases/download/v${VEGETA_VERSION}/vegeta_${VEGETA_VERSION}_linux_amd64.tar.gz \
-  && tar C . -xf vegeta_${VEGETA_VERSION}_linux_amd64.tar.gz \
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/tsenart/vegeta/releases/download/v${VEGETA_VERSION}/vegeta_${VEGETA_VERSION}_linux_$machine.tar.gz \
+  && tar C . -xf vegeta_${VEGETA_VERSION}_linux_$machine.tar.gz \
   && chmod +x vegeta
 
 # Install helm.
 ARG HELM_VERSION=v3.18.2
-RUN curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz \
-  && tar C . -xf helm-${HELM_VERSION}-linux-amd64.tar.gz \
-  && mv linux-amd64/helm . \
-  && rm -rf linux-amd64 \
-  && rm helm-${HELM_VERSION}-linux-amd64.tar.gz
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-$machine.tar.gz \
+  && tar C . -xf helm-${HELM_VERSION}-linux-$machine.tar.gz \
+  && mv linux-$machine/helm . \
+  && rm -rf linux-$machine \
+  && rm helm-${HELM_VERSION}-linux-$machine.tar.gz
 
 # Install doctl.
 ARG DOCTL_VERSION=1.129.0
-RUN curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz \
-  && tar C . -xf doctl-${DOCTL_VERSION}-linux-amd64.tar.gz \
-  && rm doctl-${DOCTL_VERSION}-linux-amd64.tar.gz
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
+  && tar C . -xf doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
+  && rm doctl-${DOCTL_VERSION}-linux-$machine.tar.gz
 
-# Install pulumi.
-ARG PULUMI_VERSION=v3.175.0
-RUN curl -sSOL https://get.pulumi.com/releases/sdk/pulumi-${PULUMI_VERSION}-linux-x64.tar.gz \
-  && tar C . -xf pulumi-${PULUMI_VERSION}-linux-x64.tar.gz \
-  && mv pulumi temp \
-  && mv temp/* . \
-  && rm -rf temp \
-  && rm pulumi-${PULUMI_VERSION}-linux-x64.tar.gz
 
 # Install kubescape.
 RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.33/kubescape-ubuntu-latest \
@@ -43,6 +35,10 @@ RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.33/
 
 USER circleci
 WORKDIR /home/circleci/
+
+# Install pulumi.
+RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.175.0
+ENV PATH=/home/circleci/.pulumi/bin:$PATH
 
 # Install go tools.
 RUN go install github.com/zegl/kube-score/cmd/kube-score@v1.20.0 \
