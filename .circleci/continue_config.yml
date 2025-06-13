@@ -1,10 +1,13 @@
 version: 2.1
 
 parameters:
+  docker:
+    type: boolean
+    default: false
   go:
     type: boolean
     default: false
-  docker:
+  k8s:
     type: boolean
     default: false
   root:
@@ -199,6 +202,89 @@ jobs:
       - run: make -C go manifest-docker
     resource_class: large
 
+  k8s-lint:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run: make -C k8s lint-docker
+    resource_class: large
+  k8s-build-amd64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C k8s platform=amd64 build-docker
+    resource_class: large
+  k8s-push-amd64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C k8s platform=amd64 push-docker
+    resource_class: large
+  k8s-build-arm64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C k8s platform=arm64 build-docker
+    resource_class: arm.medium
+  k8s-push-arm64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C k8s platform=arm64 push-docker
+    resource_class: arm.medium
+  k8s-manifest:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C k8s manifest-docker
+    resource_class: large
+
   root-lint:
     docker:
       - image: alexfalkowski/docker:1.21
@@ -355,6 +441,39 @@ workflows:
           requires:
             - go-push-amd64
             - go-push-arm64
+          filters:
+            branches:
+              only: master
+
+  k8s:
+    when: << pipeline.parameters.k8s >>
+    jobs:
+      - k8s-lint
+      - k8s-build-amd64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - k8s-build-arm64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - k8s-push-amd64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - k8s-push-arm64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - k8s-manifest:
+          context: docker
+          requires:
+            - k8s-push-amd64
+            - k8s-push-arm64
           filters:
             branches:
               only: master
