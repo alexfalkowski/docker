@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.394.0](https://github.com/alexfalkowski/docker/releases/tag/v1.394.0) - 2025-06-13
+
+- [`9e79836`](https://github.com/alexfalkowski/docker/commit/9e79836e99d9b3536f7347ad84610f3806eae1c9) feat(docker): use alexfalkowski/root:1.38 (#783)
+- [`dfed521`](https://github.com/alexfalkowski/docker/commit/dfed5217f84e2d72f54ae6d26f065513926e1804) build(ci): use manifest (#776)
+- [`ec84617`](https://github.com/alexfalkowski/docker/commit/ec846172ddbda1dbb23b95238ec9e726701f0961) build(ci): use buildx (#774)
+- [`86022b2`](https://github.com/alexfalkowski/docker/commit/86022b27d0ab0eace37964df502af2a4a2ac7114) build(ci): use push for build (#773)
+- [`500115d`](https://github.com/alexfalkowski/docker/commit/500115d1708e5d56a7b8b2ad0092c008e121653a) build(ci): use circleci/path-filtering (#772)
+- [`adfe199`](https://github.com/alexfalkowski/docker/commit/adfe19917f2ba27c1acbbbf55639e0c4a6edd62f) build(deps): bump bin from `255c12c` to `fc61209` (#768)
+- [`9b5a1ec`](https://github.com/alexfalkowski/docker/commit/9b5a1ecfc45464771ce290a6ae040ae8e97ead2f) build(deps): bump bin from `9c21752` to `255c12c` (#767)
+
 ## [v1.393.0](https://github.com/alexfalkowski/docker/releases/tag/v1.393.0) - 2025-06-07
 
 - [`e9dbbd5`](https://github.com/alexfalkowski/docker/commit/e9dbbd5c0b4bdb0a87086bb3487ff10471674eeb) feat(k8s): update pulumi to v3.175.0 (#766)
