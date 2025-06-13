@@ -32,7 +32,7 @@ jobs:
     resource_class: large
   release:
     docker:
-      - image: alexfalkowski/release:3.24
+      - image: alexfalkowski/release:3.25
     working_directory: ~/docker
     steps:
       - checkout
@@ -65,7 +65,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C docker platform=amd64 build-docker
+      - run: make -C docker platform=amd64 build-platform-docker
     resource_class: large
   docker-push-amd64:
     docker:
@@ -79,7 +79,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C docker platform=amd64 push-docker
+      - run: make -C docker platform=amd64 push-platform-docker
     resource_class: large
   docker-build-arm64:
     docker:
@@ -94,7 +94,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C docker platform=arm64 build-docker
+      - run: make -C docker platform=arm64 build-platform-docker
     resource_class: arm.medium
   docker-push-arm64:
     docker:
@@ -108,7 +108,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C docker platform=arm64 push-docker
+      - run: make -C docker platform=arm64 push-platform-docker
     resource_class: arm.medium
   docker-manifest:
     docker:
@@ -122,7 +122,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C docker manifest-docker
+      - run: make -C docker manifest-platform-docker
     resource_class: large
 
   go-lint:
@@ -148,7 +148,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C go platform=amd64 build-docker
+      - run: make -C go platform=amd64 build-platform-docker
     resource_class: large
   go-push-amd64:
     docker:
@@ -162,7 +162,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C go platform=amd64 push-docker
+      - run: make -C go platform=amd64 push-platform-docker
     resource_class: large
   go-build-arm64:
     docker:
@@ -177,7 +177,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C go platform=arm64 build-docker
+      - run: make -C go platform=arm64 build-platform-docker
     resource_class: arm.medium
   go-push-arm64:
     docker:
@@ -191,7 +191,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C go platform=arm64 push-docker
+      - run: make -C go platform=arm64 push-platform-docker
     resource_class: arm.medium
   go-manifest:
     docker:
@@ -205,7 +205,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C go manifest-docker
+      - run: make -C go manifest-platform-docker
     resource_class: large
 
   k8s-lint:
@@ -231,7 +231,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C k8s platform=amd64 build-docker
+      - run: make -C k8s platform=amd64 build-platform-docker
     resource_class: large
   k8s-push-amd64:
     docker:
@@ -245,7 +245,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C k8s platform=amd64 push-docker
+      - run: make -C k8s platform=amd64 push-platform-docker
     resource_class: large
   k8s-build-arm64:
     docker:
@@ -260,7 +260,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C k8s platform=arm64 build-docker
+      - run: make -C k8s platform=arm64 build-platform-docker
     resource_class: arm.medium
   k8s-push-arm64:
     docker:
@@ -274,7 +274,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C k8s platform=arm64 push-docker
+      - run: make -C k8s platform=arm64 push-platform-docker
     resource_class: arm.medium
   k8s-manifest:
     docker:
@@ -288,7 +288,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C k8s manifest-docker
+      - run: make -C k8s manifest-platform-docker
     resource_class: large
 
   monitoror-lint:
@@ -301,7 +301,7 @@ jobs:
       - run: git submodule update --init
       - run: make -C monitoror lint-docker
     resource_class: large
-  monitoror-build-amd64:
+  monitoror-build:
     docker:
       - image: alexfalkowski/docker:1.21
     working_directory: ~/docker
@@ -314,9 +314,9 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C monitoror platform=amd64 build-docker
+      - run: make -C monitoror build-docker
     resource_class: large
-  monitoror-push-amd64:
+  monitoror-push:
     docker:
       - image: alexfalkowski/docker:1.21
     steps:
@@ -328,21 +328,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C monitoror platform=amd64 push-docker
-    resource_class: large
-  monitoror-manifest:
-    docker:
-      - image: alexfalkowski/docker:1.21
-    steps:
-      - checkout
-      - run: git submodule sync
-      - run: git submodule update --init
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: make login
-          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C monitoror manifest-docker
+      - run: make -C monitoror push-docker
     resource_class: large
 
   release-lint:
@@ -368,7 +354,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C release platform=amd64 build-docker
+      - run: make -C release platform=amd64 build-platform-docker
     resource_class: large
   release-push-amd64:
     docker:
@@ -382,7 +368,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C release platform=amd64 push-docker
+      - run: make -C release platform=amd64 push-platform-docker
     resource_class: large
   release-build-arm64:
     docker:
@@ -397,7 +383,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C release platform=arm64 build-docker
+      - run: make -C release platform=arm64 build-platform-docker
     resource_class: arm.medium
   release-push-arm64:
     docker:
@@ -411,7 +397,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C release platform=arm64 push-docker
+      - run: make -C release platform=arm64 push-platform-docker
     resource_class: arm.medium
   release-manifest:
     docker:
@@ -425,7 +411,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C release manifest-docker
+      - run: make -C release manifest-platform-docker
     resource_class: large
 
   root-lint:
@@ -451,7 +437,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root platform=amd64 build-docker
+      - run: make -C root platform=amd64 build-platform-docker
     resource_class: large
   root-push-amd64:
     docker:
@@ -465,7 +451,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root platform=amd64 push-docker
+      - run: make -C root platform=amd64 push-platform-docker
     resource_class: large
   root-build-arm64:
     docker:
@@ -480,7 +466,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root platform=arm64 build-docker
+      - run: make -C root platform=arm64 build-platform-docker
     resource_class: arm.medium
   root-push-arm64:
     docker:
@@ -494,7 +480,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root platform=arm64 push-docker
+      - run: make -C root platform=arm64 push-platform-docker
     resource_class: arm.medium
   root-manifest:
     docker:
@@ -508,7 +494,7 @@ jobs:
       - run:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C root manifest-docker
+      - run: make -C root manifest-platform-docker
     resource_class: large
 
 workflows:
@@ -625,20 +611,13 @@ workflows:
     when: << pipeline.parameters.monitoror >>
     jobs:
       - monitoror-lint
-      - monitoror-build-amd64:
+      - monitoror-build:
           context: docker
           filters:
             branches:
               ignore: master
-      - monitoror-push-amd64:
+      - monitoror-push:
           context: docker
-          filters:
-            branches:
-              only: master
-      - monitoror-manifest:
-          context: docker
-          requires:
-            - monitoror-push-amd64
           filters:
             branches:
               only: master
