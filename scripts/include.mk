@@ -4,7 +4,7 @@ build-docker:
 
 # Push built docker image.
 push-docker:
-	docker build -t alexfalkowski/$(IMAGE):$(VERSION) --push .
+	docker build -t alexfalkowski/$(IMAGE):$(VERSION) -t alexfalkowski/$(IMAGE) --push .
 
 # Build platform docker image.
 build-platform-docker:
@@ -19,8 +19,8 @@ manifest-platform-version-docker:
 	docker manifest push alexfalkowski/$(IMAGE):$(VERSION)
 
 manifest-platform-latest-docker:
-	docker manifest create alexfalkowski/$(IMAGE):latest --amend alexfalkowski/$(IMAGE):$(VERSION).amd64 --amend alexfalkowski/$(IMAGE):$(VERSION).arm64
-	docker manifest push alexfalkowski/$(IMAGE):latest
+	docker manifest create alexfalkowski/$(IMAGE) --amend alexfalkowski/$(IMAGE):$(VERSION).amd64 --amend alexfalkowski/$(IMAGE):$(VERSION).arm64
+	docker manifest push alexfalkowski/$(IMAGE)
 
 # Create a platform manifest.
 manifest-platform-docker: manifest-platform-version-docker manifest-platform-latest-docker
