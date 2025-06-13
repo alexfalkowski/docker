@@ -10,6 +10,11 @@ workflows:
     jobs:
       - path_filtering/filter:
           mapping: |
+            .circleci/.* docker true
+            Makefile docker true
+            scripts/include.mk docker true
+            docker/.* docker true
+
             .circleci/.* root true
             Makefile root true
             scripts/include.mk root true

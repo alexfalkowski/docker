@@ -4,6 +4,9 @@ parameters:
   root:
     type: boolean
     default: false
+  docker:
+    type: boolean
+    default: false
 
 jobs:
   lint:
@@ -25,6 +28,89 @@ jobs:
       - run: git submodule update --init
       - run: make pull
       - run: release
+    resource_class: large
+
+  docker-lint:
+    docker:
+      - image: alexfalkowski/docker:1.20
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run: make -C docker lint-docker
+    resource_class: large
+  docker-build-amd64:
+    docker:
+      - image: cimg/base:2025.06-24.04
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C docker platform=amd64 build-docker
+    resource_class: large
+  docker-push-amd64:
+    docker:
+      - image: cimg/base:2025.06-24.04
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C docker platform=amd64 push-docker
+    resource_class: large
+  docker-build-arm64:
+    docker:
+      - image: cimg/base:2025.06-24.04
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C docker platform=arm64 build-docker
+    resource_class: arm.medium
+  docker-push-arm64:
+    docker:
+      - image: cimg/base:2025.06-24.04
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C docker platform=arm64 push-docker
+    resource_class: arm.medium
+  docker-manifest:
+    docker:
+      - image: cimg/base:2025.06-24.04
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C docker manifest-docker
     resource_class: large
 
   root-lint:
@@ -117,6 +203,39 @@ workflows:
       - release:
           requires:
             - lint
+          filters:
+            branches:
+              only: master
+
+  docker:
+    when: << pipeline.parameters.docker >>
+    jobs:
+      - docker-lint
+      - docker-build-amd64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - docker-build-arm64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - docker-push-amd64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - docker-push-arm64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - docker-manifest:
+          context: docker
+          requires:
+            - docker-push-amd64
+            - docker-push-arm64
           filters:
             branches:
               only: master
