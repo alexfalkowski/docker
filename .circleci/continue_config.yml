@@ -13,6 +13,9 @@ parameters:
   monitoror:
     type: boolean
     default: false
+  release:
+    type: boolean
+    default: false
   root:
     type: boolean
     default: false
@@ -342,6 +345,89 @@ jobs:
       - run: make -C monitoror manifest-docker
     resource_class: large
 
+  release-lint:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run: make -C release lint-docker
+    resource_class: large
+  release-build-amd64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C release platform=amd64 build-docker
+    resource_class: large
+  release-push-amd64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C release platform=amd64 push-docker
+    resource_class: large
+  release-build-arm64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C release platform=arm64 build-docker
+    resource_class: arm.medium
+  release-push-arm64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C release platform=arm64 push-docker
+    resource_class: arm.medium
+  release-manifest:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C release manifest-docker
+    resource_class: large
+
   root-lint:
     docker:
       - image: alexfalkowski/docker:1.21
@@ -549,10 +635,43 @@ workflows:
           filters:
             branches:
               only: master
-      - k8s-manifest:
+      - monitoror-manifest:
           context: docker
           requires:
             - monitoror-push-amd64
+          filters:
+            branches:
+              only: master
+
+  release:
+    when: << pipeline.parameters.release >>
+    jobs:
+      - release-lint
+      - release-build-amd64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - release-build-arm64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - release-push-amd64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - release-push-arm64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - release-manifest:
+          context: docker
+          requires:
+            - release-push-amd64
+            - release-push-arm64
           filters:
             branches:
               only: master

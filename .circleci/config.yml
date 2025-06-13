@@ -30,6 +30,11 @@ workflows:
             scripts/include.mk monitoror true
             monitoror/.* monitoror true
 
+            .circleci/.* release true
+            Makefile release true
+            scripts/include.mk release true
+            release/.* release true
+
             .circleci/.* root true
             Makefile root true
             scripts/include.mk root true
