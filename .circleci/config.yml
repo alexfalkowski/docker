@@ -25,6 +25,11 @@ workflows:
             scripts/include.mk k8s true
             docker/.* k8s true
 
+            .circleci/.* monitoror true
+            Makefile monitoror true
+            scripts/include.mk monitoror true
+            monitoror/.* monitoror true
+
             .circleci/.* root true
             Makefile root true
             scripts/include.mk root true
