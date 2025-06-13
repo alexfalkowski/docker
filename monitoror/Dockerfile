@@ -1,4 +1,10 @@
-FROM alexfalkowski/root:1.37 AS build
+FROM debian:bookworm AS build
+
+# Install packages.
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  curl \
+  ca-certificates \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /tmp
 

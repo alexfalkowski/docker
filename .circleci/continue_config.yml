@@ -10,6 +10,9 @@ parameters:
   k8s:
     type: boolean
     default: false
+  monitoror:
+    type: boolean
+    default: false
   root:
     type: boolean
     default: false
@@ -285,6 +288,60 @@ jobs:
       - run: make -C k8s manifest-docker
     resource_class: large
 
+  monitoror-lint:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run: make -C monitoror lint-docker
+    resource_class: large
+  monitoror-build-amd64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    working_directory: ~/docker
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C monitoror platform=amd64 build-docker
+    resource_class: large
+  monitoror-push-amd64:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C monitoror platform=amd64 push-docker
+    resource_class: large
+  monitoror-manifest:
+    docker:
+      - image: alexfalkowski/docker:1.21
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: make login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: make -C monitoror manifest-docker
+    resource_class: large
+
   root-lint:
     docker:
       - image: alexfalkowski/docker:1.21
@@ -474,6 +531,28 @@ workflows:
           requires:
             - k8s-push-amd64
             - k8s-push-arm64
+          filters:
+            branches:
+              only: master
+
+  monitoror:
+    when: << pipeline.parameters.monitoror >>
+    jobs:
+      - monitoror-lint
+      - monitoror-build-amd64:
+          context: docker
+          filters:
+            branches:
+              ignore: master
+      - monitoror-push-amd64:
+          context: docker
+          filters:
+            branches:
+              only: master
+      - k8s-manifest:
+          context: docker
+          requires:
+            - monitoror-push-amd64
           filters:
             branches:
               only: master
