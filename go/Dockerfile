@@ -1,37 +1,37 @@
-FROM alexfalkowski/root:1.37
+FROM alexfalkowski/root:1.38
 
 USER root
 WORKDIR /usr/local/bin
 
 # Install dockerize.
-ENV DOCKERIZE_VERSION=v0.6.1
-RUN curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-  && tar -C . -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+ENV DOCKERIZE_VERSION=v0.9.3
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-$machine-$DOCKERIZE_VERSION.tar.gz \
+  && tar -C . -xzvf dockerize-linux-$machine-$DOCKERIZE_VERSION.tar.gz \
+  && rm dockerize-linux-$machine-$DOCKERIZE_VERSION.tar.gz
 
 # Install shellcheck.
 ENV SHELLCHECK_VERSION=v0.10.0
-RUN curl -sSOL https://github.com/koalaman/shellcheck/releases/download/$SHELLCHECK_VERSION/shellcheck-$SHELLCHECK_VERSION.linux.x86_64.tar.xz \
-  && tar -C . -xvf shellcheck-$SHELLCHECK_VERSION.linux.x86_64.tar.xz \
+RUN export machine="$(uname -m)"; curl -sSOL https://github.com/koalaman/shellcheck/releases/download/$SHELLCHECK_VERSION/shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz \
+  && tar -C . -xvf shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz \
   && mv shellcheck-$SHELLCHECK_VERSION/shellcheck . \
-  && rm -rf shellcheck-$SHELLCHECK_VERSION/ shellcheck-$SHELLCHECK_VERSION.linux.x86_64.tar.xz
+  && rm -rf shellcheck-$SHELLCHECK_VERSION/ shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz
 
 # Install hadolint.
-RUN curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 \
-  && mv hadolint-Linux-x86_64 hadolint \
+RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-$machine \
+  && mv hadolint-Linux-$machine hadolint \
   && chmod +x hadolint
 
 # Install buf.
-RUN curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.54.0/buf-Linux-x86_64 \
-  && mv buf-Linux-x86_64 buf \
+RUN export machine="$(uname -m)"; curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.54.0/buf-Linux-$machine \
+  && mv buf-Linux-$machine buf \
   && chmod +x buf
 
 # Install trivy.
 RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.63.0
 
 # Install mkcert.
-RUN curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" \
-  && mv mkcert-v*-linux-amd64 mkcert \
+RUN export machine="$(dpkg --print-architecture)"; curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/$machine" \
+  && mv mkcert-v*-linux-$machine mkcert \
   && chmod +x mkcert
 
 # Install codecov.
@@ -41,10 +41,10 @@ RUN curl -sSOL https://cli.codecov.io/v11.0.3/linux/codecov \
 
 # Install golangci-lint.
 ENV LINT_VERSION=2.1.2
-RUN curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$LINT_VERSION/golangci-lint-$LINT_VERSION-linux-amd64.tar.gz \
-  && tar -C . -xzvf golangci-lint-$LINT_VERSION-linux-amd64.tar.gz \
-  && mv golangci-lint-$LINT_VERSION-linux-amd64/golangci-lint . \
-  && rm -rf golangci-lint-$LINT_VERSION-linux-amd64/ golangci-lint-$LINT_VERSION-linux-amd64.tar.gz
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$LINT_VERSION/golangci-lint-$LINT_VERSION-linux-$machine.tar.gz \
+  && tar -C . -xzvf golangci-lint-$LINT_VERSION-linux-$machine.tar.gz \
+  && mv golangci-lint-$LINT_VERSION-linux-$machine/golangci-lint . \
+  && rm -rf golangci-lint-$LINT_VERSION-linux-$machine/ golangci-lint-$LINT_VERSION-linux-$machine.tar.gz
 
 USER circleci
 WORKDIR /home/circleci/

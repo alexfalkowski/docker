@@ -15,6 +15,11 @@ workflows:
             scripts/include.mk docker true
             docker/.* docker true
 
+            .circleci/.* go true
+            Makefile go true
+            scripts/include.mk go true
+            docker/.* go true
+
             .circleci/.* root true
             Makefile root true
             scripts/include.mk root true
