@@ -11,7 +11,7 @@ parameters:
 jobs:
   lint:
     docker:
-      - image: alexfalkowski/docker:1.20
+      - image: alexfalkowski/docker:1.21
     steps:
       - checkout
       - run: git submodule sync
@@ -32,7 +32,7 @@ jobs:
 
   docker-lint:
     docker:
-      - image: alexfalkowski/docker:1.20
+      - image: alexfalkowski/docker:1.21
     working_directory: ~/docker
     steps:
       - checkout
@@ -42,7 +42,7 @@ jobs:
     resource_class: large
   docker-build-amd64:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     working_directory: ~/docker
     steps:
       - checkout
@@ -57,7 +57,7 @@ jobs:
     resource_class: large
   docker-push-amd64:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     steps:
       - checkout
       - run: git submodule sync
@@ -71,7 +71,7 @@ jobs:
     resource_class: large
   docker-build-arm64:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     working_directory: ~/docker
     steps:
       - checkout
@@ -86,7 +86,7 @@ jobs:
     resource_class: arm.medium
   docker-push-arm64:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     steps:
       - checkout
       - run: git submodule sync
@@ -100,7 +100,7 @@ jobs:
     resource_class: arm.medium
   docker-manifest:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     steps:
       - checkout
       - run: git submodule sync
@@ -115,7 +115,7 @@ jobs:
 
   root-lint:
     docker:
-      - image: alexfalkowski/docker:1.20
+      - image: alexfalkowski/docker:1.21
     working_directory: ~/docker
     steps:
       - checkout
@@ -125,7 +125,7 @@ jobs:
     resource_class: large
   root-build-amd64:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     working_directory: ~/docker
     steps:
       - checkout
@@ -140,7 +140,7 @@ jobs:
     resource_class: large
   root-push-amd64:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     steps:
       - checkout
       - run: git submodule sync
@@ -154,7 +154,7 @@ jobs:
     resource_class: large
   root-build-arm64:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     working_directory: ~/docker
     steps:
       - checkout
@@ -169,7 +169,7 @@ jobs:
     resource_class: arm.medium
   root-push-arm64:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     steps:
       - checkout
       - run: git submodule sync
@@ -183,7 +183,7 @@ jobs:
     resource_class: arm.medium
   root-manifest:
     docker:
-      - image: cimg/base:2025.06-24.04
+      - image: alexfalkowski/docker:1.21
     steps:
       - checkout
       - run: git submodule sync
