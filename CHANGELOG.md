@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.405.0](https://github.com/alexfalkowski/docker/releases/tag/v1.405.0) - 2025-06-14
+
+- [`12f41fd`](https://github.com/alexfalkowski/docker/commit/12f41fd6ac7a24a6526c46c9c647f25053b7577a) feat(monitoror): add ping with correct urls (#800)
+
 ## [v1.404.0](https://github.com/alexfalkowski/docker/releases/tag/v1.404.0) - 2025-06-14
 
 - [`da4acd2`](https://github.com/alexfalkowski/docker/commit/da4acd200cf5ccb271d4d07915cb4c0ad2c99e48) feat(release): update goreleaser to v2.10.2 (#799)
