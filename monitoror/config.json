@@ -4,29 +4,6 @@
   "tiles": [
     {
       "type": "GROUP",
-      "label": "monitoror",
-      "columnSpan": 2,
-      "tiles": [
-        {
-          "type": "HTTP-STATUS",
-          "label": "monitoror",
-          "columnSpan": 2,
-          "params": {
-            "url": "https://monitoror.lean-thoughts.com"
-          }
-        },
-        {
-          "type": "GITHUB-CHECKS",
-          "params": {
-            "owner": "monitoror",
-            "repository": "monitoror",
-            "ref": "develop"
-          }
-        }
-      ]
-    },
-    {
-      "type": "GROUP",
       "label": "web",
       "columnSpan": 2,
       "tiles": [
@@ -42,6 +19,28 @@
           "params": {
             "owner": "alexfalkowski",
             "repository": "web",
+            "ref": "master"
+          }
+        }
+      ]
+    },
+    {
+      "type": "GROUP",
+      "label": "sasha",
+      "columnSpan": 2,
+      "tiles": [
+        {
+          "type": "HTTP-STATUS",
+          "label": "sasha",
+          "params": {
+            "url": "https://sasha.sasha-adventures.com/sasha/healthz"
+          }
+        },
+        {
+          "type": "GITHUB-CHECKS",
+          "params": {
+            "owner": "alexfalkowski",
+            "repository": "sasha",
             "ref": "master"
           }
         }
