@@ -3,57 +3,109 @@
   "columns": 2,
   "tiles": [
     {
-      "type": "HTTP-STATUS",
+      "type": "GROUP",
       "label": "monitoror",
       "columnSpan": 2,
-      "params": {
-        "url": "https://monitoror.lean-thoughts.com"
-      }
+      "tiles": [
+        {
+          "type": "HTTP-STATUS",
+          "label": "monitoror",
+          "columnSpan": 2,
+          "params": {
+            "url": "https://monitoror.lean-thoughts.com"
+          }
+        },
+        {
+          "type": "PING",
+          "params": {
+            "hostname": "monitoror.lean-thoughts.com"
+          }
+        }
+      ]
     },
     {
-      "type": "HTTP-STATUS",
+      "type": "GROUP",
       "label": "web",
-      "params": {
-        "url": "https://web.lean-thoughts.com/healthz"
-      }
+      "columnSpan": 2,
+      "tiles": [
+        {
+          "type": "HTTP-STATUS",
+          "label": "web",
+          "params": {
+            "url": "https://web.lean-thoughts.com/web/healthz"
+          }
+        },
+        {
+          "type": "PING",
+          "params": {
+            "hostname": "web.lean-thoughts.com"
+          }
+        },
+        {
+          "type": "GITHUB-CHECKS",
+          "params": {
+            "owner": "alexfalkowski",
+            "repository": "web",
+            "ref": "master"
+          }
+        }
+      ]
     },
     {
-      "type": "GITHUB-CHECKS",
-      "params": {
-        "owner": "alexfalkowski",
-        "repository": "web",
-        "ref": "master"
-      }
-    },
-    {
-      "type": "HTTP-STATUS",
+      "type": "GROUP",
       "label": "bezeichner",
-      "params": {
-        "url": "https://bezeichner.lean-thoughts.com/healthz"
-      }
+      "columnSpan": 2,
+      "tiles": [
+        {
+          "type": "HTTP-STATUS",
+          "label": "bezeichner",
+          "params": {
+            "url": "https://bezeichner.lean-thoughts.com/bezeichner/healthz"
+          }
+        },
+        {
+          "type": "PING",
+          "params": {
+            "hostname": "bezeichner.lean-thoughts.com"
+          }
+        },
+        {
+          "type": "GITHUB-CHECKS",
+          "params": {
+            "owner": "alexfalkowski",
+            "repository": "bezeichner",
+            "ref": "master"
+          }
+        }
+      ]
     },
     {
-      "type": "GITHUB-CHECKS",
-      "params": {
-        "owner": "alexfalkowski",
-        "repository": "bezeichner",
-        "ref": "master"
-      }
-    },
-    {
-      "type": "HTTP-STATUS",
+      "type": "GROUP",
       "label": "standort",
-      "params": {
-        "url": "https://standort.lean-thoughts.com/healthz"
-      }
-    },
-    {
-      "type": "GITHUB-CHECKS",
-      "params": {
-        "owner": "alexfalkowski",
-        "repository": "standort",
-        "ref": "master"
-      }
+      "columnSpan": 2,
+      "tiles": [
+        {
+          "type": "HTTP-STATUS",
+          "label": "standort",
+          "params": {
+            "url": "https://standort.lean-thoughts.com/standort/healthz"
+          }
+        },
+        {
+          "type": "PING",
+          "params": {
+            "hostname": "standort.lean-thoughts.com"
+          }
+        },
+        {
+          "type": "GITHUB-CHECKS",
+          "params": {
+            "owner": "alexfalkowski",
+            "repository": "standort",
+            "ref": "master"
+          }
+        }
+      ]
     },
     {
       "type": "GITHUB-CHECKS",
