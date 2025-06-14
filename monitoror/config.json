@@ -16,9 +16,11 @@
           }
         },
         {
-          "type": "PING",
+          "type": "GITHUB-CHECKS",
           "params": {
-            "hostname": "monitoror.lean-thoughts.com"
+            "owner": "monitoror",
+            "repository": "monitoror",
+            "ref": "develop"
           }
         }
       ]
@@ -33,12 +35,6 @@
           "label": "web",
           "params": {
             "url": "https://web.lean-thoughts.com/web/healthz"
-          }
-        },
-        {
-          "type": "PING",
-          "params": {
-            "hostname": "web.lean-thoughts.com"
           }
         },
         {
@@ -64,12 +60,6 @@
           }
         },
         {
-          "type": "PING",
-          "params": {
-            "hostname": "bezeichner.lean-thoughts.com"
-          }
-        },
-        {
           "type": "GITHUB-CHECKS",
           "params": {
             "owner": "alexfalkowski",
@@ -92,12 +82,6 @@
           }
         },
         {
-          "type": "PING",
-          "params": {
-            "hostname": "standort.lean-thoughts.com"
-          }
-        },
-        {
           "type": "GITHUB-CHECKS",
           "params": {
             "owner": "alexfalkowski",
@@ -109,17 +93,10 @@
     },
     {
       "type": "GITHUB-CHECKS",
+      "columnSpan": 2,
       "params": {
         "owner": "alexfalkowski",
         "repository": "infraops",
-        "ref": "master"
-      }
-    },
-    {
-      "type": "GITHUB-CHECKS",
-      "params": {
-        "owner": "alexfalkowski",
-        "repository": "docker",
         "ref": "master"
       }
     }
