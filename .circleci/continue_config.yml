@@ -33,7 +33,7 @@ jobs:
       - run: git submodule update --init
       - run: make scripts-lint
     resource_class: large
-  release:
+  version:
     docker:
       - image: alexfalkowski/release:3.25
     working_directory: ~/docker
@@ -545,10 +545,10 @@ jobs:
     resource_class: large
 
 workflows:
-  lint:
+  build:
     jobs:
       - lint
-      - release:
+      - version:
           requires:
             - lint
           filters:
