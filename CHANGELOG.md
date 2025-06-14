@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.404.0](https://github.com/alexfalkowski/docker/releases/tag/v1.404.0) - 2025-06-14
+
+- [`da4acd2`](https://github.com/alexfalkowski/docker/commit/da4acd200cf5ccb271d4d07915cb4c0ad2c99e48) feat(release): update goreleaser to v2.10.2 (#799)
+- [`27edc9a`](https://github.com/alexfalkowski/docker/commit/27edc9ac190a70b1d46c59edba77155921b6276a) build(deps): bump bin from `fc61209` to `c9044eb` (#798)
+- [`0d6f004`](https://github.com/alexfalkowski/docker/commit/0d6f004ad711264dced54e00f4ea62b64e722db7) build(ci): rename to build workflow (#797)
+
 ## [v1.403.0](https://github.com/alexfalkowski/docker/releases/tag/v1.403.0) - 2025-06-14
 
 - [`ba3ee18`](https://github.com/alexfalkowski/docker/commit/ba3ee18766a91c61b468469aff2ab85cfc0ab447) feat(compose): use input flag for status (#795)
