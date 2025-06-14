@@ -88,15 +88,13 @@ services:
 
   status:
     image: docker.io/alexfalkowski/status
-    command: server
+    command: server -i file:/etc/status/server.yml
     restart: always
-    environment:
-      CONFIG_FILE: /status/server.yml
     ports:
       - "15000:8080"
       - "15001:6060"
     volumes:
-      - "${PWD}/status:/status"
+      - ./status:/etc/status
 
   flipt:
     image: docker.io/flipt/flipt
