@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.408.0](https://github.com/alexfalkowski/docker/releases/tag/v1.408.0) - 2025-06-17
+
+- [`a2694b2`](https://github.com/alexfalkowski/docker/commit/a2694b2867d3565d4ca94265316a4dcbfe319bd2) feat(k8s): update helm to v3.18.3 (#803)
+
 ## [v1.407.0](https://github.com/alexfalkowski/docker/releases/tag/v1.407.0) - 2025-06-14
 
 - [`197085f`](https://github.com/alexfalkowski/docker/commit/197085ff16610919c0d2889321499f04454a8dfc) feat(monitoror): add sasha (#802)
