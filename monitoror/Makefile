@@ -1,4 +1,4 @@
 IMAGE:=monitoror
 VERSION:=1.19
 
-include ../scripts/include.mk
+include ../make/docker.mk

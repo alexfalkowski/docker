@@ -14,7 +14,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com
   && chmod +x vegeta
 
 # Install helm.
-ARG HELM_VERSION=v3.18.2
+ARG HELM_VERSION=v3.18.3
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-$machine.tar.gz \
   && tar C . -xf helm-${HELM_VERSION}-linux-$machine.tar.gz \
   && mv linux-$machine/helm . \

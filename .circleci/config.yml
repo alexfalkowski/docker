@@ -3,7 +3,7 @@ version: 2.1
 setup: true
 
 orbs:
-  path_filtering: circleci/path-filtering@2.0.0
+  path_filtering: circleci/path-filtering@2.0.1
 
 workflows:
   filter:
@@ -12,37 +12,37 @@ workflows:
           mapping: |
             .circleci/.* docker true
             Makefile docker true
-            scripts/include.mk docker true
+            make/docker.mk docker true
             docker/.* docker true
 
             .circleci/.* go true
             Makefile go true
-            scripts/include.mk go true
+            make/docker.mk go true
             docker/.* go true
 
             .circleci/.* k8s true
             Makefile k8s true
-            scripts/include.mk k8s true
+            make/docker.mk k8s true
             docker/.* k8s true
 
             .circleci/.* monitoror true
             Makefile monitoror true
-            scripts/include.mk monitoror true
+            make/docker.mk monitoror true
             monitoror/.* monitoror true
 
             .circleci/.* release true
             Makefile release true
-            scripts/include.mk release true
+            make/docker.mk release true
             release/.* release true
 
             .circleci/.* root true
             Makefile root true
-            scripts/include.mk root true
+            make/docker.mk root true
             root/.* root true
 
             .circleci/.* ruby true
             Makefile ruby true
-            scripts/include.mk ruby true
+            make/docker.mk ruby true
             ruby/.* ruby true
           base-revision: origin/master
           resource_class: large
