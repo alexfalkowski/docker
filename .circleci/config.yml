@@ -18,12 +18,12 @@ workflows:
             .circleci/.* go true
             Makefile go true
             make/docker.mk go true
-            docker/.* go true
+            go/.* go true
 
             .circleci/.* k8s true
             Makefile k8s true
             make/docker.mk k8s true
-            docker/.* k8s true
+            k8s/.* k8s true
 
             .circleci/.* monitoror true
             Makefile monitoror true
