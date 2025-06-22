@@ -22,11 +22,10 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.s
   && rm helm-${HELM_VERSION}-linux-$machine.tar.gz
 
 # Install doctl.
-ARG DOCTL_VERSION=1.129.0
+ARG DOCTL_VERSION=1.131.0
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
   && tar C . -xf doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
   && rm doctl-${DOCTL_VERSION}-linux-$machine.tar.gz
-
 
 # Install kubescape.
 RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.33/kubescape-ubuntu-latest \
@@ -37,7 +36,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install pulumi.
-RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.176.0
+RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.178.0
 ENV PATH=/home/circleci/.pulumi/bin:$PATH
 
 # Install go tools.
