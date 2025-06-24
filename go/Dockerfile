@@ -50,10 +50,10 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/gocovmerge@v1.8.0 \
+RUN go install github.com/alexfalkowski/gocovmerge@v1.9.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
-  && go install gotest.tools/gotestsum@v1.12.2 \
-  && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.33.0 \
+  && go install gotest.tools/gotestsum@v1.12.3 \
+  && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.34.0 \
   && go install github.com/boyter/scc/v3@latest \
   && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.9.2 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
