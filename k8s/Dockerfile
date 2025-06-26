@@ -28,9 +28,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com
   && rm doctl-${DOCTL_VERSION}-linux-$machine.tar.gz
 
 # Install kubescape.
-RUN curl -sSOL https://github.com/kubescape/kubescape/releases/download/v3.0.35/kubescape-ubuntu-latest \
-  && mv kubescape-ubuntu-latest kubescape \
-  && chmod +x kubescape
+RUN curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash -s -- -v v3.0.34
 
 USER circleci
 WORKDIR /home/circleci/
