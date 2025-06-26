@@ -26,28 +26,6 @@
     },
     {
       "type": "GROUP",
-      "label": "sasha",
-      "columnSpan": 2,
-      "tiles": [
-        {
-          "type": "HTTP-STATUS",
-          "label": "sasha",
-          "params": {
-            "url": "https://sasha.sasha-adventures.com/sasha/healthz"
-          }
-        },
-        {
-          "type": "GITHUB-CHECKS",
-          "params": {
-            "owner": "alexfalkowski",
-            "repository": "sasha",
-            "ref": "master"
-          }
-        }
-      ]
-    },
-    {
-      "type": "GROUP",
       "label": "bezeichner",
       "columnSpan": 2,
       "tiles": [
