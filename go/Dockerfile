@@ -40,7 +40,7 @@ RUN curl -sSOL https://cli.codecov.io/v11.0.3/linux/codecov \
   && chmod +x codecovcli
 
 # Install golangci-lint.
-ENV LINT_VERSION=2.1.2
+ENV LINT_VERSION=2.2.0
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$LINT_VERSION/golangci-lint-$LINT_VERSION-linux-$machine.tar.gz \
   && tar -C . -xzvf golangci-lint-$LINT_VERSION-linux-$machine.tar.gz \
   && mv golangci-lint-$LINT_VERSION-linux-$machine/golangci-lint . \
