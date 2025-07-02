@@ -1,4 +1,4 @@
-FROM cimg/base:2025.06-24.04
+FROM cimg/base:2025.07-24.04
 
 USER root
 
@@ -34,11 +34,6 @@ RUN ./configure \
 RUN gem update --system 3.6.9 \
   && gem install bundler -v 2.6.9 \
   && gem install executable-hooks -v 1.7.1
-
-# Install just.
-WORKDIR /usr/local
-RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to bin \
-  && chmod +x bin/just
 
 USER circleci
 WORKDIR /home/circleci/
