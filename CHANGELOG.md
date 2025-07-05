@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.424.0](https://github.com/alexfalkowski/docker/releases/tag/v1.424.0) - 2025-07-05
+
+- [`f6a4403`](https://github.com/alexfalkowski/docker/commit/f6a4403358eb4ad89e23db9175dbe897b8004fc7) feat(go): update gocovmerge to v2.0.0 (#820)
+
 ## [v1.423.0](https://github.com/alexfalkowski/docker/releases/tag/v1.423.0) - 2025-07-03
 
 - [`49665c0`](https://github.com/alexfalkowski/docker/commit/49665c027536f0544f183e8bc21f8b082111e68d) feat(trivy): update to v0.64.1 (#819)
