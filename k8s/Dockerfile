@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.39
+FROM alexfalkowski/root:1.40
 
 USER root
 WORKDIR /usr/local/bin
@@ -14,7 +14,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com
   && chmod +x vegeta
 
 # Install helm.
-ARG HELM_VERSION=v3.18.3
+ARG HELM_VERSION=v3.18.4
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-$machine.tar.gz \
   && tar C . -xf helm-${HELM_VERSION}-linux-$machine.tar.gz \
   && mv linux-$machine/helm . \
