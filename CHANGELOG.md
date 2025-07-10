@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.431.0](https://github.com/alexfalkowski/docker/releases/tag/v1.431.0) - 2025-07-10
+
+- [`c18ef90`](https://github.com/alexfalkowski/docker/commit/c18ef90e22e39370440b3ac752a9ced6cf644a77) feat(root): use alexfalkowski/root:1.41 (#830)
+
 ## [v1.430.0](https://github.com/alexfalkowski/docker/releases/tag/v1.430.0) - 2025-07-10
 
 - [`d999472`](https://github.com/alexfalkowski/docker/commit/d999472aa8890f98440d011958c7c4f74d1fabc4) feat(root): store go version (#829)
