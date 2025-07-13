@@ -40,14 +40,17 @@ RUN curl -sSOL https://cli.codecov.io/v11.0.3/linux/codecov \
   && chmod +x codecovcli
 
 # Install golangci-lint.
-ENV LINT_VERSION=2.2.1
-RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$LINT_VERSION/golangci-lint-$LINT_VERSION-linux-$machine.tar.gz \
-  && tar -C . -xzvf golangci-lint-$LINT_VERSION-linux-$machine.tar.gz \
-  && mv golangci-lint-$LINT_VERSION-linux-$machine/golangci-lint . \
-  && rm -rf golangci-lint-$LINT_VERSION-linux-$machine/ golangci-lint-$LINT_VERSION-linux-$machine.tar.gz
+ENV GO_LINT_VERSION=2.2.2
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$GO_LINT_VERSION/golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
+  && tar -C . -xzvf golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
+  && mv golangci-lint-$GO_LINT_VERSION-linux-$machine/golangci-lint . \
+  && rm -rf golangci-lint-$GO_LINT_VERSION-linux-$machine/ golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz
 
 USER circleci
 WORKDIR /home/circleci/
+
+# Setup go lint.
+RUN echo "$GO_LINT_VERSION" > .go-lint-version
 
 # Install go tools.
 RUN go install github.com/alexfalkowski/gocovmerge/v2@v2.9.0 \
