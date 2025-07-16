@@ -19,7 +19,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://go.dev/dl/
 
 # Install ruby.
 WORKDIR /home/circleci/
-ENV RUBY_VERSION=ruby-3.4.4
+ENV RUBY_VERSION=ruby-3.4.5
 ENV RUBY_FILE=$RUBY_VERSION.tar.gz
 RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/3.4/$RUBY_FILE \
   && tar -C . -xzf $RUBY_FILE \
