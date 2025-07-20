@@ -3,15 +3,35 @@
 
 set -eo pipefail
 
+# Latest git message.
+readonly message=$(git log --pretty=format:"%s" -n 1)
+
 # Release with uplift.
-uplift release --config-dir /etc/uplift
+if [[ "$message" =~ ^chore* ]]; then
+  uplift release --config-dir /etc/uplift
+fi
 
+# Use goreleaser.
 readonly releaser=$(find . -name "*goreleaser*" -not -path "*vendor*")
-
 if [ -n "$releaser" ]; then
-  readonly message=$(git log --pretty=format:"%s" -n 1)
-
   if [[ "$message" =~ ^chore* ]]; then
-      goreleaser release
+    goreleaser release
+  fi
+fi
+
+# Raise a PR for continuous delivery.
+if [ -f ".cd" ]; then
+  if [[ "$message" =~ ^chore* ]]; then
+    readonly name=$(basename "$PWD")
+    readonly version="$(git tag | sort -V | tail -1)"
+    readonly desc="https://github.com/alexfalkowski/$name/releases/tag/$version"
+
+    # Get the repo.
+    git clone git@github.com:alexfalkowski/infraops.git
+    (cd infraops && git submodule sync && git submodule update --init)
+
+    # Bump the version and raise a PR.
+    (cd infraops && make name=deps new-feature && bump -n "$name" -v "${version:1}" -p area/apps/apps.pbtxt && make msg="upgraded $name to $version" desc="${desc}" ready)
+    rm -rf infraops
   fi
 fi
