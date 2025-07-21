@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.440.1](https://github.com/alexfalkowski/docker/releases/tag/v1.440.1) - 2025-07-21
+
+- [`1e72da6`](https://github.com/alexfalkowski/docker/commit/1e72da6f469f647d94108db223c44a4576f47718) fix(release): make sure we always run uplift (#844)
+
 ## [v1.440.0](https://github.com/alexfalkowski/docker/releases/tag/v1.440.0) - 2025-07-21
 
 - [`c1e9883`](https://github.com/alexfalkowski/docker/commit/c1e988391bbb83893ca544c9c5a24ea2a6661c42) feat(release): add cd (#842)
