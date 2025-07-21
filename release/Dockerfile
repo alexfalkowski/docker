@@ -26,3 +26,7 @@ USER circleci
 # Setup git.
 RUN git config --global user.email "ci@lean-thoughts.com" \
   && git config --global user.name "lean-thoughts-ci"
+
+# Install go tools.
+RUN go install github.com/alexfalkowski/infraops/v2/cmd/bump@v2.266.0 \
+  && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
