@@ -18,14 +18,14 @@ RUN mkdir /etc/uplift
 COPY .uplift.yml /etc/uplift
 
 # Copy scripts.
-COPY cd /usr/local/bin/
-RUN chmod +x /usr/local/bin/cd
+COPY deploy /usr/local/bin/
+RUN chmod +x /usr/local/bin/deploy
 
-COPY releaser /usr/local/bin/
-RUN chmod +x /usr/local/bin/releaser
+COPY package /usr/local/bin/
+RUN chmod +x /usr/local/bin/package
 
-COPY semver /usr/local/bin/
-RUN chmod +x /usr/local/bin/semver
+COPY version /usr/local/bin/
+RUN chmod +x /usr/local/bin/version
 
 USER circleci
 
