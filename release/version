@@ -2,4 +2,6 @@
 
 set -eo pipefail
 
+make pull
+
 uplift release --config-dir /etc/uplift
