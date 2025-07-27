@@ -3,7 +3,7 @@ include bin/build/make/git.mak
 
 # Lint all scripts.
 scripts-lint:
-	@shellcheck scripts/clean scripts/compose release/cd release/releaser release/semver
+	@shellcheck scripts/clean scripts/compose release/deploy release/package release/version
 
 # Pull latest containers.
 docker-pull:
