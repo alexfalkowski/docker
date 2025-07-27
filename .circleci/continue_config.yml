@@ -35,14 +35,14 @@ jobs:
     resource_class: large
   version:
     docker:
-      - image: alexfalkowski/release:4.4
+      - image: alexfalkowski/release:5.0
     working_directory: ~/docker
     steps:
       - checkout
       - run: git submodule sync
       - run: git submodule update --init
       - run: make pull
-      - run: release
+      - run: semver
     resource_class: large
 
   docker-lint:
