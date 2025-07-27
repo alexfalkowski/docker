@@ -3,7 +3,8 @@
 
 set -eo pipefail
 
-# Raise a PR for continuous delivery.
+make pull
+
 if [ -f ".cd" ]; then
   readonly message=$(git log --pretty=format:"%s" -n 1)
   if [[ "$message" =~ ^chore* ]]; then
