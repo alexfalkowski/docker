@@ -1,24 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # shellcheck disable=SC2155
 
 set -eo pipefail
 
-# Release with uplift.
-uplift release --config-dir /etc/uplift
-
-# Latest git message.
-readonly message=$(git log --pretty=format:"%s" -n 1)
-
-# Use goreleaser.
-readonly releaser=$(find . -name "*goreleaser*" -not -path "*vendor*")
-if [ -n "$releaser" ]; then
-  if [[ "$message" =~ ^chore* ]]; then
-    goreleaser release
-  fi
-fi
-
 # Raise a PR for continuous delivery.
 if [ -f ".cd" ]; then
+  readonly message=$(git log --pretty=format:"%s" -n 1)
   if [[ "$message" =~ ^chore* ]]; then
     readonly name=$(basename "$PWD")
     readonly version="$(git tag | sort -V | tail -1)"
