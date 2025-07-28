@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.451.0](https://github.com/alexfalkowski/docker/releases/tag/v1.451.0) - 2025-07-28
+
+- [`bc95ca4`](https://github.com/alexfalkowski/docker/commit/bc95ca4a50c1eec90a9ac8f2e16535ff7aa8246c) feat(compose): use redis:8 (#864)
+- [`88b4cb4`](https://github.com/alexfalkowski/docker/commit/88b4cb4543db72d5d4823f539a62db89d7480bbe) build(ci): update submodule (#863)
+- [`adad570`](https://github.com/alexfalkowski/docker/commit/adad570d5528a80a3f0e7afb9a0e7b0056f5b8ee) build(deps): bump bin from `911aa21` to `30d8508` (#862)
+
 ## [v1.450.0](https://github.com/alexfalkowski/docker/releases/tag/v1.450.0) - 2025-07-27
 
 - [`618f58b`](https://github.com/alexfalkowski/docker/commit/618f58bbfcb26ec5c51b6aa839603804ce42679e) feat(k8s): update kubescape to v3.0.36 (#861)
