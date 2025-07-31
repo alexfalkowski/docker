@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.454.0](https://github.com/alexfalkowski/docker/releases/tag/v1.454.0) - 2025-07-31
+
+- [`948af31`](https://github.com/alexfalkowski/docker/commit/948af31c2c37143b1d8675f6d900e4f538e75af6) feat(trivy): update to v0.65.0 (#868)
+
 ## [v1.453.0](https://github.com/alexfalkowski/docker/releases/tag/v1.453.0) - 2025-07-31
 
 - [`15eafca`](https://github.com/alexfalkowski/docker/commit/15eafca62db977b52eea539aeb9b5b8543cec5a5) feat(codecov): update to v11.1.0 (#867)
