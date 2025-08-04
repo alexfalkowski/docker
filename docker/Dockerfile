@@ -9,7 +9,7 @@ RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolin
   && chmod +x hadolint
 
 # Install shellcheck.
-ENV SHELLCHECK_VERSION=v0.10.0
+ENV SHELLCHECK_VERSION=v0.11.0
 RUN export machine="$(uname -m)"; curl -sSOL https://github.com/koalaman/shellcheck/releases/download/$SHELLCHECK_VERSION/shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz \
   && tar -C . -xvf shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz \
   && mv shellcheck-$SHELLCHECK_VERSION/shellcheck . \
