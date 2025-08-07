@@ -17,7 +17,7 @@ if [ -f ".cd" ]; then
     (cd infraops && git submodule sync && git submodule update --init)
 
     # Bump the version and raise a PR.
-    (cd infraops && make name="$name" new-feature && bump -n "$name" -v "${version:1}" -p area/apps/apps.pbtxt && make msg="upgraded to $version" desc="${desc}" ready)
+    (cd infraops && make name="$name" new-release && bump -n "$name" -v "${version:1}" -p area/apps/apps.pbtxt && make msg="upgraded to $version" desc="${desc}" ready)
     rm -rf infraops
   fi
 fi
