@@ -22,7 +22,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.s
   && rm helm-${HELM_VERSION}-linux-$machine.tar.gz
 
 # Install doctl.
-ARG DOCTL_VERSION=1.135.0
+ARG DOCTL_VERSION=1.138.0
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
   && tar C . -xf doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
   && rm doctl-${DOCTL_VERSION}-linux-$machine.tar.gz
