@@ -53,7 +53,7 @@ WORKDIR /home/circleci/
 RUN echo "$GO_LINT_VERSION" > .go-lint-version
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/gocovmerge/v2@v2.9.0 \
+RUN go install github.com/alexfalkowski/gocovmerge/v2@v2.12.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
   && go install gotest.tools/gotestsum@v1.12.3 \
   && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.34.0 \
