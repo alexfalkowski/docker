@@ -1,10 +1,10 @@
-FROM alexfalkowski/root:1.44
+FROM alexfalkowski/root:1.45
 
 USER root
 WORKDIR /usr/local/bin
 
 # Install kubectl.
-RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://dl.k8s.io/release/v1.33.1/bin/linux/$machine/kubectl \
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://dl.k8s.io/release/v1.33.4/bin/linux/$machine/kubectl \
   && chmod +x kubectl
 
 # Install vegeta.
@@ -14,7 +14,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com
   && chmod +x vegeta
 
 # Install helm.
-ARG HELM_VERSION=v3.18.4
+ARG HELM_VERSION=v3.18.5
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-$machine.tar.gz \
   && tar C . -xf helm-${HELM_VERSION}-linux-$machine.tar.gz \
   && mv linux-$machine/helm . \
@@ -34,7 +34,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install pulumi.
-RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.188.0
+RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.189.0
 ENV PATH=/home/circleci/.pulumi/bin:$PATH
 
 # Install go tools.
