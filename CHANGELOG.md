@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.471.0](https://github.com/alexfalkowski/docker/releases/tag/v1.471.0) - 2025-08-19
+
+- [`002a348`](https://github.com/alexfalkowski/docker/commit/002a3483d79e7d09a448f2747968a139fa2a0bbf) feat(k8s): update kubescape to v3.0.38 (#896)
+- [`f71ecd2`](https://github.com/alexfalkowski/docker/commit/f71ecd2e0bdc5870e991ff37b5de67ce34f36996) build(deps): bump bin from `e92253b` to `901fb2b` (#895)
+
 ## [v1.470.0](https://github.com/alexfalkowski/docker/releases/tag/v1.470.0) - 2025-08-16
 
 - [`b773bfa`](https://github.com/alexfalkowski/docker/commit/b773bfab264d50c41a21038a2abe56a6b2d9e393) feat(k8s): update pulumi to v3.190.0 (#894)
