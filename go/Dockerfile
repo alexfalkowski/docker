@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.45
+FROM alexfalkowski/root:1.46
 
 USER root
 WORKDIR /usr/local/bin
@@ -17,7 +17,7 @@ RUN export machine="$(uname -m)"; curl -sSOL https://github.com/koalaman/shellch
   && rm -rf shellcheck-$SHELLCHECK_VERSION/ shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz
 
 # Install hadolint.
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-$machine \
+RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.13.1/hadolint-Linux-$machine \
   && mv hadolint-Linux-$machine hadolint \
   && chmod +x hadolint
 
