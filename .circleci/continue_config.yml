@@ -26,7 +26,7 @@ parameters:
 jobs:
   lint:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -35,7 +35,7 @@ jobs:
     resource_class: large
   version:
     docker:
-      - image: alexfalkowski/release:5.7
+      - image: alexfalkowski/release:5.9
     working_directory: ~/docker
     steps:
       - checkout
@@ -47,7 +47,7 @@ jobs:
 
   docker-lint:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -57,7 +57,7 @@ jobs:
     resource_class: large
   docker-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -69,7 +69,7 @@ jobs:
     resource_class: large
   docker-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -83,7 +83,7 @@ jobs:
     resource_class: large
   docker-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -95,7 +95,7 @@ jobs:
     resource_class: arm.medium
   docker-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -109,7 +109,7 @@ jobs:
     resource_class: arm.medium
   docker-manifest:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -124,7 +124,7 @@ jobs:
 
   go-lint:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -134,7 +134,7 @@ jobs:
     resource_class: large
   go-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -146,7 +146,7 @@ jobs:
     resource_class: large
   go-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -160,7 +160,7 @@ jobs:
     resource_class: large
   go-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -172,7 +172,7 @@ jobs:
     resource_class: arm.medium
   go-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -186,7 +186,7 @@ jobs:
     resource_class: arm.medium
   go-manifest:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -201,7 +201,7 @@ jobs:
 
   k8s-lint:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -211,7 +211,7 @@ jobs:
     resource_class: large
   k8s-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -223,7 +223,7 @@ jobs:
     resource_class: large
   k8s-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -237,7 +237,7 @@ jobs:
     resource_class: large
   k8s-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -249,7 +249,7 @@ jobs:
     resource_class: arm.medium
   k8s-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -263,7 +263,7 @@ jobs:
     resource_class: arm.medium
   k8s-manifest:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -278,7 +278,7 @@ jobs:
 
   monitoror-lint:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -288,7 +288,7 @@ jobs:
     resource_class: large
   monitoror-build:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -300,7 +300,7 @@ jobs:
     resource_class: large
   monitoror-push:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -315,7 +315,7 @@ jobs:
 
   release-lint:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -325,7 +325,7 @@ jobs:
     resource_class: large
   release-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -337,7 +337,7 @@ jobs:
     resource_class: large
   release-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -351,7 +351,7 @@ jobs:
     resource_class: large
   release-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -363,7 +363,7 @@ jobs:
     resource_class: arm.medium
   release-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -377,7 +377,7 @@ jobs:
     resource_class: arm.medium
   release-manifest:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -392,7 +392,7 @@ jobs:
 
   root-lint:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -402,7 +402,7 @@ jobs:
     resource_class: large
   root-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -414,7 +414,7 @@ jobs:
     resource_class: large
   root-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -428,7 +428,7 @@ jobs:
     resource_class: large
   root-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -440,7 +440,7 @@ jobs:
     resource_class: arm.medium
   root-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -454,7 +454,7 @@ jobs:
     resource_class: arm.medium
   root-manifest:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -469,7 +469,7 @@ jobs:
 
   ruby-lint:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -479,7 +479,7 @@ jobs:
     resource_class: large
   ruby-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -491,7 +491,7 @@ jobs:
     resource_class: large
   ruby-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -505,7 +505,7 @@ jobs:
     resource_class: large
   ruby-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     working_directory: ~/docker
     steps:
       - checkout
@@ -517,7 +517,7 @@ jobs:
     resource_class: arm.medium
   ruby-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
@@ -531,7 +531,7 @@ jobs:
     resource_class: arm.medium
   ruby-manifest:
     docker:
-      - image: alexfalkowski/docker:1.28
+      - image: alexfalkowski/docker:1.30
     steps:
       - checkout
       - run: git submodule sync
