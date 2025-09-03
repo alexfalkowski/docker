@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.476.0](https://github.com/alexfalkowski/docker/releases/tag/v1.476.0) - 2025-09-03
+
+- [`f999ac3`](https://github.com/alexfalkowski/docker/commit/f999ac304f433e0f7c26f6b4fd1ba3534288a9a0) feat(root): use cimg/base:2025.09-24.04 (#903)
+
 ## [v1.475.0](https://github.com/alexfalkowski/docker/releases/tag/v1.475.0) - 2025-09-02
 
 - [`8e37d4f`](https://github.com/alexfalkowski/docker/commit/8e37d4fad1243d63108d0637b4d491fb0925636e) feat(k8s): update kubescape to v3.0.40 (#901)
