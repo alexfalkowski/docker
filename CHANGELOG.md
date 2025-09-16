@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.486.0](https://github.com/alexfalkowski/docker/releases/tag/v1.486.0) - 2025-09-16
+
+- [`545b55e`](https://github.com/alexfalkowski/docker/commit/545b55e7927551ef9feb9c5c910780c503480d26) feat(root): update ruby to v3.4.6 (#922)
+
 ## [v1.485.0](https://github.com/alexfalkowski/docker/releases/tag/v1.485.0) - 2025-09-13
 
 - [`9b14c19`](https://github.com/alexfalkowski/docker/commit/9b14c1928257160198236aea3886afe0795bc765) feat(go): update go-size-analyzer to v1.10.0 (#921)
