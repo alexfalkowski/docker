@@ -22,7 +22,7 @@ RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolin
   && chmod +x hadolint
 
 # Install buf.
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.56.0/buf-Linux-$machine \
+RUN export machine="$(uname -m)"; curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.57.2/buf-Linux-$machine \
   && mv buf-Linux-$machine buf \
   && chmod +x buf
 
@@ -55,8 +55,8 @@ RUN echo "$GO_LINT_VERSION" > .go-lint-version
 # Install go tools.
 RUN go install github.com/alexfalkowski/gocovmerge/v2@v2.15.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
-  && go install gotest.tools/gotestsum@v1.12.3 \
-  && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.34.0 \
+  && go install gotest.tools/gotestsum@v1.13.0 \
+  && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.37.0 \
   && go install github.com/boyter/scc/v3@latest \
   && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.10.0 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
