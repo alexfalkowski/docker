@@ -35,7 +35,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sJLO "https://dl.filipp
   && chmod +x mkcert
 
 # Install codecov.
-RUN curl -sSOL https://cli.codecov.io/v11.2.0/linux/codecov \
+RUN curl -sSOL https://cli.codecov.io/v11.2.3/linux/codecov \
   && mv codecov codecovcli \
   && chmod +x codecovcli
 
