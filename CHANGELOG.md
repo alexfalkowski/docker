@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.493.0](https://github.com/alexfalkowski/docker/releases/tag/v1.493.0) - 2025-09-22
+
+- [`fe92dae`](https://github.com/alexfalkowski/docker/commit/fe92daef34e196e289346f503cbb1cb2d7771ed8) feat(hadolint): update to v2.14.0 (#931)
+
 ## [v1.492.0](https://github.com/alexfalkowski/docker/releases/tag/v1.492.0) - 2025-09-22
 
 - [`2f7a906`](https://github.com/alexfalkowski/docker/commit/2f7a90668fa36229bcbbadc07b9151a717de8b70) feat(go): update golangci-lint to v2.5.0 (#930)
