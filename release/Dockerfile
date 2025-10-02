@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.49
+FROM alexfalkowski/root:1.50
 
 USER root
 
@@ -8,8 +8,8 @@ RUN echo 'deb [trusted=yes] https://fury.upliftci.dev/apt/ /' | tee /etc/apt/sou
 RUN echo 'deb [trusted=yes] https://repo.goreleaser.com/apt/ /' | tee /etc/apt/sources.list.d/goreleaser.list
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-  gh=2.80.0 \
-  goreleaser=2.12.4 \
+  gh=2.81.0 \
+  goreleaser=2.12.5 \
   uplift=2.26.0 \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
