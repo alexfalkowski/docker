@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.497.0](https://github.com/alexfalkowski/docker/releases/tag/v1.497.0) - 2025-10-02
+
+- [`8a38f24`](https://github.com/alexfalkowski/docker/commit/8a38f240ba0c170fbd45e345c21ad56f7b002d28) feat(root): use cimg/base:2025.10-24.04 (#939)
+- [`573ef3c`](https://github.com/alexfalkowski/docker/commit/573ef3c79657b44aa5fc601477b20efad83443a2) refactor(go): DL3062 warning: Pin versions in go (#937)
+- [`2a2ffe8`](https://github.com/alexfalkowski/docker/commit/2a2ffe8c853bed775896acc9e48dd8bac4e86c3d) build(ci): use latest published images (#936)
+
 ## [v1.496.0](https://github.com/alexfalkowski/docker/releases/tag/v1.496.0) - 2025-10-01
 
 - [`8ee0566`](https://github.com/alexfalkowski/docker/commit/8ee056691adef5f6d9d494628ff88ee60fb0f689) feat(release): update goreleaser to v2.12.4 (#935)
