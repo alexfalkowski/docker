@@ -1,4 +1,4 @@
-FROM cimg/base:2025.09-24.04
+FROM cimg/base:2025.10-24.04
 
 USER root
 
