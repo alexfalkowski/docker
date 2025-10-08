@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.50
+FROM alexfalkowski/root:1.51
 
 USER root
 WORKDIR /usr/local/bin
@@ -34,7 +34,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install pulumi.
-RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.200.0
+RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.201.0
 ENV PATH=/home/circleci/.pulumi/bin:$PATH
 
 # Install go tools.
