@@ -1,4 +1,4 @@
 IMAGE:=ruby
-VERSION:=1.62
+VERSION:=1.63
 
 include ../make/docker.mk
