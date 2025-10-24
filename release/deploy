@@ -13,7 +13,7 @@ if [ -f ".cd" ]; then
     readonly desc="https://github.com/alexfalkowski/$name/releases/tag/$version"
 
     # Get the repo.
-    git clone git@github.com:alexfalkowski/infraops.git
+    git clone --filter=blob:none git@github.com:alexfalkowski/infraops.git
     (cd infraops && git submodule sync && git submodule update --init)
 
     # Bump the version and raise a PR.
