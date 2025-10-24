@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.514.0](https://github.com/alexfalkowski/docker/releases/tag/v1.514.0) - 2025-10-24
+
+- [`826a252`](https://github.com/alexfalkowski/docker/commit/826a252f9ae96ff2eff5165d44cc038568741702) feat(buf): use v1.59.0 (#966)
+
 ## [v1.513.0](https://github.com/alexfalkowski/docker/releases/tag/v1.513.0) - 2025-10-24
 
 - [`7661fc0`](https://github.com/alexfalkowski/docker/commit/7661fc013bce5d46ed3cae62aa22171df237900b) feat(release): use blobless clones (#965)
