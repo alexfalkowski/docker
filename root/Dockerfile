@@ -48,5 +48,4 @@ RUN echo "$RUBY_VERSION" > .ruby-version
 RUN mkdir -p go/bin
 RUN echo "$GO_VERSION" > .go-version
 ENV GOPATH=/home/circleci/go
-ENV GOGC=30
 ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
