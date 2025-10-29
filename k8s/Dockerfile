@@ -34,7 +34,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install pulumi.
-RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.204.0
+RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.205.0
 ENV PATH=/home/circleci/.pulumi/bin:$PATH
 
 # Install go tools.
