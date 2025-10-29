@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.518.0](https://github.com/alexfalkowski/docker/releases/tag/v1.518.0) - 2025-10-29
+
+- [`fafa7e7`](https://github.com/alexfalkowski/docker/commit/fafa7e7e179fdbff8ccf2fa9eb1f6adcb98ca73f) feat(deps): use alexfalkowski/root:1.53 (#971)
+
 ## [v1.517.0](https://github.com/alexfalkowski/docker/releases/tag/v1.517.0) - 2025-10-29
 
 - [`4bd9d3e`](https://github.com/alexfalkowski/docker/commit/4bd9d3ef15a19cb4de759a00aed4bf89192840e6) feat(root): remove GOGC (#970)
