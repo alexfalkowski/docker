@@ -35,12 +35,12 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sJLO "https://dl.filipp
   && chmod +x mkcert
 
 # Install codecov.
-RUN curl -sSOL https://cli.codecov.io/v11.2.3/linux/codecov \
+RUN curl -sSOL https://cli.codecov.io/v11.2.4/linux/codecov \
   && mv codecov codecovcli \
   && chmod +x codecovcli
 
 # Install golangci-lint.
-ENV GO_LINT_VERSION=2.5.0
+ENV GO_LINT_VERSION=2.6.0
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$GO_LINT_VERSION/golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
   && tar -C . -xzvf golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
   && mv golangci-lint-$GO_LINT_VERSION-linux-$machine/golangci-lint . \
