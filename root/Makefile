@@ -1,4 +1,4 @@
 IMAGE:=root
-VERSION:=1.54
+VERSION:=1.55
 
 include ../make/docker.mk
