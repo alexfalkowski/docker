@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:1.54
+FROM alexfalkowski/root:1.55
 
 USER root
 WORKDIR /usr/local/bin
@@ -28,13 +28,13 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com
   && rm doctl-${DOCTL_VERSION}-linux-$machine.tar.gz
 
 # Install kubescape.
-RUN curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash -s -- -v v3.0.41
+RUN curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash -s -- -v v3.0.43
 
 USER circleci
 WORKDIR /home/circleci/
 
 # Install pulumi.
-RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.205.0
+RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.206.0
 ENV PATH=/home/circleci/.pulumi/bin:$PATH
 
 # Install go tools.
