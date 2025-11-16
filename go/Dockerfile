@@ -22,7 +22,7 @@ RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolin
   && chmod +x hadolint
 
 # Install buf.
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.59.0/buf-Linux-$machine \
+RUN export machine="$(uname -m)"; curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.60.0/buf-Linux-$machine \
   && mv buf-Linux-$machine buf \
   && chmod +x buf
 
@@ -40,7 +40,7 @@ RUN curl -sSOL https://cli.codecov.io/v11.2.4/linux/codecov \
   && chmod +x codecovcli
 
 # Install golangci-lint.
-ENV GO_LINT_VERSION=2.6.1
+ENV GO_LINT_VERSION=2.6.2
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$GO_LINT_VERSION/golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
   && tar -C . -xzvf golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
   && mv golangci-lint-$GO_LINT_VERSION-linux-$machine/golangci-lint . \
