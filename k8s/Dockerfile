@@ -14,7 +14,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com
   && chmod +x vegeta
 
 # Install helm.
-ARG HELM_VERSION=v3.19.0
+ARG HELM_VERSION=v3.19.1
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.sh/helm-${HELM_VERSION}-linux-$machine.tar.gz \
   && tar C . -xf helm-${HELM_VERSION}-linux-$machine.tar.gz \
   && mv linux-$machine/helm . \
@@ -22,7 +22,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.s
   && rm helm-${HELM_VERSION}-linux-$machine.tar.gz
 
 # Install doctl.
-ARG DOCTL_VERSION=1.145.0
+ARG DOCTL_VERSION=1.147.0
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
   && tar C . -xf doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
   && rm doctl-${DOCTL_VERSION}-linux-$machine.tar.gz
