@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.533.0](https://github.com/alexfalkowski/docker/releases/tag/v1.533.0) - 2025-12-02
+
+- [`2c33d42`](https://github.com/alexfalkowski/docker/commit/2c33d42d266436c34bd76a01c69acb1aae17a053) feat(release): update goreleaser to v2.13.0 (#995)
+- [`eeef633`](https://github.com/alexfalkowski/docker/commit/eeef6332f5618f383e216b8436784262c3fa2585) build(ci): use latest published images (#994)
+- [`82ce009`](https://github.com/alexfalkowski/docker/commit/82ce0093860b48b88852aafdebfbd8e39eefdad2) build(deps): upgraded github.com/alexfalkowski/bin (#993)
+
 ## [v1.532.0](https://github.com/alexfalkowski/docker/releases/tag/v1.532.0) - 2025-12-02
 
 - [`7387cb1`](https://github.com/alexfalkowski/docker/commit/7387cb1542f4b9147ad01bd8e31c7d1dc5c09a97) feat(deps): use alexfalkowski/root:1.56 (#992)
