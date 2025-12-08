@@ -40,7 +40,7 @@ RUN curl -sSOL https://cli.codecov.io/v11.2.6/linux/codecov \
   && chmod +x codecovcli
 
 # Install golangci-lint.
-ENV GO_LINT_VERSION=2.7.1
+ENV GO_LINT_VERSION=2.7.2
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$GO_LINT_VERSION/golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
   && tar -C . -xzvf golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
   && mv golangci-lint-$GO_LINT_VERSION-linux-$machine/golangci-lint . \
@@ -58,5 +58,5 @@ RUN go install github.com/alexfalkowski/gocovmerge/v2@v2.17.0 \
   && go install gotest.tools/gotestsum@v1.13.0 \
   && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.39.0 \
   && go install github.com/boyter/scc/v3@v3.6.0 \
-  && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.10.0 \
+  && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.10.1 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
