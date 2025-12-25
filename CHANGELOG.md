@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.550.0](https://github.com/alexfalkowski/docker/releases/tag/v1.550.0) - 2025-12-25
+
+- [`8f68e1b`](https://github.com/alexfalkowski/docker/commit/8f68e1bdd43da240777294823ab0058bee64223e) feat(release): update goreleaser to v2.13.2 (#1021)
+- [`a4120b0`](https://github.com/alexfalkowski/docker/commit/a4120b04fbe6c3603ba04cd64fdcdd472e3915a4) build(deps): upgraded github.com/alexfalkowski/bin (#1020)
+- [`97b75e0`](https://github.com/alexfalkowski/docker/commit/97b75e08f09badd5a3d092f9dce2b16f9bb58db2) build(deps): bump bin from `b50090c` to `1d5aedd` (#1019)
+- [`bb295f5`](https://github.com/alexfalkowski/docker/commit/bb295f527923b88dc1e6d3483b87e56b481b10b3) build(deps): upgraded github.com/alexfalkowski/bin (#1018)
+
 ## [v1.549.0](https://github.com/alexfalkowski/docker/releases/tag/v1.549.0) - 2025-12-18
 
 - [`eed43e2`](https://github.com/alexfalkowski/docker/commit/eed43e2b42ec8cc733fe055e30cf0208238a806b) feat(trivy): update to v0.68.2 (#1017)
