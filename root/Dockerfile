@@ -31,8 +31,8 @@ RUN ./configure \
   && make install
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
-RUN gem update --system 4.0.2 \
-  && gem install bundler -v 4.0.2 \
+RUN gem update --system 4.0.3 \
+  && gem install bundler -v 4.0.3 \
   && gem install executable-hooks -v 1.7.1
 
 USER circleci
