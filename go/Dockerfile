@@ -22,7 +22,7 @@ RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolin
   && chmod +x hadolint
 
 # Install buf.
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.61.0/buf-Linux-$machine \
+RUN export machine="$(uname -m)"; curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.62.1/buf-Linux-$machine \
   && mv buf-Linux-$machine buf \
   && chmod +x buf
 
