@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.553.0](https://github.com/alexfalkowski/docker/releases/tag/v1.553.0) - 2025-12-30
+
+- [`4ec455d`](https://github.com/alexfalkowski/docker/commit/4ec455d661ebe83c6a8a3968980fbdbbce69db34) feat(deps): update buf to v1.62.1 (#1028)
+- [`72336a3`](https://github.com/alexfalkowski/docker/commit/72336a35ea5a5504bc2bd7e25ce5416660bc6598) build(deps): bump bin from `1248b9e` to `664d367` (#1027)
+- [`ab4c4e9`](https://github.com/alexfalkowski/docker/commit/ab4c4e931e523b8eb186f7a1cbfffebfa08ed1af) build(deps): upgraded github.com/alexfalkowski/bin (#1026)
+- [`727b233`](https://github.com/alexfalkowski/docker/commit/727b2335e9e0ab080c7a7e3675b80e86200b5b92) build(ci): use latest published images (#1025)
+
 ## [v1.552.0](https://github.com/alexfalkowski/docker/releases/tag/v1.552.0) - 2025-12-29
 
 - [`68efadf`](https://github.com/alexfalkowski/docker/commit/68efadf5c9b954f76a02e20888a80c774b529bf2) feat(deps): use alexfalkowski/root:1.59 (#1024)
