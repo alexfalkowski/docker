@@ -3,12 +3,12 @@
 set -eo pipefail
 
 if command -v podman &>/dev/null; then
-  podman "$@"
+  podman image prune -a -f
   exit 0
 fi
 
 if command -v docker &>/dev/null; then
-  docker "$@"
+  docker image prune -a -f
   exit 0
 fi
 
