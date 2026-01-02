@@ -23,4 +23,4 @@ logs:
 
 # Clean all unused docker images.
 clean:
-	@scripts/clean image prune -a -f
+	@scripts/clean
