@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.556.0](https://github.com/alexfalkowski/docker/releases/tag/v1.556.0) - 2026-01-03
+
+- [`e148b10`](https://github.com/alexfalkowski/docker/commit/e148b10eb3a395d11f6c425388ea5bf57ad08aac) feat(k8s): update pulumi to v3.214.1 (#1033)
+- [`7b4c4a3`](https://github.com/alexfalkowski/docker/commit/7b4c4a36a28f81908b689877e0f8a349386471af) build(ci): use latest published images (#1032)
+
 ## [v1.555.0](https://github.com/alexfalkowski/docker/releases/tag/v1.555.0) - 2026-01-02
 
 - [`2513eae`](https://github.com/alexfalkowski/docker/commit/2513eae069242e4564929e3c40b0d4bdda74a50d) feat(deps): use alexfalkowski/root:1.60 (#1031)
