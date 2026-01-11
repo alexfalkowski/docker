@@ -9,7 +9,7 @@ RUN echo 'deb [trusted=yes] https://repo.goreleaser.com/apt/ /' | tee /etc/apt/s
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
   gh=2.83.2 \
-  goreleaser=2.13.2 \
+  goreleaser=2.13.3 \
   uplift=2.26.0 \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -34,5 +34,5 @@ RUN git config --global user.email "ci@lean-thoughts.com" \
   && git config --global user.name "lean-thoughts-ci"
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/infraops/v2/cmd/bump@v2.383.0 \
+RUN go install github.com/alexfalkowski/infraops/v2/cmd/bump@v2.386.0 \
   && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
