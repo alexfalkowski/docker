@@ -1,4 +1,4 @@
 IMAGE:=go
-VERSION:=2.94
+VERSION:=2.95
 
 include ../make/docker.mk

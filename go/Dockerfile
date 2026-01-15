@@ -53,12 +53,12 @@ WORKDIR /home/circleci/
 RUN echo "$GO_LINT_VERSION" > .go-lint-version
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/gocovmerge/v2@v2.18.0 \
+RUN go install github.com/alexfalkowski/gocovmerge/v2@v2.19.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
   && go install gotest.tools/gotestsum@v1.13.0 \
   && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.39.0 \
   && go install github.com/boyter/scc/v3@v3.6.0 \
   && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.10.2 \
   && go clean --cache -testcache -fuzzcache -modcache \
-  && rm -rf ~/go/pkg \
-  && rm -rf ~/.cache
+  && rm -rf go/pkg \
+  && rm -rf .cache
