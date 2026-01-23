@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.571.0](https://github.com/alexfalkowski/docker/releases/tag/v1.571.0) - 2026-01-23
+
+- [`121f2ef`](https://github.com/alexfalkowski/docker/commit/121f2ef6b97053e8336dc59494897118f305cee7) feat(k8s): update kubescape to v3.0.48 (#1061)
+- [`d727287`](https://github.com/alexfalkowski/docker/commit/d7272874fd10464e7ab338cfccd75dc5e8b83140) build(ci): use latest published images (#1060)
+
 ## [v1.570.0](https://github.com/alexfalkowski/docker/releases/tag/v1.570.0) - 2026-01-22
 
 - [`78eaf50`](https://github.com/alexfalkowski/docker/commit/78eaf50194408a00ee01c32bc73e1e4a631fb5c9) feat(release): update gh to v2.86.0 (#1059)
