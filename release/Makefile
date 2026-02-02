@@ -1,4 +1,4 @@
 IMAGE:=release
-VERSION:=5.43
+VERSION:=5.44
 
 include ../make/docker.mk
