@@ -36,7 +36,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sJLO "https://dl.filipp
 
 # Install codecov.
 RUN export machine="$(uname -m)"; curl -sSOL https://github.com/getsentry/prevent-cli/releases/download/v11.2.6/codecovcli_alpine_$machine \
-  && mv codecovcli_alpine_$machine codecov \
+  && mv codecovcli_alpine_$machine codecovcli \
   && chmod +x codecovcli
 
 # Install golangci-lint.
