@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.589.0](https://github.com/alexfalkowski/docker/releases/tag/v1.589.0) - 2026-02-12
+
+- [`13c0224`](https://github.com/alexfalkowski/docker/commit/13c0224e8fac4c03ab7bdf539104412387953434) feat(codecov): make sure we use the correct machine (#1087)
+- [`a2b709f`](https://github.com/alexfalkowski/docker/commit/a2b709fd239dd78b79aeb695c4c6008e148f2740) docs(ai): add AGENTS.md (#1086)
+- [`2bd5d83`](https://github.com/alexfalkowski/docker/commit/2bd5d833aaf7b33906dcbcdd001c435bcd0d75e7) build(deps): bump bin from `dc92464` to `60f3a4b` (#1085)
+
 ## [v1.588.0](https://github.com/alexfalkowski/docker/releases/tag/v1.588.0) - 2026-02-11
 
 - [`8aba71d`](https://github.com/alexfalkowski/docker/commit/8aba71d2655bc2038a523d44de315c63d426c5e9) feat(go): update golangci-lint to v2.9.0 (#1084)
