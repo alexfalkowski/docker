@@ -98,7 +98,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C docker platform=arm64 build-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   docker-push-arm64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -113,7 +113,7 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C docker platform=arm64 push-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   docker-manifest:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -181,7 +181,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C go platform=arm64 build-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   go-push-arm64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -196,7 +196,7 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C go platform=arm64 push-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   go-manifest:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -264,7 +264,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C k8s platform=arm64 build-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   k8s-push-arm64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -279,7 +279,7 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C k8s platform=arm64 push-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   k8s-manifest:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -387,7 +387,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C release platform=arm64 build-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   release-push-arm64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -402,7 +402,7 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C release platform=arm64 push-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   release-manifest:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -470,7 +470,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C root platform=arm64 build-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   root-push-arm64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -485,7 +485,7 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C root platform=arm64 push-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   root-manifest:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -552,7 +552,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C ruby platform=arm64 build-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   ruby-push-arm64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -567,7 +567,7 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C ruby platform=arm64 push-platform-docker
-    resource_class: arm.medium
+    resource_class: arm.large
   ruby-manifest:
     docker:
       - image: alexfalkowski/docker:1.49
