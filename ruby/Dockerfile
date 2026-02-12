@@ -35,8 +35,8 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sJLO "https://dl.filipp
   && chmod +x mkcert
 
 # Install codecov.
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/getsentry/prevent-cli/releases/download/v11.2.6/codecovcli_alpine_$machine \
-  && mv codecovcli_alpine_$machine codecovcli \
+RUN curl -sSOL https://cli.codecov.io/v11.2.6/linux/codecov \
+  && mv codecov codecovcli \
   && chmod +x codecovcli
 
 USER circleci
