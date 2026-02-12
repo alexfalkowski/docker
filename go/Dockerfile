@@ -35,9 +35,17 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sJLO "https://dl.filipp
   && chmod +x mkcert
 
 # Install codecov.
-RUN curl -sSOL https://cli.codecov.io/v11.2.6/linux/codecov \
-  && mv codecov codecovcli \
-  && chmod +x codecovcli
+RUN set -eux; \
+  arch="$(uname -m)"; \
+  suffix=""; \
+  case "$arch" in \
+  x86_64|amd64) suffix="" ;; \
+  aarch64|arm64) suffix="_arm64" ;; \
+  *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
+  esac; \
+  curl -fLsSLo codecovcli \
+  "https://github.com/getsentry/prevent-cli/releases/download/v11.2.6/codecovcli_linux${suffix}"; \
+  chmod +x codecovcli
 
 # Install golangci-lint.
 ENV GO_LINT_VERSION=2.9.0
