@@ -35,7 +35,7 @@ RUN git config --global user.email "ci@lean-thoughts.com" \
   && git config --global user.name "lean-thoughts-ci"
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/infraops/v2/cmd/bump@v2.393.0 \
+RUN go install github.com/alexfalkowski/infraops/v2/cmd/bump@v2.410.0 \
   && go clean --cache -testcache -fuzzcache -modcache \
   && rm -rf go/pkg \
   && rm -rf .cache

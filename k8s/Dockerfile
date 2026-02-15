@@ -11,6 +11,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://dl.k8s.io/
 ARG VEGETA_VERSION=12.12.0
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/tsenart/vegeta/releases/download/v${VEGETA_VERSION}/vegeta_${VEGETA_VERSION}_linux_$machine.tar.gz \
   && tar C . -xf vegeta_${VEGETA_VERSION}_linux_$machine.tar.gz \
+  && rm -rf vegeta_${VEGETA_VERSION}_linux_$machine.tar.gz \
   && chmod +x vegeta
 
 # Install helm.
@@ -39,4 +40,6 @@ ENV PATH=/home/circleci/.pulumi/bin:$PATH
 
 # Install go tools.
 RUN go install github.com/zegl/kube-score/cmd/kube-score@v1.20.0 \
-  && go clean --cache -testcache -fuzzcache -modcache && rm -rf "${GOPATH}/pkg"
+  && go clean --cache -testcache -fuzzcache -modcache \
+  && rm -rf go/pkg \
+  && rm -rf .cache
