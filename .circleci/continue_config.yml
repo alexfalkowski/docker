@@ -32,7 +32,7 @@ jobs:
           method: blobless
       - run: git submodule sync
       - run: git submodule update --init
-      - run: make scripts-lint
+      - run: make lint
     resource_class: large
   version:
     docker:
