@@ -2,8 +2,8 @@ include bin/build/make/help.mak
 include bin/build/make/git.mak
 
 # Lint all scripts.
-scripts-lint:
-	@shellcheck scripts/clean scripts/compose release/deploy release/package release/version
+lint:
+	@scripts/lint
 
 # Pull latest containers.
 docker-pull:
