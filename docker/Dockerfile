@@ -4,8 +4,14 @@ USER root
 WORKDIR /usr/local/bin
 
 # Install hadolint.
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-Linux-$machine \
-  && mv hadolint-Linux-$machine hadolint \
+RUN set -eu; \
+  arch="$(uname -m)"; \
+  case "$arch" in \
+  x86_64|amd64) hadolint_arch="x86_64" ;; \
+  aarch64|arm64) hadolint_arch="arm64" ;; \
+  *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
+  esac; \
+  curl -fLsSLo hadolint "https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-Linux-${hadolint_arch}" \
   && chmod +x hadolint
 
 # Install shellcheck.
