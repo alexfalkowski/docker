@@ -1,17 +1,25 @@
-FROM alexfalkowski/root:1.64
+FROM alexfalkowski/root:1.65
 
 USER root
 
 # Add sources.
-RUN echo 'deb [trusted=yes] https://cli.github.com/packages stable main' | tee /etc/apt/sources.list.d/github.list
 RUN echo 'deb [trusted=yes] https://fury.upliftci.dev/apt/ /' | tee /etc/apt/sources.list.d/uplift.list
 RUN echo 'deb [trusted=yes] https://repo.goreleaser.com/apt/ /' | tee /etc/apt/sources.list.d/goreleaser.list
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-  gh=2.86.0 \
   goreleaser=2.13.3 \
   uplift=2.26.0 \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Install gh from a downloaded .deb.
+RUN set -eux; \
+  version="2.87.0"; \
+  machine="$(dpkg --print-architecture)"; \
+  url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_linux_${machine}.deb"; \
+  out="$(mktemp)"; \
+  curl -fsSL "$url" -o "$out"; \
+  dpkg -i "$out"; \
+  rm -f "$out"
 
 # Add uplift config.
 RUN mkdir /etc/uplift
