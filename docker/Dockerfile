@@ -4,8 +4,8 @@ USER root
 WORKDIR /usr/local/bin
 
 # Install hadolint.
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-Linux-$machine \
-  && mv hadolint-Linux-$machine hadolint \
+RUN export machine="$(uname -m)"; curl -sSOL https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-linux-$machine \
+  && mv hadolint-linux-$machine hadolint \
   && chmod +x hadolint
 
 # Install shellcheck.
@@ -14,3 +14,5 @@ RUN export machine="$(uname -m)"; curl -sSOL https://github.com/koalaman/shellch
   && tar -C . -xvf shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz \
   && mv shellcheck-$SHELLCHECK_VERSION/shellcheck . \
   && rm -rf shellcheck-$SHELLCHECK_VERSION/ shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz
+
+RUN ./shellcheck -V
