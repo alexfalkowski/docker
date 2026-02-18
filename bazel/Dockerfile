@@ -1,4 +1,4 @@
-FROM cimg/base:2026.02-24.04
+FROM alexfalkowski/root:1.64
 
 USER root
 WORKDIR /usr/local/bin
