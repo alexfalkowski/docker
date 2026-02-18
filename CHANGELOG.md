@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.598.0](https://github.com/alexfalkowski/docker/releases/tag/v1.598.0) - 2026-02-18
+
+- [`d672aab`](https://github.com/alexfalkowski/docker/commit/d672aab8d8af079dd6e01fc43575820fc128eb3a) feat(bazel): add image (#1101)
+- [`44561d7`](https://github.com/alexfalkowski/docker/commit/44561d796089eb5acb6a0cff665e805518a1b26e) build(ci): use alexfalkowski/docker:1.50 (#1100)
+
 ## [v1.597.0](https://github.com/alexfalkowski/docker/releases/tag/v1.597.0) - 2026-02-18
 
 - [`5ce665e`](https://github.com/alexfalkowski/docker/commit/5ce665e526d094c365fe64206e2895218313af83) feat(docker): download hadolint (#1099)
