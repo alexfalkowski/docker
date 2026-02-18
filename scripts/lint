@@ -13,4 +13,5 @@ while IFS= read -r -d '' dockerfile; do
 done < <(find . -path ./bin -prune -o -type f -name 'Dockerfile' -print0)
 
 # Shellcheck all scripts
+echo "shellcheck: all scripts"
 shellcheck scripts/lint scripts/clean scripts/compose release/deploy release/package release/version

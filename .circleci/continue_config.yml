@@ -45,19 +45,8 @@ jobs:
       - run: git submodule update --init
       - run: make pull
       - run: version
-    resource_class: large
+    resource_class: arm.large
 
-  docker-lint:
-    docker:
-      - image: alexfalkowski/docker:1.49
-    working_directory: ~/docker
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - run: make -C docker lint-docker
-    resource_class: large
   docker-build-amd64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -128,19 +117,8 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C docker manifest-platform-docker
-    resource_class: large
+    resource_class: arm.large
 
-  go-lint:
-    docker:
-      - image: alexfalkowski/docker:1.49
-    working_directory: ~/docker
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - run: make -C go lint-docker
-    resource_class: large
   go-build-amd64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -211,19 +189,8 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C go manifest-platform-docker
-    resource_class: large
+    resource_class: arm.large
 
-  k8s-lint:
-    docker:
-      - image: alexfalkowski/docker:1.49
-    working_directory: ~/docker
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - run: make -C k8s lint-docker
-    resource_class: large
   k8s-build-amd64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -294,19 +261,8 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C k8s manifest-platform-docker
-    resource_class: large
+    resource_class: arm.large
 
-  monitoror-lint:
-    docker:
-      - image: alexfalkowski/docker:1.49
-    working_directory: ~/docker
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - run: make -C monitoror lint-docker
-    resource_class: large
   monitoror-build:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -336,17 +292,6 @@ jobs:
       - run: make -C monitoror push-docker
     resource_class: large
 
-  release-lint:
-    docker:
-      - image: alexfalkowski/docker:1.49
-    working_directory: ~/docker
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - run: make -C release lint-docker
-    resource_class: large
   release-build-amd64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -417,19 +362,8 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C release manifest-platform-docker
-    resource_class: large
+    resource_class: arm.large
 
-  root-lint:
-    docker:
-      - image: alexfalkowski/docker:1.49
-    working_directory: ~/docker
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - run: make -C root lint-docker
-    resource_class: large
   root-build-amd64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -500,19 +434,8 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C root manifest-platform-docker
-    resource_class: large
+    resource_class: arm.large
 
-  ruby-lint:
-    docker:
-      - image: alexfalkowski/docker:1.49
-    working_directory: ~/docker
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - run: make -C ruby lint-docker
-    resource_class: large
   ruby-build-amd64:
     docker:
       - image: alexfalkowski/docker:1.49
@@ -582,7 +505,7 @@ jobs:
           name: make login
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: make -C ruby manifest-platform-docker
-    resource_class: large
+    resource_class: arm.large
 
 workflows:
   build:
@@ -598,7 +521,6 @@ workflows:
   docker:
     when: << pipeline.parameters.docker >>
     jobs:
-      - docker-lint
       - docker-build-amd64:
           filters:
             branches:
@@ -629,7 +551,6 @@ workflows:
   go:
     when: << pipeline.parameters.go >>
     jobs:
-      - go-lint
       - go-build-amd64:
           filters:
             branches:
@@ -660,7 +581,6 @@ workflows:
   k8s:
     when: << pipeline.parameters.k8s >>
     jobs:
-      - k8s-lint
       - k8s-build-amd64:
           filters:
             branches:
@@ -691,7 +611,6 @@ workflows:
   monitoror:
     when: << pipeline.parameters.monitoror >>
     jobs:
-      - monitoror-lint
       - monitoror-build:
           filters:
             branches:
@@ -705,7 +624,6 @@ workflows:
   release:
     when: << pipeline.parameters.release >>
     jobs:
-      - release-lint
       - release-build-amd64:
           filters:
             branches:
@@ -736,7 +654,6 @@ workflows:
   root:
     when: << pipeline.parameters.root >>
     jobs:
-      - root-lint
       - root-build-amd64:
           filters:
             branches:
@@ -766,7 +683,6 @@ workflows:
   ruby:
     when: << pipeline.parameters.ruby >>
     jobs:
-      - ruby-lint
       - ruby-build-amd64:
           filters:
             branches:
