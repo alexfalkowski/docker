@@ -26,7 +26,7 @@ parameters:
 jobs:
   lint:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -36,7 +36,7 @@ jobs:
     resource_class: arm.large
   version:
     docker:
-      - image: alexfalkowski/release:5.47
+      - image: alexfalkowski/release:5.48
     working_directory: ~/docker
     steps:
       - checkout:
@@ -49,7 +49,7 @@ jobs:
 
   docker-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -62,7 +62,7 @@ jobs:
     resource_class: large
   docker-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -77,7 +77,7 @@ jobs:
     resource_class: large
   docker-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -90,7 +90,7 @@ jobs:
     resource_class: arm.large
   docker-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -105,7 +105,7 @@ jobs:
     resource_class: arm.large
   docker-manifest:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -121,7 +121,7 @@ jobs:
 
   go-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -134,7 +134,7 @@ jobs:
     resource_class: large
   go-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -149,7 +149,7 @@ jobs:
     resource_class: large
   go-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -162,7 +162,7 @@ jobs:
     resource_class: arm.large
   go-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -177,7 +177,7 @@ jobs:
     resource_class: arm.large
   go-manifest:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -193,7 +193,7 @@ jobs:
 
   k8s-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -206,7 +206,7 @@ jobs:
     resource_class: large
   k8s-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -221,7 +221,7 @@ jobs:
     resource_class: large
   k8s-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -234,7 +234,7 @@ jobs:
     resource_class: arm.large
   k8s-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -249,7 +249,7 @@ jobs:
     resource_class: arm.large
   k8s-manifest:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -265,7 +265,7 @@ jobs:
 
   monitoror-build:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -278,7 +278,7 @@ jobs:
     resource_class: large
   monitoror-push:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -294,7 +294,7 @@ jobs:
 
   release-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -307,7 +307,7 @@ jobs:
     resource_class: large
   release-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -322,7 +322,7 @@ jobs:
     resource_class: large
   release-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -335,7 +335,7 @@ jobs:
     resource_class: arm.large
   release-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -350,7 +350,7 @@ jobs:
     resource_class: arm.large
   release-manifest:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -366,7 +366,7 @@ jobs:
 
   root-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -379,7 +379,7 @@ jobs:
     resource_class: large
   root-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -394,7 +394,7 @@ jobs:
     resource_class: large
   root-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -407,7 +407,7 @@ jobs:
     resource_class: arm.large
   root-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -422,7 +422,7 @@ jobs:
     resource_class: arm.large
   root-manifest:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -438,7 +438,7 @@ jobs:
 
   ruby-build-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout
@@ -450,7 +450,7 @@ jobs:
     resource_class: large
   ruby-push-amd64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -465,7 +465,7 @@ jobs:
     resource_class: large
   ruby-build-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     working_directory: ~/docker
     steps:
       - checkout:
@@ -478,7 +478,7 @@ jobs:
     resource_class: arm.large
   ruby-push-arm64:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
@@ -493,7 +493,7 @@ jobs:
     resource_class: arm.large
   ruby-manifest:
     docker:
-      - image: alexfalkowski/docker:1.50
+      - image: alexfalkowski/docker:1.51
     steps:
       - checkout:
           method: blobless
