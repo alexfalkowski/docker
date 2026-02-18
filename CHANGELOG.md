@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.601.0](https://github.com/alexfalkowski/docker/releases/tag/v1.601.0) - 2026-02-18
+
+- [`b4abd40`](https://github.com/alexfalkowski/docker/commit/b4abd40cdd6dd5b039cd030603dd1fadb45d9067) feat(root): move bazel (#1104)
+
 ## [v1.600.0](https://github.com/alexfalkowski/docker/releases/tag/v1.600.0) - 2026-02-18
 
 - [`199cb5a`](https://github.com/alexfalkowski/docker/commit/199cb5a95a8c174fe33c7c9dbcb37a6b334baae4) feat(k8s): update kubescape to v4.0.2 (#1103)
