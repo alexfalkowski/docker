@@ -22,9 +22,6 @@ parameters:
   ruby:
     type: boolean
     default: false
-  bazel:
-    type: boolean
-    default: false
 
 jobs:
   lint:
@@ -510,77 +507,6 @@ jobs:
       - run: make -C ruby manifest-platform-docker
     resource_class: arm.large
 
-  bazel-build-amd64:
-    docker:
-      - image: alexfalkowski/docker:1.50
-    working_directory: ~/docker
-    steps:
-      - checkout
-      - run: git submodule sync
-      - run: git submodule update --init
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run: make -C bazel platform=amd64 build-platform-docker
-    resource_class: large
-  bazel-push-amd64:
-    docker:
-      - image: alexfalkowski/docker:1.50
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: make login
-          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C bazel platform=amd64 push-platform-docker
-    resource_class: large
-  bazel-build-arm64:
-    docker:
-      - image: alexfalkowski/docker:1.50
-    working_directory: ~/docker
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run: make -C bazel platform=arm64 build-platform-docker
-    resource_class: arm.large
-  bazel-push-arm64:
-    docker:
-      - image: alexfalkowski/docker:1.50
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: make login
-          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C bazel platform=arm64 push-platform-docker
-    resource_class: arm.large
-  bazel-manifest:
-    docker:
-      - image: alexfalkowski/docker:1.50
-    steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: make login
-          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-      - run: make -C bazel manifest-platform-docker
-    resource_class: arm.large
-
 workflows:
   build:
     jobs:
@@ -780,36 +706,6 @@ workflows:
           requires:
             - ruby-push-amd64
             - ruby-push-arm64
-          filters:
-            branches:
-              only: master
-
-  bazel:
-    when: << pipeline.parameters.bazel >>
-    jobs:
-      - bazel-build-amd64:
-          filters:
-            branches:
-              ignore: master
-      - bazel-build-arm64:
-          filters:
-            branches:
-              ignore: master
-      - bazel-push-amd64:
-          context: docker
-          filters:
-            branches:
-              only: master
-      - bazel-push-arm64:
-          context: docker
-          filters:
-            branches:
-              only: master
-      - bazel-manifest:
-          context: docker
-          requires:
-            - bazel-push-amd64
-            - bazel-push-arm64
           filters:
             branches:
               only: master

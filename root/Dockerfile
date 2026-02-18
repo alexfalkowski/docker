@@ -35,6 +35,12 @@ RUN gem update --system 4.0.3 \
   && gem install bundler -v 4.0.3 \
   && gem install executable-hooks -v 1.7.1
 
+# Install bazelisk.
+WORKDIR /usr/local/bin
+RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/bazelbuild/bazelisk/releases/download/v1.28.1/bazelisk-linux-$machine \
+  && mv bazelisk-linux-$machine bazelisk \
+  && chmod +x bazelisk
+
 USER circleci
 WORKDIR /home/circleci/
 
@@ -49,3 +55,8 @@ RUN mkdir -p go/bin
 RUN echo "$GO_VERSION" > .go-version
 ENV GOPATH=/home/circleci/go
 ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+
+# Setup bazelisk.
+ENV USE_BAZEL_VERSION=9.0.0
+RUN echo "$USE_BAZEL_VERSION" > .bazelversion
+RUN bazelisk version
