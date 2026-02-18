@@ -44,10 +44,5 @@ workflows:
             Makefile ruby true
             make/docker.mk ruby true
             ruby/.* ruby true
-
-            .circleci/.* bazel true
-            Makefile bazel true
-            make/docker.mk bazel true
-            bazel/.* bazel true
           base-revision: origin/master
           resource_class: large
