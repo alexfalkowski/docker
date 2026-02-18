@@ -48,7 +48,7 @@ RUN set -eux; \
   chmod +x codecovcli
 
 # Install golangci-lint.
-ENV GO_LINT_VERSION=2.10.0
+ENV GO_LINT_VERSION=2.10.1
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/golangci/golangci-lint/releases/download/v$GO_LINT_VERSION/golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
   && tar -C . -xzvf golangci-lint-$GO_LINT_VERSION-linux-$machine.tar.gz \
   && mv golangci-lint-$GO_LINT_VERSION-linux-$machine/golangci-lint . \
