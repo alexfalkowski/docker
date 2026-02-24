@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # Install gh from a downloaded .deb.
 RUN set -eux; \
-  version="2.87.2"; \
+  version="2.87.3"; \
   machine="$(dpkg --print-architecture)"; \
   url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_linux_${machine}.deb"; \
   out="$(mktemp)"; \
