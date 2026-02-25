@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.609.0](https://github.com/alexfalkowski/docker/releases/tag/v1.609.0) - 2026-02-25
+
+- [`313ab2b`](https://github.com/alexfalkowski/docker/commit/313ab2b3bd9c25964e232d9567f49b974b1844f9) feat(compose): add docker.io/otel/opentelemetry-collector-contrib (#1118)
+- [`ee09340`](https://github.com/alexfalkowski/docker/commit/ee09340002f8612d7026b2cdcf40637ce8cfbe21) build(ci): use latest published images (#1117)
+
 ## [v1.608.0](https://github.com/alexfalkowski/docker/releases/tag/v1.608.0) - 2026-02-24
 
 - [`80d446b`](https://github.com/alexfalkowski/docker/commit/80d446ba13a773631087d964a16dc32747f337b3) feat(buf): update to v1.66.0 (#1116)
