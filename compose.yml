@@ -63,16 +63,37 @@ services:
       - ./grafana:/etc/grafana
     command: --config.file=/etc/grafana/loki.yml
 
+  memcached:
+    image: docker.io/memcached:1.6
+    restart: always
+    ports:
+      - "11211:11211"
+
   tempo:
-    image: docker.io/grafana/tempo
+    image: docker.io/grafana/tempo:2.10.1
     restart: always
     ports:
       - 3200:3200
-      - 4317:4317
-      - 4318:4318
     volumes:
       - ./grafana:/etc/grafana
+      - ./grafana/tempo/overrides.yaml:/etc/overrides.yaml
     command: --config.file=/etc/grafana/tempo.yml
+    depends_on:
+      - memcached
+
+  otel-collector:
+    image: docker.io/otel/opentelemetry-collector-contrib
+    restart: always
+    command: ["--config=/etc/otelcol/config.yml"]
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    volumes:
+      - ./otelcol:/etc/otelcol
+    depends_on:
+      - mimir
+      - loki
+      - tempo
 
   grafana:
     image: docker.io/grafana/grafana-oss

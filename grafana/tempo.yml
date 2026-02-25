@@ -1,8 +1,21 @@
+stream_over_http_enabled: true
+
 server:
   http_listen_port: 3200
   log_level: info
 
+cache:
+  background:
+    writeback_goroutines: 5
+  caches:
+    - roles:
+        - frontend-search
+      memcached:
+        addresses: dns+memcached:11211
+
 query_frontend:
+  mcp_server:
+    enabled: true
   search:
     duration_slo: 5s
     throughput_bytes_slo: 1.073741824e+09
@@ -12,13 +25,30 @@ query_frontend:
   trace_by_id:
     duration_slo: 100ms
   metrics:
-    max_duration: 120h
+    max_duration: 200h
     query_backend_after: 5m
     duration_slo: 5s
     throughput_bytes_slo: 1.073741824e+09
+  # url_deny_list:
+  #   - '.*nil.*'
 
 distributor:
+  usage:
+    cost_attribution:
+      enabled: true
   receivers:
+    jaeger:
+      protocols:
+        thrift_http:
+          endpoint: "tempo:14268"
+        grpc:
+          endpoint: "tempo:14250"
+        thrift_binary:
+          endpoint: "tempo:6832"
+        thrift_compact:
+          endpoint: "tempo:6831"
+    zipkin:
+      endpoint: "tempo:9411"
     otlp:
       protocols:
         grpc:
@@ -29,11 +59,16 @@ distributor:
 ingester:
   max_block_duration: 5m
 
-compactor:
-  compaction:
-    block_retention: 24h
-
 metrics_generator:
+  registry:
+    external_labels:
+      source: tempo
+      cluster: docker-compose
+  storage:
+    path: /var/tempo/generator/wal
+    remote_write:
+      - url: http://prometheus:9090/api/v1/write
+        send_exemplars: true
   traces_storage:
     path: /var/tempo/generator/traces
   processor:
@@ -50,7 +85,12 @@ storage:
       path: /var/tempo/blocks
 
 overrides:
+  per_tenant_override_config: /etc/overrides.yaml
   defaults:
+    cost_attribution:
+      dimensions:
+        service.name: "svc_name"
+        span.http.target: "name"
     metrics_generator:
       processors: [service-graphs, span-metrics, local-blocks]
       generate_native_histograms: both
