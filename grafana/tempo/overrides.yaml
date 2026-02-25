@@ -1,0 +1,14 @@
+# Minimal runtime overrides file for Tempo.
+#
+# This file is referenced by `overrides.per_tenant_override_config` in `tempo.yml`.
+# For local/dev, an empty overrides map is sufficient.
+
+overrides: {}
+
+# You can add per-tenant overrides later, for example:
+#
+# overrides:
+#   single-tenant:
+#     ingestion:
+#       rate_limit_bytes: 15000000
+#       burst_size_bytes: 20000000
