@@ -305,10 +305,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(rpc_server_call_duration_seconds_count{service_name=~\"$service\", error_type!=\"\"}[5m])) or sum by (service_name) (rate(rpc_server_duration_milliseconds_count{service_name=~\"$service\", error_type!=\"\"}[5m]))",
+          "expr": "sum by (service_name) (rate(rpc_server_call_duration_seconds_count{service_name=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m])) or sum by (service_name) (rate(rpc_server_duration_milliseconds_count{service_name=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} error rps",
+          "legendFormat": "{{service_name}} non-OK rps",
           "refId": "A"
         }
       ],
@@ -711,10 +711,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(http_server_request_duration_seconds_count{service_name=~\"$service\", error_type!=\"\"}[5m])) or sum by (service_name) (rate(http_server_duration_milliseconds_count{service_name=~\"$service\", error_type!=\"\"}[5m]))",
+          "expr": "sum by (service_name) (rate(http_server_request_duration_seconds_count{service_name=~\"$service\", http_response_status_code=~\"[45]..\"}[5m])) or sum by (service_name) (rate(http_server_duration_milliseconds_count{service_name=~\"$service\", http_response_status_code=~\"[45]..\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} error rps",
+          "legendFormat": "{{service_name}} 4xx/5xx rps",
           "refId": "A"
         }
       ],
