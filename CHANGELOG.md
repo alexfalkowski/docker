@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.614.0](https://github.com/alexfalkowski/docker/releases/tag/v1.614.0) - 2026-02-26
+
+- [`d8bcc71`](https://github.com/alexfalkowski/docker/commit/d8bcc71dab405f7a01d22f17bc9a3b371931594e) feat(grafana): use job (#1124)
+
 ## [v1.613.0](https://github.com/alexfalkowski/docker/releases/tag/v1.613.0) - 2026-02-26
 
 - [`502a063`](https://github.com/alexfalkowski/docker/commit/502a06332ea697f90feacfbd932652cef7666020) feat(grafana): update errors (#1123)
