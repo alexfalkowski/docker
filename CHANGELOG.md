@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.610.0](https://github.com/alexfalkowski/docker/releases/tag/v1.610.0) - 2026-02-26
+
+- [`99b6323`](https://github.com/alexfalkowski/docker/commit/99b632307da68c8d6c4fe459500206f51c405de9) feat(release): update goreleaser to v2.14.1 (#1119)
+
 ## [v1.609.0](https://github.com/alexfalkowski/docker/releases/tag/v1.609.0) - 2026-02-25
 
 - [`313ab2b`](https://github.com/alexfalkowski/docker/commit/313ab2b3bd9c25964e232d9567f49b974b1844f9) feat(compose): add docker.io/otel/opentelemetry-collector-contrib (#1118)
