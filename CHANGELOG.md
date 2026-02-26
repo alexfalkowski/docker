@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.612.0](https://github.com/alexfalkowski/docker/releases/tag/v1.612.0) - 2026-02-26
+
+- [`811a03f`](https://github.com/alexfalkowski/docker/commit/811a03fe8b3ed3f941de030700cdaef6da08727d) feat(grafana): add host and runtime for services (#1122)
+
 ## [v1.611.0](https://github.com/alexfalkowski/docker/releases/tag/v1.611.0) - 2026-02-26
 
 - [`020a0fc`](https://github.com/alexfalkowski/docker/commit/020a0fcbad098679d35502fc923ba3eacb1a4fb1) feat(grafana): add services dashboard (#1121)
