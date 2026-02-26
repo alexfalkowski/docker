@@ -109,10 +109,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum by (le, service_name) (rate(rpc_server_call_duration_seconds_bucket{service_name=~\"$service\"}[5m]))) or (histogram_quantile(0.95, sum by (le, service_name) (rate(rpc_server_duration_milliseconds_bucket{service_name=~\"$service\"}[5m]))) / 1000)",
+          "expr": "histogram_quantile(0.95, sum by (le, job) (rate(rpc_server_call_duration_seconds_bucket{job=~\"$service\"}[5m]))) or (histogram_quantile(0.95, sum by (le, job) (rate(rpc_server_duration_milliseconds_bucket{job=~\"$service\"}[5m]))) / 1000)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} p95 latency (s)",
+          "legendFormat": "{{job}} p95 latency (s)",
           "refId": "A"
         }
       ],
@@ -207,10 +207,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(rpc_server_call_duration_seconds_count{service_name=~\"$service\"}[5m])) or sum by (service_name) (rate(rpc_server_duration_milliseconds_count{service_name=~\"$service\"}[5m]))",
+          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_count{job=~\"$service\"}[5m])) or sum by (job) (rate(rpc_server_duration_milliseconds_count{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} rps",
+          "legendFormat": "{{job}} rps",
           "refId": "A"
         }
       ],
@@ -305,10 +305,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(rpc_server_call_duration_seconds_count{service_name=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m])) or sum by (service_name) (rate(rpc_server_duration_milliseconds_count{service_name=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m]))",
+          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_count{job=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m])) or sum by (job) (rate(rpc_server_duration_milliseconds_count{job=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} non-OK rps",
+          "legendFormat": "{{job}} non-OK rps",
           "refId": "A"
         }
       ],
@@ -403,10 +403,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(rpc_server_call_duration_seconds_sum{service_name=~\"$service\"}[5m])) or (sum by (service_name) (rate(rpc_server_duration_milliseconds_sum{service_name=~\"$service\"}[5m])) / 1000)",
+          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_sum{job=~\"$service\"}[5m])) or (sum by (job) (rate(rpc_server_duration_milliseconds_sum{job=~\"$service\"}[5m])) / 1000)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} s/s",
+          "legendFormat": "{{job}} s/s",
           "refId": "A"
         }
       ],
@@ -515,10 +515,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum by (le, service_name) (rate(http_server_request_duration_seconds_bucket{service_name=~\"$service\"}[5m]))) or (histogram_quantile(0.95, sum by (le, service_name) (rate(http_server_duration_milliseconds_bucket{service_name=~\"$service\"}[5m]))) / 1000)",
+          "expr": "histogram_quantile(0.95, sum by (le, job) (rate(http_server_request_duration_seconds_bucket{job=~\"$service\"}[5m]))) or (histogram_quantile(0.95, sum by (le, job) (rate(http_server_duration_milliseconds_bucket{job=~\"$service\"}[5m]))) / 1000)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} p95 latency (s)",
+          "legendFormat": "{{job}} p95 latency (s)",
           "refId": "A"
         }
       ],
@@ -613,10 +613,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(http_server_request_duration_seconds_count{service_name=~\"$service\"}[5m])) or sum by (service_name) (rate(http_server_duration_milliseconds_count{service_name=~\"$service\"}[5m]))",
+          "expr": "sum by (job) (rate(http_server_request_duration_seconds_count{job=~\"$service\"}[5m])) or sum by (job) (rate(http_server_duration_milliseconds_count{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} rps",
+          "legendFormat": "{{job}} rps",
           "refId": "A"
         }
       ],
@@ -711,10 +711,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(http_server_request_duration_seconds_count{service_name=~\"$service\", http_response_status_code=~\"[45]..\"}[5m])) or sum by (service_name) (rate(http_server_duration_milliseconds_count{service_name=~\"$service\", http_response_status_code=~\"[45]..\"}[5m]))",
+          "expr": "sum by (job) (rate(http_server_request_duration_seconds_count{job=~\"$service\", http_response_status_code=~\"[45]..\"}[5m])) or sum by (job) (rate(http_server_duration_milliseconds_count{job=~\"$service\", http_response_status_code=~\"[45]..\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} 4xx/5xx rps",
+          "legendFormat": "{{job}} 4xx/5xx rps",
           "refId": "A"
         }
       ],
@@ -809,10 +809,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(http_server_request_duration_seconds_sum{service_name=~\"$service\"}[5m])) or (sum by (service_name) (rate(http_server_duration_milliseconds_sum{service_name=~\"$service\"}[5m])) / 1000)",
+          "expr": "sum by (job) (rate(http_server_request_duration_seconds_sum{job=~\"$service\"}[5m])) or (sum by (job) (rate(http_server_duration_milliseconds_sum{job=~\"$service\"}[5m])) / 1000)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} s/s",
+          "legendFormat": "{{job}} s/s",
           "refId": "A"
         }
       ],
@@ -921,10 +921,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name, state) (rate(system_cpu_time_seconds_total{service_name=~\"$service\"}[5m])) + 0 * sum by (service_name) (rate(process_cpu_time_seconds_total{service_name=~\"$service\"}[5m]))",
+          "expr": "sum by (job, state) (rate(system_cpu_time_seconds_total{job=~\"$service\"}[5m])) + 0 * sum by (job) (rate(process_cpu_time_seconds_total{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} {{state}}",
+          "legendFormat": "{{job}} {{state}}",
           "refId": "A"
         }
       ],
@@ -1019,10 +1019,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "system_memory_usage_bytes{service_name=~\"$service\", state=\"used\"}",
+          "expr": "system_memory_usage_bytes{job=~\"$service\", system_memory_state=\"used\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} used",
+          "legendFormat": "{{job}} used",
           "refId": "A"
         }
       ],
@@ -1117,10 +1117,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "system_memory_utilization{service_name=~\"$service\", state=\"used\"}",
+          "expr": "system_memory_utilization{job=~\"$service\", system_memory_state=\"used\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} used",
+          "legendFormat": "{{job}} used",
           "refId": "A"
         }
       ],
@@ -1215,10 +1215,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name, direction) (rate(system_network_io_bytes_total{service_name=~\"$service\"}[5m]))",
+          "expr": "sum by (job, direction) (rate(system_network_io_bytes_total{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} {{direction}}",
+          "legendFormat": "{{job}} {{direction}}",
           "refId": "A"
         }
       ],
@@ -1327,10 +1327,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "go_memory_used_bytes{service_name=~\"$service\"}",
+          "expr": "go_memory_used_bytes{job=~\"$service\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} used",
+          "legendFormat": "{{job}} used",
           "refId": "A"
         }
       ],
@@ -1425,10 +1425,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "go_memory_limit_bytes{service_name=~\"$service\"}",
+          "expr": "go_memory_limit_bytes{job=~\"$service\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} limit",
+          "legendFormat": "{{job}} limit",
           "refId": "A"
         }
       ],
@@ -1523,10 +1523,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "go_goroutine_count{service_name=~\"$service\"}",
+          "expr": "go_goroutine_count{job=~\"$service\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} goroutines",
+          "legendFormat": "{{job}} goroutines",
           "refId": "A"
         }
       ],
@@ -1621,10 +1621,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service_name) (rate(go_memory_allocations_total{service_name=~\"$service\"}[5m]))",
+          "expr": "sum by (job) (rate(go_memory_allocations_total{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{service_name}} alloc/s",
+          "legendFormat": "{{job}} alloc/s",
           "refId": "A"
         }
       ],
@@ -1673,25 +1673,21 @@
   "refresh": "10s",
   "schemaVersion": 26,
   "style": "dark",
-  "tags": [
-    "otel",
-    "golden-signals",
-    "services"
-  ],
+  "tags": ["otel", "golden-signals", "services"],
   "templating": {
     "list": [
       {
         "allValue": ".*",
         "current": {},
         "datasource": "prometheus",
-        "definition": "label_values({__name__=~\"http_server_request_duration_seconds_bucket|http_server_duration_milliseconds_bucket|rpc_server_call_duration_seconds_bucket|rpc_server_duration_milliseconds_bucket|system_cpu_time_seconds_total|system_memory_usage_bytes|system_memory_utilization|system_network_io_bytes_total|go_memory_used_bytes|go_memory_limit_bytes|go_goroutine_count|go_memory_allocations_total\"}, service_name)",
+        "definition": "label_values({__name__=~\"http_server_request_duration_seconds_bucket|http_server_duration_milliseconds_bucket|rpc_server_call_duration_seconds_bucket|rpc_server_duration_milliseconds_bucket|system_cpu_time_seconds_total|system_memory_usage_bytes|system_memory_utilization|system_network_io_bytes_total|go_memory_used_bytes|go_memory_limit_bytes|go_goroutine_count|go_memory_allocations_total\"}, job)",
         "hide": 0,
         "includeAll": true,
         "label": "service",
         "multi": true,
         "name": "service",
         "options": [],
-        "query": "label_values({__name__=~\"http_server_request_duration_seconds_bucket|http_server_duration_milliseconds_bucket|rpc_server_call_duration_seconds_bucket|rpc_server_duration_milliseconds_bucket|system_cpu_time_seconds_total|system_memory_usage_bytes|system_memory_utilization|system_network_io_bytes_total|go_memory_used_bytes|go_memory_limit_bytes|go_goroutine_count|go_memory_allocations_total\"}, service_name)",
+        "query": "label_values({__name__=~\"http_server_request_duration_seconds_bucket|http_server_duration_milliseconds_bucket|rpc_server_call_duration_seconds_bucket|rpc_server_duration_milliseconds_bucket|system_cpu_time_seconds_total|system_memory_usage_bytes|system_memory_utilization|system_network_io_bytes_total|go_memory_used_bytes|go_memory_limit_bytes|go_goroutine_count|go_memory_allocations_total\"}, job)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1721,17 +1717,7 @@
       "2h",
       "1d"
     ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
+    "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
   },
   "timezone": "",
   "title": "Service Golden Signals",
