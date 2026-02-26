@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.611.0](https://github.com/alexfalkowski/docker/releases/tag/v1.611.0) - 2026-02-26
+
+- [`020a0fc`](https://github.com/alexfalkowski/docker/commit/020a0fcbad098679d35502fc923ba3eacb1a4fb1) feat(grafana): add services dashboard (#1121)
+- [`2701f24`](https://github.com/alexfalkowski/docker/commit/2701f24d90443f840971b7b55dac3d586be7f7a0) build(ci): use latest published images (#1120)
+
 ## [v1.610.0](https://github.com/alexfalkowski/docker/releases/tag/v1.610.0) - 2026-02-26
 
 - [`99b6323`](https://github.com/alexfalkowski/docker/commit/99b632307da68c8d6c4fe459500206f51c405de9) feat(release): update goreleaser to v2.14.1 (#1119)
