@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.619.0](https://github.com/alexfalkowski/docker/releases/tag/v1.619.0) - 2026-03-03
+
+- [`522a0a5`](https://github.com/alexfalkowski/docker/commit/522a0a5b34a6ef93419f6f12ac4f85500f737e1e) feat(grafana): use the correct attributes for services dashboard (#1130)
+- [`c0bd108`](https://github.com/alexfalkowski/docker/commit/c0bd10828059144f82fd9b818ce1645a6b5d1e09) build(ci): use latest published images (#1129)
+
 ## [v1.618.0](https://github.com/alexfalkowski/docker/releases/tag/v1.618.0) - 2026-03-02
 
 - [`dec9423`](https://github.com/alexfalkowski/docker/commit/dec942373180290be9811adcf7106a9fde7ea0a4) feat(deps): use alexfalkowski/root:1.66 (#1128)
