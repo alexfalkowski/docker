@@ -109,7 +109,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum by (le, job) (rate(rpc_server_call_duration_seconds_bucket{job=~\"$service\"}[5m]))) or (histogram_quantile(0.95, sum by (le, job) (rate(rpc_server_duration_milliseconds_bucket{job=~\"$service\"}[5m]))) / 1000)",
+          "expr": "histogram_quantile(0.95, sum by (le, job) (rate(rpc_server_call_duration_seconds_bucket{job=~\"$service\"}[5m])))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{job}} p95 latency (s)",
@@ -207,7 +207,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_count{job=~\"$service\"}[5m])) or sum by (job) (rate(rpc_server_duration_milliseconds_count{job=~\"$service\"}[5m]))",
+          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_count{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{job}} rps",
@@ -305,7 +305,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_count{job=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m])) or sum by (job) (rate(rpc_server_duration_milliseconds_count{job=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m]))",
+          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_count{job=~\"$service\", rpc_response_status_code!~\"^OK$\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{job}} non-OK rps",
@@ -403,7 +403,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_sum{job=~\"$service\"}[5m])) or (sum by (job) (rate(rpc_server_duration_milliseconds_sum{job=~\"$service\"}[5m])) / 1000)",
+          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_sum{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{job}} s/s",
@@ -515,7 +515,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum by (le, job) (rate(http_server_request_duration_seconds_bucket{job=~\"$service\"}[5m]))) or (histogram_quantile(0.95, sum by (le, job) (rate(http_server_duration_milliseconds_bucket{job=~\"$service\"}[5m]))) / 1000)",
+          "expr": "histogram_quantile(0.95, sum by (le, job) (rate(http_server_request_duration_seconds_bucket{job=~\"$service\"}[5m])))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{job}} p95 latency (s)",
@@ -613,7 +613,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job) (rate(http_server_request_duration_seconds_count{job=~\"$service\"}[5m])) or sum by (job) (rate(http_server_duration_milliseconds_count{job=~\"$service\"}[5m]))",
+          "expr": "sum by (job) (rate(http_server_request_duration_seconds_count{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{job}} rps",
@@ -711,7 +711,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job) (rate(http_server_request_duration_seconds_count{job=~\"$service\", http_response_status_code=~\"[45]..\"}[5m])) or sum by (job) (rate(http_server_duration_milliseconds_count{job=~\"$service\", http_response_status_code=~\"[45]..\"}[5m]))",
+          "expr": "sum by (job) (rate(http_server_request_duration_seconds_count{job=~\"$service\", http_response_status_code=~\"[45]..\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{job}} 4xx/5xx rps",
@@ -809,7 +809,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job) (rate(http_server_request_duration_seconds_sum{job=~\"$service\"}[5m])) or (sum by (job) (rate(http_server_duration_milliseconds_sum{job=~\"$service\"}[5m])) / 1000)",
+          "expr": "sum by (job) (rate(http_server_request_duration_seconds_sum{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{job}} s/s",
@@ -921,10 +921,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job, state) (rate(system_cpu_time_seconds_total{job=~\"$service\"}[5m])) + 0 * sum by (job) (rate(process_cpu_time_seconds_total{job=~\"$service\"}[5m]))",
+          "expr": "sum by (job, cpu_mode) (rate(system_cpu_time_seconds_total{job=~\"$service\"}[5m])) + 0 * sum by (job, cpu_mode) (rate(process_cpu_time_seconds_total{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{job}} {{state}}",
+          "legendFormat": "{{job}} {{cpu_mode}}",
           "refId": "A"
         }
       ],
@@ -1120,7 +1120,7 @@
           "expr": "system_memory_utilization{job=~\"$service\", system_memory_state=\"used\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{job}} used",
+          "legendFormat": "{{job}} {{system_memory_state}}",
           "refId": "A"
         }
       ],
@@ -1215,10 +1215,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job, direction) (rate(system_network_io_bytes_total{job=~\"$service\"}[5m]))",
+          "expr": "sum by (job, network_io_direction) (rate(system_network_io_bytes_total{job=~\"$service\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{job}} {{direction}}",
+          "legendFormat": "{{job}} {{network_io_direction}}",
           "refId": "A"
         }
       ],
@@ -1330,7 +1330,7 @@
           "expr": "go_memory_used_bytes{job=~\"$service\"}",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{job}} used",
+          "legendFormat": "{{job}} {{go_memory_type}}",
           "refId": "A"
         }
       ],
