@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.621.0](https://github.com/alexfalkowski/docker/releases/tag/v1.621.0) - 2026-03-04
+
+- [`ec1db33`](https://github.com/alexfalkowski/docker/commit/ec1db330047245daaecf793b9541f7cb975b1c94) feat(monitoror): remove (#1132)
+
 ## [v1.620.0](https://github.com/alexfalkowski/docker/releases/tag/v1.620.0) - 2026-03-04
 
 - [`92dede1`](https://github.com/alexfalkowski/docker/commit/92dede1519d9f8e673dddf2860bf7bba2e20c04f) feat(grafana): use Queueing Proxy (p99/p50) (#1131)
