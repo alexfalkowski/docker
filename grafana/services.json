@@ -403,10 +403,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job) (rate(rpc_server_call_duration_seconds_sum{job=~\"$service\"}[5m]))",
+          "expr": "histogram_quantile(0.99, sum by (le, job) (rate(rpc_server_call_duration_seconds_bucket{job=~\"$service\"}[5m]))) / clamp_min(histogram_quantile(0.50, sum by (le, job) (rate(rpc_server_call_duration_seconds_bucket{job=~\"$service\"}[5m]))), 1e-9)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{job}} s/s",
+          "legendFormat": "{{job}} p99/p50",
           "refId": "A"
         }
       ],
@@ -414,7 +414,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "gRPC Saturation (work s/s)",
+      "title": "gRPC Queueing Proxy (p99/p50)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -809,10 +809,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (job) (rate(http_server_request_duration_seconds_sum{job=~\"$service\"}[5m]))",
+          "expr": "histogram_quantile(0.99, sum by (le, job) (rate(http_server_request_duration_seconds_bucket{job=~\"$service\"}[5m]))) / clamp_min(histogram_quantile(0.50, sum by (le, job) (rate(http_server_request_duration_seconds_bucket{job=~\"$service\"}[5m]))), 1e-9)",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "{{job}} s/s",
+          "legendFormat": "{{job}} p99/p50",
           "refId": "A"
         }
       ],
@@ -820,7 +820,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "HTTP Saturation (work s/s)",
+      "title": "HTTP Queueing Proxy (p99/p50)",
       "tooltip": {
         "shared": true,
         "sort": 0,
