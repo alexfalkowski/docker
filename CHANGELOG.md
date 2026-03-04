@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.620.0](https://github.com/alexfalkowski/docker/releases/tag/v1.620.0) - 2026-03-04
+
+- [`92dede1`](https://github.com/alexfalkowski/docker/commit/92dede1519d9f8e673dddf2860bf7bba2e20c04f) feat(grafana): use Queueing Proxy (p99/p50) (#1131)
+
 ## [v1.619.0](https://github.com/alexfalkowski/docker/releases/tag/v1.619.0) - 2026-03-03
 
 - [`522a0a5`](https://github.com/alexfalkowski/docker/commit/522a0a5b34a6ef93419f6f12ac4f85500f737e1e) feat(grafana): use the correct attributes for services dashboard (#1130)
