@@ -13,7 +13,7 @@ This repository is designed to be driven via `make` targets and CI runs on Circl
 Each top-level directory is an image (or runtime config used by the compose stack):
 
 - Image directories:
-  - `docker/`, `go/`, `k8s/`, `monitoror/`, `release/`, `root/`, `ruby/`
+  - `docker/`, `go/`, `k8s/`, `release/`, `root/`, `ruby/`
   - Each contains:
     - `Dockerfile`
     - `Makefile` declaring `IMAGE` and `VERSION`
