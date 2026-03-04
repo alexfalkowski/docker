@@ -25,11 +25,6 @@ workflows:
             make/docker.mk k8s true
             k8s/.* k8s true
 
-            .circleci/.* monitoror true
-            Makefile monitoror true
-            make/docker.mk monitoror true
-            monitoror/.* monitoror true
-
             .circleci/.* release true
             Makefile release true
             make/docker.mk release true
