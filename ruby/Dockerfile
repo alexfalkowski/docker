@@ -49,3 +49,9 @@ RUN set -eux; \
 
 USER circleci
 WORKDIR /home/circleci/
+
+# Install go tools.
+RUN go install github.com/boyter/scc/v3@v3.7.0 \
+  && go clean --cache -testcache -fuzzcache -modcache \
+  && rm -rf go/pkg \
+  && rm -rf .cache
