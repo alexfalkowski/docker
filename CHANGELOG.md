@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.622.0](https://github.com/alexfalkowski/docker/releases/tag/v1.622.0) - 2026-03-05
+
+- [`d78365b`](https://github.com/alexfalkowski/docker/commit/d78365b0b87d3244b857faa19a33a8d8a385b757) feat(scc): update github.com/boyter/scc to v3.7.0 (#1133)
+
 ## [v1.621.0](https://github.com/alexfalkowski/docker/releases/tag/v1.621.0) - 2026-03-04
 
 - [`ec1db33`](https://github.com/alexfalkowski/docker/commit/ec1db330047245daaecf793b9541f7cb975b1c94) feat(monitoror): remove (#1132)
