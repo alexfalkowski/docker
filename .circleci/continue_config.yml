@@ -43,6 +43,12 @@ jobs:
       - run: make pull
       - run: version
     resource_class: arm.large
+  wait-all:
+    docker:
+      - image: alexfalkowski/docker:1.53
+    steps:
+      - run: echo "all applicable jobs finished"
+    resource_class: arm.large
 
   docker-build-amd64:
     docker:
@@ -482,185 +488,141 @@ workflows:
       - version:
           requires:
             - lint
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.git.branch == "master"'
 
-  docker:
-    when: << pipeline.parameters.docker >>
-    jobs:
       - docker-build-amd64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.docker and pipeline.git.branch != "master"'
       - docker-build-arm64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.docker and pipeline.git.branch != "master"'
       - docker-push-amd64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.docker and pipeline.git.branch == "master"'
       - docker-push-arm64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.docker and pipeline.git.branch == "master"'
       - docker-manifest:
           context: docker
           requires:
             - docker-push-amd64
             - docker-push-arm64
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.docker and pipeline.git.branch == "master"'
 
-  go:
-    when: << pipeline.parameters.go >>
-    jobs:
       - go-build-amd64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.go and pipeline.git.branch != "master"'
       - go-build-arm64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.go and pipeline.git.branch != "master"'
       - go-push-amd64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.go and pipeline.git.branch == "master"'
       - go-push-arm64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.go and pipeline.git.branch == "master"'
       - go-manifest:
           context: docker
           requires:
             - go-push-amd64
             - go-push-arm64
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.go and pipeline.git.branch == "master"'
 
-  k8s:
-    when: << pipeline.parameters.k8s >>
-    jobs:
       - k8s-build-amd64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.k8s and pipeline.git.branch != "master"'
       - k8s-build-arm64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.k8s and pipeline.git.branch != "master"'
       - k8s-push-amd64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.k8s and pipeline.git.branch == "master"'
       - k8s-push-arm64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.k8s and pipeline.git.branch == "master"'
       - k8s-manifest:
           context: docker
           requires:
             - k8s-push-amd64
             - k8s-push-arm64
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.k8s and pipeline.git.branch == "master"'
 
-  release:
-    when: << pipeline.parameters.release >>
-    jobs:
       - release-build-amd64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.release and pipeline.git.branch != "master"'
       - release-build-arm64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.release and pipeline.git.branch != "master"'
       - release-push-amd64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.release and pipeline.git.branch == "master"'
       - release-push-arm64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.release and pipeline.git.branch == "master"'
       - release-manifest:
           context: docker
           requires:
             - release-push-amd64
             - release-push-arm64
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.release and pipeline.git.branch == "master"'
 
-  root:
-    when: << pipeline.parameters.root >>
-    jobs:
       - root-build-amd64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.root and pipeline.git.branch != "master"'
       - root-build-arm64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.root and pipeline.git.branch != "master"'
       - root-push-amd64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.root and pipeline.git.branch == "master"'
       - root-push-arm64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.root and pipeline.git.branch == "master"'
       - root-manifest:
           context: docker
           requires:
             - root-push-amd64
             - root-push-arm64
-          filters:
-            branches:
-              only: master
-  ruby:
-    when: << pipeline.parameters.ruby >>
-    jobs:
+          filters: 'pipeline.parameters.root and pipeline.git.branch == "master"'
+
       - ruby-build-amd64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.ruby and pipeline.git.branch != "master"'
       - ruby-build-arm64:
-          filters:
-            branches:
-              ignore: master
+          filters: 'pipeline.parameters.ruby and pipeline.git.branch != "master"'
       - ruby-push-amd64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.ruby and pipeline.git.branch == "master"'
       - ruby-push-arm64:
           context: docker
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.ruby and pipeline.git.branch == "master"'
       - ruby-manifest:
           context: docker
           requires:
             - ruby-push-amd64
             - ruby-push-arm64
-          filters:
-            branches:
-              only: master
+          filters: 'pipeline.parameters.ruby and pipeline.git.branch == "master"'
+
+      - wait-all:
+          requires:
+            - lint
+            - version
+            - docker-build-amd64
+            - docker-build-arm64
+            - docker-push-amd64
+            - docker-push-arm64
+            - docker-manifest
+            - go-build-amd64
+            - go-build-arm64
+            - go-push-amd64
+            - go-push-arm64
+            - go-manifest
+            - k8s-build-amd64
+            - k8s-build-arm64
+            - k8s-push-amd64
+            - k8s-push-arm64
+            - k8s-manifest
+            - release-build-amd64
+            - release-build-arm64
+            - release-push-amd64
+            - release-push-arm64
+            - release-manifest
+            - root-build-amd64
+            - root-build-arm64
+            - root-push-amd64
+            - root-push-arm64
+            - root-manifest
+            - ruby-build-amd64
+            - ruby-build-arm64
+            - ruby-push-amd64
+            - ruby-push-arm64
+            - ruby-manifest
