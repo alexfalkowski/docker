@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.629.0](https://github.com/alexfalkowski/docker/releases/tag/v1.629.0) - 2026-03-08
+
+- [`6f8b0a6`](https://github.com/alexfalkowski/docker/commit/6f8b0a6cacfbf83624e3fab8ad405e2d7019368a) feat(grafana): add redis otel metrics (#1146)
+- [`d0f6c0d`](https://github.com/alexfalkowski/docker/commit/d0f6c0d7477cab42a1722716844fc2bc60bb6e90) build(ci): move to use a sigle workflow (#1145)
+- [`36f6023`](https://github.com/alexfalkowski/docker/commit/36f6023a94f0154455508eafa67a1955e631d954) build(ci): use circleci/path-filtering@3.0.0 (#1143)
+- [`9d7366d`](https://github.com/alexfalkowski/docker/commit/9d7366dad64c2a59a3778e764cb5cee4752d661b) build(ci): use latest published images (#1142)
+
 ## [v1.628.0](https://github.com/alexfalkowski/docker/releases/tag/v1.628.0) - 2026-03-08
 
 - [`935f88a`](https://github.com/alexfalkowski/docker/commit/935f88a8437ba7c8e37784f6a28cc8dddc613eb6) feat(go): update golangci-lint to v2.11.2 (#1141)
