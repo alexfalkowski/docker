@@ -38,7 +38,7 @@
       }
     ]
   },
-  "description": "SRE golden signals for HTTP (otelhttp), gRPC (otelgrpc), and Redis (redisotel) metrics, plus host and runtime metrics.",
+  "description": "SRE golden signals for HTTP (otelhttp), gRPC (otelgrpc), Redis (redisotel), and SQL (otelsql) metrics, plus host and runtime metrics.",
   "editable": true,
   "graphTooltip": 0,
   "id": null,
@@ -2074,6 +2074,412 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "collapsed": false,
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 45
+      },
+      "id": 60,
+      "panels": [],
+      "title": "SQL",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 46
+      },
+      "hiddenSeries": false,
+      "id": 61,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum by (le, job) (rate(db_sql_latency_bucket{job=~\"$service\"}[5m]))) / 1000",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{job}} p95 latency (s)",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "SQL Latency (p95)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 46
+      },
+      "hiddenSeries": false,
+      "id": 62,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by (job) (rate(db_sql_latency_count{job=~\"$service\"}[5m]))",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{job}} qps",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "SQL Traffic",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ops",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 46
+      },
+      "hiddenSeries": false,
+      "id": 63,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by (job) (rate(db_sql_latency_count{job=~\"$service\", status=\"error\"}[5m]))",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{job}} err/s",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "SQL Errors",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ops",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 46
+      },
+      "hiddenSeries": false,
+      "id": 64,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by (job) (db_sql_connection_open{job=~\"$service\", status=\"inuse\"}) / clamp_min(sum by (job) (db_sql_connection_max_open{job=~\"$service\"}), 1)",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{job}} used/max",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "SQL Saturation (used/max)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percentunit",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "10s",
@@ -2086,14 +2492,14 @@
         "allValue": ".*",
         "current": {},
         "datasource": "prometheus",
-        "definition": "label_values({__name__=~\"http_server_request_duration_seconds_bucket|http_server_duration_bucket|rpc_server_call_duration_seconds_bucket|rpc_server_duration_bucket|db_client_connections_use_time_bucket|db_client_connections_usage|db_client_connections_max|system_cpu_time_seconds_total|system_memory_usage_bytes|system_memory_utilization|system_network_io_bytes_total|go_memory_used_bytes|go_memory_limit_bytes|go_goroutine_count|go_memory_allocations_total\"}, job)",
+        "definition": "label_values({__name__=~\"http_server_request_duration_seconds_bucket|http_server_duration_bucket|rpc_server_call_duration_seconds_bucket|rpc_server_duration_bucket|db_client_connections_use_time_bucket|db_client_connections_usage|db_client_connections_max|db_sql_latency_bucket|db_sql_connection_open|db_sql_connection_max_open|system_cpu_time_seconds_total|system_memory_usage_bytes|system_memory_utilization|system_network_io_bytes_total|go_memory_used_bytes|go_memory_limit_bytes|go_goroutine_count|go_memory_allocations_total\"}, job)",
         "hide": 0,
         "includeAll": true,
         "label": "service",
         "multi": true,
         "name": "service",
         "options": [],
-        "query": "label_values({__name__=~\"http_server_request_duration_seconds_bucket|http_server_duration_bucket|rpc_server_call_duration_seconds_bucket|rpc_server_duration_bucket|db_client_connections_use_time_bucket|db_client_connections_usage|db_client_connections_max|system_cpu_time_seconds_total|system_memory_usage_bytes|system_memory_utilization|system_network_io_bytes_total|go_memory_used_bytes|go_memory_limit_bytes|go_goroutine_count|go_memory_allocations_total\"}, job)",
+        "query": "label_values({__name__=~\"http_server_request_duration_seconds_bucket|http_server_duration_bucket|rpc_server_call_duration_seconds_bucket|rpc_server_duration_bucket|db_client_connections_use_time_bucket|db_client_connections_usage|db_client_connections_max|db_sql_latency_bucket|db_sql_connection_open|db_sql_connection_max_open|system_cpu_time_seconds_total|system_memory_usage_bytes|system_memory_utilization|system_network_io_bytes_total|go_memory_used_bytes|go_memory_limit_bytes|go_goroutine_count|go_memory_allocations_total\"}, job)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2128,5 +2534,5 @@
   "timezone": "",
   "title": "Service Golden Signals",
   "uid": "services-golden-signals",
-  "version": 4
+  "version": 6
 }
