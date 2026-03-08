@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.630.0](https://github.com/alexfalkowski/docker/releases/tag/v1.630.0) - 2026-03-08
+
+- [`e95e0cc`](https://github.com/alexfalkowski/docker/commit/e95e0cc7685c38a71fc6c030c22aa4c8edc8110d) feat(grafana): add sql otel metrics (#1147)
+
 ## [v1.629.0](https://github.com/alexfalkowski/docker/releases/tag/v1.629.0) - 2026-03-08
 
 - [`6f8b0a6`](https://github.com/alexfalkowski/docker/commit/6f8b0a6cacfbf83624e3fab8ad405e2d7019368a) feat(grafana): add redis otel metrics (#1146)
