@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.632.0](https://github.com/alexfalkowski/docker/releases/tag/v1.632.0) - 2026-03-10
+
+- [`602a2a6`](https://github.com/alexfalkowski/docker/commit/602a2a6ed97ff6d7fa927ad998699c42b0a8f63e) feat(release): update goreleaser to v2.14.3 (#1150)
+
 ## [v1.631.0](https://github.com/alexfalkowski/docker/releases/tag/v1.631.0) - 2026-03-10
 
 - [`322596a`](https://github.com/alexfalkowski/docker/commit/322596aa5568e64d211bc464f765ee1e69ef39c5) feat(buf): update to v1.66.1 (#1149)
