@@ -11,7 +11,7 @@ RUN set -eu; \
   aarch64|arm64) hadolint_arch="arm64" ;; \
   *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
   esac; \
-  curl -fLsSLo hadolint "https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-Linux-${hadolint_arch}" \
+  curl -fLsSLo hadolint "https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-linux-${hadolint_arch}" \
   && chmod +x hadolint
 
 # Install shellcheck.
