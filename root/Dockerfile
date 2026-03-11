@@ -19,7 +19,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://go.dev/dl/
 
 # Install ruby.
 WORKDIR /home/circleci/
-ENV RUBY_VERSION=ruby-3.4.8
+ENV RUBY_VERSION=ruby-3.4.9
 ENV RUBY_FILE=$RUBY_VERSION.tar.gz
 RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/3.4/$RUBY_FILE \
   && tar -C . -xzf $RUBY_FILE \
@@ -31,8 +31,8 @@ RUN ./configure \
   && make install
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
-RUN gem update --system 4.0.3 \
-  && gem install bundler -v 4.0.3 \
+RUN gem update --system 4.0.8 \
+  && gem install bundler -v 4.0.8 \
   && gem install executable-hooks -v 1.7.1
 
 # Install bazelisk.
