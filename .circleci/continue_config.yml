@@ -31,6 +31,17 @@ jobs:
       - run: git submodule update --init
       - run: make lint
     resource_class: arm.large
+  sync:
+    docker:
+      - image: alexfalkowski/release:5.58
+    working_directory: ~/infraops
+    steps:
+      - checkout:
+          method: blobless
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run: make sync push
+    resource_class: arm.large
   version:
     docker:
       - image: alexfalkowski/release:5.58
@@ -485,11 +496,14 @@ workflows:
   build:
     jobs:
       - lint
+      - sync:
+          requires:
+            - lint
+          filters: 'pipeline.git.branch != "master"'
       - version:
           requires:
             - lint
           filters: 'pipeline.git.branch == "master"'
-
       - docker-build-amd64:
           filters: 'pipeline.parameters.docker and pipeline.git.branch != "master"'
       - docker-build-arm64:
@@ -591,10 +605,10 @@ workflows:
             - ruby-push-amd64
             - ruby-push-arm64
           filters: 'pipeline.parameters.ruby and pipeline.git.branch == "master"'
-
       - wait-all:
           requires:
             - lint
+            - sync
             - version
             - docker-build-amd64
             - docker-build-arm64
