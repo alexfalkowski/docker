@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.635.0](https://github.com/alexfalkowski/docker/releases/tag/v1.635.0) - 2026-03-11
+
+- [`c26303e`](https://github.com/alexfalkowski/docker/commit/c26303e41d6ae75274cb363475508008b5bf126f) feat(root): update to ruby-3.4.9 (#1157)
+- [`0eae59f`](https://github.com/alexfalkowski/docker/commit/0eae59f247464fa354b5d4660ec359a77acb5a87) build(ci): use latest published images (#1156)
+
 ## [v1.634.1](https://github.com/alexfalkowski/docker/releases/tag/v1.634.1) - 2026-03-11
 
 - [`e249f34`](https://github.com/alexfalkowski/docker/commit/e249f349922ceb0be5b05b21874899425c0068ea) fix(hadolint): make sure it works across archs (#1155)
