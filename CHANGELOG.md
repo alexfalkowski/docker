@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.634.1](https://github.com/alexfalkowski/docker/releases/tag/v1.634.1) - 2026-03-11
+
+- [`e249f34`](https://github.com/alexfalkowski/docker/commit/e249f349922ceb0be5b05b21874899425c0068ea) fix(hadolint): make sure it works across archs (#1155)
+- [`305a6d6`](https://github.com/alexfalkowski/docker/commit/305a6d667f1b3d83e5adead96617adee7bc6eb64) build(ci): use latest published images (#1154)
+
 ## [v1.634.0](https://github.com/alexfalkowski/docker/releases/tag/v1.634.0) - 2026-03-11
 
 - [`d468a61`](https://github.com/alexfalkowski/docker/commit/d468a61664b66b7956c8c71b59babea8b8400a64) feat(release): update gh to v2.88.0 (#1153)
