@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v1.637.0](https://github.com/alexfalkowski/docker/releases/tag/v1.637.0) - 2026-03-12
+
+- [`a406793`](https://github.com/alexfalkowski/docker/commit/a406793a60643198ab10f92c640179f2d0623a62) feat(release): update gh to v2.88.1 (#1163)
+- [`7e43716`](https://github.com/alexfalkowski/docker/commit/7e4371627e2d5c1726e266c2a35fb5735f1a5465) build(deps): bump bin from `59b1ab0` to `a7996aa` (#1162)
+- [`eaf8800`](https://github.com/alexfalkowski/docker/commit/eaf880026c0958f99e9094d7fbdb64466a6ccc39) build(ci): working_directory: ~/docker (#1161)
+- [`7e83d23`](https://github.com/alexfalkowski/docker/commit/7e83d239014ff940c3618e91097318e44b0fef11) build(ci): add sync (#1160)
+- [`33562a1`](https://github.com/alexfalkowski/docker/commit/33562a125d599c2f042181951ab41a46ffc7be2e) build(ci): use latest published images (#1159)
+
 ## [v1.636.0](https://github.com/alexfalkowski/docker/releases/tag/v1.636.0) - 2026-03-11
 
 - [`03c23d1`](https://github.com/alexfalkowski/docker/commit/03c23d195d55529a6cc5bc60a6ef696397be20a1) feat(deps): use alexfalkowski/root:1.68 (#1158)
