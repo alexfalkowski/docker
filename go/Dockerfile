@@ -50,7 +50,7 @@ RUN set -eux; \
   *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
   esac; \
   curl -fLsSLo codecovcli \
-  "https://github.com/getsentry/prevent-cli/releases/download/v11.2.6/codecovcli_linux${suffix}"; \
+  "https://github.com/getsentry/prevent-cli/releases/download/v11.2.7/codecovcli_linux${suffix}"; \
   chmod +x codecovcli
 
 # Install golangci-lint.
