@@ -5,6 +5,7 @@ set -eo pipefail
 
 if [ -f ".cd" ]; then
   readonly version_file="${APP_VERSION_FILE:-/tmp/workspace/release-version.txt}"
+
   if [[ -f "$version_file" ]]; then
     readonly name=$(basename "$PWD")
     readonly version="$(cat "$version_file")"

@@ -4,9 +4,12 @@
 set -eo pipefail
 
 readonly releaser=$(find . -name "*goreleaser*" -not -path "*vendor*")
+
 if [ -n "$releaser" ]; then
   readonly message=$(git log --pretty=format:"%s" -n 1)
-  if [[ "$message" =~ ^chore* ]]; then
+  readonly message_pattern='^(feat|fix)(\([^)]*\))?!?:'
+
+  if [[ "$message" =~ $message_pattern ]]; then
     goreleaser release
   fi
 fi
