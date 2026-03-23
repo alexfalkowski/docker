@@ -3,13 +3,11 @@
 
 set -eo pipefail
 
-make pull
-
 if [ -f ".cd" ]; then
-  readonly message=$(git log --pretty=format:"%s" -n 1)
-  if [[ "$message" =~ ^chore* ]]; then
+  readonly version_file="${APP_VERSION_FILE:-/tmp/workspace/release-version.txt}"
+  if [[ -f "$version_file" ]]; then
     readonly name=$(basename "$PWD")
-    readonly version="$(git tag | sort -V | tail -1)"
+    readonly version="$(cat "$version_file")"
     readonly desc="https://github.com/alexfalkowski/$name/releases/tag/$version"
 
     # Get the repo.
