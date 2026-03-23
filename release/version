@@ -9,7 +9,7 @@ readonly message_pattern='^chore*'
 mkdir -p "$(dirname "$version_file")"
 rm -f "$version_file"
 
-uplift release --config-dir /etc/uplift
+uplift release --skip-changelog --config-dir /etc/uplift
 
 readonly message=$(git log --pretty=format:"%s" -n 1)
 
