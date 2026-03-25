@@ -2,6 +2,11 @@
 
 set -eo pipefail
 
+if command -v docker-compose &>/dev/null; then
+  docker-compose "$@"
+  exit 0
+fi
+
 if command -v podman &>/dev/null; then
   podman compose "$@"
   exit 0
