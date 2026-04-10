@@ -70,9 +70,9 @@ RUN echo "$GO_LINT_VERSION" > .go-lint-version
 RUN go install github.com/alexfalkowski/gocovmerge/v2@v2.26.0 \
   && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 \
   && go install gotest.tools/gotestsum@v1.13.0 \
-  && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.43.0 \
+  && go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@v0.44.0 \
   && go install github.com/boyter/scc/v3@v3.7.0 \
-  && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.12.0 \
+  && go install github.com/Zxilly/go-size-analyzer/cmd/gsa@v1.12.1 \
   && go clean --cache -testcache -fuzzcache -modcache \
   && rm -rf go/pkg \
   && rm -rf .cache
