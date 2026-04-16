@@ -23,7 +23,7 @@ RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://get.helm.s
   && rm helm-${HELM_VERSION}-linux-$machine.tar.gz
 
 # Install doctl.
-ARG DOCTL_VERSION=1.153.0
+ARG DOCTL_VERSION=1.155.0
 RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
   && tar C . -xf doctl-${DOCTL_VERSION}-linux-$machine.tar.gz \
   && rm doctl-${DOCTL_VERSION}-linux-$machine.tar.gz
@@ -35,7 +35,7 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install pulumi.
-RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.230.0
+RUN curl -fsSL https://get.pulumi.com | sh -s -- --version 3.231.0
 ENV PATH=/home/circleci/.pulumi/bin:$PATH
 
 # Install go tools.
