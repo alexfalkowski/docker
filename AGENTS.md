@@ -2,6 +2,13 @@
 
 This repository is a collection of Docker images plus a `compose.yml` for local dependencies. It is primarily driven by `make` targets and linted via `shellcheck` and `hadolint`.
 
+## Shared skill
+
+Use the shared `coding-standards` skill from `./bin/skills/coding-standards`
+for cross-repository coding, review, testing, documentation, and PR
+conventions. Treat this `AGENTS.md` as the repo-specific companion to that
+skill.
+
 ## Quick start
 
 ### Get submodules (required)
