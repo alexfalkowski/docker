@@ -13,15 +13,18 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 # Install go
 WORKDIR /usr/local
 ENV GO_VERSION=1.26.2
-RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://go.dev/dl/go$GO_VERSION.linux-$machine.tar.gz \
-  && tar -C . -xf go$GO_VERSION.linux-$machine.tar.gz \
-  && rm go$GO_VERSION.linux-$machine.tar.gz
+RUN set -eu; \
+  machine="$(dpkg --print-architecture)"; \
+  asset="go${GO_VERSION}.linux-${machine}.tar.gz"; \
+  curl -fsSLO "https://go.dev/dl/${asset}"; \
+  tar -C . -xf "$asset"; \
+  rm -f "$asset"
 
 # Install ruby.
 WORKDIR /home/circleci/
 ENV RUBY_VERSION=ruby-4.0.2
 ENV RUBY_FILE=$RUBY_VERSION.tar.gz
-RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/4.0/$RUBY_FILE \
+RUN curl -fsSLO https://cache.ruby-lang.org/pub/ruby/4.0/$RUBY_FILE \
   && tar -C . -xzf $RUBY_FILE \
   && rm $RUBY_FILE
 
@@ -38,9 +41,12 @@ RUN gem update --system 4.0.8 \
 
 # Install bazelisk.
 WORKDIR /usr/local/bin
-RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/bazelbuild/bazelisk/releases/download/v1.28.1/bazelisk-linux-$machine \
-  && mv bazelisk-linux-$machine bazelisk \
-  && chmod +x bazelisk
+RUN set -eu; \
+  machine="$(dpkg --print-architecture)"; \
+  asset="bazelisk-linux-${machine}"; \
+  curl -fsSLo "$asset" "https://github.com/bazelbuild/bazelisk/releases/download/v1.28.1/${asset}"; \
+  mv "$asset" bazelisk; \
+  chmod +x bazelisk
 
 USER circleci
 WORKDIR /home/circleci/
