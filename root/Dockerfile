@@ -28,7 +28,8 @@ RUN curl -sSOL https://cache.ruby-lang.org/pub/ruby/4.0/$RUBY_FILE \
 WORKDIR /home/circleci/$RUBY_VERSION
 RUN ./configure \
   && make \
-  && make install
+  && make install \
+  && rm -rf /home/circleci/$RUBY_VERSION
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
 RUN gem update --system 4.0.8 \
