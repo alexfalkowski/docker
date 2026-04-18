@@ -20,7 +20,7 @@ Each top-level directory is an image (or runtime config used by the compose stac
     - `.hadolint.yaml` (image-specific hadolint rule suppressions)
 - Local dependency stack:
   - `compose.yml`
-  - `grafana/`, `prometheus/`, `status/` (config mounted into compose services)
+  - `grafana/`, `otelcol/`, `prometheus/`, `status/` (config mounted into compose services)
 - Shared build targets:
   - `make/docker.mk` (used by all image Makefiles)
 - Helper scripts:
@@ -81,7 +81,7 @@ make -C go build-docker
 
 That produces a local image tagged like:
 
-- `alexfalkowski/go:2.109` (based on `go/Makefile`)
+- `alexfalkowski/go:3.10` (based on `go/Makefile`)
 
 Build another image:
 
@@ -117,7 +117,7 @@ make -C go manifest-platform-docker
 
 This pushes two manifests:
 
-- `alexfalkowski/go:2.109`
+- `alexfalkowski/go:3.10`
 - `alexfalkowski/go` (equivalent to `:latest`)
 
 ## Compose (local dependencies)
@@ -159,16 +159,18 @@ From `compose.yml`:
 
 | Service | Image | Ports (host:container) | Notes |
 |---|---|---:|---|
-| `postgres` | `postgres:17-bullseye` | `5432:5432` | `POSTGRES_USER=test`, `POSTGRES_PASSWORD=test` |
+| `postgres` | `postgres:18-trixie` | `5432:5432` | `POSTGRES_USER=test`, `POSTGRES_PASSWORD=test` |
 | `redis` | `redis:8` | `6379:6379` |  |
-| `localstack` | `localstack/localstack:4.0` | `4566:4566` | `SERVICES=s3,sqs,ssm` |
-| `vault` | `hashicorp/vault:1.18` | `8200:8200` | dev token: `vault-plaintext-root-token` |
-| `prometheus` | `prom/prometheus:v3.1.0` | `9090:9090` | depends on `mimir` |
-| `mimir` | `grafana/mimir` | `9009:9009` |  |
-| `loki` | `grafana/loki` | `3100:3100` |  |
-| `tempo` | `grafana/tempo` | `3200:3200`, `4317:4317`, `4318:4318` | OTLP gRPC/HTTP exposed |
+| `aws` | `hectorvent/floci` | `4566:4566` | `SERVICES=s3,sqs,ssm` |
+| `vault` | `hashicorp/vault:1.21` | `8200:8200` | dev token: `vault-plaintext-root-token` |
+| `prometheus` | `prom/prometheus:v3` | `9090:9090` | depends on `mimir` |
+| `mimir` | `grafana/mimir` | `9009:9009` | mounts `./grafana` |
+| `loki` | `grafana/loki` | `3100:3100` | mounts `./grafana` |
+| `memcached` | `memcached:1.6` | `11211:11211` | cache backend for `tempo` |
+| `tempo` | `grafana/tempo:2.10.1` | `3200:3200` | depends on `memcached` |
+| `otel-collector` | `otel/opentelemetry-collector-contrib` | `4317:4317`, `4318:4318` | OTLP gRPC/HTTP ingress |
 | `grafana` | `grafana/grafana-oss` | `10000:3000` | depends on metrics/logs/traces stack |
-| `status` | `alexfalkowski/status` | `15000:8080`, `15001:6060` | mounts `./status/server.yml` |
+| `status` | `alexfalkowski/status` | `15000:8080`, `15001:6060` | mounts `./status` |
 | `flipt` | `flipt/flipt` | `8080:8080`, `9000:9000` |  |
 
 Examples:
