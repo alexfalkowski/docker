@@ -5,16 +5,27 @@ WORKDIR /usr/local/bin
 
 # Install dockerize.
 ENV DOCKERIZE_VERSION=v0.9.3
-RUN export machine="$(dpkg --print-architecture)"; curl -sSOL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-$machine-$DOCKERIZE_VERSION.tar.gz \
-  && tar -C . -xzvf dockerize-linux-$machine-$DOCKERIZE_VERSION.tar.gz \
-  && rm dockerize-linux-$machine-$DOCKERIZE_VERSION.tar.gz
+RUN set -eu; \
+  machine="$(dpkg --print-architecture)"; \
+  asset="dockerize-linux-${machine}-${DOCKERIZE_VERSION}.tar.gz"; \
+  curl -fsSLO "https://github.com/jwilder/dockerize/releases/download/${DOCKERIZE_VERSION}/${asset}"; \
+  tar -C . -xzvf "$asset"; \
+  rm -f "$asset"
 
 # Install shellcheck.
 ENV SHELLCHECK_VERSION=v0.10.0
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/koalaman/shellcheck/releases/download/$SHELLCHECK_VERSION/shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz \
-  && tar -C . -xvf shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz \
-  && mv shellcheck-$SHELLCHECK_VERSION/shellcheck . \
-  && rm -rf shellcheck-$SHELLCHECK_VERSION/ shellcheck-$SHELLCHECK_VERSION.linux.$machine.tar.xz
+RUN set -eu; \
+  arch="$(uname -m)"; \
+  case "$arch" in \
+  x86_64|amd64) shellcheck_arch="x86_64" ;; \
+  aarch64|arm64) shellcheck_arch="aarch64" ;; \
+  *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
+  esac; \
+  asset="shellcheck-${SHELLCHECK_VERSION}.linux.${shellcheck_arch}.tar.xz"; \
+  curl -fsSLO "https://github.com/koalaman/shellcheck/releases/download/${SHELLCHECK_VERSION}/${asset}"; \
+  tar -C . -xJf "$asset"; \
+  mv shellcheck-${SHELLCHECK_VERSION}/shellcheck .; \
+  rm -rf "shellcheck-${SHELLCHECK_VERSION}" "$asset"
 
 # Install hadolint.
 RUN set -eu; \
@@ -24,33 +35,68 @@ RUN set -eu; \
   aarch64|arm64) hadolint_arch="arm64" ;; \
   *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
   esac; \
-  curl -fLsSLo hadolint "https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-linux-${hadolint_arch}" \
-  && chmod +x hadolint
+  asset="hadolint-linux-${hadolint_arch}"; \
+  base_url="https://github.com/hadolint/hadolint/releases/download/v2.14.0"; \
+  curl -fsSLo "$asset" "$base_url/$asset"; \
+  curl -fsSLo "$asset.sha256" "$base_url/$asset.sha256"; \
+  sha256sum -c "$asset.sha256"; \
+  mv "$asset" hadolint; \
+  chmod +x hadolint; \
+  rm -f "$asset.sha256"
 
 # Install buf.
-RUN export machine="$(uname -m)"; curl -sSOL https://github.com/bufbuild/buf/releases/download/v1.68.1/buf-Linux-$machine \
-  && mv buf-Linux-$machine buf \
-  && chmod +x buf
+RUN set -eu; \
+  arch="$(uname -m)"; \
+  case "$arch" in \
+  x86_64|amd64) buf_arch="x86_64" ;; \
+  aarch64|arm64) buf_arch="aarch64" ;; \
+  *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
+  esac; \
+  asset="buf-Linux-${buf_arch}"; \
+  base_url="https://github.com/bufbuild/buf/releases/download/v1.68.1"; \
+  curl -fsSLo "$asset" "$base_url/$asset"; \
+  curl -fsSLo sha256.txt "$base_url/sha256.txt"; \
+  grep "  ${asset}$" sha256.txt | sha256sum -c -; \
+  mv "$asset" buf; \
+  chmod +x buf; \
+  rm -f sha256.txt
 
 # Install trivy.
-RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.70.0
+RUN set -eu; \
+  version="0.70.0"; \
+  machine="$(dpkg --print-architecture)"; \
+  case "$machine" in \
+  amd64) trivy_arch="64bit" ;; \
+  arm64) trivy_arch="ARM64" ;; \
+  *) echo "unsupported arch: $machine" >&2; exit 1 ;; \
+  esac; \
+  asset="trivy_${version}_Linux-${trivy_arch}.tar.gz"; \
+  base_url="https://github.com/aquasecurity/trivy/releases/download/v${version}"; \
+  curl -fsSLO "$base_url/$asset"; \
+  curl -fsSLO "$base_url/trivy_${version}_checksums.txt"; \
+  grep "  ${asset}$" "trivy_${version}_checksums.txt" | sha256sum -c -; \
+  tar -C . -xzf "$asset" trivy; \
+  rm -f "$asset" "trivy_${version}_checksums.txt"
 
 # Install mkcert.
-RUN export machine="$(dpkg --print-architecture)"; curl -sJLO "https://dl.filippo.io/mkcert/latest?for=linux/$machine" \
-  && mv mkcert-v*-linux-$machine mkcert \
-  && chmod +x mkcert
+ENV MKCERT_VERSION=v1.4.4
+RUN set -eu; \
+  machine="$(dpkg --print-architecture)"; \
+  asset="mkcert-${MKCERT_VERSION}-linux-${machine}"; \
+  curl -fsSLo "$asset" "https://github.com/FiloSottile/mkcert/releases/download/${MKCERT_VERSION}/${asset}"; \
+  mv "$asset" mkcert; \
+  chmod +x mkcert
 
 # Install codecov.
 RUN set -eux; \
   arch="$(uname -m)"; \
-  suffix=""; \
   case "$arch" in \
-  x86_64|amd64) suffix="" ;; \
-  aarch64|arm64) suffix="_arm64" ;; \
+  x86_64|amd64) asset="codecovcli_linux" ;; \
+  aarch64|arm64) asset="codecovcli_linux_arm64" ;; \
   *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
   esac; \
   curl -fLsSLo codecovcli \
-  "https://github.com/getsentry/prevent-cli/releases/download/v11.2.8/codecovcli_linux${suffix}"; \
+  "https://github.com/getsentry/prevent-cli/releases/download/v11.2.8/${asset}"; \
   chmod +x codecovcli
 
 USER circleci

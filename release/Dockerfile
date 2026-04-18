@@ -7,25 +7,31 @@ RUN set -eux; \
   goreleaser_version="2.15.3"; \
   uplift_version="2.26.0"; \
   machine="$(dpkg --print-architecture)"; \
-  goreleaser_deb="$(mktemp --suffix=.deb)"; \
-  uplift_deb="$(mktemp --suffix=.deb)"; \
-  curl -fsSL "https://github.com/goreleaser/goreleaser/releases/download/v${goreleaser_version}/goreleaser_${goreleaser_version}_${machine}.deb" -o "$goreleaser_deb"; \
-  curl -fsSL "https://github.com/gembaadvantage/uplift/releases/download/v${uplift_version}/uplift_${uplift_version}_${machine}.deb" -o "$uplift_deb"; \
+  goreleaser_deb="goreleaser_${goreleaser_version}_${machine}.deb"; \
+  uplift_deb="uplift_${uplift_version}_${machine}.deb"; \
+  curl -fsSLO "https://github.com/goreleaser/goreleaser/releases/download/v${goreleaser_version}/${goreleaser_deb}"; \
+  curl -fsSLO "https://github.com/goreleaser/goreleaser/releases/download/v${goreleaser_version}/checksums.txt"; \
+  grep "  ${goreleaser_deb}$" checksums.txt | sha256sum -c -; \
+  curl -fsSLO "https://github.com/gembaadvantage/uplift/releases/download/v${uplift_version}/${uplift_deb}"; \
+  curl -fsSLo uplift-checksums.txt "https://github.com/gembaadvantage/uplift/releases/download/v${uplift_version}/checksums.txt"; \
+  grep "  ${uplift_deb}$" uplift-checksums.txt | sha256sum -c -; \
   apt-get update; \
-  apt-get install --no-install-recommends -y "$goreleaser_deb" "$uplift_deb"; \
+  apt-get install --no-install-recommends -y "./${goreleaser_deb}" "./${uplift_deb}"; \
   apt-get clean; \
-  rm -f "$goreleaser_deb" "$uplift_deb"; \
+  rm -f "$goreleaser_deb" "$uplift_deb" checksums.txt uplift-checksums.txt; \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install gh from a downloaded .deb.
 RUN set -eux; \
   version="2.90.0"; \
   machine="$(dpkg --print-architecture)"; \
-  url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_linux_${machine}.deb"; \
-  out="$(mktemp)"; \
-  curl -fsSL "$url" -o "$out"; \
-  dpkg -i "$out"; \
-  rm -f "$out"
+  asset="gh_${version}_linux_${machine}.deb"; \
+  base_url="https://github.com/cli/cli/releases/download/v${version}"; \
+  curl -fsSLO "$base_url/$asset"; \
+  curl -fsSLO "$base_url/gh_${version}_checksums.txt"; \
+  grep "  ${asset}$" "gh_${version}_checksums.txt" | sha256sum -c -; \
+  dpkg -i "$asset"; \
+  rm -f "$asset" "gh_${version}_checksums.txt"
 
 # Add uplift config.
 RUN mkdir /etc/uplift
