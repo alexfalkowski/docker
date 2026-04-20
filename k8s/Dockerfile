@@ -63,9 +63,6 @@ RUN set -eu; \
   tar -C . -xzf "$asset" kubescape; \
   rm -f "$asset" checksums.sha256
 
-USER circleci
-WORKDIR /home/circleci/
-
 # Install pulumi.
 RUN set -eux; \
   version="3.231.0"; \
@@ -80,10 +77,11 @@ RUN set -eux; \
   curl -fsSLO "$base_url/$asset"; \
   curl -fsSLO "$base_url/pulumi-${version}-checksums.txt"; \
   grep "  ${asset}$" "pulumi-${version}-checksums.txt" | sha256sum -c -; \
-  tar -xzf "$asset"; \
-  mv pulumi .pulumi; \
+  tar -xzf "$asset" --strip-components=1; \
   rm -f "$asset" "pulumi-${version}-checksums.txt"
-ENV PATH=/home/circleci/.pulumi/bin:$PATH
+
+USER circleci
+WORKDIR /home/circleci/
 
 # Install go tools.
 RUN go install github.com/zegl/kube-score/cmd/kube-score@v1.20.0 \
