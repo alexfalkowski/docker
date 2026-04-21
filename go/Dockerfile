@@ -53,7 +53,7 @@ RUN set -eu; \
   *) echo "unsupported arch: $arch" >&2; exit 1 ;; \
   esac; \
   asset="buf-Linux-${buf_arch}"; \
-  base_url="https://github.com/bufbuild/buf/releases/download/v1.68.1"; \
+  base_url="https://github.com/bufbuild/buf/releases/download/v1.68.3"; \
   curl -fsSLo "$asset" "$base_url/$asset"; \
   curl -fsSLo sha256.txt "$base_url/sha256.txt"; \
   grep "  ${asset}$" sha256.txt | sha256sum -c -; \
