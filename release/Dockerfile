@@ -1,10 +1,10 @@
-FROM alexfalkowski/root:2.4
+FROM alexfalkowski/root:2.5
 
 USER root
 
 # Install release tools from pinned .deb packages.
 RUN set -eux; \
-  goreleaser_version="2.15.3"; \
+  goreleaser_version="2.15.4"; \
   uplift_version="2.26.0"; \
   machine="$(dpkg --print-architecture)"; \
   goreleaser_deb="goreleaser_${goreleaser_version}_${machine}.deb"; \
