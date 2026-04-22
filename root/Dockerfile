@@ -22,7 +22,7 @@ RUN set -eu; \
 
 # Install ruby.
 WORKDIR /home/circleci/
-ENV RUBY_VERSION=ruby-4.0.2
+ENV RUBY_VERSION=ruby-4.0.3
 ENV RUBY_FILE=$RUBY_VERSION.tar.gz
 RUN curl -fsSLO https://cache.ruby-lang.org/pub/ruby/4.0/$RUBY_FILE \
   && tar -C . -xzf $RUBY_FILE \
