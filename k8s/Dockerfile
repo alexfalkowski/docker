@@ -6,7 +6,7 @@ WORKDIR /usr/local/bin
 # Install kubectl.
 RUN set -eu; \
   machine="$(dpkg --print-architecture)"; \
-  base_url="https://dl.k8s.io/release/v1.35.1/bin/linux/${machine}"; \
+  base_url="https://dl.k8s.io/release/v1.36.0/bin/linux/${machine}"; \
   curl -fsSLo kubectl "$base_url/kubectl"; \
   curl -fsSLo kubectl.sha256 "$base_url/kubectl.sha256"; \
   echo "$(cat kubectl.sha256)  kubectl" | sha256sum -c -; \
@@ -65,7 +65,7 @@ RUN set -eu; \
 
 # Install pulumi.
 RUN set -eux; \
-  version="3.231.0"; \
+  version="3.232.0"; \
   machine="$(dpkg --print-architecture)"; \
   case "$machine" in \
   amd64) pulumi_arch="x64" ;; \
