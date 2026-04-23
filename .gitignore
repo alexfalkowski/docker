@@ -1,4 +1,1 @@
-*.pem
-assets/*.geojson
-assets/*.bin
-assets/*.mmdb
+release/oteldel/bin/

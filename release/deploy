@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2155
+# shellcheck disable=SC2155,SC1091
 
 set -eo pipefail
+
+source "$(dirname "$0")/oteldel.sh"
+
+oteldel_start "deploy_request"
+trap 'oteldel_finalize "$?"' EXIT
 
 if [ -f ".cd" ]; then
   readonly version_file="${APP_VERSION_FILE:-/tmp/workspace/release-version.txt}"
@@ -10,13 +15,31 @@ if [ -f ".cd" ]; then
     readonly name=$(basename "$PWD")
     readonly version="$(cat "$version_file")"
     readonly desc="https://github.com/alexfalkowski/$name/releases/tag/$version"
+    readonly deployment_start="$(oteldel_now)"
 
     # Get the repo.
-    git clone --filter=blob:none git@github.com:alexfalkowski/infraops.git
-    (cd infraops && git submodule sync && git submodule update --init)
+    if ! git clone --filter=blob:none git@github.com:alexfalkowski/infraops.git; then
+      oteldel_set_error_type "git_failed"
+      oteldel_emit_deployment_request "failure" "$(oteldel_elapsed_since "$deployment_start")"
+      exit 1
+    fi
+    if ! (cd infraops && git submodule sync && git submodule update --init); then
+      oteldel_set_error_type "git_failed"
+      oteldel_emit_deployment_request "failure" "$(oteldel_elapsed_since "$deployment_start")"
+      exit 1
+    fi
 
     # Bump the version and raise a PR.
-    (cd infraops && make name="$name" new-release && bump -n "$name" -v "${version:1}" && make msg="upgraded to $version" desc="${desc}" ready)
+    if ! (cd infraops && make name="$name" new-release && bump -n "$name" -v "${version:1}" && make msg="upgraded to $version" desc="${desc}" ready); then
+      oteldel_set_error_type "infraops_failed"
+      oteldel_emit_deployment_request "failure" "$(oteldel_elapsed_since "$deployment_start")"
+      exit 1
+    fi
+    oteldel_emit_deployment_request "success" "$(oteldel_elapsed_since "$deployment_start")"
     rm -rf infraops
+  else
+    oteldel_mark_skip
   fi
+else
+  oteldel_mark_skip
 fi

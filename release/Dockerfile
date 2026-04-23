@@ -47,6 +47,18 @@ RUN chmod +x /usr/local/bin/package
 COPY version /usr/local/bin/
 RUN chmod +x /usr/local/bin/version
 
+COPY oteldel.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/oteldel.sh
+
+WORKDIR /tmp/oteldel
+COPY oteldel/go.mod oteldel/go.sum ./
+RUN go mod download
+COPY oteldel ./
+RUN go build -o /usr/local/bin/oteldel ./cmd/oteldel \
+  && go clean --cache -testcache -fuzzcache -modcache \
+  && chown -R circleci:circleci /home/circleci/go \
+  && rm -rf /tmp/oteldel /root/go /root/.cache
+
 USER circleci
 WORKDIR /home/circleci/
 

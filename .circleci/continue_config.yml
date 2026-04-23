@@ -277,6 +277,39 @@ jobs:
       - run: make -C k8s manifest-platform-docker
     resource_class: arm.large
 
+  release-oteldel:
+    docker:
+      - image: alexfalkowski/go:3.16
+    working_directory: ~/docker
+    steps:
+      - checkout:
+          method: blobless
+      - run: git submodule sync
+      - run: git submodule update --init
+      - restore_cache:
+          name: restore release oteldel go cache
+          keys:
+            - release-oteldel-go-cache-v1-{{ checksum "release/oteldel/go.sum" }}
+            - release-oteldel-go-cache-v1-
+      - run: make -C release/oteldel dep
+      - save_cache:
+          name: save release oteldel go cache
+          key: release-oteldel-go-cache-v1-{{ checksum "release/oteldel/go.sum" }}
+          paths:
+            - ~/go/pkg/mod
+      - restore_cache:
+          name: restore release oteldel go build cache
+          keys:
+            - release-oteldel-go-build-cache-v1-{{ checksum "release/oteldel/go.sum" }}
+            - release-oteldel-go-build-cache-v1-
+      - run: make -C release/oteldel lint
+      - run: make -C release/oteldel test
+      - save_cache:
+          name: save release oteldel go build cache
+          key: release-oteldel-go-build-cache-v1-{{ checksum "release/oteldel/go.sum" }}
+          paths:
+            - ~/.cache/go-build
+    resource_class: arm.large
   release-build-amd64:
     docker:
       - image: alexfalkowski/docker:2.6
@@ -557,6 +590,8 @@ workflows:
             - k8s-push-arm64
           filters: 'pipeline.parameters.k8s and pipeline.git.branch == "master"'
 
+      - release-oteldel:
+          filters: 'pipeline.parameters.release'
       - release-build-amd64:
           filters: 'pipeline.parameters.release and pipeline.git.branch != "master"'
       - release-build-arm64:
@@ -627,6 +662,7 @@ workflows:
             - k8s-push-amd64
             - k8s-push-arm64
             - k8s-manifest
+            - release-oteldel
             - release-build-amd64
             - release-build-arm64
             - release-push-amd64

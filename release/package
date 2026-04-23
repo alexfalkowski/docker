@@ -1,15 +1,36 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2155
+# shellcheck disable=SC2155,SC1091
 
 set -eo pipefail
+
+source "$(dirname "$0")/oteldel.sh"
+
+oteldel_start "package"
+trap 'oteldel_finalize "$?"' EXIT
 
 readonly releaser=$(find . -name "*goreleaser*" -not -path "*vendor*")
 
 if [ -n "$releaser" ]; then
-  readonly message=$(git log --pretty=format:"%s" -n 1)
+  if ! message=$(git log --pretty=format:"%s" -n 1); then
+    oteldel_set_error_type "git_failed"
+    exit 1
+  fi
+  readonly message
   readonly message_pattern='^(feat|fix)(\([^)]*\))?!?:'
 
   if [[ "$message" =~ $message_pattern ]]; then
-    goreleaser release
+    readonly artifact_start="$(oteldel_now)"
+
+    if goreleaser release; then
+      oteldel_emit_artifact_publish "success" "$(oteldel_elapsed_since "$artifact_start")"
+    else
+      oteldel_set_error_type "release_tool_failed"
+      oteldel_emit_artifact_publish "failure" "$(oteldel_elapsed_since "$artifact_start")"
+      exit 1
+    fi
+  else
+    oteldel_mark_skip
   fi
+else
+  oteldel_mark_skip
 fi

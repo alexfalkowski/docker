@@ -1,18 +1,35 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2155
+# shellcheck disable=SC2155,SC1091
 
 set -eo pipefail
+
+source "$(dirname "$0")/oteldel.sh"
+
+oteldel_start "version"
+trap 'oteldel_finalize "$?"' EXIT
 
 readonly version_file="${APP_VERSION_FILE:-/tmp/workspace/release-version.txt}"
 
 mkdir -p "$(dirname "$version_file")"
 rm -f "$version_file"
 
-uplift release --skip-changelog --config-dir /etc/uplift
+if ! uplift release --skip-changelog --config-dir /etc/uplift; then
+  oteldel_set_error_type "release_tool_failed"
+  exit 1
+fi
 
-readonly message=$(git log --pretty=format:"%s" -n 1)
+if ! message=$(git log --pretty=format:"%s" -n 1); then
+  oteldel_set_error_type "git_failed"
+  exit 1
+fi
+readonly message
 readonly message_pattern='^(feat|fix)(\([^)]*\))?!?:'
 
 if [[ "$message" =~ $message_pattern ]]; then
-  git tag | sort -V | tail -1 > "$version_file"
+  if ! git tag | sort -V | tail -1 > "$version_file"; then
+    oteldel_set_error_type "git_failed"
+    exit 1
+  fi
+else
+  oteldel_mark_skip
 fi
