@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:2.5
+FROM alexfalkowski/root:2.6
 
 USER root
 
@@ -23,7 +23,7 @@ RUN set -eux; \
 
 # Install gh from a downloaded .deb.
 RUN set -eux; \
-  version="2.91.0"; \
+  version="2.92.0"; \
   machine="$(dpkg --print-architecture)"; \
   asset="gh_${version}_linux_${machine}.deb"; \
   base_url="https://github.com/cli/cli/releases/download/v${version}"; \
