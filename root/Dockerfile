@@ -44,7 +44,7 @@ WORKDIR /usr/local/bin
 RUN set -eu; \
   machine="$(dpkg --print-architecture)"; \
   asset="bazelisk-linux-${machine}"; \
-  curl -fsSLo "$asset" "https://github.com/bazelbuild/bazelisk/releases/download/v1.28.1/${asset}"; \
+  curl -fsSLo "$asset" "https://github.com/bazelbuild/bazelisk/releases/download/v1.29.0/${asset}"; \
   mv "$asset" bazelisk; \
   chmod +x bazelisk
 
