@@ -18,6 +18,7 @@ Each top-level directory is an image (or runtime config used by the compose stac
     - `Dockerfile`
     - `Makefile` declaring `IMAGE` and `VERSION`
     - `.hadolint.yaml` (image-specific hadolint rule suppressions)
+    - `scripts/install-image-tool.d/` snippets for image-specific tool installs
 - Local dependency stack:
   - `compose.yml`
   - `grafana/`, `otelcol/`, `prometheus/`, `status/` (config mounted into compose services)
@@ -26,6 +27,7 @@ Each top-level directory is an image (or runtime config used by the compose stac
 - Helper scripts:
   - `scripts/compose` (prefers `podman compose`, falls back to `docker compose`)
   - `scripts/clean` (prunes unused images)
+  - `scripts/install-image-tool` (shared image build-time installer runner)
   - `scripts/lint` (runs hadolint + shellcheck)
 
 ## Prerequisites
@@ -66,12 +68,14 @@ What it does (see `scripts/lint`):
 
 - Runs `hadolint` against every `Dockerfile` in the repo (excluding `./bin`).
 - Runs `shellcheck` against:
-  - `scripts/lint`, `scripts/clean`, `scripts/compose`
+  - `scripts/lint`, `scripts/clean`, `scripts/compose`, `scripts/install-image-tool`
   - `release/deploy`, `release/package`, `release/version`
+  - per-image `scripts/install-image-tool.d/*` snippets
 
 ### Build images locally
 
 Each image directory has a `Makefile` that sets `IMAGE` and `VERSION` and then includes `../make/docker.mk`.
+The shared build targets run from the image directory but use the repository root as Docker build context so Dockerfiles can copy the shared installer script.
 
 Build an image locally:
 
@@ -81,7 +85,7 @@ make -C go build-docker
 
 That produces a local image tagged like:
 
-- `alexfalkowski/go:3.10` (based on `go/Makefile`)
+- `alexfalkowski/go:<VERSION>` (based on `go/Makefile`)
 
 Build another image:
 
@@ -117,7 +121,7 @@ make -C go manifest-platform-docker
 
 This pushes two manifests:
 
-- `alexfalkowski/go:3.10`
+- `alexfalkowski/go:<VERSION>`
 - `alexfalkowski/go` (equivalent to `:latest`)
 
 ## Compose (local dependencies)
