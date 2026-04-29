@@ -1,0 +1,20 @@
+# shellcheck shell=bash
+
+version="${TRIVY_VERSION:-0.70.0}"
+
+case "$(debian_arch)" in
+  amd64) arch="64bit" ;;
+  arm64) arch="ARM64" ;;
+  *) unsupported_arch "$(debian_arch)" ;;
+esac
+
+asset="trivy_${version}_Linux-${arch}.tar.gz"
+base_url="https://github.com/aquasecurity/trivy/releases/download/v${version}"
+checksum_file="trivy_${version}_checksums.txt"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/$checksum_file" "$checksum_file"
+verify_checksum_file "$checksum_file" "$asset"
+
+tar -xzf "$asset" trivy
+install_binary trivy trivy

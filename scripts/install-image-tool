@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ "$#" -ne 1 ]]; then
+  echo "usage: install-image-tool <tool>" >&2
+  exit 2
+fi
+
+readonly tool="$1"
+
+case "$tool" in
+  "" | *[!a-zA-Z0-9._-]*)
+    echo "invalid tool: $tool" >&2
+    exit 2
+    ;;
+esac
+
+readonly installer="/usr/local/lib/install-image-tool/$tool"
+
+if [[ ! -f "$installer" ]]; then
+  echo "unknown tool: $tool" >&2
+  exit 2
+fi
+
+tmp_dir="$(mktemp -d)"
+readonly tmp_dir
+
+cleanup() {
+  rm -rf "$tmp_dir"
+}
+
+trap cleanup EXIT
+
+cd "$tmp_dir"
+
+debian_arch() {
+  dpkg --print-architecture
+}
+
+unsupported_arch() {
+  echo "unsupported arch: $1" >&2
+  exit 1
+}
+
+download() {
+  local url="$1"
+  local output="$2"
+
+  curl -fsSLo "$output" "$url"
+}
+
+verify_digest_file() {
+  local digest_file="$1"
+  local asset="$2"
+
+  echo "$(cat "$digest_file")  $asset" | sha256sum -c -
+}
+
+verify_checksum_file() {
+  local checksum_file="$1"
+  local asset="$2"
+
+  grep "  ${asset}$" "$checksum_file" | sha256sum -c -
+}
+
+install_binary() {
+  local source="$1"
+  local target="$2"
+
+  install -Dm755 "$source" "/usr/local/bin/$target"
+}
+
+# shellcheck source=/dev/null
+. "$installer"

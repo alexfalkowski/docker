@@ -1,0 +1,17 @@
+# shellcheck shell=bash
+
+version="${SHELLCHECK_VERSION:-v0.11.0}"
+
+case "$(uname -m)" in
+  x86_64 | amd64) arch="x86_64" ;;
+  aarch64 | arm64) arch="aarch64" ;;
+  *) unsupported_arch "$(uname -m)" ;;
+esac
+
+asset="shellcheck-${version}.linux.${arch}.tar.xz"
+base_url="https://github.com/koalaman/shellcheck/releases/download/${version}"
+
+download "$base_url/$asset" "$asset"
+
+tar -xJf "$asset"
+install_binary "shellcheck-${version}/shellcheck" shellcheck

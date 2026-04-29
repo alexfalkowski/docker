@@ -1,0 +1,15 @@
+# shellcheck shell=bash
+
+version="${UPLIFT_VERSION:-2.26.0}"
+arch="$(debian_arch)"
+asset="uplift_${version}_${arch}.deb"
+base_url="https://github.com/gembaadvantage/uplift/releases/download/v${version}"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/checksums.txt" checksums.txt
+verify_checksum_file checksums.txt "$asset"
+
+apt-get update
+apt-get install --no-install-recommends -y "./${asset}"
+apt-get clean
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

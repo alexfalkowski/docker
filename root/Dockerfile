@@ -10,43 +10,23 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libyaml-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install go
-WORKDIR /usr/local
 ENV GO_VERSION=1.26.2
-RUN set -eu; \
-  machine="$(dpkg --print-architecture)"; \
-  asset="go${GO_VERSION}.linux-${machine}.tar.gz"; \
-  curl -fsSLO "https://go.dev/dl/${asset}"; \
-  tar -C . -xf "$asset"; \
-  rm -f "$asset"
-
-# Install ruby.
-WORKDIR /home/circleci/
 ENV RUBY_VERSION=ruby-4.0.3
-ENV RUBY_FILE=$RUBY_VERSION.tar.gz
-RUN curl -fsSLO https://cache.ruby-lang.org/pub/ruby/4.0/$RUBY_FILE \
-  && tar -C . -xzf $RUBY_FILE \
-  && rm $RUBY_FILE
+ARG BAZELISK_VERSION=v1.29.0
 
-WORKDIR /home/circleci/$RUBY_VERSION
-RUN ./configure \
-  && make \
-  && make install \
-  && rm -rf /home/circleci/$RUBY_VERSION
+WORKDIR /usr/local/bin
+COPY scripts/install-image-tool /usr/local/bin/install-image-tool
+COPY root/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
+RUN chmod +x /usr/local/bin/install-image-tool \
+  && install-image-tool go \
+  && install-image-tool ruby
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
 RUN gem update --system 4.0.8 \
   && gem install bundler -v 4.0.8 \
   && gem install executable-hooks -v 1.7.1
 
-# Install bazelisk.
-WORKDIR /usr/local/bin
-RUN set -eu; \
-  machine="$(dpkg --print-architecture)"; \
-  asset="bazelisk-linux-${machine}"; \
-  curl -fsSLo "$asset" "https://github.com/bazelbuild/bazelisk/releases/download/v1.29.0/${asset}"; \
-  mv "$asset" bazelisk; \
-  chmod +x bazelisk
+RUN install-image-tool bazelisk
 
 USER circleci
 WORKDIR /home/circleci/

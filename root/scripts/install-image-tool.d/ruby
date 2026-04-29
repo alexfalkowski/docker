@@ -1,0 +1,19 @@
+# shellcheck shell=bash
+
+version="${RUBY_VERSION:-ruby-4.0.3}"
+ruby_version="${version#ruby-}"
+ruby_series="${ruby_version%.*}"
+asset="${version}.tar.gz"
+base_url="https://cache.ruby-lang.org/pub/ruby/${ruby_series}"
+source_dir="/home/circleci/${version}"
+
+download "$base_url/$asset" "$asset"
+
+tar -C /home/circleci -xzf "$asset"
+(
+  cd "$source_dir" || exit
+  ./configure
+  make
+  make install
+)
+rm -rf "$source_dir"

@@ -1,0 +1,11 @@
+# shellcheck shell=bash
+
+version="${KUBECTL_VERSION:-1.36.0}"
+arch="$(debian_arch)"
+base_url="https://dl.k8s.io/release/v${version}/bin/linux/${arch}"
+
+download "$base_url/kubectl" kubectl
+download "$base_url/kubectl.sha256" kubectl.sha256
+verify_digest_file kubectl.sha256 kubectl
+
+install_binary kubectl kubectl

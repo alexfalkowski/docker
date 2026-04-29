@@ -1,0 +1,25 @@
+# shellcheck shell=bash
+
+version="${PULUMI_VERSION:-3.232.0}"
+
+case "$(debian_arch)" in
+  amd64) arch="x64" ;;
+  arm64) arch="arm64" ;;
+  *) unsupported_arch "$(debian_arch)" ;;
+esac
+
+asset="pulumi-v${version}-linux-${arch}.tar.gz"
+base_url="https://github.com/pulumi/pulumi/releases/download/v${version}"
+checksum_file="pulumi-${version}-checksums.txt"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/$checksum_file" "$checksum_file"
+verify_checksum_file "$checksum_file" "$asset"
+
+mkdir pulumi
+tar -C pulumi -xzf "$asset" --strip-components=1
+
+for binary in pulumi/*; do
+  [[ -f "$binary" ]] || continue
+  install_binary "$binary" "$(basename "$binary")"
+done

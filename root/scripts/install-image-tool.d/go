@@ -1,0 +1,10 @@
+# shellcheck shell=bash
+
+version="${GO_VERSION:-1.26.2}"
+arch="$(debian_arch)"
+asset="go${version}.linux-${arch}.tar.gz"
+base_url="https://go.dev/dl"
+
+download "$base_url/$asset" "$asset"
+
+tar -C /usr/local -xf "$asset"

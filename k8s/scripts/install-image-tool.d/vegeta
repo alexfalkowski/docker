@@ -1,0 +1,14 @@
+# shellcheck shell=bash
+
+version="${VEGETA_VERSION:-12.12.0}"
+arch="$(debian_arch)"
+asset="vegeta_${version}_linux_${arch}.tar.gz"
+base_url="https://github.com/tsenart/vegeta/releases/download/v${version}"
+checksum_file="vegeta_${version}_checksums.txt"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/$checksum_file" "$checksum_file"
+verify_checksum_file "$checksum_file" "$asset"
+
+tar -xzf "$asset"
+install_binary vegeta vegeta

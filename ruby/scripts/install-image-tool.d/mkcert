@@ -1,0 +1,9 @@
+# shellcheck shell=bash
+
+version="${MKCERT_VERSION:-v1.4.4}"
+arch="$(debian_arch)"
+asset="mkcert-${version}-linux-${arch}"
+base_url="https://github.com/FiloSottile/mkcert/releases/download/${version}"
+
+download "$base_url/$asset" "$asset"
+install_binary "$asset" mkcert

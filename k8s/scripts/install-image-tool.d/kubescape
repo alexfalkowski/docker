@@ -1,0 +1,13 @@
+# shellcheck shell=bash
+
+version="${KUBESCAPE_VERSION:-4.0.5}"
+arch="$(debian_arch)"
+asset="kubescape_${version}_linux_${arch}.tar.gz"
+base_url="https://github.com/kubescape/kubescape/releases/download/v${version}"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/checksums.sha256" checksums.sha256
+verify_checksum_file checksums.sha256 "$asset"
+
+tar -xzf "$asset" kubescape
+install_binary kubescape kubescape

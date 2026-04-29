@@ -1,0 +1,18 @@
+# shellcheck shell=bash
+
+version="${HADOLINT_VERSION:-v2.14.0}"
+
+case "$(uname -m)" in
+  x86_64 | amd64) arch="x86_64" ;;
+  aarch64 | arm64) arch="arm64" ;;
+  *) unsupported_arch "$(uname -m)" ;;
+esac
+
+asset="hadolint-linux-${arch}"
+base_url="https://github.com/hadolint/hadolint/releases/download/${version}"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/$asset.sha256" "$asset.sha256"
+sha256sum -c "$asset.sha256"
+
+install_binary "$asset" hadolint

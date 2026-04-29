@@ -1,0 +1,15 @@
+# shellcheck shell=bash
+
+version="${GORELEASER_VERSION:-2.15.4}"
+arch="$(debian_arch)"
+asset="goreleaser_${version}_${arch}.deb"
+base_url="https://github.com/goreleaser/goreleaser/releases/download/v${version}"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/checksums.txt" checksums.txt
+verify_checksum_file checksums.txt "$asset"
+
+apt-get update
+apt-get install --no-install-recommends -y "./${asset}"
+apt-get clean
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
