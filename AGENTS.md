@@ -1,6 +1,8 @@
 # AGENTS.md
 
-This repo builds Docker images plus a `compose.yml` local dependency stack. Use the shared `coding-standards` skill from `./bin/skills/coding-standards`; this file only adds repo-specific context.
+This repo builds Docker images plus a `compose.yml` local dependency stack.
+
+Use the shared `coding-standards` skill from `bin/skills/coding-standards` for code changes, bug fixes, refactors, reviews, tests, linting, documentation, PR summaries, commits, Makefile changes, CI validation, and verification.
 
 ## Setup
 
