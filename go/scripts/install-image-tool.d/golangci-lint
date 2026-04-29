@@ -1,0 +1,14 @@
+# shellcheck shell=bash
+
+version="${GO_LINT_VERSION:-2.11.4}"
+arch="$(debian_arch)"
+asset="golangci-lint-${version}-linux-${arch}.tar.gz"
+base_url="https://github.com/golangci/golangci-lint/releases/download/v${version}"
+checksum_file="golangci-lint-${version}-checksums.txt"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/$checksum_file" "$checksum_file"
+verify_checksum_file "$checksum_file" "$asset"
+
+tar -xzf "$asset"
+install_binary "golangci-lint-${version}-linux-${arch}/golangci-lint" golangci-lint

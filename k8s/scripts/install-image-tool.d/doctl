@@ -1,0 +1,14 @@
+# shellcheck shell=bash
+
+version="${DOCTL_VERSION:-1.155.0}"
+arch="$(debian_arch)"
+asset="doctl-${version}-linux-${arch}.tar.gz"
+base_url="https://github.com/digitalocean/doctl/releases/download/v${version}"
+checksum_file="doctl-${version}-checksums.sha256"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/$checksum_file" "$checksum_file"
+verify_checksum_file "$checksum_file" "$asset"
+
+tar -xzf "$asset"
+install_binary doctl doctl

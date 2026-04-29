@@ -1,18 +1,18 @@
 # Build docker image.
 build-docker:
-	docker build -t alexfalkowski/$(IMAGE):$(VERSION) .
+	docker build -f Dockerfile -t alexfalkowski/$(IMAGE):$(VERSION) ..
 
 # Push built docker image.
 push-docker:
-	docker build -t alexfalkowski/$(IMAGE):$(VERSION) -t alexfalkowski/$(IMAGE) --push .
+	docker build -f Dockerfile -t alexfalkowski/$(IMAGE):$(VERSION) -t alexfalkowski/$(IMAGE) --push ..
 
 # Build platform docker image.
 build-platform-docker:
-	docker build -t alexfalkowski/$(IMAGE):$(VERSION).$(platform) .
+	docker build -f Dockerfile -t alexfalkowski/$(IMAGE):$(VERSION).$(platform) ..
 
 # Push built platform docker image.
 push-platform-docker:
-	docker build -t alexfalkowski/$(IMAGE):$(VERSION).$(platform) --push .
+	docker build -f Dockerfile -t alexfalkowski/$(IMAGE):$(VERSION).$(platform) --push ..
 
 manifest-platform-version-docker:
 	docker manifest create alexfalkowski/$(IMAGE):$(VERSION) --amend alexfalkowski/$(IMAGE):$(VERSION).amd64 --amend alexfalkowski/$(IMAGE):$(VERSION).arm64

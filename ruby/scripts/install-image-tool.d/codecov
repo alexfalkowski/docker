@@ -1,0 +1,14 @@
+# shellcheck shell=bash
+
+version="${CODECOV_VERSION:-v11.2.8}"
+
+case "$(uname -m)" in
+  x86_64 | amd64) asset="codecovcli_linux" ;;
+  aarch64 | arm64) asset="codecovcli_linux_arm64" ;;
+  *) unsupported_arch "$(uname -m)" ;;
+esac
+
+base_url="https://github.com/getsentry/prevent-cli/releases/download/${version}"
+
+download "$base_url/$asset" codecovcli
+install_binary codecovcli codecovcli

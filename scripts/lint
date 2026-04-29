@@ -14,4 +14,11 @@ done < <(find . -path ./bin -prune -o -type f -name 'Dockerfile' -print0)
 
 # Shellcheck all scripts
 echo "shellcheck: all scripts"
-shellcheck scripts/lint scripts/clean scripts/compose release/deploy release/package release/version
+shellcheck scripts/lint scripts/clean scripts/compose scripts/install-image-tool \
+  release/deploy release/package release/version \
+  docker/scripts/install-image-tool.d/* \
+  go/scripts/install-image-tool.d/* \
+  k8s/scripts/install-image-tool.d/* \
+  release/scripts/install-image-tool.d/* \
+  root/scripts/install-image-tool.d/* \
+  ruby/scripts/install-image-tool.d/*

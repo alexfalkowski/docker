@@ -1,0 +1,13 @@
+# shellcheck shell=bash
+
+version="${HELM_VERSION:-v4.1.1}"
+arch="$(debian_arch)"
+asset="helm-${version}-linux-${arch}.tar.gz"
+base_url="https://get.helm.sh"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/$asset.sha256sum" "$asset.sha256sum"
+sha256sum -c "$asset.sha256sum"
+
+tar -xzf "$asset"
+install_binary "linux-${arch}/helm" helm

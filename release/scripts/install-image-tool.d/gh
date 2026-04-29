@@ -1,0 +1,13 @@
+# shellcheck shell=bash
+
+version="${GH_VERSION:-2.92.0}"
+arch="$(debian_arch)"
+asset="gh_${version}_linux_${arch}.deb"
+base_url="https://github.com/cli/cli/releases/download/v${version}"
+checksum_file="gh_${version}_checksums.txt"
+
+download "$base_url/$asset" "$asset"
+download "$base_url/$checksum_file" "$checksum_file"
+verify_checksum_file "$checksum_file" "$asset"
+
+dpkg -i "$asset"
