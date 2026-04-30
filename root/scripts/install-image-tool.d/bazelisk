@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${BAZELISK_VERSION:-v1.29.0}"
+version="${1:-v1.29.0}"
 arch="$(debian_arch)"
 asset="bazelisk-linux-${arch}"
 base_url="https://github.com/bazelbuild/bazelisk/releases/download/${version}"

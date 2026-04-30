@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${HELM_VERSION:-v4.1.1}"
+version="${1:-v4.1.1}"
 arch="$(debian_arch)"
 asset="helm-${version}-linux-${arch}.tar.gz"
 base_url="https://get.helm.sh"

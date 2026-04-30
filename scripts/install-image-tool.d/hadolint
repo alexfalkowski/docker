@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${HADOLINT_VERSION:-v2.14.0}"
+version="${1:-v2.14.0}"
 
 case "$(uname -m)" in
   x86_64 | amd64) arch="x86_64" ;;

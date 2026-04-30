@@ -20,7 +20,7 @@ Use the shared `coding-standards` skill from `bin/skills/coding-standards` for c
 - Image directories: `docker/`, `go/`, `k8s/`, `release/`, `root/`, `ruby/`.
 - Each image directory has `Dockerfile`, `Makefile`, `.hadolint.yaml`, and may have `scripts/install-image-tool.d/`.
 - Shared image build targets live in `make/docker.mk`.
-- Shared scripts live in `scripts/`; `scripts/install-image-tool` is the common runner used by Dockerfiles.
+- Shared scripts live in `scripts/`; `scripts/install-image-tool` is the common runner used by Dockerfiles as `install-image-tool <tool> [version]`.
 - Shared install snippets used by multiple images live in `scripts/install-image-tool.d/`.
 - CircleCI path-filtering and workflows live under `.circleci/`.
 
@@ -52,7 +52,7 @@ Use the shared `coding-standards` skill from `bin/skills/coding-standards` for c
 - Image `Makefile`s set `IMAGE` and `VERSION`, then include `../make/docker.mk`.
 - `make/docker.mk` intentionally builds from the repo root context with `docker build -f Dockerfile ... ..` so Dockerfiles can copy shared files such as `scripts/install-image-tool`.
 - Keep `.dockerignore` current when adding large or sensitive top-level paths.
-- Dockerfiles should call `install-image-tool`; put reusable download/checksum/extract logic in `scripts/install-image-tool.d/` and image-specific logic in that image's `scripts/install-image-tool.d/` directory.
+- Dockerfiles should call `install-image-tool <tool> <version>`; put reusable download/checksum/extract logic in `scripts/install-image-tool.d/` and image-specific logic in that image's `scripts/install-image-tool.d/` directory.
 - If changing hadolint suppressions, update the image directory's `.hadolint.yaml`; there is no top-level hadolint config.
 
 ## Release Image

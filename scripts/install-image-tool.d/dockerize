@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${DOCKERIZE_VERSION:-v0.9.3}"
+version="${1:-v0.9.3}"
 arch="$(debian_arch)"
 asset="dockerize-linux-${arch}-${version}.tar.gz"
 base_url="https://github.com/jwilder/dockerize/releases/download/${version}"

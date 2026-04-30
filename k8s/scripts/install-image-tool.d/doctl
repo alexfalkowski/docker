@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${DOCTL_VERSION:-1.155.0}"
+version="${1:-1.155.0}"
 arch="$(debian_arch)"
 asset="doctl-${version}-linux-${arch}.tar.gz"
 base_url="https://github.com/digitalocean/doctl/releases/download/v${version}"

@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${KUBESCAPE_VERSION:-4.0.5}"
+version="${1:-4.0.5}"
 arch="$(debian_arch)"
 asset="kubescape_${version}_linux_${arch}.tar.gz"
 base_url="https://github.com/kubescape/kubescape/releases/download/v${version}"

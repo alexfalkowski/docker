@@ -27,7 +27,7 @@ Each top-level directory is an image (or runtime config used by the compose stac
 - Helper scripts:
   - `scripts/compose` (prefers `podman compose`, falls back to `docker compose`)
   - `scripts/clean` (prunes unused images)
-  - `scripts/install-image-tool` (shared image build-time installer runner)
+  - `scripts/install-image-tool` (shared image build-time installer runner: `install-image-tool <tool> [version]`)
   - `scripts/install-image-tool.d/` (shared install snippets used by multiple images)
   - `scripts/lint` (runs hadolint + shellcheck)
 
@@ -78,6 +78,7 @@ What it does (see `scripts/lint`):
 
 Each image directory has a `Makefile` that sets `IMAGE` and `VERSION` and then includes `../make/docker.mk`.
 The shared build targets run from the image directory but use the repository root as Docker build context so Dockerfiles can copy the shared installer script.
+Dockerfiles pass tool versions directly to `install-image-tool <tool> [version]`; installer snippets keep defaults for manual use.
 
 Build an image locally:
 

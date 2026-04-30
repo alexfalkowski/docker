@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${UPLIFT_VERSION:-2.26.0}"
+version="${1:-2.26.0}"
 arch="$(debian_arch)"
 asset="uplift_${version}_${arch}.deb"
 base_url="https://github.com/gembaadvantage/uplift/releases/download/v${version}"
