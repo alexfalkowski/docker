@@ -4,15 +4,16 @@ USER root
 WORKDIR /usr/local/bin
 
 ENV DOCKERIZE_VERSION=v0.9.3
-ENV SHELLCHECK_VERSION=v0.10.0
+ENV SHELLCHECK_VERSION=v0.11.0
 ENV MKCERT_VERSION=v1.4.4
 ENV GO_LINT_VERSION=2.11.4
 ARG HADOLINT_VERSION=v2.14.0
-ARG BUF_VERSION=v1.68.4
+ARG BUF_VERSION=v1.69.0
 ARG TRIVY_VERSION=0.70.0
 ARG CODECOV_VERSION=v11.2.8
 
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
+COPY scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 COPY go/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool dockerize \
