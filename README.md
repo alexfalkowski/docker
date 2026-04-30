@@ -18,7 +18,7 @@ Each top-level directory is an image (or runtime config used by the compose stac
     - `Dockerfile`
     - `Makefile` declaring `IMAGE` and `VERSION`
     - `.hadolint.yaml` (image-specific hadolint rule suppressions)
-    - `scripts/install-image-tool.d/` snippets for image-specific tool installs
+    - `scripts/install-image-tool.d/` snippets for image-specific tool installs, when needed
 - Local dependency stack:
   - `compose.yml`
   - `grafana/`, `otelcol/`, `prometheus/`, `status/` (config mounted into compose services)
@@ -28,6 +28,7 @@ Each top-level directory is an image (or runtime config used by the compose stac
   - `scripts/compose` (prefers `podman compose`, falls back to `docker compose`)
   - `scripts/clean` (prunes unused images)
   - `scripts/install-image-tool` (shared image build-time installer runner)
+  - `scripts/install-image-tool.d/` (shared install snippets used by multiple images)
   - `scripts/lint` (runs hadolint + shellcheck)
 
 ## Prerequisites
@@ -70,6 +71,7 @@ What it does (see `scripts/lint`):
 - Runs `shellcheck` against:
   - `scripts/lint`, `scripts/clean`, `scripts/compose`, `scripts/install-image-tool`
   - `release/deploy`, `release/package`, `release/version`
+  - shared `scripts/install-image-tool.d/*` snippets
   - per-image `scripts/install-image-tool.d/*` snippets
 
 ### Build images locally
