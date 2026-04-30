@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:2.7
+FROM alexfalkowski/root:2.8
 
 USER root
 
