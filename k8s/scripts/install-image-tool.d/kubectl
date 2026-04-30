@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${KUBECTL_VERSION:-1.36.0}"
+version="${1:-1.36.0}"
 arch="$(debian_arch)"
 base_url="https://dl.k8s.io/release/v${version}/bin/linux/${arch}"
 

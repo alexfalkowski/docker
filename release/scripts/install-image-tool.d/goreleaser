@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${GORELEASER_VERSION:-2.15.4}"
+version="${1:-2.15.4}"
 arch="$(debian_arch)"
 asset="goreleaser_${version}_${arch}.deb"
 base_url="https://github.com/goreleaser/goreleaser/releases/download/v${version}"

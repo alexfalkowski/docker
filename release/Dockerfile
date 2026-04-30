@@ -2,16 +2,12 @@ FROM alexfalkowski/root:2.7
 
 USER root
 
-ARG GORELEASER_VERSION=2.15.4
-ARG UPLIFT_VERSION=2.26.0
-ARG GH_VERSION=2.92.0
-
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
 COPY release/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 RUN chmod +x /usr/local/bin/install-image-tool \
-  && install-image-tool goreleaser \
-  && install-image-tool uplift \
-  && install-image-tool gh
+  && install-image-tool goreleaser 2.15.4 \
+  && install-image-tool uplift 2.26.0 \
+  && install-image-tool gh 2.92.0
 
 # Add uplift config.
 RUN mkdir /etc/uplift

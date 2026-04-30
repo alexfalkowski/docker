@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${VEGETA_VERSION:-12.12.0}"
+version="${1:-12.12.0}"
 arch="$(debian_arch)"
 asset="vegeta_${version}_linux_${arch}.tar.gz"
 base_url="https://github.com/tsenart/vegeta/releases/download/v${version}"

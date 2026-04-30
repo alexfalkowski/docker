@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${TRIVY_VERSION:-0.70.0}"
+version="${1:-0.70.0}"
 
 case "$(debian_arch)" in
   amd64) arch="64bit" ;;

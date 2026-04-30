@@ -12,21 +12,20 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 ENV GO_VERSION=1.26.2
 ENV RUBY_VERSION=ruby-4.0.3
-ARG BAZELISK_VERSION=v1.29.0
 
 WORKDIR /usr/local/bin
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
 COPY root/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 RUN chmod +x /usr/local/bin/install-image-tool \
-  && install-image-tool go \
-  && install-image-tool ruby
+  && install-image-tool go "$GO_VERSION" \
+  && install-image-tool ruby "$RUBY_VERSION"
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
 RUN gem update --system 4.0.8 \
   && gem install bundler -v 4.0.8 \
   && gem install executable-hooks -v 1.7.1
 
-RUN install-image-tool bazelisk
+RUN install-image-tool bazelisk v1.29.0
 
 USER circleci
 WORKDIR /home/circleci/

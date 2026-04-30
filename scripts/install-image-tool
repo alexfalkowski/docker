@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if [[ "$#" -ne 1 ]]; then
-  echo "usage: install-image-tool <tool>" >&2
+if [[ "$#" -lt 1 || "$#" -gt 2 ]]; then
+  echo "usage: install-image-tool <tool> [version]" >&2
   exit 2
 fi
 
@@ -72,4 +72,4 @@ install_binary() {
 }
 
 # shellcheck source=/dev/null
-. "$installer"
+. "$installer" "${2:-}"

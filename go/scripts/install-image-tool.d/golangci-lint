@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-version="${GO_LINT_VERSION:-2.11.4}"
+version="${1:-2.11.4}"
 arch="$(debian_arch)"
 asset="golangci-lint-${version}-linux-${arch}.tar.gz"
 base_url="https://github.com/golangci/golangci-lint/releases/download/v${version}"
