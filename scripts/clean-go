@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+go clean --cache -testcache -fuzzcache -modcache
+rm -rf go/pkg
+rm -rf .cache

@@ -27,6 +27,8 @@ Each top-level directory is an image (or runtime config used by the compose stac
 - Helper scripts:
   - `scripts/compose` (prefers `podman compose`, falls back to `docker compose`)
   - `scripts/clean` (prunes unused images)
+  - `scripts/clean-go` (shared Go cache cleanup runner: `clean-go`)
+  - `scripts/install-go-tool` (shared Go build-time installer runner: `install-go-tool <module> <version>`)
   - `scripts/install-image-tool` (shared image build-time installer runner: `install-image-tool <tool> [version]`)
   - `scripts/install-image-tool.d/` (shared install snippets used by multiple images)
   - `scripts/lint` (runs hadolint + shellcheck)
@@ -69,7 +71,7 @@ What it does (see `scripts/lint`):
 
 - Runs `hadolint` against every `Dockerfile` in the repo (excluding `./bin`).
 - Runs `shellcheck` against:
-  - `scripts/lint`, `scripts/clean`, `scripts/compose`, `scripts/install-image-tool`
+  - `scripts/lint`, `scripts/clean`, `scripts/clean-go`, `scripts/compose`, `scripts/install-go-tool`, `scripts/install-image-tool`
   - `release/deploy`, `release/package`, `release/version`
   - shared `scripts/install-image-tool.d/*` snippets
   - per-image `scripts/install-image-tool.d/*` snippets
@@ -79,6 +81,8 @@ What it does (see `scripts/lint`):
 Each image directory has a `Makefile` that sets `IMAGE` and `VERSION` and then includes `../make/docker.mk`.
 The shared build targets run from the image directory but use the repository root as Docker build context so Dockerfiles can copy the shared installer script.
 Dockerfiles pass tool versions directly to `install-image-tool <tool> [version]`; installer snippets keep defaults for manual use.
+Go tools are installed with `install-go-tool <module> <version>`, which runs `go install <module>@<version>`.
+Go caches are cleaned with `clean-go`.
 
 Build an image locally:
 

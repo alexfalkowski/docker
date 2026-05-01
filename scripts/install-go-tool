@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ "$#" -ne 2 ]]; then
+  echo "usage: install-go-tool <module> <version>" >&2
+  exit 2
+fi
+
+readonly module="$1"
+readonly version="$2"
+
+case "$module" in
+  "" | *@* | *[[:space:]]*)
+    echo "invalid module: $module" >&2
+    exit 2
+    ;;
+esac
+
+case "$version" in
+  "" | *@* | *[[:space:]]*)
+    echo "invalid version: $version" >&2
+    exit 2
+    ;;
+esac
+
+go install "$module@$version"
