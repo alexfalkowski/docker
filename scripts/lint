@@ -17,7 +17,9 @@ echo "shellcheck: all scripts"
 shellcheck_args=(
   scripts/lint
   scripts/clean
+  scripts/clean-go
   scripts/compose
+  scripts/install-go-tool
   scripts/install-image-tool
   release/deploy
   release/package

@@ -3,8 +3,12 @@ FROM alexfalkowski/root:2.8
 USER root
 
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
+COPY scripts/install-go-tool /usr/local/bin/install-go-tool
+COPY scripts/clean-go /usr/local/bin/clean-go
 COPY release/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 RUN chmod +x /usr/local/bin/install-image-tool \
+  && chmod +x /usr/local/bin/install-go-tool \
+  && chmod +x /usr/local/bin/clean-go \
   && install-image-tool goreleaser 2.15.4 \
   && install-image-tool uplift 2.26.0 \
   && install-image-tool gh 2.92.0
@@ -31,7 +35,5 @@ RUN git config --global user.email "ci@lean-thoughts.com" \
   && git config --global user.name "lean-thoughts-ci"
 
 # Install go tools.
-RUN go install github.com/alexfalkowski/infraops/v2/cmd/bump@v2.415.0 \
-  && go clean --cache -testcache -fuzzcache -modcache \
-  && rm -rf go/pkg \
-  && rm -rf .cache
+RUN install-go-tool github.com/alexfalkowski/infraops/v2/cmd/bump v2.480.0 \
+  && clean-go
