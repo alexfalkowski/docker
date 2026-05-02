@@ -3,7 +3,7 @@ FROM alexfalkowski/root:2.8
 USER root
 WORKDIR /usr/local/bin
 
-ENV GO_LINT_VERSION=2.11.4
+ENV GO_LINT_VERSION=2.12.0
 
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
 COPY scripts/install-go-tool /usr/local/bin/install-go-tool
