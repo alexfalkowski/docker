@@ -35,10 +35,13 @@ Each top-level directory is an image (or runtime config used by the compose stac
 
 ## Prerequisites
 
-- `make`
+- GNU Make 4 or newer
+  - On macOS, install GNU Make and use `gmake`; the system `/usr/bin/make` 3.81 cannot parse the shared `bin/` make fragments.
 - `git`
 - `docker` or `podman`
 - `hadolint` and `shellcheck` (required for `make lint`)
+
+Examples below use `make`; substitute `gmake` if GNU Make is installed under that name.
 
 ### Submodule (required)
 
@@ -57,6 +60,12 @@ List available targets:
 make
 # or
 make help
+```
+
+On macOS with Homebrew GNU Make:
+
+```sh
+gmake help
 ```
 
 ### Lint

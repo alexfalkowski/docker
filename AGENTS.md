@@ -1,65 +1,39 @@
 # AGENTS.md
 
-This repo builds Docker images plus a `compose.yml` local dependency stack.
+Docker images plus a `compose.yml` local dependency stack.
 
-Use the shared `coding-standards` skill from `bin/skills/coding-standards` for code changes, bug fixes, refactors, reviews, tests, linting, documentation, PR summaries, commits, Makefile changes, CI validation, and verification.
+Use `bin/skills/coding-standards` for code changes, reviews, tests, linting, docs, PR summaries, commits, Makefile changes, CI validation, and verification.
 
-## Setup
+## Basics
 
-- The `bin/` submodule is required for most `make` targets:
+- Use GNU Make 4+. On macOS, use `gmake`; `/usr/bin/make` 3.81 cannot parse the shared `bin/` make fragments.
+- Initialize the required submodule with `git submodule sync && git submodule update --init`.
+- Show targets with `make help` or `gmake help`.
 
-  ```sh
-  git submodule sync
-  git submodule update --init
-  ```
+## Map
 
-- Show targets with `make` or `make help`.
-
-## Layout
-
-- Image directories: `docker/`, `go/`, `k8s/`, `release/`, `root/`, `ruby/`.
-- Each image directory has `Dockerfile`, `Makefile`, `.hadolint.yaml`, and may have `scripts/install-image-tool.d/`.
-- Shared image build targets live in `make/docker.mk`.
-- Shared scripts live in `scripts/`; Dockerfiles copy shared runners from there.
-- Shared install snippets used by multiple images live in `scripts/install-image-tool.d/`.
-- CircleCI path-filtering and workflows live under `.circleci/`.
+- Images: `docker/`, `go/`, `k8s/`, `release/`, `root/`, `ruby/`.
+- Shared image targets: `make/docker.mk`; shared scripts: `scripts/`.
+- Shared install snippets: `scripts/install-image-tool.d/`; image-specific snippets: `<image>/scripts/install-image-tool.d/`.
+- Compose config: `compose.yml`, `grafana/`, `otelcol/`, `prometheus/`, `status/`.
+- CI: `.circleci/`.
 
 ## Commands
 
-- Lint all Dockerfiles and shell scripts:
+- `make lint`: lint Dockerfiles and shell scripts.
+- `make -C <dir> build-docker` / `lint-docker`: build or lint one image.
+- `make -C <dir> platform=amd64 build-platform-docker`: build a platform image.
+- `make -C <dir> manifest-platform-docker`: publish the multi-arch manifests.
+- `make docker-pull`, `make start`, `make stop`, `make logs service=<name>`: manage compose services.
 
-  ```sh
-  make lint
-  ```
-
-- Build or lint one image:
-
-  ```sh
-  make -C <dir> build-docker
-  make -C <dir> lint-docker
-  ```
-
-- Platform images and manifests:
-
-  ```sh
-  make -C <dir> platform=amd64 build-platform-docker
-  make -C <dir> platform=arm64 build-platform-docker
-  make -C <dir> manifest-platform-docker
-  ```
-
-## Image Build Pattern
+## Rules
 
 - Image `Makefile`s set `IMAGE` and `VERSION`, then include `../make/docker.mk`.
-- `make/docker.mk` intentionally builds from the repo root context with `docker build -f Dockerfile ... ..` so Dockerfiles can copy shared scripts and install snippets.
+- `make/docker.mk` builds from the repo root context with `docker build -f Dockerfile ... ..`.
 - Keep `.dockerignore` current when adding large or sensitive top-level paths.
-- Dockerfiles should call `install-image-tool <tool> <version>`; put reusable download/checksum/extract logic in `scripts/install-image-tool.d/` and image-specific logic in that image's `scripts/install-image-tool.d/` directory.
-- Dockerfiles should call `install-go-tool <module> <version>` for Go binaries and run `clean-go` after Go tool installs.
-- If changing hadolint suppressions, update the image directory's `.hadolint.yaml`; there is no top-level hadolint config.
-
-## Release Image
-
-- `release/` installs `gh`, `goreleaser`, and `uplift` through `release/scripts/install-image-tool.d/`.
-- It also copies `release/deploy`, `release/package`, `release/version`, and `release/.uplift.yml`.
+- Dockerfiles call `install-image-tool <tool> <version>` and `install-go-tool <module> <version>`; run `clean-go` after Go tool installs.
+- Hadolint suppressions live in each image directory's `.hadolint.yaml`; there is no top-level hadolint config.
+- `release/` installs `gh`, `goreleaser`, and `uplift`, and copies `release/deploy`, `release/package`, `release/version`, and `release/.uplift.yml`.
 - `release/.uplift.yml` uses release commits shaped like `chore(release): $VERSION [ci skip]`.
 
 ## Gotchas
