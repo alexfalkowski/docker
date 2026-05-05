@@ -9,6 +9,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   ca-certificates \
   clang \
   curl \
+  docker-buildx \
+  docker-cli \
+  docker-compose \
+  docker.io \
   git \
   libc6-dev \
   libffi-dev \
