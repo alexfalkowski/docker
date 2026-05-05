@@ -1,4 +1,4 @@
-FROM debian:trixie-slim
+FROM ruby:4.0.3-slim-trixie
 
 USER root
 
@@ -37,14 +37,12 @@ RUN groupadd --gid 3434 circleci \
   && chmod 0440 /etc/sudoers.d/circleci
 
 ENV GO_VERSION=1.26.2
-ENV RUBY_VERSION=ruby-4.0.3
 
 WORKDIR /usr/local/bin
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
 COPY root/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 RUN chmod +x /usr/local/bin/install-image-tool \
-  && install-image-tool go "$GO_VERSION" \
-  && install-image-tool ruby "$RUBY_VERSION"
+  && install-image-tool go "$GO_VERSION"
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
 RUN gem update --system 4.0.11 \
@@ -58,7 +56,7 @@ WORKDIR /home/circleci/
 ENV MAKEFLAGS=--no-print-directory
 
 # Setup ruby
-RUN echo "$RUBY_VERSION" > .ruby-version
+RUN echo "ruby-$RUBY_VERSION" > .ruby-version
 
 # Setup go.
 RUN mkdir -p go/bin
