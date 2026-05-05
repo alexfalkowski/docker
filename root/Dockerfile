@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libssl-dev \
   libyaml-dev \
   make \
+  netcat-openbsd \
   openssh-client \
   pkg-config \
   sudo \
