@@ -1,14 +1,35 @@
-FROM cimg/base:2026.04-24.04
+FROM debian:trixie-slim
 
 USER root
 
 # Install packages.
 RUN apt-get update && apt-get install --no-install-recommends -y \
+  bash \
+  build-essential \
+  ca-certificates \
   clang \
+  curl \
+  git \
   libc6-dev \
+  libffi-dev \
+  libgdbm-dev \
+  libncurses-dev \
   libpq-dev \
+  libreadline-dev \
+  libssl-dev \
   libyaml-dev \
+  make \
+  openssh-client \
+  pkg-config \
+  sudo \
+  xz-utils \
+  zlib1g-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN groupadd --gid 3434 circleci \
+  && useradd --uid 3434 --gid circleci --create-home --shell /bin/bash circleci \
+  && echo "circleci ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/circleci \
+  && chmod 0440 /etc/sudoers.d/circleci
 
 ENV GO_VERSION=1.26.2
 ENV RUBY_VERSION=ruby-4.0.3
@@ -21,11 +42,9 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool ruby "$RUBY_VERSION"
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
-RUN gem update --system 4.0.8 \
-  && gem install bundler -v 4.0.8 \
+RUN gem update --system 4.0.11 \
+  && gem install bundler -v 4.0.11 \
   && gem install executable-hooks -v 1.7.1
-
-RUN install-image-tool bazelisk v1.29.0
 
 USER circleci
 WORKDIR /home/circleci/
@@ -41,8 +60,3 @@ RUN mkdir -p go/bin
 RUN echo "$GO_VERSION" > .go-version
 ENV GOPATH=/home/circleci/go
 ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
-
-# Setup bazelisk.
-ENV USE_BAZEL_VERSION=9.0.0
-RUN echo "$USE_BAZEL_VERSION" > .bazelversion
-RUN bazelisk version
