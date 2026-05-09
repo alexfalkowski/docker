@@ -14,8 +14,8 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool vegeta 12.12.0 \
   && install-image-tool helm v4.1.1 \
   && install-image-tool doctl 1.155.0 \
-  && install-image-tool kubescape 4.0.6 \
-  && install-image-tool pulumi 3.236.0
+  && install-image-tool kubescape 4.0.8 \
+  && install-image-tool pulumi 3.237.0
 
 USER circleci
 WORKDIR /home/circleci/
