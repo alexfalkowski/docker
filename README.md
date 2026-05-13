@@ -180,14 +180,14 @@ From `compose.yml`:
 | Service | Image | Ports (host:container) | Notes |
 |---|---|---:|---|
 | `postgres` | `postgres:18-trixie` | `5432:5432` | `POSTGRES_USER=test`, `POSTGRES_PASSWORD=test` |
-| `redis` | `redis:8` | `6379:6379` |  |
+| `redis` | `valkey/valkey:9` | `6379:6379` |  |
 | `aws` | `hectorvent/floci` | `4566:4566` | `SERVICES=s3,sqs,ssm` |
 | `vault` | `hashicorp/vault:1.21` | `8200:8200` | dev token: `vault-plaintext-root-token` |
 | `prometheus` | `prom/prometheus:v3` | `9090:9090` | depends on `mimir` |
 | `mimir` | `grafana/mimir` | `9009:9009` | mounts `./grafana` |
 | `loki` | `grafana/loki` | `3100:3100` | mounts `./grafana` |
 | `memcached` | `memcached:1.6` | `11211:11211` | cache backend for `tempo` |
-| `tempo` | `grafana/tempo:2.10.1` | `3200:3200` | depends on `memcached` |
+| `tempo` | `grafana/tempo:2.10` | `3200:3200` | depends on `memcached` |
 | `otel-collector` | `otel/opentelemetry-collector-contrib` | `4317:4317`, `4318:4318` | OTLP gRPC/HTTP ingress |
 | `grafana` | `grafana/grafana-oss` | `10000:3000` | depends on metrics/logs/traces stack |
 | `status` | `alexfalkowski/status` | `15000:8080`, `15001:6060` | mounts `./status` |
