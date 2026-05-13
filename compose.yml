@@ -9,7 +9,7 @@ services:
       - "5432:5432"
 
   redis:
-    image: docker.io/redis:8
+    image: docker.io/valkey/valkey:9
     restart: always
     ports:
       - "6379:6379"
@@ -70,7 +70,7 @@ services:
       - "11211:11211"
 
   tempo:
-    image: docker.io/grafana/tempo:2.10.1
+    image: docker.io/grafana/tempo:2.10
     restart: always
     ports:
       - 3200:3200
