@@ -1,8 +1,12 @@
 # AGENTS.md
 
-Docker images plus a `compose.yml` local dependency stack.
+## Shared skills
 
-Use `bin/skills/coding-standards` for code changes, reviews, tests, linting, docs, PR summaries, commits, Makefile changes, CI validation, and verification.
+This repository uses the shared skills from `bin/skills/`. Read
+`bin/AGENTS.md` for the canonical shared skill list and use the smallest
+matching skill for the task.
+
+Docker images plus a `compose.yml` local dependency stack.
 
 ## Basics
 
