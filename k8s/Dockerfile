@@ -10,9 +10,7 @@ COPY k8s/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 RUN chmod +x /usr/local/bin/install-image-tool \
   && chmod +x /usr/local/bin/install-go-tool \
   && chmod +x /usr/local/bin/clean-go \
-  && install-image-tool kubectl 1.36.0 \
   && install-image-tool vegeta 12.12.0 \
-  && install-image-tool helm v4.1.1 \
   && install-image-tool doctl 1.155.0 \
   && install-image-tool kubescape 4.0.8 \
   && install-image-tool pulumi 3.237.0
