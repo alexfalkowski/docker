@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/alexfalkowski/docker.svg?style=svg)](https://circleci.com/gh/alexfalkowski/docker)
 [![Stability: Active](https://masterminds.github.io/stability/active.svg)](https://masterminds.github.io/stability/active.html)
 
-# Docker
+# Docker1
 
 A collection of Docker images (published under `docker.io/alexfalkowski/*`) plus a `compose.yml` for running common local dependencies.
 
