@@ -6,5 +6,12 @@ asset="go${version}.linux-${arch}.tar.gz"
 base_url="https://go.dev/dl"
 
 download "$base_url/$asset" "$asset"
+download "$base_url/?mode=json&include=all" downloads.json
+
+jq -r --arg asset "$asset" '
+  .[].files[] | select(.filename == $asset) | .sha256
+' downloads.json > "$asset.sha256"
+
+verify_digest_file "$asset.sha256" "$asset"
 
 tar -C /usr/local -xf "$asset"
