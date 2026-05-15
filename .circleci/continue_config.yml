@@ -496,10 +496,6 @@ workflows:
   build:
     jobs:
       - lint
-      - sync:
-          requires:
-            - lint
-          filters: 'pipeline.git.branch != "master"'
       - version:
           context: gh
           serial-group: << pipeline.project.slug >>/version
@@ -607,6 +603,22 @@ workflows:
             - ruby-push-amd64
             - ruby-push-arm64
           filters: 'pipeline.parameters.ruby and pipeline.git.branch == "master"'
+      - sync:
+          requires:
+            - lint
+            - docker-build-amd64
+            - docker-build-arm64
+            - go-build-amd64
+            - go-build-arm64
+            - k8s-build-amd64
+            - k8s-build-arm64
+            - release-build-amd64
+            - release-build-arm64
+            - root-build-amd64
+            - root-build-arm64
+            - ruby-build-amd64
+            - ruby-build-arm64
+          filters: 'pipeline.git.branch != "master"'
       - wait-all:
           requires:
             - lint
