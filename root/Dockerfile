@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   docker-compose \
   docker.io \
   git \
+  jq \
   libc6-dev \
   libffi-dev \
   libgdbm-dev \
