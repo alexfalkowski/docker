@@ -1,4 +1,4 @@
 IMAGE:=k8s
-VERSION:=4.14
+VERSION:=4.15
 
 include ../make/docker.mk
