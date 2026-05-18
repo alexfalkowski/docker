@@ -6,19 +6,19 @@ services:
       POSTGRES_USER: test
       POSTGRES_PASSWORD: test
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
 
   redis:
     image: docker.io/valkey/valkey:9
     restart: always
     ports:
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"
 
   aws:
     image: docker.io/hectorvent/floci
     restart: always
     ports:
-      - "4566:4566"
+      - "127.0.0.1:4566:4566"
     environment:
       SERVICES: "s3,sqs,ssm"
 
@@ -26,7 +26,7 @@ services:
     image: docker.io/hashicorp/vault:1.21
     restart: always
     ports:
-      - "8200:8200"
+      - "127.0.0.1:8200:8200"
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: "vault-plaintext-root-token"
     cap_add:
@@ -37,7 +37,7 @@ services:
     user: root
     restart: always
     ports:
-      - 9090:9090
+      - 127.0.0.1:9090:9090
     depends_on:
       - mimir
     volumes:
@@ -49,7 +49,7 @@ services:
     image: docker.io/grafana/mimir
     restart: always
     ports:
-      - 9009:9009
+      - 127.0.0.1:9009:9009
     volumes:
       - ./grafana:/etc/grafana
     command: --config.file=/etc/grafana/mimir.yml
@@ -58,7 +58,7 @@ services:
     image: docker.io/grafana/loki
     restart: always
     ports:
-      - 3100:3100
+      - 127.0.0.1:3100:3100
     volumes:
       - ./grafana:/etc/grafana
     command: --config.file=/etc/grafana/loki.yml
@@ -67,13 +67,13 @@ services:
     image: docker.io/memcached:1.6
     restart: always
     ports:
-      - "11211:11211"
+      - "127.0.0.1:11211:11211"
 
   tempo:
     image: docker.io/grafana/tempo:2.10.5
     restart: always
     ports:
-      - 3200:3200
+      - 127.0.0.1:3200:3200
     volumes:
       - ./grafana:/etc/grafana
       - ./grafana/tempo/overrides.yaml:/etc/overrides.yaml
@@ -86,8 +86,8 @@ services:
     restart: always
     command: ["--config=/etc/otelcol/config.yml"]
     ports:
-      - "4317:4317"
-      - "4318:4318"
+      - "127.0.0.1:4317:4317"
+      - "127.0.0.1:4318:4318"
     volumes:
       - ./otelcol:/etc/otelcol
     depends_on:
@@ -99,7 +99,7 @@ services:
     image: docker.io/grafana/grafana-oss
     restart: always
     ports:
-      - 10000:3000
+      - 127.0.0.1:10000:3000
     depends_on:
       - prometheus
       - mimir
@@ -111,8 +111,8 @@ services:
     command: server -i file:/etc/status/server.yml
     restart: always
     ports:
-      - "15000:8080"
-      - "15001:6060"
+      - "127.0.0.1:15000:8080"
+      - "127.0.0.1:15001:6060"
     volumes:
       - ./status:/etc/status
 
@@ -120,8 +120,8 @@ services:
     image: docker.io/flipt/flipt
     restart: always
     ports:
-      - "8080:8080"
-      - "9000:9000"
+      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:9000:9000"
 
 volumes:
   prometheus_data:
