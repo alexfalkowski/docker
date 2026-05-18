@@ -27,15 +27,12 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   netcat-openbsd \
   openssh-client \
   pkg-config \
-  sudo \
   xz-utils \
   zlib1g-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN groupadd --gid 3434 circleci \
-  && useradd --uid 3434 --gid circleci --create-home --shell /bin/bash circleci \
-  && echo "circleci ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/circleci \
-  && chmod 0440 /etc/sudoers.d/circleci
+  && useradd --uid 3434 --gid circleci --create-home --shell /bin/bash circleci
 
 ENV GO_VERSION=1.26.3
 
