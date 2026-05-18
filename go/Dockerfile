@@ -35,5 +35,5 @@ RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 v2.28.0 \
   && install-go-tool gotest.tools/gotestsum v1.13.0 \
   && install-go-tool golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment v0.44.0 \
   && install-go-tool github.com/boyter/scc/v3 v3.7.0 \
-  && install-go-tool github.com/Zxilly/go-size-analyzer/cmd/gsa v1.12.6 \
+  && install-go-tool github.com/Zxilly/go-size-analyzer/cmd/gsa v1.13.0 \
   && clean-go
