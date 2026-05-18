@@ -1,4 +1,4 @@
 IMAGE:=release
-VERSION:=8.7
+VERSION:=8.8
 
 include ../make/docker.mk
