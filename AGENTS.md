@@ -33,6 +33,7 @@ Docker images plus a `compose.yml` local dependency stack.
 ## Rules
 
 - Image `Makefile`s set `IMAGE` and `VERSION`, then include `../make/docker.mk`.
+- Image `VERSION` values are managed by the maintainer; do not bump them unless explicitly asked.
 - `make/docker.mk` builds from the repo root context with `docker build -f Dockerfile ... ..`.
 - Updating `root/` is a two-stage process driven by the maintainer:
   1. First update only `root/` and bump `root/Makefile`'s `VERSION`; use a minor bump unless the change alters the root image contract in a major-version-worthy way, including major upgrades to dependencies shipped by the root image.
@@ -49,3 +50,5 @@ Docker images plus a `compose.yml` local dependency stack.
 - Push and manifest targets require DockerHub credentials.
 - `scripts/compose` prefers `podman compose` over `docker compose`.
 - `make clean` is destructive: it prunes all unused Docker or Podman images.
+- Mutable base image tags are intentional in this repository; do not flag tag-based `FROM` lines as review findings unless asked to make builds digest-pinned.
+- The images intentionally allow root-level operations where needed, including for tools such as `mkcert`; do not flag the root/sudo model as a review finding unless the task is specifically about hardening runtime privileges.
