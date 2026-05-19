@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Install a pinned Go module binary with go install.
+
 set -euo pipefail
 
 if [[ "$#" -ne 2 ]]; then

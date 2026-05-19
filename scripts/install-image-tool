@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Install a pinned binary tool with an image-specific installer snippet.
+
 set -euo pipefail
 
 if [[ "$#" -lt 1 || "$#" -gt 2 ]]; then
@@ -34,15 +36,18 @@ trap cleanup EXIT
 
 cd "$tmp_dir"
 
+# Print the Debian package architecture for asset selection.
 debian_arch() {
   dpkg --print-architecture
 }
 
+# Fail when an installer snippet does not support the current architecture.
 unsupported_arch() {
   echo "unsupported arch: $1" >&2
   exit 1
 }
 
+# Download a release asset to the temporary working directory.
 download() {
   local url="$1"
   local output="$2"
@@ -50,6 +55,7 @@ download() {
   curl -fsSLo "$output" "$url"
 }
 
+# Verify an asset against a digest file containing only the checksum.
 verify_digest_file() {
   local digest_file="$1"
   local asset="$2"
@@ -57,13 +63,39 @@ verify_digest_file() {
   echo "$(cat "$digest_file")  $asset" | sha256sum -c -
 }
 
+# Verify an asset against a checksum file containing asset names.
 verify_checksum_file() {
   local checksum_file="$1"
   local asset="$2"
 
-  grep "  ${asset}$" "$checksum_file" | sha256sum -c -
+  awk -v asset="$asset" '$2 == asset { print }' "$checksum_file" | sha256sum -c -
 }
 
+# Verify an asset against the SHA256 digest exposed by the GitHub release API.
+verify_github_asset_digest() {
+  local repo="$1"
+  local tag="$2"
+  local asset="$3"
+  local digest
+
+  digest="$(
+    curl -fsSL "https://api.github.com/repos/$repo/releases/tags/$tag" |
+      jq -r --arg asset "$asset" '.assets[] | select(.name == $asset) | .digest // empty'
+  )"
+
+  case "$digest" in
+    sha256:*)
+      ;;
+    *)
+      echo "missing sha256 digest for $repo $tag $asset" >&2
+      exit 1
+      ;;
+  esac
+
+  echo "${digest#sha256:}  $asset" | sha256sum -c -
+}
+
+# Install a verified binary into the image PATH.
 install_binary() {
   local source="$1"
   local target="$2"
