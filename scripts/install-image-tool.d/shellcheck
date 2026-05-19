@@ -12,6 +12,7 @@ asset="shellcheck-${version}.linux.${arch}.tar.xz"
 base_url="https://github.com/koalaman/shellcheck/releases/download/${version}"
 
 download "$base_url/$asset" "$asset"
+verify_github_asset_digest koalaman/shellcheck "$version" "$asset"
 
 tar -xJf "$asset"
 install_binary "shellcheck-${version}/shellcheck" shellcheck

@@ -10,5 +10,6 @@ esac
 
 base_url="https://github.com/getsentry/prevent-cli/releases/download/${version}"
 
-download "$base_url/$asset" codecovcli
-install_binary codecovcli codecovcli
+download "$base_url/$asset" "$asset"
+verify_github_asset_digest getsentry/prevent-cli "$version" "$asset"
+install_binary "$asset" codecovcli
