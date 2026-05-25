@@ -1,9 +1,10 @@
 # shellcheck shell=bash
 
-version="${1:-4.0.5}"
+version="$1"
+tag="$(version_tag "$version")"
 arch="$(debian_arch)"
 asset="kubescape_${version}_linux_${arch}.tar.gz"
-base_url="https://github.com/kubescape/kubescape/releases/download/v${version}"
+base_url="https://github.com/kubescape/kubescape/releases/download/${tag}"
 
 download "$base_url/$asset" "$asset"
 download "$base_url/checksums.sha256" checksums.sha256

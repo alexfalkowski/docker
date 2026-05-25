@@ -1,9 +1,10 @@
 # shellcheck shell=bash
 
-version="${1:-2.15.4}"
+version="$1"
+tag="$(version_tag "$version")"
 arch="$(debian_arch)"
 asset="goreleaser_${version}_${arch}.deb"
-base_url="https://github.com/goreleaser/goreleaser/releases/download/v${version}"
+base_url="https://github.com/goreleaser/goreleaser/releases/download/${tag}"
 
 download "$base_url/$asset" "$asset"
 download "$base_url/checksums.txt" checksums.txt

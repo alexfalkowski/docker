@@ -1,9 +1,10 @@
 # shellcheck shell=bash
 
-version="${1:-2.92.0}"
+version="$1"
+tag="$(version_tag "$version")"
 arch="$(debian_arch)"
 asset="gh_${version}_linux_${arch}.deb"
-base_url="https://github.com/cli/cli/releases/download/v${version}"
+base_url="https://github.com/cli/cli/releases/download/${tag}"
 checksum_file="gh_${version}_checksums.txt"
 
 download "$base_url/$asset" "$asset"
