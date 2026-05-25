@@ -1,6 +1,7 @@
 # shellcheck shell=bash
 
-version="${1:-v0.11.0}"
+version="$1"
+tag="$(version_tag "$version")"
 
 case "$(uname -m)" in
   x86_64 | amd64) arch="x86_64" ;;
@@ -8,11 +9,11 @@ case "$(uname -m)" in
   *) unsupported_arch "$(uname -m)" ;;
 esac
 
-asset="shellcheck-${version}.linux.${arch}.tar.xz"
-base_url="https://github.com/koalaman/shellcheck/releases/download/${version}"
+asset="shellcheck-${tag}.linux.${arch}.tar.xz"
+base_url="https://github.com/koalaman/shellcheck/releases/download/${tag}"
 
 download "$base_url/$asset" "$asset"
-verify_github_asset_digest koalaman/shellcheck "$version" "$asset"
+verify_github_asset_digest koalaman/shellcheck "$tag" "$asset"
 
 tar -xJf "$asset"
-install_binary "shellcheck-${version}/shellcheck" shellcheck
+install_binary "shellcheck-${tag}/shellcheck" shellcheck

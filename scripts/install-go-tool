@@ -26,4 +26,4 @@ case "$version" in
     ;;
 esac
 
-go install "$module@$version"
+go install "$module@v$version"

@@ -1,6 +1,7 @@
 # shellcheck shell=bash
 
-version="${1:-0.70.0}"
+version="$1"
+tag="$(version_tag "$version")"
 
 case "$(debian_arch)" in
   amd64) arch="64bit" ;;
@@ -9,7 +10,7 @@ case "$(debian_arch)" in
 esac
 
 asset="trivy_${version}_Linux-${arch}.tar.gz"
-base_url="https://github.com/aquasecurity/trivy/releases/download/v${version}"
+base_url="https://github.com/aquasecurity/trivy/releases/download/${tag}"
 checksum_file="trivy_${version}_checksums.txt"
 
 download "$base_url/$asset" "$asset"

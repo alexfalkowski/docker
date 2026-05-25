@@ -1,6 +1,7 @@
 # shellcheck shell=bash
 
-version="${1:-v11.2.8}"
+version="$1"
+tag="$(version_tag "$version")"
 
 case "$(uname -m)" in
   x86_64 | amd64) asset="codecovcli_linux" ;;
@@ -8,8 +9,8 @@ case "$(uname -m)" in
   *) unsupported_arch "$(uname -m)" ;;
 esac
 
-base_url="https://github.com/getsentry/prevent-cli/releases/download/${version}"
+base_url="https://github.com/getsentry/prevent-cli/releases/download/${tag}"
 
 download "$base_url/$asset" "$asset"
-verify_github_asset_digest getsentry/prevent-cli "$version" "$asset"
+verify_github_asset_digest getsentry/prevent-cli "$tag" "$asset"
 install_binary "$asset" codecovcli

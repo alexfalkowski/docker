@@ -4,16 +4,24 @@
 
 set -euo pipefail
 
-if [[ "$#" -lt 1 || "$#" -gt 2 ]]; then
-  echo "usage: install-image-tool <tool> [version]" >&2
+if [[ "$#" -ne 2 ]]; then
+  echo "usage: install-image-tool <tool> <version>" >&2
   exit 2
 fi
 
 readonly tool="$1"
+readonly tool_version="$2"
 
 case "$tool" in
   "" | *[!a-zA-Z0-9._-]*)
     echo "invalid tool: $tool" >&2
+    exit 2
+    ;;
+esac
+
+case "$tool_version" in
+  "" | *[[:space:]]*)
+    echo "invalid version: $tool_version" >&2
     exit 2
     ;;
 esac
@@ -45,6 +53,13 @@ debian_arch() {
 unsupported_arch() {
   echo "unsupported arch: $1" >&2
   exit 1
+}
+
+# Return a release tag with a leading v prefix.
+version_tag() {
+  local version="$1"
+
+  echo "v${version}"
 }
 
 # Download a release asset to the temporary working directory.
@@ -104,4 +119,4 @@ install_binary() {
 }
 
 # shellcheck source=/dev/null
-. "$installer" "${2:-}"
+. "$installer" "$tool_version"

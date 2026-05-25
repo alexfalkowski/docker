@@ -19,5 +19,5 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN install-go-tool github.com/zegl/kube-score/cmd/kube-score v1.20.0 \
+RUN install-go-tool github.com/zegl/kube-score/cmd/kube-score 1.20.0 \
   && clean-go
