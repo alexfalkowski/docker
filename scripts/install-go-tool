@@ -4,13 +4,19 @@
 
 set -euo pipefail
 
-if [[ "$#" -ne 2 ]]; then
-  echo "usage: install-go-tool <module> <version>" >&2
+if [[ "$#" -ne 2 && "$#" -ne 3 ]]; then
+  echo "usage: install-go-tool <module> [current-version] <version>" >&2
   exit 2
 fi
 
 readonly module="$1"
-readonly version="$2"
+if [[ "$#" -eq 3 ]]; then
+  readonly current_version="$2"
+  readonly version="$3"
+else
+  readonly current_version=""
+  readonly version="$2"
+fi
 
 case "$module" in
   "" | *@* | *[[:space:]]*)
@@ -25,5 +31,10 @@ case "$version" in
     exit 2
     ;;
 esac
+
+if [[ "$current_version" == "$version" ]]; then
+  echo "$module $version is already up to date" >&2
+  exit 1
+fi
 
 go install "$module@v$version"

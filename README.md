@@ -28,8 +28,8 @@ Each top-level directory is an image (or runtime config used by the compose stac
   - `scripts/compose` (prefers `podman compose`, falls back to `docker compose`)
   - `scripts/clean` (prunes unused images)
   - `scripts/clean-go` (shared Go cache cleanup runner: `clean-go`)
-  - `scripts/install-go-tool` (shared Go build-time installer runner: `install-go-tool <module> <version>`)
-  - `scripts/install-image-tool` (shared image build-time installer runner: `install-image-tool <tool> <version>`)
+  - `scripts/install-go-tool` (shared Go build-time installer runner: `install-go-tool <module> [current-version] <version>`)
+  - `scripts/install-image-tool` (shared image build-time installer runner: `install-image-tool <tool> [current-version] <version>`)
   - `scripts/install-image-tool.d/` (shared install snippets used by multiple images)
   - `scripts/lint` (runs hadolint + shellcheck)
 
@@ -90,7 +90,9 @@ What it does (see `scripts/lint`):
 Each image directory has a `Makefile` that sets `IMAGE` and `VERSION` and then includes `../make/docker.mk`.
 The shared build targets run from the image directory but use the repository root as Docker build context so Dockerfiles can copy the shared installer script.
 Dockerfiles pass tool versions directly to `install-image-tool <tool> <version>`; installer snippets do not provide fallback versions.
+Update helpers can also pass the current version first, as `install-image-tool <tool> <current-version> <version>`, to fail when the requested version is already current.
 Go tools are installed with `install-go-tool <module> <version>`, which runs `go install <module>@v<version>`.
+Update helpers can also pass the current version first, as `install-go-tool <module> <current-version> <version>`, to fail when the requested version is already current.
 Go caches are cleaned with `clean-go`.
 
 Build an image locally:
