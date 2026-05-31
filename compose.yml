@@ -108,7 +108,7 @@ services:
 
   status:
     image: docker.io/alexfalkowski/status
-    command: server -i file:/etc/status/server.yml
+    command: server -config file:/etc/status/server.yml
     restart: always
     ports:
       - "127.0.0.1:15000:8080"
