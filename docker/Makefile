@@ -1,4 +1,4 @@
 IMAGE:=docker
-VERSION:=3.11
+VERSION:=3.12
 
 include ../make/docker.mk
