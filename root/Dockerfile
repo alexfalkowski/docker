@@ -37,7 +37,7 @@ RUN groupadd --gid 3434 circleci \
   && echo "circleci ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/circleci \
   && chmod 0440 /etc/sudoers.d/circleci
 
-ENV GO_VERSION=1.26.3
+ENV GO_VERSION=1.26.4
 
 WORKDIR /usr/local/bin
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
