@@ -1,0 +1,17 @@
+# shellcheck shell=bash
+
+version="$1"
+tag="$(version_tag "$version")"
+
+case "$(debian_arch)" in
+  amd64 | arm64) arch="$(debian_arch)" ;;
+  *) unsupported_arch "$(debian_arch)" ;;
+esac
+
+base_url="https://dl.k8s.io/release/${tag}/bin/linux/${arch}"
+
+download "$base_url/kubectl" kubectl
+download "$base_url/kubectl.sha256" kubectl.sha256
+verify_digest_file kubectl.sha256 kubectl
+
+install_binary kubectl kubectl
