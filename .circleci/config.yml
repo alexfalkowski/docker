@@ -12,37 +12,37 @@ workflows:
           mapping: |
             .circleci/.* docker true
             Makefile docker true
-            make/docker.mk docker true
+            make/.* docker true
             scripts/.* docker true
             docker/.* docker true
 
             .circleci/.* go true
             Makefile go true
-            make/docker.mk go true
+            make/.* go true
             scripts/.* go true
             go/.* go true
 
             .circleci/.* k8s true
             Makefile k8s true
-            make/docker.mk k8s true
+            make/.* k8s true
             scripts/.* k8s true
             k8s/.* k8s true
 
             .circleci/.* release true
             Makefile release true
-            make/docker.mk release true
+            make/.* release true
             scripts/.* release true
             release/.* release true
 
             .circleci/.* root true
             Makefile root true
-            make/docker.mk root true
+            make/.* root true
             scripts/.* root true
             root/.* root true
 
             .circleci/.* ruby true
             Makefile ruby true
-            make/docker.mk ruby true
+            make/.* ruby true
             scripts/.* ruby true
             ruby/.* ruby true
           base-revision: origin/master

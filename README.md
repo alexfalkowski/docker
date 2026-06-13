@@ -49,6 +49,7 @@ stack):
 - `docker` (required for image build, push, and manifest targets)
 - `docker` or `podman` (required for compose and clean targets)
 - `hadolint` and `shellcheck` (required for `make lint`)
+- `trivy` (required for Docker image scan targets)
 
 > [!NOTE]
 > Examples below use `make`; substitute `gmake` if GNU Make is installed under
@@ -134,11 +135,18 @@ make -C go build-docker
 That produces a local image tagged like:
 
 - `alexfalkowski/go:<VERSION>` (based on `go/Makefile`)
+- `alexfalkowski/go` (equivalent to `:latest`)
 
 Build another image:
 
 ```sh
 make -C docker build-docker
+```
+
+Build and scan an image:
+
+```sh
+make -C go test-docker
 ```
 
 ### 🚀 Build/push platform-tagged images
@@ -157,11 +165,25 @@ make -C go platform=amd64 build-platform-docker
 make -C go platform=arm64 build-platform-docker
 ```
 
-Push (requires DockerHub login):
+Build and scan:
+
+```sh
+make -C go platform=amd64 test-platform-docker
+make -C go platform=arm64 test-platform-docker
+```
+
+Push an already-built platform image (requires DockerHub login):
 
 ```sh
 make -C go platform=amd64 push-platform-docker
 make -C go platform=arm64 push-platform-docker
+```
+
+Build, scan, and push a platform image (requires DockerHub login):
+
+```sh
+make -C go platform=amd64 release-platform-docker
+make -C go platform=arm64 release-platform-docker
 ```
 
 ### 🧩 Create multi-arch manifests

@@ -25,8 +25,8 @@ Docker images plus a `compose.yml` local dependency stack.
 ## Commands
 
 - `make lint`: lint Dockerfiles and shell scripts.
-- `make -C <dir> build-docker` / `lint-docker`: build or lint one image.
-- `make -C <dir> platform=amd64 build-platform-docker`: build a platform image.
+- `make -C <dir> build-docker` / `test-docker` / `release-docker`: build, build+scan, or build+scan+push one image.
+- `make -C <dir> platform=amd64 build-platform-docker` / `test-platform-docker` / `release-platform-docker`: build, build+scan, or build+scan+push a platform image.
 - `make -C <dir> manifest-platform-docker`: publish the multi-arch manifests.
 - `make docker-pull`, `make start`, `make stop`, `make logs service=<name>`: manage compose services.
 
@@ -47,7 +47,7 @@ Docker images plus a `compose.yml` local dependency stack.
 ## Gotchas
 
 - `.gitmodules` uses the SSH URL `git@github.com:alexfalkowski/bin.git`.
-- Push and manifest targets require DockerHub credentials.
+- Push, release, and manifest targets require DockerHub credentials.
 - `scripts/compose` prefers `podman compose` over `docker compose`.
 - `make clean` is destructive: it prunes all unused Docker or Podman images.
 - Mutable base image tags are intentional in this repository; do not flag tag-based `FROM` lines as review findings unless asked to make builds digest-pinned.
