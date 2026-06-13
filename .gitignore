@@ -2,3 +2,4 @@
 assets/*.geojson
 assets/*.bin
 assets/*.mmdb
+ISSUES.md
