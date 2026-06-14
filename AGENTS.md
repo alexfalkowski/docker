@@ -28,7 +28,7 @@ Docker images plus a `compose.yml` local dependency stack.
 - `make -C <dir> build-docker` / `test-docker` / `release-docker`: build, build+scan, or build+scan+push the versioned and unqualified `latest` tags for one image.
 - `make -C <dir> platform=amd64 build-platform-docker` / `test-platform-docker` / `release-platform-docker`: build, build+scan, or build+scan+push one versioned platform image tag.
 - `make -C <dir> manifest-platform-docker`: publish the versioned and unqualified `latest` multi-arch manifests.
-- `make docker-pull`, `make start`, `make stop`, `make logs service=<name>`: manage compose services.
+- `make pull-latest`, `make start`, `make stop`, `make logs service=<name>`: manage compose services.
 
 ## Rules
 

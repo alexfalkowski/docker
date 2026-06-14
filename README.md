@@ -194,7 +194,7 @@ The compose stack is managed through `scripts/compose`, which prefers
 `podman compose` and falls back to `docker compose`.
 
 ```sh
-make docker-pull
+make pull-latest
 make start
 make start service=redis
 make logs service=postgres
