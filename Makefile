@@ -21,6 +21,6 @@ stop:
 logs:
 	@scripts/compose -f compose.yml logs -f $(service)
 
-# Clean all unused docker images.
+# Clean unused Podman or Docker images.
 clean:
 	@scripts/clean

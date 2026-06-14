@@ -25,9 +25,9 @@ Docker images plus a `compose.yml` local dependency stack.
 ## Commands
 
 - `make lint`: lint Dockerfiles and shell scripts.
-- `make -C <dir> build-docker` / `test-docker` / `release-docker`: build, build+scan, or build+scan+push one image.
-- `make -C <dir> platform=amd64 build-platform-docker` / `test-platform-docker` / `release-platform-docker`: build, build+scan, or build+scan+push a platform image.
-- `make -C <dir> manifest-platform-docker`: publish the multi-arch manifests.
+- `make -C <dir> build-docker` / `test-docker` / `release-docker`: build, build+scan, or build+scan+push the versioned and unqualified `latest` tags for one image.
+- `make -C <dir> platform=amd64 build-platform-docker` / `test-platform-docker` / `release-platform-docker`: build, build+scan, or build+scan+push one versioned platform image tag.
+- `make -C <dir> manifest-platform-docker`: publish the versioned and unqualified `latest` multi-arch manifests.
 - `make docker-pull`, `make start`, `make stop`, `make logs service=<name>`: manage compose services.
 
 ## Rules
@@ -39,7 +39,7 @@ Docker images plus a `compose.yml` local dependency stack.
   1. First update only `root/` and bump `root/Makefile`'s `VERSION`; use a minor bump unless the change alters the root image contract in a major-version-worthy way, including major upgrades to dependencies shipped by the root image.
   2. After the new root image is published, update the Dockerfiles that depend on `alexfalkowski/root` and bump each dependent image `VERSION` in a separate change. If root had a major bump, dependents get a major bump; otherwise dependents get a minor bump.
 - Keep `.dockerignore` current when adding large or sensitive top-level paths.
-- Dockerfiles call `install-image-tool <tool> <version>` and `install-go-tool <module> <version>`; run `clean-go` after Go tool installs.
+- Dockerfiles call `install-image-tool <tool> <version>` and `install-go-tool <module> <version>`; run `clean-go` after Go tool installs. `install-image-tool` sources `/usr/local/lib/install-image-tool/<tool>` from a temporary directory with the bare version as `$1`; snippets should use the helper functions in `scripts/install-image-tool` for architecture selection, downloads, checksum verification, release tags, and binary installs.
 - Hadolint suppressions live in each image directory's `.hadolint.yaml`; there is no top-level hadolint config.
 - `release/` installs `gh`, `goreleaser`, and `uplift`, and copies `release/deploy`, `release/package`, `release/version`, and `release/.uplift.yml`.
 - `release/.uplift.yml` uses release commits shaped like `chore(release): $VERSION [ci skip]`.
@@ -49,6 +49,6 @@ Docker images plus a `compose.yml` local dependency stack.
 - `.gitmodules` uses the SSH URL `git@github.com:alexfalkowski/bin.git`.
 - Push, release, and manifest targets require DockerHub credentials.
 - `scripts/compose` prefers `podman compose` over `docker compose`.
-- `make clean` is destructive: it prunes all unused Docker or Podman images.
+- `make clean` is destructive: `scripts/clean` runs `image prune -a -f`, preferring Podman when `podman` is in `PATH` and falling back to Docker.
 - Mutable base image tags are intentional in this repository; do not flag tag-based `FROM` lines as review findings unless asked to make builds digest-pinned.
 - The images intentionally allow root-level operations where needed, including for tools such as `mkcert`; do not flag the root/sudo model as a review finding unless the task is specifically about hardening runtime privileges.

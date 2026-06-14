@@ -82,7 +82,8 @@ make -C go build-docker
 make -C go test-docker
 ```
 
-Push one image after a successful local build and scan:
+Push the versioned and unqualified `latest` image tags after a successful local
+build and scan:
 
 ```sh
 make -C go release-docker
@@ -95,7 +96,8 @@ make -C go platform=amd64 build-platform-docker
 make -C go platform=amd64 test-platform-docker
 ```
 
-Publish one platform image and then publish the multi-arch manifests:
+Publish one platform image and then publish the versioned and unqualified
+`latest` multi-arch manifests:
 
 ```sh
 make -C go platform=amd64 release-platform-docker
@@ -133,9 +135,35 @@ upgrades to dependencies shipped by the root image.
 The repository root is the Docker build context. Keep `.dockerignore` current
 when adding large or sensitive top-level paths.
 
+Dockerfiles install pinned archive tools with
+`install-image-tool <tool> <version>`. Put shared installer snippets in
+`scripts/install-image-tool.d/` and image-specific snippets in
+`<image>/scripts/install-image-tool.d/`; the snippet name is the tool name and
+receives the bare version as `$1`. Snippets run from a temporary directory and
+can use the helper functions from `scripts/install-image-tool` for architecture
+selection, downloads, checksum verification, release tags, and binary installs.
+Install pinned Go module tools with `install-go-tool <module> <version>`, which
+adds the `v` prefix for `go install`. Run `clean-go` after Go tool installs to
+remove Go build caches, module cache, `go/pkg`, and `.cache`.
+
+The `go/` image sets `GOEXPERIMENT=jsonv2` globally. Downstream projects that
+need default Go experiment behavior should override it for that command, for
+example `GOEXPERIMENT= go test ./...`.
+
 The `release/` image contains the `version`, `package`, and `deploy` helper
-commands. Read those scripts before using them locally; they can create tags,
-publish releases, clone over SSH, and raise remote changes.
+commands. They share `APP_VERSION_FILE`, defaulting to
+`/tmp/workspace/release-version.txt`, and expect to run from the repository
+being released.
+
+| Command | Behavior |
+| --- | --- |
+| `version` | Runs `uplift release --skip-changelog --config-dir /etc/uplift`, removes any stale version file first, and writes the new tag to `APP_VERSION_FILE` only when a new tag points at `HEAD`. |
+| `package` | Runs `goreleaser release` only when the working tree contains a GoReleaser config outside `vendor/` and `APP_VERSION_FILE` is non-empty. Otherwise it exits without publishing. |
+| `deploy` | Runs only when the repository contains `.cd` and `APP_VERSION_FILE` exists. It derives the app name from the current directory, clones `alexfalkowski/infraops` over SSH, bumps the released app version, and raises the infraops change through `make ready`. |
+
+Use the release helpers only in an authenticated release environment. They can
+create tags, publish releases, clone over SSH, push branches, and raise remote
+changes.
 
 ## 🧱 Local Dependencies
 
@@ -152,13 +180,50 @@ make stop
 
 Useful local entry points:
 
-- Postgres: `postgresql://test:test@localhost:5432/postgres`
-- Vault: `http://127.0.0.1:8200` with token `vault-plaintext-root-token`
-- Grafana: `http://127.0.0.1:10000`
-- OTLP: gRPC `127.0.0.1:4317`, HTTP `127.0.0.1:4318`
+| Service | Local endpoint | Use |
+| --- | --- | --- |
+| Postgres | `postgresql://test:test@localhost:5432/postgres` | Application database. |
+| Valkey/Redis | `redis://127.0.0.1:6379` | Redis-compatible cache or queue dependency. |
+| AWS emulator | `http://127.0.0.1:4566` | Local S3, SQS, and SSM. |
+| Vault | `http://127.0.0.1:8200` | Development Vault with token `vault-plaintext-root-token`. |
+| Prometheus | `http://127.0.0.1:9090` | Local metrics scraping and query UI. |
+| Mimir | `http://127.0.0.1:9009` | Prometheus remote-write backend. |
+| Loki | `http://127.0.0.1:3100` | OTLP log backend. |
+| Memcached | `127.0.0.1:11211` | Tempo query-frontend cache. |
+| Tempo | `http://127.0.0.1:3200` | Trace backend and query API. |
+| OTLP collector | gRPC `127.0.0.1:4317`, HTTP `127.0.0.1:4318` | Metrics, logs, and traces ingest. |
+| Grafana | `http://127.0.0.1:10000` | Dashboard UI. |
+| Status | `http://127.0.0.1:15000`, debug `http://127.0.0.1:15001` | Example service scraped by Prometheus. |
+| Flipt | `http://127.0.0.1:8080`, `127.0.0.1:9000` | Feature flag service APIs. |
 
 Most compose services do not declare named volumes, so treat their data as
-disposable. Prometheus is the exception and uses `prometheus_data`.
+disposable. Prometheus is the exception and uses `prometheus_data` for its
+local TSDB. Mimir, Loki, and Tempo use container-local filesystem storage in
+this stack, so remote-written metrics, logs, and traces are disposable when
+their containers are recreated unless you add storage for them.
+
+Observability flow:
+
+- Prometheus scrapes `prometheus` and `status`, then remote-writes samples to
+  Mimir.
+- The OpenTelemetry collector receives OTLP metrics, logs, and traces, then
+  sends metrics to Mimir, logs to Loki, and traces to Tempo.
+- Tempo generates service graph and span metrics, then remote-writes them back
+  to Prometheus.
+
+Grafana is not provisioned with datasources or dashboards by `compose.yml`.
+Create datasources manually before importing dashboards from `grafana/`:
+
+| Datasource | Type | URL from Grafana |
+| --- | --- | --- |
+| `prometheus` | Prometheus | `http://prometheus:9090` |
+| `loki` | Loki | `http://loki:3100` |
+| `tempo` | Tempo | `http://tempo:3200` |
+
+The bundled service, Go metrics, and Prometheus dashboards expect the
+`prometheus` datasource. `grafana/alertmanager.json` requires an Alertmanager
+service and Prometheus scrape target, which this compose stack does not start by
+default.
 
 For exact services, ports, images, and mounted config, read `compose.yml`.
 For dashboard imports and observability config, start with `grafana/`,
@@ -167,8 +232,9 @@ For dashboard imports and observability config, start with `grafana/`,
 ## 🧹 Cleanup
 
 > [!CAUTION]
-> `make clean` is destructive: it prunes unused images from the selected Docker
-> or Podman engine.
+> `make clean` is destructive: it runs `image prune -a -f` through
+> `scripts/clean`, using Podman when `podman` is in `PATH` and Docker
+> otherwise.
 
 ```sh
 make clean
