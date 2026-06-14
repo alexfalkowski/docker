@@ -5,8 +5,12 @@ include bin/build/make/git.mak
 lint:
 	@scripts/lint
 
+# Scan the repository with Trivy (CRITICAL severity).
+trivy-repo:
+	@$(BIN_ROOT)/build/sec/trivy-repo
+
 # Pull latest containers.
-docker-pull:
+pull-latest:
 	@scripts/compose -f compose.yml pull $(service)
 
 # Start dependencies.
