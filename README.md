@@ -8,7 +8,8 @@ Docker images published under `docker.io/alexfalkowski/*`, plus a
 `compose.yml` stack for local dependencies used across projects.
 
 The repository is intentionally Make-driven. Use `make help` as the source of
-truth for available local targets.
+truth for root, local-stack, and shared git targets. Image build targets are
+shared by the image directories and documented below.
 
 ## 🗺️ Map
 
@@ -22,6 +23,19 @@ Image directories:
 | `k8s/` | `alexfalkowski/k8s` | Kubernetes and infrastructure tooling. |
 | `release/` | `alexfalkowski/release` | Release automation tooling and helper commands. |
 | `ruby/` | `alexfalkowski/ruby` | Ruby project CI tooling. |
+
+Image command surface:
+
+| Image | Notable tools and contracts |
+| --- | --- |
+| `root` | Ruby, Bundler, Go, Docker CLI/buildx/compose, Git, jq, Make, SSH, and the default `circleci` user used by dependent images. |
+| `docker` | `hadolint`, `shellcheck`, and `trivy` for Dockerfile, shell, and image-security checks. |
+| `go` | `buf`, `codecov`, `dockerize`, `fieldalignment`, `gocovmerge`, `golangci-lint`, `govulncheck`, `gotestsum`, `gsa`, `hadolint`, `mkcert`, `scc`, `shellcheck`, and `trivy`; sets `GOEXPERIMENT=jsonv2`. |
+| `k8s` | `doctl`, `kubectl`, `kubescape`, `pulumi`, `vegeta`, and `kube-score`. |
+| `release` | `gh`, `goreleaser`, `uplift`, `bump`, and the `version`, `package`, and `deploy` helpers. |
+| `ruby` | `buf`, `codecov`, `dockerize`, `hadolint`, `mkcert`, `scc`, `shellcheck`, and `trivy`. |
+
+Dockerfiles are the source of truth for exact pinned tool versions.
 
 Other useful paths:
 
@@ -68,6 +82,9 @@ Discover targets:
 ```sh
 make help
 ```
+
+Image directories do not expose their own `help` target; use the examples below
+for the shared image target names.
 
 Lint:
 
@@ -132,6 +149,12 @@ Use a minor bump for ordinary root image changes. Use a major bump when the
 root image contract changes in a major-version-worthy way, including major
 upgrades to dependencies shipped by the root image.
 
+The root image contract is the runtime surface inherited by dependent images:
+the Ruby slim Debian base, Go toolchain and `GOPATH`/`PATH` setup, Docker CLI
+tooling, RubyGems and Bundler, the passwordless-sudo `circleci` user, and the
+default `/home/circleci/` working directory. Treat changes to those surfaces as
+compatibility changes for root and dependent images.
+
 The repository root is the Docker build context. Keep `.dockerignore` current
 when adding large or sensitive top-level paths.
 
@@ -158,8 +181,8 @@ being released.
 | Command | Behavior |
 | --- | --- |
 | `version` | Runs `uplift release --skip-changelog --config-dir /etc/uplift`, removes any stale version file first, and writes the new tag to `APP_VERSION_FILE` only when a new tag points at `HEAD`. |
-| `package` | Runs `goreleaser release` only when the working tree contains a GoReleaser config outside `vendor/` and `APP_VERSION_FILE` is non-empty. Otherwise it exits without publishing. |
-| `deploy` | Runs only when the repository contains `.cd` and `APP_VERSION_FILE` exists. It derives the app name from the current directory, clones `alexfalkowski/infraops` over SSH, bumps the released app version, and raises the infraops change through `make ready`. |
+| `package` | Runs `goreleaser release` only when the working tree contains a path whose name includes `goreleaser` outside `vendor/` and `APP_VERSION_FILE` is non-empty. Otherwise it exits without publishing. |
+| `deploy` | Runs only when the repository contains `.cd` and `APP_VERSION_FILE` exists. It expects the version file to contain the tag written by `version`, derives the app name from the current directory, clones `alexfalkowski/infraops` over SSH into `./infraops`, bumps the released app version, and raises the infraops change through `make ready`. Failed runs can leave `./infraops` behind; remove it before rerunning. |
 
 Use the release helpers only in an authenticated release environment. They can
 create tags, publish releases, clone over SSH, push branches, and raise remote
@@ -177,6 +200,10 @@ make start service=redis
 make logs service=postgres
 make stop
 ```
+
+`make start` runs the compose stack in detached mode and does not wait for
+services to become ready. Check `make logs service=<name>` or the local
+endpoints before running dependent applications.
 
 Useful local entry points:
 
@@ -208,10 +235,14 @@ Observability flow:
   Mimir.
 - The OpenTelemetry collector receives OTLP metrics, logs, and traces, then
   sends metrics to Mimir, logs to Loki, and traces to Tempo.
+- The bundled `status` service exposes Prometheus metrics and sends traces
+  directly to Tempo. Use the collector endpoints when testing collector ingest
+  from external clients.
 - Tempo generates service graph and span metrics, then remote-writes them back
   to Prometheus.
 
 Grafana is not provisioned with datasources or dashboards by `compose.yml`.
+It uses the upstream Grafana login defaults unless you override them locally.
 Create datasources manually before importing dashboards from `grafana/`:
 
 | Datasource | Type | URL from Grafana |
