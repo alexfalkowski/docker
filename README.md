@@ -77,6 +77,20 @@ Common local tools:
 
 ## 🛠️ Commands
 
+Use a published image by pinning the version from the image directory's
+`Makefile`. The unqualified image tag is a mutable `latest` tag.
+
+```sh
+docker run --rm docker.io/alexfalkowski/go:4.17 go version
+```
+
+For CI, use the same versioned image tag:
+
+```yaml
+docker:
+  - image: alexfalkowski/go:4.17
+```
+
 Discover targets:
 
 ```sh
@@ -97,6 +111,13 @@ Build or scan one image:
 ```sh
 make -C go build-docker
 make -C go test-docker
+```
+
+Image targets tag `DOCKER_IMAGE`, which defaults to `alexfalkowski/<image>`.
+Override it when building a fork or a local registry image:
+
+```sh
+make -C go DOCKER_IMAGE=example/go build-docker
 ```
 
 Push the versioned and unqualified `latest` image tags after a successful local
@@ -148,12 +169,17 @@ Root image updates are staged:
 Use a minor bump for ordinary root image changes. Use a major bump when the
 root image contract changes in a major-version-worthy way, including major
 upgrades to dependencies shipped by the root image.
+If root gets a major bump, dependent images get major bumps when they move to
+the new root. Otherwise dependent images get minor bumps.
 
 The root image contract is the runtime surface inherited by dependent images:
 the Ruby slim Debian base, Go toolchain and `GOPATH`/`PATH` setup, Docker CLI
 tooling, RubyGems and Bundler, the passwordless-sudo `circleci` user, and the
-default `/home/circleci/` working directory. Treat changes to those surfaces as
-compatibility changes for root and dependent images.
+default `/home/circleci/` working directory. It also includes the native build
+toolchain and Debian development packages installed by `root/Dockerfile`, such
+as `build-essential`, `clang`, `pkg-config`, and library headers used by
+downstream builds. Treat changes to those surfaces as compatibility changes for
+root and dependent images.
 
 The repository root is the Docker build context. Keep `.dockerignore` current
 when adding large or sensitive top-level paths.
@@ -242,8 +268,9 @@ Observability flow:
   to Prometheus.
 
 Grafana is not provisioned with datasources or dashboards by `compose.yml`.
-It uses the upstream Grafana login defaults unless you override them locally.
-Create datasources manually before importing dashboards from `grafana/`:
+It uses the upstream Grafana login defaults unless you override them locally;
+for the default image, log in with `admin` / `admin`. Create datasources
+manually before importing dashboards from `grafana/`:
 
 | Datasource | Type | URL from Grafana |
 | --- | --- | --- |
@@ -255,6 +282,17 @@ The bundled service, Go metrics, and Prometheus dashboards expect the
 `prometheus` datasource. `grafana/alertmanager.json` requires an Alertmanager
 service and Prometheus scrape target, which this compose stack does not start by
 default.
+
+External applications should send telemetry to the OpenTelemetry collector, not
+directly to Mimir, Loki, or Tempo. For OTLP/HTTP clients:
+
+```sh
+OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf \
+OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318 \
+<app command>
+```
+
+Use `127.0.0.1:4317` for OTLP/gRPC clients.
 
 For exact services, ports, images, and mounted config, read `compose.yml`.
 For dashboard imports and observability config, start with `grafana/`,
@@ -282,3 +320,6 @@ CircleCI uses path filtering:
 On `master`, CI publishes platform images and manifests with the CircleCI
 `docker` context. The `version` job uses the `gh` context. On non-`master`
 branches, CI builds the changed images and then runs `make sync push`.
+Stack-only changes to `compose.yml`, `grafana/`, `otelcol/`, `prometheus/`, or
+`status/` are outside the image path filters, so validate them locally with
+`make start`, `make logs service=<name>`, and the relevant local endpoints.

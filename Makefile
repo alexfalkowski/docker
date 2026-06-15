@@ -9,11 +9,11 @@ lint:
 trivy-repo:
 	@$(BIN_ROOT)/build/sec/trivy-repo
 
-# Pull latest containers.
+# Pull latest containers, or one service with service=<name>.
 pull-latest:
 	@scripts/compose -f compose.yml pull $(service)
 
-# Start dependencies.
+# Start all dependencies, or one service with service=<name>.
 start:
 	@scripts/compose -f compose.yml up -d --remove-orphans $(service)
 
@@ -21,10 +21,10 @@ start:
 stop:
 	@scripts/compose -f compose.yml down --remove-orphans
 
-# Logs from a service.
+# Follow logs for all dependencies, or one service with service=<name>.
 logs:
 	@scripts/compose -f compose.yml logs -f $(service)
 
-# Clean unused Podman or Docker images.
+# Destructively prune all unused images with Podman or Docker.
 clean:
 	@scripts/clean
