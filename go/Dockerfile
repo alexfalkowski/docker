@@ -16,7 +16,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool dockerize 0.9.3 \
   && install-image-tool shellcheck 0.11.0 \
   && install-image-tool hadolint 2.14.0 \
-  && install-image-tool buf 1.70.0 \
+  && install-image-tool buf 1.71.0 \
   && install-image-tool trivy 0.71.1 \
   && install-image-tool mkcert 1.4.4 \
   && install-image-tool codecov 11.2.8 \
