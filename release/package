@@ -7,5 +7,6 @@ readonly releaser=$(find . -name "*goreleaser*" -not -path "*vendor*")
 readonly version_file="${APP_VERSION_FILE:-/tmp/workspace/release-version.txt}"
 
 if [[ -n "$releaser" && -s "$version_file" ]]; then
+  goreleaser check "$releaser"
   goreleaser release
 fi
