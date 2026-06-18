@@ -34,7 +34,7 @@ jobs:
     resource_class: arm.large
   sync:
     docker:
-      - image: alexfalkowski/release:8.15
+      - image: alexfalkowski/release:8.16
     working_directory: ~/docker
     steps:
       - checkout:
@@ -45,7 +45,7 @@ jobs:
     resource_class: arm.large
   version:
     docker:
-      - image: alexfalkowski/release:8.15
+      - image: alexfalkowski/release:8.16
     working_directory: ~/docker
     steps:
       - checkout:
