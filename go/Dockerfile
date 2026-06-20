@@ -30,7 +30,7 @@ RUN echo "$GO_LINT_VERSION" > .go-lint-version
 
 # Install go tools.
 ENV GOEXPERIMENT=jsonv2
-RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 2.29.2 \
+RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 2.31.0 \
   && install-go-tool golang.org/x/vuln/cmd/govulncheck 1.3.0 \
   && install-go-tool gotest.tools/gotestsum 1.13.0 \
   && install-go-tool golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment 0.44.0 \
