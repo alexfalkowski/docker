@@ -9,7 +9,8 @@ Docker images plus a `compose.yml` local dependency stack.
 ## Basics
 
 - Use GNU Make 4+. On macOS, use `gmake`; `/usr/bin/make` 3.81 cannot parse the shared `bin/` make fragments.
-- Initialize the required submodule with `git submodule sync && git submodule update --init`.
+- Initialize the required submodule before using shared targets; use
+  `make submodule` when the shared checkout is present.
 - Show targets with `make help` or `gmake help`.
 
 ## Map
@@ -32,7 +33,7 @@ Docker images plus a `compose.yml` local dependency stack.
 
 - Image `Makefile`s set `IMAGE` and `VERSION`, then include `../make/docker.mk`.
 - Image `VERSION` values are managed by the maintainer; do not bump them unless explicitly asked.
-- `make/docker.mk` builds from the repo root context with `docker build -f Dockerfile ... ..`.
+- `make/docker.mk` owns Docker build invocation from the repo root context.
 - Updating `root/` is a two-stage process driven by the maintainer:
   1. First update only `root/` and bump `root/Makefile`'s `VERSION`; use a minor bump unless the change alters the root image contract in a major-version-worthy way, including major upgrades to dependencies shipped by the root image.
   2. After the new root image is published, update the Dockerfiles that depend on `alexfalkowski/root` and bump each dependent image `VERSION` in a separate change. If root had a major bump, dependents get a major bump; otherwise dependents get a minor bump.
