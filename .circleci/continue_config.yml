@@ -57,10 +57,10 @@ jobs:
     resource_class: arm.large
   wait-all:
     docker:
-      - image: alexfalkowski/docker:3.15
+      - image: alpine:latest
+    resource_class: small
     steps:
       - run: echo "all applicable jobs finished"
-    resource_class: arm.large
 
   docker-build-amd64:
     docker:
