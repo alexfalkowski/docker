@@ -20,69 +20,70 @@ parameters:
     type: boolean
     default: false
 
-jobs:
-  lint:
-    docker:
-      - image: alexfalkowski/docker:3.15
+commands:
+  sync-submodules:
+    steps:
+      - run: git submodule sync
+      - run: git submodule update --init
+  checkout-submodules:
     steps:
       - checkout:
           method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - sync-submodules
+
+executors:
+  docker:
+    docker:
+      - image: alexfalkowski/docker:3.15
+  release:
+    docker:
+      - image: alexfalkowski/release:8.18
+  alpine:
+    docker:
+      - image: alpine:latest
+
+jobs:
+  lint:
+    executor: docker
+    steps:
+      - checkout-submodules
       - run: make lint
       - run: make trivy-repo
     resource_class: arm.large
   sync:
-    docker:
-      - image: alexfalkowski/release:8.18
+    executor: release
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - run: make sync push
     resource_class: arm.large
   version:
-    docker:
-      - image: alexfalkowski/release:8.18
+    executor: release
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - run: version
       - run: package
     resource_class: arm.large
   wait-all:
-    docker:
-      - image: alpine:latest
+    executor: alpine
     resource_class: small
     steps:
       - run: echo "all applicable jobs finished"
 
   docker-build-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C docker platform=amd64 test-platform-docker
     resource_class: large
   docker-push-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -91,26 +92,18 @@ jobs:
       - run: make -C docker platform=amd64 release-platform-docker
     resource_class: large
   docker-build-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C docker platform=arm64 test-platform-docker
     resource_class: arm.large
   docker-push-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -119,13 +112,9 @@ jobs:
       - run: make -C docker platform=arm64 release-platform-docker
     resource_class: arm.large
   docker-manifest:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -135,26 +124,18 @@ jobs:
     resource_class: arm.large
 
   go-build-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C go platform=amd64 test-platform-docker
     resource_class: large
   go-push-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -163,26 +144,18 @@ jobs:
       - run: make -C go platform=amd64 release-platform-docker
     resource_class: large
   go-build-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C go platform=arm64 test-platform-docker
     resource_class: arm.large
   go-push-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -191,13 +164,9 @@ jobs:
       - run: make -C go platform=arm64 release-platform-docker
     resource_class: arm.large
   go-manifest:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -207,26 +176,18 @@ jobs:
     resource_class: arm.large
 
   k8s-build-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C k8s platform=amd64 test-platform-docker
     resource_class: large
   k8s-push-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -235,26 +196,18 @@ jobs:
       - run: make -C k8s platform=amd64 release-platform-docker
     resource_class: large
   k8s-build-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C k8s platform=arm64 test-platform-docker
     resource_class: arm.large
   k8s-push-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -263,13 +216,9 @@ jobs:
       - run: make -C k8s platform=arm64 release-platform-docker
     resource_class: arm.large
   k8s-manifest:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -279,26 +228,18 @@ jobs:
     resource_class: arm.large
 
   release-build-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C release platform=amd64 test-platform-docker
     resource_class: large
   release-push-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -307,26 +248,18 @@ jobs:
       - run: make -C release platform=amd64 release-platform-docker
     resource_class: large
   release-build-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C release platform=arm64 test-platform-docker
     resource_class: arm.large
   release-push-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -335,13 +268,9 @@ jobs:
       - run: make -C release platform=arm64 release-platform-docker
     resource_class: arm.large
   release-manifest:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -351,26 +280,18 @@ jobs:
     resource_class: arm.large
 
   root-build-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C root platform=amd64 test-platform-docker
     resource_class: large
   root-push-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -379,26 +300,18 @@ jobs:
       - run: make -C root platform=amd64 release-platform-docker
     resource_class: large
   root-build-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C root platform=arm64 test-platform-docker
     resource_class: arm.large
   root-push-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -407,13 +320,9 @@ jobs:
       - run: make -C root platform=arm64 release-platform-docker
     resource_class: arm.large
   root-manifest:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -423,25 +332,19 @@ jobs:
     resource_class: arm.large
 
   ruby-build-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
       - checkout
-      - run: git submodule sync
-      - run: git submodule update --init
+      - sync-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C ruby platform=amd64 test-platform-docker
     resource_class: large
   ruby-push-amd64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -450,26 +353,18 @@ jobs:
       - run: make -C ruby platform=amd64 release-platform-docker
     resource_class: large
   ruby-build-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     working_directory: ~/docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run: make -C ruby platform=arm64 test-platform-docker
     resource_class: arm.large
   ruby-push-arm64:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
@@ -478,13 +373,9 @@ jobs:
       - run: make -C ruby platform=arm64 release-platform-docker
     resource_class: arm.large
   ruby-manifest:
-    docker:
-      - image: alexfalkowski/docker:3.15
+    executor: docker
     steps:
-      - checkout:
-          method: blobless
-      - run: git submodule sync
-      - run: git submodule update --init
+      - checkout-submodules
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
