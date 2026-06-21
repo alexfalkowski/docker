@@ -4,6 +4,9 @@ parameters:
   docker:
     type: boolean
     default: false
+  stack:
+    type: boolean
+    default: false
   go:
     type: boolean
     default: false
@@ -49,6 +52,13 @@ jobs:
       - checkout-submodules
       - run: make lint
       - run: make trivy-repo
+    resource_class: arm.large
+  stack-config:
+    executor: docker
+    working_directory: ~/docker
+    steps:
+      - checkout-submodules
+      - run: make stack-config
     resource_class: arm.large
   sync:
     executor: release
@@ -410,6 +420,8 @@ workflows:
             - docker-push-amd64
             - docker-push-arm64
           filters: 'pipeline.parameters.docker and pipeline.git.branch == "master"'
+      - stack-config:
+          filters: 'pipeline.parameters.stack'
 
       - go-build-amd64:
           filters: 'pipeline.parameters.go and pipeline.git.branch != "master"'
@@ -498,6 +510,7 @@ workflows:
       - sync:
           requires:
             - lint
+            - stack-config
             - docker-build-amd64
             - docker-build-arm64
             - go-build-amd64
@@ -514,6 +527,7 @@ workflows:
       - wait-all:
           requires:
             - lint
+            - stack-config
             - sync
             - version
             - docker-build-amd64

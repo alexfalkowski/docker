@@ -9,6 +9,10 @@ lint:
 trivy-repo:
 	@$(BIN_ROOT)/build/sec/trivy-repo
 
+# Validate the local compose stack config.
+stack-config:
+	@scripts/compose -f compose.yml config --quiet
+
 # Pull latest containers, or one service with service=<name>.
 pull-latest:
 	@scripts/compose -f compose.yml pull $(service)
