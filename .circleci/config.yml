@@ -16,6 +16,14 @@ workflows:
             scripts/.* docker true
             docker/.* docker true
 
+            .circleci/.* stack true
+            Makefile stack true
+            compose.yml stack true
+            grafana/.* stack true
+            otelcol/.* stack true
+            prometheus/.* stack true
+            status/.* stack true
+
             .circleci/.* go true
             Makefile go true
             make/.* go true
