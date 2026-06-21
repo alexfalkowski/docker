@@ -9,6 +9,8 @@ Docker images plus a `compose.yml` local dependency stack.
 ## Basics
 
 - Show targets with `make help` or `gmake help`.
+- Image subdirectories also include the shared help target, so bare
+  `make -C <image-dir>` prints help instead of building an image.
 
 ## Map
 
@@ -31,6 +33,10 @@ Docker images plus a `compose.yml` local dependency stack.
 - Image `Makefile`s set `IMAGE` and `VERSION`, then include `../make/docker.mk`.
 - Image `VERSION` values are managed by the maintainer; do not bump them unless explicitly asked.
 - `make/docker.mk` owns Docker build invocation from the repo root context.
+- The root `trivy-repo` target intentionally delegates to the shared
+  `bin/build/sec/trivy-repo` helper without including a language-specific
+  shared Make fragment. Do not replace that by including `go.mak`, `ruby.mak`,
+  or `_service.mak` in this repository root.
 - Updating `root/` is a two-stage process driven by the maintainer:
   1. First update only `root/` and bump `root/Makefile`'s `VERSION`; use a minor bump unless the change alters the root image contract in a major-version-worthy way, including major upgrades to dependencies shipped by the root image.
   2. After the new root image is published, update the Dockerfiles that depend on `alexfalkowski/root` and bump each dependent image `VERSION` in a separate change. If root had a major bump, dependents get a major bump; otherwise dependents get a minor bump.
