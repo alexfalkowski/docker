@@ -8,9 +8,6 @@ Docker images plus a `compose.yml` local dependency stack.
 
 ## Basics
 
-- Use GNU Make 4+. On macOS, use `gmake`; `/usr/bin/make` 3.81 cannot parse the shared `bin/` make fragments.
-- Initialize the required submodule before using shared targets; use
-  `make submodule` when the shared checkout is present.
 - Show targets with `make help` or `gmake help`.
 
 ## Map
