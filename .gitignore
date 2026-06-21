@@ -1,5 +1,14 @@
+.bundle/
+.crush/
+.ruby-lsp/
+.source-key
 *.pem
 assets/*.geojson
 assets/*.bin
 assets/*.mmdb
 ISSUES.md
+TESTS.md
+DOCS.md
+FEATURES.md
+PROJECTS.md
+RELIABILITY.md
