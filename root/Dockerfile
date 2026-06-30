@@ -21,8 +21,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libncurses-dev \
   libpq-dev \
   libreadline-dev \
+  libssh2-1t64 \
   libssl-dev \
   libyaml-dev \
+  linux-libc-dev \
   make \
   netcat-openbsd \
   openssh-client \
