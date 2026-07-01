@@ -14,7 +14,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool doctl 1.163.0 \
   && install-image-tool kubectl 1.36.2 \
   && install-image-tool kubescape 4.0.10 \
-  && install-image-tool pulumi 3.248.0
+  && install-image-tool pulumi 3.249.0
 
 USER circleci
 WORKDIR /home/circleci/
