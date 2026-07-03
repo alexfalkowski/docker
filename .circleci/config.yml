@@ -10,11 +10,12 @@ workflows:
     jobs:
       - path_filtering/filter:
           mapping: |
-            .circleci/.* docker true
             Makefile docker true
+            .circleci/.* docker true
             make/.* docker true
             scripts/.* docker true
             docker/.* docker true
+            docker/Makefile docker_publish true
 
             .circleci/.* stack true
             Makefile stack true
@@ -24,34 +25,39 @@ workflows:
             prometheus/.* stack true
             status/.* stack true
 
-            .circleci/.* go true
             Makefile go true
+            .circleci/.* go true
             make/.* go true
             scripts/.* go true
             go/.* go true
+            go/Makefile go_publish true
 
-            .circleci/.* k8s true
             Makefile k8s true
+            .circleci/.* k8s true
             make/.* k8s true
             scripts/.* k8s true
             k8s/.* k8s true
+            k8s/Makefile k8s_publish true
 
-            .circleci/.* release true
             Makefile release true
+            .circleci/.* release true
             make/.* release true
             scripts/.* release true
             release/.* release true
+            release/Makefile release_publish true
 
-            .circleci/.* root true
             Makefile root true
+            .circleci/.* root true
             make/.* root true
             scripts/.* root true
             root/.* root true
+            root/Makefile root_publish true
 
-            .circleci/.* ruby true
             Makefile ruby true
+            .circleci/.* ruby true
             make/.* ruby true
             scripts/.* ruby true
             ruby/.* ruby true
+            ruby/Makefile ruby_publish true
           base-revision: origin/master
           resource_class: large
