@@ -4,22 +4,40 @@ parameters:
   docker:
     type: boolean
     default: false
+  docker_publish:
+    type: boolean
+    default: false
   stack:
     type: boolean
     default: false
   go:
     type: boolean
     default: false
+  go_publish:
+    type: boolean
+    default: false
   k8s:
+    type: boolean
+    default: false
+  k8s_publish:
     type: boolean
     default: false
   release:
     type: boolean
     default: false
+  release_publish:
+    type: boolean
+    default: false
   root:
     type: boolean
     default: false
+  root_publish:
+    type: boolean
+    default: false
   ruby:
+    type: boolean
+    default: false
+  ruby_publish:
     type: boolean
     default: false
 
@@ -410,16 +428,16 @@ workflows:
           filters: 'pipeline.parameters.docker and pipeline.git.branch != "master"'
       - docker-push-amd64:
           context: docker
-          filters: 'pipeline.parameters.docker and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.docker_publish and pipeline.git.branch == "master"'
       - docker-push-arm64:
           context: docker
-          filters: 'pipeline.parameters.docker and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.docker_publish and pipeline.git.branch == "master"'
       - docker-manifest:
           context: docker
           requires:
             - docker-push-amd64
             - docker-push-arm64
-          filters: 'pipeline.parameters.docker and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.docker_publish and pipeline.git.branch == "master"'
       - stack-config:
           filters: 'pipeline.parameters.stack'
 
@@ -429,16 +447,16 @@ workflows:
           filters: 'pipeline.parameters.go and pipeline.git.branch != "master"'
       - go-push-amd64:
           context: docker
-          filters: 'pipeline.parameters.go and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.go_publish and pipeline.git.branch == "master"'
       - go-push-arm64:
           context: docker
-          filters: 'pipeline.parameters.go and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.go_publish and pipeline.git.branch == "master"'
       - go-manifest:
           context: docker
           requires:
             - go-push-amd64
             - go-push-arm64
-          filters: 'pipeline.parameters.go and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.go_publish and pipeline.git.branch == "master"'
 
       - k8s-build-amd64:
           filters: 'pipeline.parameters.k8s and pipeline.git.branch != "master"'
@@ -446,16 +464,16 @@ workflows:
           filters: 'pipeline.parameters.k8s and pipeline.git.branch != "master"'
       - k8s-push-amd64:
           context: docker
-          filters: 'pipeline.parameters.k8s and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.k8s_publish and pipeline.git.branch == "master"'
       - k8s-push-arm64:
           context: docker
-          filters: 'pipeline.parameters.k8s and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.k8s_publish and pipeline.git.branch == "master"'
       - k8s-manifest:
           context: docker
           requires:
             - k8s-push-amd64
             - k8s-push-arm64
-          filters: 'pipeline.parameters.k8s and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.k8s_publish and pipeline.git.branch == "master"'
 
       - release-build-amd64:
           filters: 'pipeline.parameters.release and pipeline.git.branch != "master"'
@@ -463,16 +481,16 @@ workflows:
           filters: 'pipeline.parameters.release and pipeline.git.branch != "master"'
       - release-push-amd64:
           context: docker
-          filters: 'pipeline.parameters.release and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.release_publish and pipeline.git.branch == "master"'
       - release-push-arm64:
           context: docker
-          filters: 'pipeline.parameters.release and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.release_publish and pipeline.git.branch == "master"'
       - release-manifest:
           context: docker
           requires:
             - release-push-amd64
             - release-push-arm64
-          filters: 'pipeline.parameters.release and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.release_publish and pipeline.git.branch == "master"'
 
       - root-build-amd64:
           filters: 'pipeline.parameters.root and pipeline.git.branch != "master"'
@@ -480,16 +498,16 @@ workflows:
           filters: 'pipeline.parameters.root and pipeline.git.branch != "master"'
       - root-push-amd64:
           context: docker
-          filters: 'pipeline.parameters.root and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.root_publish and pipeline.git.branch == "master"'
       - root-push-arm64:
           context: docker
-          filters: 'pipeline.parameters.root and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.root_publish and pipeline.git.branch == "master"'
       - root-manifest:
           context: docker
           requires:
             - root-push-amd64
             - root-push-arm64
-          filters: 'pipeline.parameters.root and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.root_publish and pipeline.git.branch == "master"'
 
       - ruby-build-amd64:
           filters: 'pipeline.parameters.ruby and pipeline.git.branch != "master"'
@@ -497,16 +515,16 @@ workflows:
           filters: 'pipeline.parameters.ruby and pipeline.git.branch != "master"'
       - ruby-push-amd64:
           context: docker
-          filters: 'pipeline.parameters.ruby and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.ruby_publish and pipeline.git.branch == "master"'
       - ruby-push-arm64:
           context: docker
-          filters: 'pipeline.parameters.ruby and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.ruby_publish and pipeline.git.branch == "master"'
       - ruby-manifest:
           context: docker
           requires:
             - ruby-push-amd64
             - ruby-push-arm64
-          filters: 'pipeline.parameters.ruby and pipeline.git.branch == "master"'
+          filters: 'pipeline.parameters.ruby_publish and pipeline.git.branch == "master"'
       - sync:
           requires:
             - lint

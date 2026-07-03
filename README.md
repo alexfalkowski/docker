@@ -203,9 +203,10 @@ make clean
 CircleCI uses path filtering from `.circleci/config.yml`; the continued config
 defines image build, publish, manifest, sync, and release jobs.
 
-On `master`, CI publishes platform images and manifests with the CircleCI
-`docker` context. On non-`master` branches, CI builds changed images and runs
-`make sync push`.
+On non-`master` branches, CI builds changed images, validates image jobs after
+CircleCI config changes, and runs `make sync push`. On `master`, CI publishes
+platform images and manifests only for images whose version-bearing `Makefile`
+changed, using the CircleCI `docker` context.
 
 Stack-only changes to `compose.yml`, `grafana/`, `otelcol/`, `prometheus/`, or
 `status/` are outside the image path filters, so validate them locally with
