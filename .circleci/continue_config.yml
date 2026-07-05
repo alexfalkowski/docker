@@ -58,7 +58,7 @@ executors:
       - image: alexfalkowski/docker:3.17
   release:
     docker:
-      - image: alexfalkowski/release:8.20
+      - image: alexfalkowski/release:8.21
   alpine:
     docker:
       - image: alpine:latest
