@@ -33,7 +33,7 @@ ENV GOEXPERIMENT=jsonv2
 RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 2.31.0 \
   && install-go-tool golang.org/x/vuln/cmd/govulncheck 1.3.0 \
   && install-go-tool gotest.tools/gotestsum 1.13.0 \
-  && install-go-tool golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment 0.44.0 \
+  && install-go-tool golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment 0.47.0 \
   && install-go-tool github.com/boyter/scc/v3 3.7.0 \
   && install-go-tool github.com/Zxilly/go-size-analyzer/cmd/gsa 1.13.0 \
   && clean-go
