@@ -9,8 +9,8 @@ case "$(uname -m)" in
   *) unsupported_arch "$(uname -m)" ;;
 esac
 
-base_url="https://github.com/getsentry/prevent-cli/releases/download/${tag}"
+base_url="https://github.com/codecov/codecov-cli/releases/download/${tag}"
 
 download "$base_url/$asset" "$asset"
-verify_github_asset_digest getsentry/prevent-cli "$tag" "$asset"
+verify_github_asset_digest codecov/codecov-cli "$tag" "$asset"
 install_binary "$asset" codecovcli
