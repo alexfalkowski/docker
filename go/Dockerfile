@@ -19,7 +19,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool buf 1.71.0 \
   && install-image-tool trivy 0.72.0 \
   && install-image-tool mkcert 1.4.4 \
-  && install-image-tool codecov 11.2.8 \
+  && install-image-tool codecov 11.3.1 \
   && install-image-tool golangci-lint "$GO_LINT_VERSION"
 
 USER circleci
