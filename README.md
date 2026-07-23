@@ -13,14 +13,17 @@ image versions.
 
 ## 🗺️ Map
 
-| Directory | Image | Purpose |
-| --- | --- | --- |
-| `root/` | `alexfalkowski/root` | Base image used by the other CI images. |
-| `docker/` | `alexfalkowski/docker` | Dockerfile, shell, and image-security tooling. |
-| `go/` | `alexfalkowski/go` | Go project CI tooling. |
-| `k8s/` | `alexfalkowski/k8s` | Kubernetes and infrastructure tooling. |
-| `release/` | `alexfalkowski/release` | Release automation tooling and helper commands. |
-| `ruby/` | `alexfalkowski/ruby` | Ruby project CI tooling. |
+| Directory | Image | Purpose | Default user |
+| --- | --- | --- | --- |
+| `root/` | `alexfalkowski/root` | Shared Ruby, Go, Docker, build, and Git base for the other CI images. | `circleci` |
+| `docker/` | `alexfalkowski/docker` | Hadolint, ShellCheck, and Trivy tooling for Dockerfile and image work. | `root` |
+| `go/` | `alexfalkowski/go` | Go analysis, test, security, lint, and coverage tooling. | `circleci` |
+| `k8s/` | `alexfalkowski/k8s` | `kubectl`, Pulumi, `doctl`, Kubescape, kube-score, and Vegeta. | `circleci` |
+| `release/` | `alexfalkowski/release` | `gh`, GoReleaser, Uplift, and release helper commands. | `circleci` |
+| `ruby/` | `alexfalkowski/ruby` | Ruby CI tooling plus common Docker, Buf, and code-quality tools. | `circleci` |
+
+The `circleci` user has passwordless `sudo`. Dockerfiles and image `Makefile`s
+remain the source of truth for exact tool and image versions.
 
 Useful paths:
 
@@ -137,6 +140,23 @@ verification, release tags, and binary installs. Go module tools are installed
 with `install-go-tool <module> <version>`; run `clean-go` after Go tool
 installs.
 
+### Release Helpers
+
+The release image provides ordered helpers that share `APP_VERSION_FILE`
+(default: `/tmp/workspace/release-version.txt`):
+
+- `version` runs Uplift and, when it creates a new tag, writes it to the file.
+- `package` runs GoReleaser only when `./.goreleaser.yml` and a non-empty
+  version file exist.
+- `deploy` runs only when `.cd` and the version file exist; it clones
+  `alexfalkowski/infraops`, bumps the matching image version, and invokes
+  `make ready` there.
+
+> [!WARNING]
+> These helpers can create tags, publish releases, and open a version-bump PR.
+> Run them only in an authenticated release environment with GitHub SSH and
+> release credentials.
+
 ## 🧱 Local Dependencies
 
 The compose stack is managed through `scripts/compose`, which prefers
@@ -187,6 +207,11 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318 \
 Use `127.0.0.1:4317` for OTLP/gRPC clients. For exact services, ports, images,
 mounted config, and dashboards, read `compose.yml`, `grafana/`,
 `otelcol/config.yml`, and `prometheus/config.yml`.
+
+Grafana does not provision dashboards or data sources automatically. To use an
+included dashboard, open the Grafana endpoint, add the required data source
+(the local Prometheus endpoint is `http://prometheus:9090` from the Grafana
+container), then import a dashboard JSON file from `grafana/`.
 
 ## 🧹 Cleanup
 
