@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Tag a release with uplift, then write the new tag to $APP_VERSION_FILE (default
+# /tmp/workspace/release-version.txt) for release/package and release/deploy to
+# read. Leaves the file absent/empty when uplift did not create a new tag.
 # shellcheck disable=SC2155
 
 set -eo pipefail

@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# Raise a version-bump PR against alexfalkowski/infraops for the version
+# release/version wrote to $APP_VERSION_FILE (default
+# /tmp/workspace/release-version.txt). No-op unless a `.cd` marker file exists
+# in the caller's working directory.
 # shellcheck disable=SC2155
 
 set -eo pipefail

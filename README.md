@@ -55,14 +55,14 @@ Use a published image by pinning the version from the image directory's
 `Makefile`. The unqualified image tag is a mutable `latest` tag.
 
 ```sh
-docker run --rm docker.io/alexfalkowski/go:4.17 go version
+docker run --rm docker.io/alexfalkowski/go:<version> go version
 ```
 
 For CI, use the same versioned image tag:
 
 ```yaml
 docker:
-  - image: alexfalkowski/go:4.17
+  - image: alexfalkowski/go:<version>
 ```
 
 Discover targets:
@@ -143,6 +143,7 @@ The compose stack is managed through `scripts/compose`, which prefers
 `podman compose` and falls back to `docker compose`.
 
 ```sh
+make stack-config
 make pull-latest
 make start
 make start service=redis
@@ -209,5 +210,7 @@ platform images and manifests only for images whose version-bearing `Makefile`
 changed, using the CircleCI `docker` context.
 
 Stack-only changes to `compose.yml`, `grafana/`, `otelcol/`, `prometheus/`, or
-`status/` are outside the image path filters, so validate them locally with
+`status/` are outside the image path filters, but still trigger the `stack`
+path filter, which runs `make stack-config` in CI. That only validates the
+compose config syntax, so also validate stack changes locally with
 `make start`, `make logs service=<name>`, and the relevant endpoints.

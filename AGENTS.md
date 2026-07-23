@@ -43,7 +43,7 @@ Docker images plus a `compose.yml` local dependency stack.
 - Keep `.dockerignore` current when adding large or sensitive top-level paths.
 - Dockerfiles call `install-image-tool <tool> <version>` and `install-go-tool <module> <version>`; run `clean-go` after Go tool installs. `install-image-tool` sources `/usr/local/lib/install-image-tool/<tool>` from a temporary directory with the bare version as `$1`; snippets should use the helper functions in `scripts/install-image-tool` for architecture selection, downloads, checksum verification, release tags, and binary installs.
 - Hadolint suppressions live in each image directory's `.hadolint.yaml`; there is no top-level hadolint config.
-- `release/` installs `gh`, `goreleaser`, and `uplift`, and copies `release/deploy`, `release/package`, `release/version`, and `release/.uplift.yml`.
+- `release/` installs `gh`, `goreleaser`, and `uplift` via `install-image-tool`, plus the `bump` Go tool via `install-go-tool` (used by `release/deploy` to raise version-bump PRs against `infraops`), and copies `release/deploy`, `release/package`, `release/version`, and `release/.uplift.yml`.
 - `release/.uplift.yml` uses release commits shaped like `chore(release): $VERSION [ci skip]`.
 
 ## Gotchas
