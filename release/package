@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Run goreleaser when the repo has a ./.goreleaser.yml and release/version wrote
+# a non-empty $APP_VERSION_FILE (default /tmp/workspace/release-version.txt);
+# no-op otherwise.
 # shellcheck disable=SC2155
 
 set -eo pipefail
