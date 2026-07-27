@@ -9,7 +9,7 @@ COPY release/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 RUN chmod +x /usr/local/bin/install-image-tool \
   && chmod +x /usr/local/bin/install-go-tool \
   && chmod +x /usr/local/bin/clean-go \
-  && install-image-tool goreleaser 2.17.0 \
+  && install-image-tool goreleaser 2.17.1 \
   && install-image-tool uplift 2.26.0 \
   && install-image-tool gh 2.96.0
 
