@@ -11,9 +11,11 @@ esac
 
 asset="hadolint-linux-${arch}"
 base_url="https://github.com/hadolint/hadolint/releases/download/${tag}"
+checksum_file="checksums.sha256"
 
 download "$base_url/$asset" "$asset"
-download "$base_url/$asset.sha256" "$asset.sha256"
-sha256sum -c "$asset.sha256"
+download "$base_url/$checksum_file" "$checksum_file"
+sed -i 's/ \*/  /' "$checksum_file"
+verify_checksum_file "$checksum_file" "$asset"
 
 install_binary "$asset" hadolint

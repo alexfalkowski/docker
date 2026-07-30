@@ -15,7 +15,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && chmod +x /usr/local/bin/clean-go \
   && install-image-tool dockerize 0.9.3 \
   && install-image-tool shellcheck 0.11.0 \
-  && install-image-tool hadolint 2.14.0 \
+  && install-image-tool hadolint 2.15.0 \
   && install-image-tool buf 1.72.0 \
   && install-image-tool trivy 0.72.0 \
   && install-image-tool mkcert 1.4.4 \
