@@ -55,7 +55,7 @@ commands:
 executors:
   docker:
     docker:
-      - image: alexfalkowski/docker:3.22
+      - image: alexfalkowski/docker:3.23
   release:
     docker:
       - image: alexfalkowski/release:8.28
