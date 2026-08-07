@@ -11,5 +11,6 @@ scrape_configs:
       - targets: ["prometheus:9090"]
   - job_name: "status"
     scrape_interval: 5s
+    metrics_path: /status/metrics
     static_configs:
       - targets: ["status:8080"]

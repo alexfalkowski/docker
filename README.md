@@ -167,6 +167,7 @@ make stack-config
 make pull-latest
 make start
 make start service=redis
+make restart service=prometheus
 make logs service=postgres
 make stop
 ```
@@ -174,6 +175,10 @@ make stop
 `make start` runs the compose stack in detached mode and does not wait for
 services to become ready. Check `make logs service=<name>` or the local
 endpoints before running dependent applications.
+
+Restart a running service after changing one of its bind-mounted configuration
+files. For example, run `make restart service=prometheus` after updating
+`prometheus/config.yml` so it reloads its scrape configuration.
 
 Useful local endpoints:
 
