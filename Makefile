@@ -23,6 +23,10 @@ pull-latest:
 start:
 	@scripts/compose -f compose.yml up -d --remove-orphans $(service)
 
+# Restart all dependencies, or one service with service=<name>.
+restart:
+	@scripts/compose -f compose.yml restart $(service)
+
 # Stop dependencies.
 stop:
 	@scripts/compose -f compose.yml down --remove-orphans
