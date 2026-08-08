@@ -31,7 +31,7 @@ Useful paths:
 - `scripts/`: compose, lint, cleanup, and install helpers.
 - `scripts/install-image-tool.d/`: shared installer snippets.
 - `<image>/scripts/install-image-tool.d/`: image-specific installer snippets.
-- `compose.yml`, `grafana/`, `otelcol/`, `prometheus/`, `status/`: local
+- `compose.yml`, `grafana/`, `prometheus/`, `status/`: local
   dependency and observability stack.
 
 ## ✅ Setup
@@ -167,7 +167,7 @@ make stack-config
 make pull-latest
 make start
 make start service=redis
-make restart service=prometheus
+make restart service=lgtm
 make logs service=postgres
 make stop
 ```
@@ -177,7 +177,7 @@ services to become ready. Check `make logs service=<name>` or the local
 endpoints before running dependent applications.
 
 Restart a running service after changing one of its bind-mounted configuration
-files. For example, run `make restart service=prometheus` after updating
+files. For example, run `make restart service=lgtm` after updating
 `prometheus/config.yml` so it reloads its scrape configuration.
 
 Useful local endpoints:
@@ -189,19 +189,22 @@ Useful local endpoints:
 | AWS emulator | `http://127.0.0.1:4566` |
 | Vault | `http://127.0.0.1:8200` |
 | Prometheus | `http://127.0.0.1:9090` |
-| Mimir | `http://127.0.0.1:9009` |
 | Loki | `http://127.0.0.1:3100` |
-| Memcached | `127.0.0.1:11211` |
 | Tempo | `http://127.0.0.1:3200` |
-| OTLP collector | gRPC `127.0.0.1:4317`, HTTP `127.0.0.1:4318` |
+| LGTM OpenTelemetry Collector | gRPC `127.0.0.1:4317`, HTTP `127.0.0.1:4318` |
 | Grafana | `http://127.0.0.1:10000` |
 | Status | `http://127.0.0.1:15000`, debug `http://127.0.0.1:15001` |
 | Flipt | `http://127.0.0.1:8080`, `127.0.0.1:9000` |
 
-Most compose services use disposable container-local storage. Prometheus is the
-exception and uses the `prometheus_data` volume.
+Most compose services use disposable container-local storage. The LGTM stack
+persists Grafana, Prometheus, Loki, and Tempo data in the `lgtm_data` volume.
+It is intended for local development, demos, and testing; it does not provide a
+Mimir endpoint. This intentional internal-only migration does not import the
+previous `prometheus_data` volume. Keep that volume until its historical metrics
+are no longer needed, then remove it with your container runtime.
 
-External applications should send telemetry to the OpenTelemetry collector:
+External applications should send telemetry to the OpenTelemetry Collector
+bundled with LGTM:
 
 ```sh
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf \
@@ -210,13 +213,13 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318 \
 ```
 
 Use `127.0.0.1:4317` for OTLP/gRPC clients. For exact services, ports, images,
-mounted config, and dashboards, read `compose.yml`, `grafana/`,
-`otelcol/config.yml`, and `prometheus/config.yml`.
+and dashboards, read `compose.yml`, `grafana/`, and `prometheus/config.yml`.
+Status sends its metrics and traces to LGTM over OTLP; Prometheus does not
+scrape Status directly.
 
-Grafana does not provision dashboards or data sources automatically. To use an
-included dashboard, open the Grafana endpoint, add the required data source
-(the local Prometheus endpoint is `http://prometheus:9090` from the Grafana
-container), then import a dashboard JSON file from `grafana/`.
+LGTM provisions the Grafana Prometheus, Loki, Tempo, and Pyroscope data sources
+automatically. To use an included dashboard, open the Grafana endpoint and
+import a dashboard JSON file from `grafana/`.
 
 ## 🧹 Cleanup
 
@@ -239,8 +242,8 @@ CircleCI config changes, and runs `make sync push`. On `master`, CI publishes
 platform images and manifests only for images whose version-bearing `Makefile`
 changed, using the CircleCI `docker` context.
 
-Stack-only changes to `compose.yml`, `grafana/`, `otelcol/`, `prometheus/`, or
-`status/` are outside the image path filters, but still trigger the `stack`
+Stack-only changes to `compose.yml`, `grafana/`, `prometheus/`, or `status/`
+are outside the image path filters, but still trigger the `stack`
 path filter, which runs `make stack-config` in CI. That only validates the
 compose config syntax, so also validate stack changes locally with
 `make start`, `make logs service=<name>`, and the relevant endpoints.

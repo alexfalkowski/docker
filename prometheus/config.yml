@@ -1,16 +1,13 @@
 global:
   scrape_interval: 1s
+  scrape_native_histograms: true
 
-remote_write:
-  - url: http://mimir:9009/api/v1/push
+storage:
+  tsdb:
+    out_of_order_time_window: 10m
 
 scrape_configs:
   - job_name: "prometheus"
     scrape_interval: 5s
     static_configs:
-      - targets: ["prometheus:9090"]
-  - job_name: "status"
-    scrape_interval: 5s
-    metrics_path: /status/metrics
-    static_configs:
-      - targets: ["status:8080"]
+      - targets: ["lgtm:9090"]

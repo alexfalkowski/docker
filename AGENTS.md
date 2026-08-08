@@ -8,7 +8,7 @@ Docker images plus a `compose.yml` local dependency stack.
 
 ## Basics
 
-- Show targets with `make help` or `gmake help`.
+- Show targets with `make help`.
 - Image subdirectories also include the shared help target, so bare
   `make -C <image-dir>` prints help instead of building an image.
 
@@ -17,7 +17,7 @@ Docker images plus a `compose.yml` local dependency stack.
 - Images: `docker/`, `go/`, `k8s/`, `release/`, `root/`, `ruby/`.
 - Shared image targets: `make/docker.mk`; shared scripts: `scripts/`.
 - Shared install snippets: `scripts/install-image-tool.d/`; image-specific snippets: `<image>/scripts/install-image-tool.d/`.
-- Compose config: `compose.yml`, `grafana/`, `otelcol/`, `prometheus/`, `status/`.
+- Compose config: `compose.yml`, `grafana/`, `prometheus/`, `status/`.
 - CI: `.circleci/`.
 
 ## Commands
