@@ -33,7 +33,7 @@ services:
       - IPC_LOCK
 
   lgtm:
-    image: docker.io/grafana/otel-lgtm:0.30.1
+    image: docker.io/grafana/otel-lgtm
     restart: always
     ports:
       - 127.0.0.1:10000:3000
