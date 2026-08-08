@@ -11,10 +11,12 @@ telemetry:
     kind: text
     level: info
   metrics:
-    kind: prometheus
+    kind: otlp
+    url: http://lgtm:4318/v1/metrics
+    interval: 5s
   tracer:
     kind: otlp
-    url: http://tempo:4318/v1/traces
+    url: http://lgtm:4318/v1/traces
 transport:
   http:
     limiter:

@@ -32,79 +32,19 @@ services:
     cap_add:
       - IPC_LOCK
 
-  prometheus:
-    image: docker.io/prom/prometheus:v3
-    user: root
-    restart: always
-    ports:
-      - 127.0.0.1:9090:9090
-    depends_on:
-      - mimir
-    volumes:
-      - ./prometheus:/etc/prometheus
-      - prometheus_data:/prometheus
-    command: --config.file=/etc/prometheus/config.yml
-
-  mimir:
-    image: docker.io/grafana/mimir
-    restart: always
-    ports:
-      - 127.0.0.1:9009:9009
-    volumes:
-      - ./grafana:/etc/grafana
-    command: --config.file=/etc/grafana/mimir.yml
-
-  loki:
-    image: docker.io/grafana/loki
-    restart: always
-    ports:
-      - 127.0.0.1:3100:3100
-    volumes:
-      - ./grafana:/etc/grafana
-    command: --config.file=/etc/grafana/loki.yml
-
-  memcached:
-    image: docker.io/memcached:1.6
-    restart: always
-    ports:
-      - "127.0.0.1:11211:11211"
-
-  tempo:
-    image: docker.io/grafana/tempo:2.10.7
-    restart: always
-    ports:
-      - 127.0.0.1:3200:3200
-    volumes:
-      - ./grafana:/etc/grafana
-      - ./grafana/tempo/overrides.yaml:/etc/overrides.yaml
-    command: --config.file=/etc/grafana/tempo.yml
-    depends_on:
-      - memcached
-
-  otel-collector:
-    image: docker.io/otel/opentelemetry-collector-contrib
-    restart: always
-    command: ["--config=/etc/otelcol/config.yml"]
-    ports:
-      - "127.0.0.1:4317:4317"
-      - "127.0.0.1:4318:4318"
-    volumes:
-      - ./otelcol:/etc/otelcol
-    depends_on:
-      - mimir
-      - loki
-      - tempo
-
-  grafana:
-    image: docker.io/grafana/grafana-oss
+  lgtm:
+    image: docker.io/grafana/otel-lgtm:0.30.1
     restart: always
     ports:
       - 127.0.0.1:10000:3000
-    depends_on:
-      - prometheus
-      - mimir
-      - loki
-      - tempo
+      - 127.0.0.1:3100:3100
+      - 127.0.0.1:3200:3200
+      - 127.0.0.1:4317:4317
+      - 127.0.0.1:4318:4318
+      - 127.0.0.1:9090:9090
+    volumes:
+      - lgtm_data:/data
+      - ./prometheus/config.yml:/otel-lgtm/prometheus.yaml:ro
 
   status:
     image: docker.io/alexfalkowski/status
@@ -115,6 +55,8 @@ services:
       - "127.0.0.1:15001:6060"
     volumes:
       - ./status:/etc/status
+    depends_on:
+      - lgtm
 
   flipt:
     image: docker.io/flipt/flipt
@@ -124,4 +66,4 @@ services:
       - "127.0.0.1:9000:9000"
 
 volumes:
-  prometheus_data:
+  lgtm_data:
