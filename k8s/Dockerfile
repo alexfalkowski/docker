@@ -13,7 +13,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool vegeta 12.12.0 \
   && install-image-tool doctl 1.166.0 \
   && install-image-tool kubectl 1.36.3 \
-  && install-image-tool kubescape 4.0.11 \
+  && install-image-tool kubescape 4.0.12 \
   && install-image-tool pulumi 3.256.0
 
 USER circleci
