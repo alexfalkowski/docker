@@ -15,7 +15,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool shellcheck 0.11.0 \
   && install-image-tool hadolint 2.15.1 \
   && install-image-tool buf 1.72.0 \
-  && install-image-tool trivy 0.73.0 \
+  && install-image-tool trivy 0.74.0 \
   && install-image-tool mkcert 1.4.4 \
   && install-image-tool codecov 11.3.1
 
