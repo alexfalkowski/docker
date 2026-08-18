@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   clang \
   curl \
   docker-buildx \
-  docker-cli \
+  docker-cli=26.1.5 \
   docker-compose \
   docker.io \
   git \
