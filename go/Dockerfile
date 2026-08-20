@@ -1,9 +1,9 @@
-FROM alexfalkowski/root:3.15
+FROM alexfalkowski/root:3.16
 
 USER root
 WORKDIR /usr/local/bin
 
-ENV GO_LINT_VERSION=2.12.2
+ENV GO_LINT_VERSION=2.13.0
 
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
 COPY scripts/install-go-tool /usr/local/bin/install-go-tool
@@ -30,11 +30,11 @@ RUN echo "$GO_LINT_VERSION" > .go-lint-version
 
 # Install go tools.
 ENV GOEXPERIMENT=jsonv2
-RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 2.32.0 \
+RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 2.33.0 \
   && install-go-tool golang.org/x/vuln/cmd/govulncheck 1.7.0 \
   && install-go-tool gotest.tools/gotestsum 1.13.0 \
   && install-go-tool golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment 0.49.0 \
-  && install-go-tool github.com/dkorunic/betteralign/cmd/betteralign 0.14.4 \
+  && install-go-tool github.com/dkorunic/betteralign/cmd/betteralign 0.15.0 \
   && install-go-tool github.com/boyter/scc/v3 3.7.0 \
   && install-go-tool github.com/Zxilly/go-size-analyzer/cmd/gsa 1.13.1 \
   && clean-go
