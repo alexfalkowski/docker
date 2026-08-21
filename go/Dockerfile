@@ -1,9 +1,9 @@
-FROM alexfalkowski/root:3.16
+FROM alexfalkowski/root:3.17
 
 USER root
 WORKDIR /usr/local/bin
 
-ENV GO_LINT_VERSION=2.13.0
+ENV GO_LINT_VERSION=2.13.1
 
 COPY scripts/install-image-tool /usr/local/bin/install-image-tool
 COPY scripts/install-go-tool /usr/local/bin/install-go-tool
