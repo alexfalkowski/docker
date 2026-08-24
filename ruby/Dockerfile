@@ -23,5 +23,5 @@ USER circleci
 WORKDIR /home/circleci/
 
 # Install go tools.
-RUN install-go-tool github.com/boyter/scc/v3 3.7.0 \
+RUN install-go-tool github.com/boyter/scc/v4 4.0.0 \
   && clean-go
