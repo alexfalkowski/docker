@@ -1,6 +1,4 @@
 environment: development
-debug:
-  timeout: 5s
 health:
   duration: 1s
   timeout: 1s
