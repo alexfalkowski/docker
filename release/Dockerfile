@@ -11,7 +11,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && chmod +x /usr/local/bin/clean-go \
   && install-image-tool goreleaser 2.18.0 \
   && install-image-tool uplift 2.26.0 \
-  && install-image-tool gh 2.97.0
+  && install-image-tool gh 2.99.0
 
 # Add uplift config.
 RUN mkdir /etc/uplift
