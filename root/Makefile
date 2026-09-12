@@ -1,5 +1,5 @@
 IMAGE:=root
-VERSION:=3.18
+VERSION:=3.19
 
 include ../bin/build/make/help.mak
 include ../make/docker.mk

@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   docker.io \
   git \
   jq \
+  libperl5.40=5.40.1-6+deb13u1 \
   libc6-dev \
   libffi-dev \
   libgdbm-dev \
