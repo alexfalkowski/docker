@@ -1,5 +1,5 @@
 IMAGE:=ruby
-VERSION:=4.1
+VERSION:=4.2
 
 include ../bin/build/make/help.mak
 include ../make/docker.mk
