@@ -16,7 +16,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool dockerize 0.9.3 \
   && install-image-tool shellcheck 0.11.0 \
   && install-image-tool hadolint 2.15.1 \
-  && install-image-tool buf 1.72.0 \
+  && install-image-tool buf 1.73.0 \
   && install-image-tool trivy 0.74.0 \
   && install-image-tool mkcert 1.4.4 \
   && install-image-tool codecov 11.3.1 \
@@ -30,7 +30,7 @@ RUN echo "$GO_LINT_VERSION" > .go-lint-version
 
 # Install go tools.
 ENV GOEXPERIMENT=jsonv2
-RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 2.33.0 \
+RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 2.35.0 \
   && install-go-tool golang.org/x/vuln/cmd/govulncheck 1.7.0 \
   && install-go-tool gotest.tools/gotestsum 1.13.0 \
   && install-go-tool golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment 0.49.0 \
