@@ -1,4 +1,4 @@
-FROM ruby:4.0.6-slim-trixie
+FROM ruby:4.0.7-slim-trixie
 
 USER root
 
