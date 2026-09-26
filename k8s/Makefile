@@ -1,5 +1,5 @@
 IMAGE:=k8s
-VERSION:=4.69
+VERSION:=4.70
 
 include ../bin/build/make/help.mak
 include ../make/docker.mk
