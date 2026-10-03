@@ -1,0 +1,40 @@
+FROM alexfalkowski/root:3.20
+
+USER root
+WORKDIR /usr/local/bin
+
+ENV GO_LINT_VERSION=2.14.0
+
+COPY scripts/install-image-tool /usr/local/bin/install-image-tool
+COPY scripts/install-go-tool /usr/local/bin/install-go-tool
+COPY scripts/clean-go /usr/local/bin/clean-go
+COPY scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
+COPY go/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
+RUN chmod +x /usr/local/bin/install-image-tool \
+  && chmod +x /usr/local/bin/install-go-tool \
+  && chmod +x /usr/local/bin/clean-go \
+  && install-image-tool dockerize 0.9.3 \
+  && install-image-tool shellcheck 0.11.0 \
+  && install-image-tool hadolint 2.15.1 \
+  && install-image-tool buf 1.73.0 \
+  && install-image-tool trivy 0.74.0 \
+  && install-image-tool mkcert 1.4.4 \
+  && install-image-tool codecov 11.3.1 \
+  && install-image-tool golangci-lint "$GO_LINT_VERSION"
+
+USER circleci
+WORKDIR /home/circleci/
+
+# Setup go lint.
+RUN echo "$GO_LINT_VERSION" > .go-lint-version
+
+# Install go tools.
+ENV GOEXPERIMENT=jsonv2
+RUN install-go-tool github.com/alexfalkowski/gocovmerge/v2 2.35.0 \
+  && install-go-tool golang.org/x/vuln/cmd/govulncheck 1.8.0 \
+  && install-go-tool gotest.tools/gotestsum 1.13.0 \
+  && install-go-tool golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment 0.50.0 \
+  && install-go-tool github.com/dkorunic/betteralign/cmd/betteralign 0.15.1 \
+  && install-go-tool github.com/boyter/scc/v4 4.1.0 \
+  && install-go-tool github.com/Zxilly/go-size-analyzer/cmd/gsa 1.14.0 \
+  && clean-go
