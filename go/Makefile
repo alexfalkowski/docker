@@ -1,5 +1,5 @@
 IMAGE:=go
-VERSION:=5.10
+VERSION:=5.11
 
 include ../bin/build/make/help.mak
 include ../make/docker.mk
