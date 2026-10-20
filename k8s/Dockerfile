@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:3.21
+FROM alexfalkowski/root:3.22
 
 USER root
 WORKDIR /usr/local/bin
@@ -14,7 +14,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool doctl 1.179.0 \
   && install-image-tool kubectl 1.37.0 \
   && install-image-tool kubescape 4.0.15 \
-  && install-image-tool pulumi 3.269.0
+  && install-image-tool pulumi 3.270.0
 
 USER circleci
 WORKDIR /home/circleci/
