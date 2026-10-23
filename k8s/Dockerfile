@@ -1,4 +1,4 @@
-FROM alexfalkowski/root:3.22
+FROM alexfalkowski/root:3.23
 
 USER root
 WORKDIR /usr/local/bin
