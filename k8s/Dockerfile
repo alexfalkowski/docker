@@ -11,7 +11,7 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && chmod +x /usr/local/bin/install-go-tool \
   && chmod +x /usr/local/bin/clean-go \
   && install-image-tool vegeta 12.12.0 \
-  && install-image-tool doctl 1.179.0 \
+  && install-image-tool doctl 2.0.1 \
   && install-image-tool kubectl 1.37.0 \
   && install-image-tool kubescape 4.0.15 \
   && install-image-tool pulumi 3.272.0
