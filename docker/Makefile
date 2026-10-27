@@ -1,5 +1,5 @@
 IMAGE:=docker
-VERSION:=3.36
+VERSION:=3.37
 
 include ../bin/build/make/help.mak
 include ../make/docker.mk
