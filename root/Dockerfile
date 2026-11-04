@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libssh2-1t64 \
   libssl-dev \
   libyaml-dev \
-  linux-libc-dev \
+  linux-libc-dev=6.12.115-2 \
   make \
   netcat-openbsd \
   openssh-client \
