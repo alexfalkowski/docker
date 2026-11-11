@@ -55,10 +55,10 @@ commands:
 executors:
   docker:
     docker:
-      - image: alexfalkowski/docker:3.39
+      - image: alexfalkowski/docker:3.40
   release:
     docker:
-      - image: alexfalkowski/release:8.48
+      - image: alexfalkowski/release:8.49
   alpine:
     docker:
       - image: alpine:latest
