@@ -1,0 +1,21 @@
+# shellcheck shell=bash
+
+version="$1"
+tag="$(version_tag "$version")"
+arch="$(debian_arch)"
+
+case "$arch" in
+  amd64 | arm64) ;;
+  *) unsupported_arch "$arch" ;;
+esac
+
+asset="duckdb-shared-libs-linux-${arch}.tar.gz"
+base_url="https://github.com/duckdb/duckdb/releases/download/${tag}"
+
+download "$base_url/$asset" "$asset"
+verify_github_asset_digest duckdb/duckdb "$tag" "$asset"
+
+tar -xzf "$asset" duckdb.h libduckdb.so
+install -Dm644 duckdb.h /usr/local/include/duckdb.h
+install -Dm755 libduckdb.so /usr/local/lib/libduckdb.so
+ldconfig
