@@ -1,4 +1,4 @@
-FROM ruby:4.0.9-slim-trixie
+FROM ruby:4.0.10-slim-trixie
 
 USER root
 
@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libssh2-1t64 \
   libssl-dev \
   libyaml-dev \
-  linux-libc-dev=6.12.115-2 \
+  linux-libc-dev=6.12.117-1 \
   make \
   netcat-openbsd \
   openssh-client \
@@ -50,8 +50,8 @@ RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool go "$GO_VERSION"
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
-RUN gem update --system 4.0.11 \
-  && gem install bundler -v 4.0.11 \
+RUN gem update --system 4.1.0 \
+  && gem install bundler -v 4.1.0 \
   && gem install executable-hooks -v 1.7.1
 
 USER circleci
