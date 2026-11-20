@@ -1,5 +1,5 @@
 IMAGE:=release
-VERSION:=8.52
+VERSION:=8.53
 
 include ../bin/build/make/help.mak
 include ../make/docker.mk
