@@ -48,7 +48,7 @@ COPY scripts/install-image-tool /usr/local/bin/install-image-tool
 COPY root/scripts/install-image-tool.d/ /usr/local/lib/install-image-tool/
 RUN chmod +x /usr/local/bin/install-image-tool \
   && install-image-tool go "$GO_VERSION" \
-  && install-image-tool duckdb 2.0.0
+  && install-image-tool duckdb 2.0.1
 
 # Install gems, https://rubygems.org/gems/rubygems-update.
 RUN gem update --system 4.1.0 \
