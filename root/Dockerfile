@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   docker-cli \
   docker-compose \
   docker.io \
+  e2fsprogs \
   git \
   jq \
   libperl5.40=5.40.1-6+deb13u1 \
@@ -32,6 +33,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   openssh-client \
   pkg-config \
   sudo \
+  xfsprogs \
   xz-utils \
   zlib1g-dev \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
